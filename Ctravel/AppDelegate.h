@@ -7,11 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PreHeader.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+/**
+ Current app delegate instance
+ 
+ @return self
+ */
++ (AppDelegate *)app;
+
+/**
+ 切换应用视图
+ 
+ @param atype 应用类型
+ */
+- (void)switchAppType:(AppType)atype;
 
 @end
 

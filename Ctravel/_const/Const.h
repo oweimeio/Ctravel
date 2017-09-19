@@ -8,8 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-FOUNDATION_EXPORT NSString *const KEY_AMAP;
-FOUNDATION_EXPORT NSString *const KEY_XIAOYU_EXTID;
+/**
+ 应用类型
+ 
+ - AppTypeLogin: 需要登录
+ - AppTypeResident: 客户端
+ - AppTypePolice: 服务端
+ */
+//typedef NS_ENUM(NSUInteger, AppType) {
+//    AppTypeLogin = 0,
+//    AppTypeClient = 1,
+//    AppTypeServer = 2,
+//};
 
-FOUNDATION_EXPORT NSString *const URL_USER_AGREEMENT;
-FOUNDATION_EXPORT NSString *const URL_PRIVACY_AGREEMENT;

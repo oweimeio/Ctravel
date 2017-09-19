@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>title-idle</key>
+	<dict>
+		<key>name</key>
+		<string>idle</string>
+		<key>conf-value</key>
+		<string>下拉刷新</string>
+	</dict>
+	<key>title-pulling</key>
+	<dict>
+		<key>name</key>
+		<string>pulling</string>
+		<key>conf-value</key>
+		<string>释放刷新</string>
+	</dict>
+	<key>title-refreshing</key>
+	<dict>
+		<key>name</key>
+		<string>refreshing</string>
+		<key>conf-value</key>
+		<string>加载中..</string>
+	</dict>
+	<key>title-visibility</key>
+	<dict>
+		<key>name</key>
+		<string>是否可见</string>
+		<key>conf-value</key>
+		<false/>
+	</dict>
+</dict>
+</plist>

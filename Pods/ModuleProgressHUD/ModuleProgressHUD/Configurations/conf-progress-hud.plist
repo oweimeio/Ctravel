@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sv-default-style</key>
+	<dict>
+		<key>name</key>
+		<string>SVProgressHUD 默认样式</string>
+		<key>conf-value</key>
+		<string>0</string>
+	</dict>
+	<key>sv-default-mask-type</key>
+	<dict>
+		<key>name</key>
+		<string>SVProgressHUD 默认蒙版类型</string>
+		<key>conf-value</key>
+		<string>3</string>
+	</dict>
+	<key>sv-default-min-dismiss-interval</key>
+	<dict>
+		<key>name</key>
+		<string>SVProgressHUD 最短消失时间</string>
+		<key>conf-value</key>
+		<string>1</string>
+	</dict>
+</dict>
+</plist>

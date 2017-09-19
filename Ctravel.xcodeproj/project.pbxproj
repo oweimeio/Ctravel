@@ -7,15 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		874F7B5B65253AAB04A1D209 /* Pods_Ctravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */; };
 		FAA4233D1F70006500C3736F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4233C1F70006500C3736F /* main.m */; };
 		FAA423401F70006500C3736F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4233F1F70006500C3736F /* AppDelegate.m */; };
 		FAA423431F70006500C3736F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423421F70006500C3736F /* ViewController.m */; };
 		FAA423461F70006500C3736F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA423441F70006500C3736F /* Main.storyboard */; };
 		FAA423481F70006500C3736F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA423471F70006500C3736F /* Assets.xcassets */; };
 		FAA4234B1F70006500C3736F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA423491F70006500C3736F /* LaunchScreen.storyboard */; };
+		FAA4235D1F700A4900C3736F /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4235C1F700A4900C3736F /* Const.m */; };
+		FAA423671F700B3E00C3736F /* JJMainScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423601F700B3E00C3736F /* JJMainScrollView.m */; };
+		FAA423681F700B3E00C3736F /* JJOneScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423621F700B3E00C3736F /* JJOneScrollView.m */; };
+		FAA423691F700B3E00C3736F /* JJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423641F700B3E00C3736F /* JJPhoto.m */; };
+		FAA4236A1F700B3E00C3736F /* JJPhotoManeger.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423661F700B3E00C3736F /* JJPhotoManeger.m */; };
+		FAA4236E1F700B6800C3736F /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4236D1F700B6800C3736F /* NSString+Validation.m */; };
+		FAA423721F700B9500C3736F /* EmptyDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423711F700B9500C3736F /* EmptyDataView.m */; };
+		FAA4237E1F7010E000C3736F /* LoginChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4237C1F7010E000C3736F /* LoginChooseViewController.m */; };
+		FAA4237F1F7010E000C3736F /* LoginChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA4237D1F7010E000C3736F /* LoginChooseViewController.xib */; };
+		FAA423881F70159200C3736F /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423861F70159200C3736F /* FavoriteViewController.m */; };
+		FAA423891F70159200C3736F /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423871F70159200C3736F /* FavoriteViewController.xib */; };
+		FAA4238D1F7015C800C3736F /* ClientMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4238B1F7015C800C3736F /* ClientMsgViewController.m */; };
+		FAA4238E1F7015C800C3736F /* ClientMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA4238C1F7015C800C3736F /* ClientMsgViewController.xib */; };
+		FAA423921F7015DD00C3736F /* ClientOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423901F7015DD00C3736F /* ClientOrderViewController.m */; };
+		FAA423931F7015DD00C3736F /* ClientOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423911F7015DD00C3736F /* ClientOrderViewController.xib */; };
+		FAA423971F7015F400C3736F /* ClientProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423951F7015F400C3736F /* ClientProfileViewController.m */; };
+		FAA423981F7015F400C3736F /* ClientProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423961F7015F400C3736F /* ClientProfileViewController.xib */; };
+		FAA4239C1F70162500C3736F /* ClientMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4239A1F70162500C3736F /* ClientMainPageViewController.m */; };
+		FAA4239D1F70162500C3736F /* ClientMainPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA4239B1F70162500C3736F /* ClientMainPageViewController.xib */; };
+		FAA423A11F701AEA00C3736F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4239F1F701AEA00C3736F /* LoginViewController.m */; };
+		FAA423A21F701AEA00C3736F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423A01F701AEA00C3736F /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9BD509F4D33881358D3F5EDA /* Pods-Ctravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.release.xcconfig"; sourceTree = "<group>"; };
+		D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ctravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F223FEFEBA994EF4956C3534 /* Pods-Ctravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.debug.xcconfig"; sourceTree = "<group>"; };
 		FAA423381F70006500C3736F /* Ctravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ctravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA4233C1F70006500C3736F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FAA4233E1F70006500C3736F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -23,9 +48,48 @@
 		FAA423411F70006500C3736F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FAA423421F70006500C3736F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FAA423451F70006500C3736F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FAA423471F70006500C3736F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAA423471F70006500C3736F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		FAA4234A1F70006500C3736F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAA4234C1F70006500C3736F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA423571F7008F300C3736F /* PreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreHeader.h; sourceTree = "<group>"; };
+		FAA423581F70091800C3736F /* Libraries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Libraries.h; sourceTree = "<group>"; };
+		FAA423591F70096C00C3736F /* Views.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Views.h; sourceTree = "<group>"; };
+		FAA4235A1F70099500C3736F /* Platform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
+		FAA4235B1F700A4900C3736F /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		FAA4235C1F700A4900C3736F /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
+		FAA4235F1F700B3E00C3736F /* JJMainScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMainScrollView.h; sourceTree = "<group>"; };
+		FAA423601F700B3E00C3736F /* JJMainScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMainScrollView.m; sourceTree = "<group>"; };
+		FAA423611F700B3E00C3736F /* JJOneScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJOneScrollView.h; sourceTree = "<group>"; };
+		FAA423621F700B3E00C3736F /* JJOneScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJOneScrollView.m; sourceTree = "<group>"; };
+		FAA423631F700B3E00C3736F /* JJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJPhoto.h; sourceTree = "<group>"; };
+		FAA423641F700B3E00C3736F /* JJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJPhoto.m; sourceTree = "<group>"; };
+		FAA423651F700B3E00C3736F /* JJPhotoManeger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJPhotoManeger.h; sourceTree = "<group>"; };
+		FAA423661F700B3E00C3736F /* JJPhotoManeger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJPhotoManeger.m; sourceTree = "<group>"; };
+		FAA4236C1F700B6800C3736F /* NSString+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validation.h"; sourceTree = "<group>"; };
+		FAA4236D1F700B6800C3736F /* NSString+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validation.m"; sourceTree = "<group>"; };
+		FAA423701F700B9500C3736F /* EmptyDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyDataView.h; sourceTree = "<group>"; };
+		FAA423711F700B9500C3736F /* EmptyDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyDataView.m; sourceTree = "<group>"; };
+		FAA4237B1F7010E000C3736F /* LoginChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginChooseViewController.h; sourceTree = "<group>"; };
+		FAA4237C1F7010E000C3736F /* LoginChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginChooseViewController.m; sourceTree = "<group>"; };
+		FAA4237D1F7010E000C3736F /* LoginChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginChooseViewController.xib; sourceTree = "<group>"; };
+		FAA423851F70159200C3736F /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteViewController.h; sourceTree = "<group>"; };
+		FAA423861F70159200C3736F /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteViewController.m; sourceTree = "<group>"; };
+		FAA423871F70159200C3736F /* FavoriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
+		FAA4238A1F7015C800C3736F /* ClientMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientMsgViewController.h; sourceTree = "<group>"; };
+		FAA4238B1F7015C800C3736F /* ClientMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientMsgViewController.m; sourceTree = "<group>"; };
+		FAA4238C1F7015C800C3736F /* ClientMsgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientMsgViewController.xib; sourceTree = "<group>"; };
+		FAA4238F1F7015DD00C3736F /* ClientOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientOrderViewController.h; sourceTree = "<group>"; };
+		FAA423901F7015DD00C3736F /* ClientOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientOrderViewController.m; sourceTree = "<group>"; };
+		FAA423911F7015DD00C3736F /* ClientOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientOrderViewController.xib; sourceTree = "<group>"; };
+		FAA423941F7015F400C3736F /* ClientProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientProfileViewController.h; sourceTree = "<group>"; };
+		FAA423951F7015F400C3736F /* ClientProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientProfileViewController.m; sourceTree = "<group>"; };
+		FAA423961F7015F400C3736F /* ClientProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientProfileViewController.xib; sourceTree = "<group>"; };
+		FAA423991F70162500C3736F /* ClientMainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientMainPageViewController.h; sourceTree = "<group>"; };
+		FAA4239A1F70162500C3736F /* ClientMainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientMainPageViewController.m; sourceTree = "<group>"; };
+		FAA4239B1F70162500C3736F /* ClientMainPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientMainPageViewController.xib; sourceTree = "<group>"; };
+		FAA4239E1F701AEA00C3736F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		FAA4239F1F701AEA00C3736F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		FAA423A01F701AEA00C3736F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +97,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				874F7B5B65253AAB04A1D209 /* Pods_Ctravel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69311B996BB0CF29451C5DB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE79B4492687485F273FA4B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F223FEFEBA994EF4956C3534 /* Pods-Ctravel.debug.xcconfig */,
+				9BD509F4D33881358D3F5EDA /* Pods-Ctravel.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FAA4232F1F70006500C3736F = {
 			isa = PBXGroup;
 			children = (
 				FAA4233A1F70006500C3736F /* Ctravel */,
 				FAA423391F70006500C3736F /* Products */,
+				CE79B4492687485F273FA4B2 /* Pods */,
+				69311B996BB0CF29451C5DB9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,12 +142,16 @@
 		FAA4233A1F70006500C3736F /* Ctravel */ = {
 			isa = PBXGroup;
 			children = (
+				FAA423521F70061D00C3736F /* _const */,
+				FAA423531F70061D00C3736F /* _library */,
+				FAA423541F70061D00C3736F /* _platform */,
+				FAA423551F70061D00C3736F /* _resource */,
+				FAA423561F70061D00C3736F /* _scene */,
 				FAA4233E1F70006500C3736F /* AppDelegate.h */,
 				FAA4233F1F70006500C3736F /* AppDelegate.m */,
 				FAA423411F70006500C3736F /* ViewController.h */,
 				FAA423421F70006500C3736F /* ViewController.m */,
 				FAA423441F70006500C3736F /* Main.storyboard */,
-				FAA423471F70006500C3736F /* Assets.xcassets */,
 				FAA423491F70006500C3736F /* LaunchScreen.storyboard */,
 				FAA4234C1F70006500C3736F /* Info.plist */,
 				FAA4233B1F70006500C3736F /* Supporting Files */,
@@ -79,6 +167,169 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FAA423521F70061D00C3736F /* _const */ = {
+			isa = PBXGroup;
+			children = (
+				FAA4235B1F700A4900C3736F /* Const.h */,
+				FAA4235C1F700A4900C3736F /* Const.m */,
+				FAA423571F7008F300C3736F /* PreHeader.h */,
+			);
+			path = _const;
+			sourceTree = "<group>";
+		};
+		FAA423531F70061D00C3736F /* _library */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423581F70091800C3736F /* Libraries.h */,
+				FAA4236F1F700B9500C3736F /* EmptyDataViews */,
+				FAA4236B1F700B6800C3736F /* NSString+Validation */,
+				FAA4235E1F700B3E00C3736F /* JJPhotoViewer */,
+			);
+			path = _library;
+			sourceTree = "<group>";
+		};
+		FAA423541F70061D00C3736F /* _platform */ = {
+			isa = PBXGroup;
+			children = (
+				FAA4235A1F70099500C3736F /* Platform.h */,
+			);
+			path = _platform;
+			sourceTree = "<group>";
+		};
+		FAA423551F70061D00C3736F /* _resource */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423471F70006500C3736F /* Assets.xcassets */,
+			);
+			path = _resource;
+			sourceTree = "<group>";
+		};
+		FAA423561F70061D00C3736F /* _scene */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423731F700E4900C3736F /* _client */,
+				FAA423741F700E4900C3736F /* _server */,
+				FAA4237A1F70101E00C3736F /* _login */,
+				FAA423591F70096C00C3736F /* Views.h */,
+			);
+			path = _scene;
+			sourceTree = "<group>";
+		};
+		FAA4235E1F700B3E00C3736F /* JJPhotoViewer */ = {
+			isa = PBXGroup;
+			children = (
+				FAA4235F1F700B3E00C3736F /* JJMainScrollView.h */,
+				FAA423601F700B3E00C3736F /* JJMainScrollView.m */,
+				FAA423611F700B3E00C3736F /* JJOneScrollView.h */,
+				FAA423621F700B3E00C3736F /* JJOneScrollView.m */,
+				FAA423631F700B3E00C3736F /* JJPhoto.h */,
+				FAA423641F700B3E00C3736F /* JJPhoto.m */,
+				FAA423651F700B3E00C3736F /* JJPhotoManeger.h */,
+				FAA423661F700B3E00C3736F /* JJPhotoManeger.m */,
+			);
+			path = JJPhotoViewer;
+			sourceTree = "<group>";
+		};
+		FAA4236B1F700B6800C3736F /* NSString+Validation */ = {
+			isa = PBXGroup;
+			children = (
+				FAA4236C1F700B6800C3736F /* NSString+Validation.h */,
+				FAA4236D1F700B6800C3736F /* NSString+Validation.m */,
+			);
+			path = "NSString+Validation";
+			sourceTree = "<group>";
+		};
+		FAA4236F1F700B9500C3736F /* EmptyDataViews */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423701F700B9500C3736F /* EmptyDataView.h */,
+				FAA423711F700B9500C3736F /* EmptyDataView.m */,
+			);
+			path = EmptyDataViews;
+			sourceTree = "<group>";
+		};
+		FAA423731F700E4900C3736F /* _client */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423751F700F9C00C3736F /* profile */,
+				FAA423761F700F9C00C3736F /* order */,
+				FAA423771F700F9C00C3736F /* message */,
+				FAA423781F700F9C00C3736F /* favorite */,
+				FAA423791F700F9C00C3736F /* main */,
+			);
+			path = _client;
+			sourceTree = "<group>";
+		};
+		FAA423741F700E4900C3736F /* _server */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = _server;
+			sourceTree = "<group>";
+		};
+		FAA423751F700F9C00C3736F /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423941F7015F400C3736F /* ClientProfileViewController.h */,
+				FAA423951F7015F400C3736F /* ClientProfileViewController.m */,
+				FAA423961F7015F400C3736F /* ClientProfileViewController.xib */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		FAA423761F700F9C00C3736F /* order */ = {
+			isa = PBXGroup;
+			children = (
+				FAA4238F1F7015DD00C3736F /* ClientOrderViewController.h */,
+				FAA423901F7015DD00C3736F /* ClientOrderViewController.m */,
+				FAA423911F7015DD00C3736F /* ClientOrderViewController.xib */,
+			);
+			path = order;
+			sourceTree = "<group>";
+		};
+		FAA423771F700F9C00C3736F /* message */ = {
+			isa = PBXGroup;
+			children = (
+				FAA4238A1F7015C800C3736F /* ClientMsgViewController.h */,
+				FAA4238B1F7015C800C3736F /* ClientMsgViewController.m */,
+				FAA4238C1F7015C800C3736F /* ClientMsgViewController.xib */,
+			);
+			path = message;
+			sourceTree = "<group>";
+		};
+		FAA423781F700F9C00C3736F /* favorite */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423851F70159200C3736F /* FavoriteViewController.h */,
+				FAA423861F70159200C3736F /* FavoriteViewController.m */,
+				FAA423871F70159200C3736F /* FavoriteViewController.xib */,
+			);
+			path = favorite;
+			sourceTree = "<group>";
+		};
+		FAA423791F700F9C00C3736F /* main */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423991F70162500C3736F /* ClientMainPageViewController.h */,
+				FAA4239A1F70162500C3736F /* ClientMainPageViewController.m */,
+				FAA4239B1F70162500C3736F /* ClientMainPageViewController.xib */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		FAA4237A1F70101E00C3736F /* _login */ = {
+			isa = PBXGroup;
+			children = (
+				FAA4237B1F7010E000C3736F /* LoginChooseViewController.h */,
+				FAA4237C1F7010E000C3736F /* LoginChooseViewController.m */,
+				FAA4237D1F7010E000C3736F /* LoginChooseViewController.xib */,
+				FAA4239E1F701AEA00C3736F /* LoginViewController.h */,
+				FAA4239F1F701AEA00C3736F /* LoginViewController.m */,
+				FAA423A01F701AEA00C3736F /* LoginViewController.xib */,
+			);
+			path = _login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +337,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAA4234F1F70006500C3736F /* Build configuration list for PBXNativeTarget "Ctravel" */;
 			buildPhases = (
+				D47CABDC44C1CC585C89100F /* [CP] Check Pods Manifest.lock */,
 				FAA423341F70006500C3736F /* Sources */,
 				FAA423351F70006500C3736F /* Frameworks */,
 				FAA423361F70006500C3736F /* Resources */,
+				C26C15B3A3F49389B171BBEC /* [CP] Embed Pods Frameworks */,
+				00063AEE78F614672F6D882B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -137,22 +391,133 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA423A21F701AEA00C3736F /* LoginViewController.xib in Resources */,
+				FAA423931F7015DD00C3736F /* ClientOrderViewController.xib in Resources */,
 				FAA4234B1F70006500C3736F /* LaunchScreen.storyboard in Resources */,
 				FAA423481F70006500C3736F /* Assets.xcassets in Resources */,
+				FAA423891F70159200C3736F /* FavoriteViewController.xib in Resources */,
+				FAA423981F7015F400C3736F /* ClientProfileViewController.xib in Resources */,
+				FAA4239D1F70162500C3736F /* ClientMainPageViewController.xib in Resources */,
 				FAA423461F70006500C3736F /* Main.storyboard in Resources */,
+				FAA4238E1F7015C800C3736F /* ClientMsgViewController.xib in Resources */,
+				FAA4237F1F7010E000C3736F /* LoginChooseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00063AEE78F614672F6D882B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C26C15B3A3F49389B171BBEC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework",
+				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ConfigKit/ConfigKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FCFileManager/FCFileManager.framework",
+				"${BUILT_PRODUCTS_DIR}/FCUUID/FCUUID.framework",
+				"${BUILT_PRODUCTS_DIR}/FileManager/FileManager.framework",
+				"${BUILT_PRODUCTS_DIR}/FreeStreamer/FreeStreamer.framework",
+				"${BUILT_PRODUCTS_DIR}/HACore/HACore.framework",
+				"${BUILT_PRODUCTS_DIR}/HALogKit/HALogKit.framework",
+				"${BUILT_PRODUCTS_DIR}/LYCategory/LYCategory.framework",
+				"${BUILT_PRODUCTS_DIR}/LYPopView/LYPopView.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/ModuleProgressHUD/ModuleProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/ModulePullRefresh/ModulePullRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AliyunOSSiOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ConfigKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FCFileManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FCUUID.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FileManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FreeStreamer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HACore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HALogKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LYCategory.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LYPopView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ModuleProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ModulePullRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D47CABDC44C1CC585C89100F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ctravel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FAA423341F70006500C3736F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA4236A1F700B3E00C3736F /* JJPhotoManeger.m in Sources */,
+				FAA423921F7015DD00C3736F /* ClientOrderViewController.m in Sources */,
+				FAA423681F700B3E00C3736F /* JJOneScrollView.m in Sources */,
 				FAA423431F70006500C3736F /* ViewController.m in Sources */,
+				FAA4236E1F700B6800C3736F /* NSString+Validation.m in Sources */,
+				FAA4235D1F700A4900C3736F /* Const.m in Sources */,
+				FAA423971F7015F400C3736F /* ClientProfileViewController.m in Sources */,
+				FAA423A11F701AEA00C3736F /* LoginViewController.m in Sources */,
 				FAA423401F70006500C3736F /* AppDelegate.m in Sources */,
+				FAA423721F700B9500C3736F /* EmptyDataView.m in Sources */,
+				FAA4239C1F70162500C3736F /* ClientMainPageViewController.m in Sources */,
+				FAA423671F700B3E00C3736F /* JJMainScrollView.m in Sources */,
+				FAA4238D1F7015C800C3736F /* ClientMsgViewController.m in Sources */,
+				FAA4237E1F7010E000C3736F /* LoginChooseViewController.m in Sources */,
+				FAA423691F700B3E00C3736F /* JJPhoto.m in Sources */,
 				FAA4233D1F70006500C3736F /* main.m in Sources */,
+				FAA423881F70159200C3736F /* FavoriteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +635,7 @@
 		};
 		FAA423501F70006500C3736F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F223FEFEBA994EF4956C3534 /* Pods-Ctravel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Ctravel/Info.plist;
@@ -281,6 +647,7 @@
 		};
 		FAA423511F70006500C3736F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BD509F4D33881358D3F5EDA /* Pods-Ctravel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Ctravel/Info.plist;
@@ -309,6 +676,7 @@
 				FAA423511F70006500C3736F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

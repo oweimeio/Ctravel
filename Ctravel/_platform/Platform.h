@@ -26,15 +26,5 @@
 #import <HALogKit/HALogKit.h>
 
 // MARK: 功能模块
-#import <HAMLogin/HAMLogin.h>
-#import <HAMMore/ModuleMore.h>
-#import <HAMProfile/HAMProfile.h>
-#import <HAMPasswordModify/HAMPasswordModify.h>
-#import <HAMAbout/HAMAbout.h>
-#import <HAMDefense/HAMDefense.h>
-#import <HAMPolicyLearning/HAMPolicyLearning.h>
-#import <HAMNews/HAMNews.h>
-#import <HAMPoliceFinder/HAMPoliceFinder.h>
-#import <HAMWebRTCHelper/HAMChatRoom.h>
 
 #endif /* Platform_h */

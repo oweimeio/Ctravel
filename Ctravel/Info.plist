@@ -34,5 +34,20 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Ctravel需要访问您的蓝牙</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Ctravel需要访问您的相机</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Ctravel需要访问您的位置</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Ctravel需要访问您的相册</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Ctravel需要访问您的麦克风</string>
 </dict>
 </plist>

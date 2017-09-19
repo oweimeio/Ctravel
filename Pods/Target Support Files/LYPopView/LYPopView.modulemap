@@ -1,0 +1,6 @@
+framework module LYPopView {
+  umbrella header "LYPopView-umbrella.h"
+
+  export *
+  module * { export * }
+}

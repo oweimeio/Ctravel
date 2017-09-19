@@ -1,0 +1,6 @@
+framework module HACore {
+  umbrella header "HACore-umbrella.h"
+
+  export *
+  module * { export * }
+}
