@@ -10,9 +10,28 @@
 
 @interface ClientMainPageViewController ()
 
+@property (weak, nonatomic) IBOutlet UICollectionView *hotDestinationView;
+@property (strong, nonatomic) NSArray *hotDestinationData;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *hotExperience;
+@property (strong, nonatomic) NSArray *hotExperienceData;
+
 @end
 
 @implementation ClientMainPageViewController
+
+- (NSArray *)hotDestinationData {
+	if (!_hotDestinationData) {
+		_hotDestinationData = @[
+							@{@"title":@"罗马", @"imgUrl":@""},
+							@{@"title":@"罗马", @"imgUrl":@""},
+							@{@"title":@"罗马", @"imgUrl":@""},
+							@{@"title":@"罗马", @"imgUrl":@""},];
+		
+		[_hotDestinationView reloadData];
+	}
+	return _hotDestinationData;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		657D87D71F70EA5900CD17DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 657D87D61F70EA5900CD17DE /* Assets.xcassets */; };
+		657D87DC1F70F05B00CD17DE /* conf-system-style.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657D87D91F70F05B00CD17DE /* conf-system-style.plist */; };
+		657D87DD1F70F05B00CD17DE /* com.huaaotech.core.conf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657D87DB1F70F05B00CD17DE /* com.huaaotech.core.conf.plist */; };
 		874F7B5B65253AAB04A1D209 /* Pods_Ctravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */; };
 		FAA4233D1F70006500C3736F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4233C1F70006500C3736F /* main.m */; };
 		FAA423401F70006500C3736F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4233F1F70006500C3736F /* AppDelegate.m */; };
 		FAA423431F70006500C3736F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423421F70006500C3736F /* ViewController.m */; };
 		FAA423461F70006500C3736F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA423441F70006500C3736F /* Main.storyboard */; };
-		FAA423481F70006500C3736F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA423471F70006500C3736F /* Assets.xcassets */; };
 		FAA4234B1F70006500C3736F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA423491F70006500C3736F /* LaunchScreen.storyboard */; };
 		FAA4235D1F700A4900C3736F /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4235C1F700A4900C3736F /* Const.m */; };
 		FAA423671F700B3E00C3736F /* JJMainScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423601F700B3E00C3736F /* JJMainScrollView.m */; };
@@ -38,6 +40,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		657D87D61F70EA5900CD17DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		657D87D91F70F05B00CD17DE /* conf-system-style.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "conf-system-style.plist"; sourceTree = "<group>"; };
+		657D87DB1F70F05B00CD17DE /* com.huaaotech.core.conf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.huaaotech.core.conf.plist; sourceTree = "<group>"; };
 		9BD509F4D33881358D3F5EDA /* Pods-Ctravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.release.xcconfig"; sourceTree = "<group>"; };
 		D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ctravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F223FEFEBA994EF4956C3534 /* Pods-Ctravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -48,7 +53,6 @@
 		FAA423411F70006500C3736F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FAA423421F70006500C3736F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FAA423451F70006500C3736F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FAA423471F70006500C3736F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		FAA4234A1F70006500C3736F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAA4234C1F70006500C3736F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA423571F7008F300C3736F /* PreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreHeader.h; sourceTree = "<group>"; };
@@ -104,6 +108,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		657D87D81F70F05B00CD17DE /* ConfigKit */ = {
+			isa = PBXGroup;
+			children = (
+				657D87D91F70F05B00CD17DE /* conf-system-style.plist */,
+			);
+			path = ConfigKit;
+			sourceTree = "<group>";
+		};
+		657D87DA1F70F05B00CD17DE /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				657D87DB1F70F05B00CD17DE /* com.huaaotech.core.conf.plist */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		69311B996BB0CF29451C5DB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +211,8 @@
 		FAA423541F70061D00C3736F /* _platform */ = {
 			isa = PBXGroup;
 			children = (
+				657D87D81F70F05B00CD17DE /* ConfigKit */,
+				657D87DA1F70F05B00CD17DE /* Core */,
 				FAA4235A1F70099500C3736F /* Platform.h */,
 			);
 			path = _platform;
@@ -199,7 +221,7 @@
 		FAA423551F70061D00C3736F /* _resource */ = {
 			isa = PBXGroup;
 			children = (
-				FAA423471F70006500C3736F /* Assets.xcassets */,
+				657D87D61F70EA5900CD17DE /* Assets.xcassets */,
 			);
 			path = _resource;
 			sourceTree = "<group>";
@@ -364,6 +386,7 @@
 				TargetAttributes = {
 					FAA423371F70006500C3736F = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = N7CHPU5S4M;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -392,10 +415,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA423A21F701AEA00C3736F /* LoginViewController.xib in Resources */,
+				657D87DD1F70F05B00CD17DE /* com.huaaotech.core.conf.plist in Resources */,
 				FAA423931F7015DD00C3736F /* ClientOrderViewController.xib in Resources */,
 				FAA4234B1F70006500C3736F /* LaunchScreen.storyboard in Resources */,
-				FAA423481F70006500C3736F /* Assets.xcassets in Resources */,
 				FAA423891F70159200C3736F /* FavoriteViewController.xib in Resources */,
+				657D87D71F70EA5900CD17DE /* Assets.xcassets in Resources */,
+				657D87DC1F70F05B00CD17DE /* conf-system-style.plist in Resources */,
 				FAA423981F7015F400C3736F /* ClientProfileViewController.xib in Resources */,
 				FAA4239D1F70162500C3736F /* ClientMainPageViewController.xib in Resources */,
 				FAA423461F70006500C3736F /* Main.storyboard in Resources */,
@@ -638,7 +663,9 @@
 			baseConfigurationReference = F223FEFEBA994EF4956C3534 /* Pods-Ctravel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N7CHPU5S4M;
 				INFOPLIST_FILE = Ctravel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apple.hw.Ctravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -650,7 +677,9 @@
 			baseConfigurationReference = 9BD509F4D33881358D3F5EDA /* Pods-Ctravel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N7CHPU5S4M;
 				INFOPLIST_FILE = Ctravel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apple.hw.Ctravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";

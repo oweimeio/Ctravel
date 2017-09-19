@@ -40,11 +40,17 @@
 
 // MARK: - ACTION
 - (IBAction)createAccountBtnClick:(id)sender {
-    
+	LoginViewController *loginVc = [LoginViewController new];
+	loginVc.info = @{@"title": @"您叫什么名字", @"firstRow": @"名字", @"secondRow": @"姓氏"};
+	loginVc.type = LoginTypeNormal;
+	[self.navigationController pushViewController:loginVc animated:YES];
 }
 
 - (IBAction)loginBtnClick:(id)sender {
-    [self.navigationController pushViewController:[LoginViewController new] animated:YES];
+	LoginViewController *loginVc = [LoginViewController new];
+	loginVc.info = @{@"title": @"登录", @"firstRow": @"电话号码", @"secondRow": @"密码"};
+	loginVc.type = LoginTypeLogin;
+    [self.navigationController pushViewController:loginVc animated:YES];
 }
 
 

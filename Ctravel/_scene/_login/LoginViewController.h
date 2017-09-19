@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+	LoginTypeNormal,
+	LoginTypeLogin,//注册
+	LoginTypeStepPhone,   //电话
+	LoginTypeStepCode,	  //验证码
+	LoginTypeStepPwd,	  //密码
+} LoginType;
+
 @interface LoginViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *info;
+
+@property (nonatomic, assign) LoginType type;
 
 @end

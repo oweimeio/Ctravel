@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>auth-login-pwd-min-length</key>
+	<dict>
+		<key>name</key>
+		<string>登录界面 密码字段 最小长度</string>
+		<key>conf-value</key>
+		<string>6</string>
+	</dict>
+	<key>auth-login-pwd-max-length</key>
+	<dict>
+		<key>name</key>
+		<string>登录界面 密码字段 最大长度</string>
+		<key>conf-value</key>
+		<string>16</string>
+	</dict>
+	<key>core-view-empty-data-imagename</key>
+	<dict>
+		<key>name</key>
+		<string>空数据界面提示图标名</string>
+		<key>conf-value</key>
+		<string>placeholder-empty-data</string>
+	</dict>
+	<key>core-view-empty-data-hint</key>
+	<dict>
+		<key>name</key>
+		<string>空数据界面提示问题</string>
+		<key>conf-value</key>
+		<string>暂无数据</string>
+	</dict>
+	<key>core-app-badge-limit-max</key>
+	<dict>
+		<key>name</key>
+		<string>badge最大值</string>
+		<key>conf-value</key>
+		<integer>99</integer>
+	</dict>
+	<key>core-net-domain</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking Domain</string>
+		<key>conf-value</key>
+		<string>ggejw.huaaotech.com</string>
+	</dict>
+	<key>core-net-domain-dev</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking Dev Domain</string>
+		<key>conf-value</key>
+		<string>ggejw.huaao24.com.cn</string>
+	</dict>
+	<key>core-net-api-path</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking API path</string>
+		<key>conf-value</key>
+		<string>/api</string>
+	</dict>
+	<key>core-net-api-path-dev</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking API path</string>
+		<key>conf-value</key>
+		<string>/api</string>
+	</dict>
+	<key>core-net-oss-endpoint</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking Aliyun OSS endpoint</string>
+		<key>conf-value</key>
+		<string>oss-cn-hangzhou.aliyuncs.com</string>
+	</dict>
+	<key>core-net-is-secure-transport</key>
+	<dict>
+		<key>name</key>
+		<string>Transport Security Toggle</string>
+		<key>conf-value</key>
+		<string>https://</string>
+	</dict>
+	<key>core-net-is-secure-transport-dev</key>
+	<dict>
+		<key>name</key>
+		<string>Transport Security Dev Toggle</string>
+		<key>conf-value</key>
+		<string>http://</string>
+	</dict>
+	<key>core-net-oss-access-key-id</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking Aliyun OSS Access key ID</string>
+		<key>conf-value</key>
+		<string>Q9rw7HZreYDkbRs6</string>
+	</dict>
+	<key>core-net-oss-access-key-secret</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking Aliyun OSS Access key Secret</string>
+		<key>conf-value</key>
+		<string>P0Kdn2bvG8x3mg7eM1YEvinmSCB0fk</string>
+	</dict>
+	<key>core-net-oss-bucket-name</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking Aliyun OSS Bucket Name</string>
+		<key>conf-value</key>
+		<string>huaao2016</string>
+	</dict>
+	<key>core-net-oss-domain</key>
+	<dict>
+		<key>name</key>
+		<string>Core Networking Aliyun OSS Domain</string>
+		<key>conf-value</key>
+		<string>http://huaao2016.oss-cn-hangzhou.aliyuncs.com</string>
+	</dict>
+</dict>
+</plist>

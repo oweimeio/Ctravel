@@ -37,7 +37,7 @@
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123123" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="plO-d9-aI4">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="plO-d9-aI4">
                     <rect key="frame" x="12" y="177.5" width="351" height="36"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -60,7 +60,7 @@
                     <rect key="frame" x="12" y="278.5" width="351" height="36"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vU8-V2-y0Z">
                     <rect key="frame" x="12" y="314.5" width="351" height="1"/>
@@ -70,14 +70,18 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wII-rR-d6g">
-                    <rect key="frame" x="299" y="345.5" width="46" height="30"/>
+                    <rect key="frame" x="265" y="345.5" width="80" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="46" id="SN5-KR-0bM"/>
-                        <constraint firstAttribute="height" constant="30" id="jaU-xi-qvQ"/>
+                        <constraint firstAttribute="width" constant="80" id="SN5-KR-0bM"/>
+                        <constraint firstAttribute="height" constant="40" id="jaU-xi-qvQ"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="确认">
                         <color key="titleColor" red="0.094117647060000004" green="0.56470588239999997" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="ensureBtnClick:" destination="-1" eventType="touchUpInside" id="Sdh-xf-zOO"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

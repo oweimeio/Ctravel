@@ -34,17 +34,17 @@
     
     // STOP SERVER UPDATING
     
-    {
-        // MARK: 应用导向处理
-        if (atype == AppTypePolice && [[HAUserWjw userWithUID:[HAApp current].userID] hasOperationPrivilege] == NO) {
-            atype = AppTypeResident;
-        }
-        
-        if ([[HAApp current] isLoggedIn] == NO) {
-            atype = AppTypeLogin;
-        }
-    }
-    
+//    {
+//        // MARK: 应用导向处理
+//        if (atype == AppTypePolice && [[HAUserWjw userWithUID:[HAApp current].userID] hasOperationPrivilege] == NO) {
+//            atype = AppTypeResident;
+//        }
+//        
+//        if ([[HAApp current] isLoggedIn] == NO) {
+//            atype = AppTypeLogin;
+//        }
+//    }
+	
     switch (atype) {
         case AppTypeResident: {
             

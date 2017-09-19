@@ -32,14 +32,51 @@
     _titleLabel.text = info[@"title"];
     _firstRowLabel.text = info[@"firstRow"];
     _secondRowLabel.text = info[@"secondRow"];
+	if (info[@"buttonTitle"]) {
+		[_ensureBtn setTitle:info[@"buttonTitle"] forState:UIControlStateNormal];
+	}
 }
+
+//不同的type 有不同的布局风格
+- (void)setType:(LoginType)type {
+	_type = type;
+	switch (type) {
+		case LoginTypeNormal: {
+			_passwordTextField.secureTextEntry = NO;
+			_passwordTextField.keyboardType = UIKeyboardTypeDefault;
+		}	break;
+		case LoginTypeLogin: {
+			_passwordTextField.secureTextEntry = YES;
+			_passwordTextField.keyboardType = UIKeyboardTypePhonePad;
+		}
+		default:
+			break;
+	}
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	
+	[self setViewStyle];
+	
     [self.view endEditing:YES];
     
-    
+	[self setInfo:_info];
+	
+	[self setType:_type];
+}
+
+- (IBAction)ensureBtnClick:(id)sender {
+	[[AppDelegate app] switchAppType:AppTypeResident];
+}
+
+
+- (void)setViewStyle {
+	_ensureBtn.layer.borderWidth = 2;
+	_ensureBtn.layer.borderColor = [[UIColor colorWithHex:@"#1890B5" andAlpha:1.0] CGColor];
+	_ensureBtn.layer.cornerRadius = 5;
 }
 
 - (void)didReceiveMemoryWarning {
