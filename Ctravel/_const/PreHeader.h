@@ -13,5 +13,6 @@
 #import "Platform.h"
 #import "Libraries.h"
 #import "Views.h"
+#import "CoreAPI.h"
 
 #endif /* PreHeader_h */

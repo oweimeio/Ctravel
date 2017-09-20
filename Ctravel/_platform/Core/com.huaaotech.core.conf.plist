@@ -42,7 +42,7 @@
 		<key>name</key>
 		<string>Core Networking Domain</string>
 		<key>conf-value</key>
-		<string>ggejw.huaaotech.com</string>
+		<string>apitest.ctravel.cc</string>
 	</dict>
 	<key>core-net-domain-dev</key>
 	<dict>
@@ -77,7 +77,7 @@
 		<key>name</key>
 		<string>Transport Security Toggle</string>
 		<key>conf-value</key>
-		<string>https://</string>
+		<string>http://</string>
 	</dict>
 	<key>core-net-is-secure-transport-dev</key>
 	<dict>

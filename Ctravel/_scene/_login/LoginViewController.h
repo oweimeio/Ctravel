@@ -10,7 +10,8 @@
 
 typedef enum : NSUInteger {
 	LoginTypeNormal,
-	LoginTypeLogin,//注册
+	LoginTypeLogin,       //登录
+    LoginTypeStepName,    //名字
 	LoginTypeStepPhone,   //电话
 	LoginTypeStepCode,	  //验证码
 	LoginTypeStepPwd,	  //密码

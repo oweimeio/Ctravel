@@ -8,3 +8,10 @@
 
 #import "Const.h"
 
+NSString *const LOGIN_LOGIN = @"/login";
+NSString *const LOGIN_NOTLOGIN = @"notLogin";
+NSString *const LOGIN_REFRESHPWD = @"refreshpwd";
+NSString *const LOGIN_REFRESHPWD_VALIDATE = @"refreshpwd/validate";
+
+NSString *const REGISTER_REGISTER = @"register";
+NSString *const REGISTER_VALIDATE = @"register/validate";

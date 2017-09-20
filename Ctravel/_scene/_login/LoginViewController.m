@@ -31,7 +31,14 @@
     _info = info;
     _titleLabel.text = info[@"title"];
     _firstRowLabel.text = info[@"firstRow"];
-    _secondRowLabel.text = info[@"secondRow"];
+    if (info[@"secondRow"]) {
+        _secondRowLabel.hidden = NO;
+        _secondRowLabel.text = info[@"secondRow"];
+    }
+    else {
+        _secondRowLabel.hidden = YES;
+    }
+    
 	if (info[@"buttonTitle"]) {
 		[_ensureBtn setTitle:info[@"buttonTitle"] forState:UIControlStateNormal];
 	}
@@ -69,7 +76,35 @@
 }
 
 - (IBAction)ensureBtnClick:(id)sender {
-	[[AppDelegate app] switchAppType:AppTypeResident];
+    
+    if (_type == LoginTypeStepName) {
+        //存姓名
+        LoginViewController *loginVc = [LoginViewController new];
+        loginVc.info = @{@"title": @"您的电话号码?", @"firstRow": @"电话号码", @"name": _phoneTextField.text, @"firstname": _passwordTextField.text, @"buttonTitle": @"继续"};
+        loginVc.type = LoginTypeStepName;
+        [self.navigationController pushViewController:loginVc animated:YES];
+    }
+    else if (_type == LoginTypeStepPhone) {
+        LoginViewController *loginVc = [LoginViewController new];
+        loginVc.info = @{@"title": @"输入验证码", @"firstRow": @"验证码", @"name": _phoneTextField.text, @"firstname": _passwordTextField.text, @"buttonTitle": @"继续"};
+        loginVc.type = LoginTypeStepName;
+        [self.navigationController pushViewController:loginVc animated:YES];
+    }
+    NSDictionary *params = @{
+                             @"account": _phoneTextField.text,
+                             @"password": _passwordTextField.text,
+                             @"captcha": @"",
+                             @"captchaId": @"",
+                             };
+    [[CoreAPI core] GETURLString:LOGIN_LOGIN withParameters:params success:^(id ret) {
+        [[AppDelegate app] switchAppType:AppTypeResident];
+    } error:^(NSInteger code, NSString *msg, id ret) {
+        NSLog(@"%@",msg);
+    } failure:^(NSError *error) {
+        
+    }];
+    
+	
 }
 
 

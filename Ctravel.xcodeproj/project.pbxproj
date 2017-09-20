@@ -37,6 +37,8 @@
 		FAA4239D1F70162500C3736F /* ClientMainPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA4239B1F70162500C3736F /* ClientMainPageViewController.xib */; };
 		FAA423A11F701AEA00C3736F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4239F1F701AEA00C3736F /* LoginViewController.m */; };
 		FAA423A21F701AEA00C3736F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423A01F701AEA00C3736F /* LoginViewController.xib */; };
+		FAA423A61F71498A00C3736F /* CoreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423A51F71498A00C3736F /* CoreAPI.m */; };
+		FAA423A91F7167E100C3736F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423A81F7167E100C3736F /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +96,10 @@
 		FAA4239E1F701AEA00C3736F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FAA4239F1F701AEA00C3736F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FAA423A01F701AEA00C3736F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		FAA423A41F71498A00C3736F /* CoreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAPI.h; sourceTree = "<group>"; };
+		FAA423A51F71498A00C3736F /* CoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAPI.m; sourceTree = "<group>"; };
+		FAA423A71F7167E100C3736F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		FAA423A81F7167E100C3736F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,7 @@
 		FAA4233A1F70006500C3736F /* Ctravel */ = {
 			isa = PBXGroup;
 			children = (
+				FAA423A31F71495A00C3736F /* _tool */,
 				FAA423521F70061D00C3736F /* _const */,
 				FAA423531F70061D00C3736F /* _library */,
 				FAA423541F70061D00C3736F /* _platform */,
@@ -352,6 +359,17 @@
 			path = _login;
 			sourceTree = "<group>";
 		};
+		FAA423A31F71495A00C3736F /* _tool */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423A41F71498A00C3736F /* CoreAPI.h */,
+				FAA423A51F71498A00C3736F /* CoreAPI.m */,
+				FAA423A71F7167E100C3736F /* User.h */,
+				FAA423A81F7167E100C3736F /* User.m */,
+			);
+			path = _tool;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -533,6 +551,7 @@
 				FAA4236E1F700B6800C3736F /* NSString+Validation.m in Sources */,
 				FAA4235D1F700A4900C3736F /* Const.m in Sources */,
 				FAA423971F7015F400C3736F /* ClientProfileViewController.m in Sources */,
+				FAA423A61F71498A00C3736F /* CoreAPI.m in Sources */,
 				FAA423A11F701AEA00C3736F /* LoginViewController.m in Sources */,
 				FAA423401F70006500C3736F /* AppDelegate.m in Sources */,
 				FAA423721F700B9500C3736F /* EmptyDataView.m in Sources */,
@@ -540,6 +559,7 @@
 				FAA423671F700B3E00C3736F /* JJMainScrollView.m in Sources */,
 				FAA4238D1F7015C800C3736F /* ClientMsgViewController.m in Sources */,
 				FAA4237E1F7010E000C3736F /* LoginChooseViewController.m in Sources */,
+				FAA423A91F7167E100C3736F /* User.m in Sources */,
 				FAA423691F700B3E00C3736F /* JJPhoto.m in Sources */,
 				FAA4233D1F70006500C3736F /* main.m in Sources */,
 				FAA423881F70159200C3736F /* FavoriteViewController.m in Sources */,

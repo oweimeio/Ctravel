@@ -41,8 +41,8 @@
 // MARK: - ACTION
 - (IBAction)createAccountBtnClick:(id)sender {
 	LoginViewController *loginVc = [LoginViewController new];
-	loginVc.info = @{@"title": @"您叫什么名字", @"firstRow": @"名字", @"secondRow": @"姓氏"};
-	loginVc.type = LoginTypeNormal;
+	loginVc.info = @{@"title": @"您叫什么名字?", @"firstRow": @"名字", @"secondRow": @"姓氏", @"buttonTitle": @"继续"};
+	loginVc.type = LoginTypeStepName;
 	[self.navigationController pushViewController:loginVc animated:YES];
 }
 
