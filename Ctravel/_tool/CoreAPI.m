@@ -173,14 +173,14 @@
             NSLog(@"\n\nREQUEST(GET) PARSE ERROR\n\tAPI\t\t%@\n\n", URLString);
         }
         
-        if ([[resp allKeys] containsObject:@"resultCode"] && [resp[@"resultCode"] integerValue] == HACodeSuccess) {
+        if ([[resp allKeys] containsObject:@"resultCode"] && [resp[@"resultCode"] isEqualToString:CodeSuccess] ) {
             // SUCCESS
             success(resp);
             NSLog(@"\n\nREQUEST(GET) SUCCESS\n\tAPI\t%@\n", URLString);
         } else {
             // API ERROR
             NSLog(@"\n\nREQUEST(GET) ERROR\n\tAPI\t\t%@\n\tCode\t%@\n\tMessage\t%@\n\n", URLString, resp[@"resultCode"], resp[@"msg"]);
-            NSInteger code = [resp[@"resultCode"] integerValue];
+            NSString *code = resp[@"resultCode"];
             
             /*
              if (code == 101) {
@@ -189,7 +189,7 @@
              }
              */
             
-            if (code == 10001) {
+            if ([code isEqualToString:@""]) {
                 // TOKEN LOSE NEED LOGIN
                 [[HAApp current] logout];
             }

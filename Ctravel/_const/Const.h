@@ -21,6 +21,10 @@
 //    AppTypeServer = 2,
 //};
 
+FOUNDATION_EXPORT NSString *const CodeSuccess;
+FOUNDATION_EXPORT NSString *const CodeErrorFailed;
+FOUNDATION_EXPORT NSString *const CodeErrorException;
+
 FOUNDATION_EXPORT NSString *const LOGIN_LOGIN;
 FOUNDATION_EXPORT NSString *const LOGIN_NOTLOGIN;
 FOUNDATION_EXPORT NSString *const LOGIN_REFRESHPWD;

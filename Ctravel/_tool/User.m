@@ -12,27 +12,47 @@
 @implementation User
 
 + (instancetype)sharedUser {
-    NSString *userfolder = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", NSStringFromClass([self class])];
-    
-    if (![FCFileManager isDirectoryItemAtPath:userfolder]) {
-        [[HACore core] logInnerError:@"user wjw folder not exist"];
-        
-        [FCFileManager createDirectoriesForPath:userfolder];
-        return nil;
-    }
-    
-    NSString *userpath = [userfolder stringByAppendingFormat:@"/ctravelUser"];
-    
-    if (![FCFileManager isFileItemAtPath:userpath]) {
-        [[HACore core] logInnerError:@"user file not exist"];
-        return nil;
-    }
-    
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:userpath];
+	static User *user = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		user = [[User alloc] init];
+	});
+	return user;
+}
+
+- (instancetype)getUserData {
+	NSString *userfolder = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", NSStringFromClass([self class])];
+	
+	if (![FCFileManager isDirectoryItemAtPath:userfolder]) {
+		[[HACore core] logInnerError:@"user folder not exist"];
+		
+		[FCFileManager createDirectoriesForPath:userfolder];
+		return nil;
+	}
+	
+	NSString *userpath = [userfolder stringByAppendingFormat:@"/ctravelUser"];
+	
+	if (![FCFileManager isFileItemAtPath:userpath]) {
+		[[HACore core] logInnerError:@"user file not exist"];
+		return nil;
+	}
+	
+	return [NSKeyedUnarchiver unarchiveObjectWithFile:userpath];
 }
 
 - (void)saveUserData {
-    
+	NSString *userfolder = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", NSStringFromClass([self class])];
+	if (![FCFileManager isDirectoryItemAtPath:userfolder]) {
+		[[HACore core] logInnerError:@"user folder not exist"];
+		
+		[FCFileManager createDirectoriesForPath:userfolder];
+	}
+	NSString *userpath = [userfolder stringByAppendingFormat:@"/ctravelUser"];
+	
+	if (![FCFileManager isFileItemAtPath:userpath]) {
+		[[HACore core] logInnerError:@"user file not exist"];
+	}
+	[NSKeyedArchiver archiveRootObject:[self class] toFile:userpath];
 }
 
 //- (id)copyWithZone:(NSZone *)zone {

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject<NSCopying, NSCoding>
+@interface User : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSString *userId;
 
@@ -24,5 +24,6 @@
 
 - (void)saveUserData;
 
+- (instancetype)getUserData;
 
 @end

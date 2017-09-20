@@ -8,6 +8,10 @@
 
 #import "Const.h"
 
+NSString *const CodeSuccess = @"E00000";
+NSString *const CodeErrorFailed = @"E100001";
+NSString *const CodeErrorException = @"";
+
 NSString *const LOGIN_LOGIN = @"/login";
 NSString *const LOGIN_NOTLOGIN = @"notLogin";
 NSString *const LOGIN_REFRESHPWD = @"refreshpwd";

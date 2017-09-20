@@ -23,6 +23,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *ensureBtn;
 
+@property (weak, nonatomic) IBOutlet UIView *secondLineView;
+
 @end
 
 @implementation LoginViewController
@@ -33,12 +35,13 @@
     _firstRowLabel.text = info[@"firstRow"];
     if (info[@"secondRow"]) {
         _secondRowLabel.hidden = NO;
+		_secondLineView.hidden = NO;
         _secondRowLabel.text = info[@"secondRow"];
     }
     else {
         _secondRowLabel.hidden = YES;
+		_secondLineView.hidden = YES;
     }
-    
 	if (info[@"buttonTitle"]) {
 		[_ensureBtn setTitle:info[@"buttonTitle"] forState:UIControlStateNormal];
 	}
@@ -79,32 +82,59 @@
     
     if (_type == LoginTypeStepName) {
         //存姓名
+		User *usr = [User sharedUser];
+		usr.firstName = _phoneTextField.text;
+		usr.familyName = _passwordTextField.text;
+		
         LoginViewController *loginVc = [LoginViewController new];
-        loginVc.info = @{@"title": @"您的电话号码?", @"firstRow": @"电话号码", @"name": _phoneTextField.text, @"firstname": _passwordTextField.text, @"buttonTitle": @"继续"};
-        loginVc.type = LoginTypeStepName;
+        loginVc.info = @{@"title": @"您的电话号码?", @"firstRow": @"电话号码", @"buttonTitle": @"继续"};
+        loginVc.type = LoginTypeStepPhone;
         [self.navigationController pushViewController:loginVc animated:YES];
     }
     else if (_type == LoginTypeStepPhone) {
+		//存电话
+		if (_phoneTextField.text.length == 0) {
+			[SVProgressHUD showErrorWithStatus:@"电话号码不能为空"];
+			return;
+		}
+		else if (![_phoneTextField.text isPhoneNumber]) {
+			[SVProgressHUD showErrorWithStatus:@"请输入正确的电话号码"];
+			return;
+		}
+		User *usr = [User sharedUser];
+		usr.phone = _phoneTextField.text;
         LoginViewController *loginVc = [LoginViewController new];
-        loginVc.info = @{@"title": @"输入验证码", @"firstRow": @"验证码", @"name": _phoneTextField.text, @"firstname": _passwordTextField.text, @"buttonTitle": @"继续"};
-        loginVc.type = LoginTypeStepName;
+        loginVc.info = @{@"title": @"输入验证码", @"firstRow": @"验证码", @"buttonTitle": @"继续"};
+        loginVc.type = LoginTypeStepCode;
         [self.navigationController pushViewController:loginVc animated:YES];
     }
-    NSDictionary *params = @{
-                             @"account": _phoneTextField.text,
-                             @"password": _passwordTextField.text,
-                             @"captcha": @"",
-                             @"captchaId": @"",
-                             };
-    [[CoreAPI core] GETURLString:LOGIN_LOGIN withParameters:params success:^(id ret) {
-        [[AppDelegate app] switchAppType:AppTypeResident];
-    } error:^(NSInteger code, NSString *msg, id ret) {
-        NSLog(@"%@",msg);
-    } failure:^(NSError *error) {
-        
-    }];
-    
-	
+	else if (_type == LoginTypeStepCode) {
+		User *usr = [User sharedUser];
+		usr.phone = _phoneTextField.text;
+		NSLog(@"name:%@",usr.firstName);
+		
+		
+		LoginViewController *loginVc = [LoginViewController new];
+		loginVc.info = @{@"title": @"输入验证码", @"firstRow": @"验证码", @"name": _phoneTextField.text, @"firstname": _passwordTextField.text, @"buttonTitle": @"继续"};
+		loginVc.type = LoginTypeStepCode;
+		[self.navigationController pushViewController:loginVc animated:YES];
+	}
+	else if (_type == LoginTypeLogin) {
+		NSDictionary *params = @{
+								 @"account": _phoneTextField.text,
+								 @"password": _passwordTextField.text,
+								 @"captcha": @"",
+								 @"captchaId": @"",
+								 };
+		[[CoreAPI core] GETURLString:LOGIN_LOGIN withParameters:params success:^(id ret) {
+			[[AppDelegate app] switchAppType:AppTypeResident];
+		} error:^(NSInteger code, NSString *msg, id ret) {
+			NSLog(@"%@",msg);
+		} failure:^(NSError *error) {
+			
+		}];
+	}
+
 }
 
 

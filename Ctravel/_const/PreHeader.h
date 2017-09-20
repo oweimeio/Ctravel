@@ -14,5 +14,6 @@
 #import "Libraries.h"
 #import "Views.h"
 #import "CoreAPI.h"
+#import "User.h"
 
 #endif /* PreHeader_h */
