@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *hotDestinationView;
 @property (strong, nonatomic) NSArray *hotDestinationData;
 
-@property (weak, nonatomic) IBOutlet UICollectionView *hotExperience;
+@property (weak, nonatomic) IBOutlet UICollectionView *hotExperienceView;
 @property (strong, nonatomic) NSArray *hotExperienceData;
 
 @end
@@ -23,8 +23,8 @@
 - (NSArray *)hotDestinationData {
 	if (!_hotDestinationData) {
 		_hotDestinationData = @[
-							@{@"title":@"罗马", @"imgUrl":@""},
-							@{@"title":@"罗马", @"imgUrl":@""},
+							@{@"title":@"罗马", @"imgUrl":@"http://imgstore.cdn.sogou.com/app/a/100540002/714860.jpg"},
+							@{@"title":@"罗马", @"imgUrl":@"http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/06/ChMkJlbKyiCIYAW0AA6U_PRWkBcAALIXAL8oScADpUU566.jpg"},
 							@{@"title":@"罗马", @"imgUrl":@""},
 							@{@"title":@"罗马", @"imgUrl":@""},];
 		
@@ -37,6 +37,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"热门";
+}
+
+//MARK:COLLECTIONDEGATE &DATASOURCE
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if (collectionView == _hotDestinationView) {
+        return self.hotDestinationData.count;
+    }
+    else if (collectionView == _hotExperienceView) {
+        return self.hotExperienceData.count;
+    }
+    return 0;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 - (void)didReceiveMemoryWarning {

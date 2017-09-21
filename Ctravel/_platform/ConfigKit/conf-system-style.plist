@@ -42,7 +42,7 @@
 		<key>name</key>
 		<string>UINavigationBar title text attributes foreground color</string>
 		<key>conf-value</key>
-		<string>#ffffff</string>
+		<string>#000000</string>
 	</dict>
 	<key>sys-navbar-bottom-line</key>
 	<dict>

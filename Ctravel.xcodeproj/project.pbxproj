@@ -39,6 +39,16 @@
 		FAA423A21F701AEA00C3736F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423A01F701AEA00C3736F /* LoginViewController.xib */; };
 		FAA423A61F71498A00C3736F /* CoreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423A51F71498A00C3736F /* CoreAPI.m */; };
 		FAA423A91F7167E100C3736F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423A81F7167E100C3736F /* User.m */; };
+		FAA423B01F740CA400C3736F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423AE1F740CA400C3736F /* SettingViewController.m */; };
+		FAA423B11F740CA400C3736F /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423AF1F740CA400C3736F /* SettingViewController.xib */; };
+		FAA423B51F740CB800C3736F /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423B31F740CB800C3736F /* HelpViewController.m */; };
+		FAA423B61F740CB800C3736F /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423B41F740CB800C3736F /* HelpViewController.xib */; };
+		FAA423BA1F740CC400C3736F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423B81F740CC400C3736F /* MasterViewController.m */; };
+		FAA423BB1F740CC400C3736F /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423B91F740CC400C3736F /* MasterViewController.xib */; };
+		FAA423C01F7414B600C3736F /* HotDestinationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423BE1F7414B600C3736F /* HotDestinationCell.m */; };
+		FAA423C11F7414B600C3736F /* HotDestinationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423BF1F7414B600C3736F /* HotDestinationCell.xib */; };
+		FAA423C51F7414D100C3736F /* HotExperienceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423C31F7414D100C3736F /* HotExperienceCell.m */; };
+		FAA423C61F7414D100C3736F /* HotExperienceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423C41F7414D100C3736F /* HotExperienceCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +110,21 @@
 		FAA423A51F71498A00C3736F /* CoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAPI.m; sourceTree = "<group>"; };
 		FAA423A71F7167E100C3736F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		FAA423A81F7167E100C3736F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		FAA423AD1F740CA400C3736F /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		FAA423AE1F740CA400C3736F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		FAA423AF1F740CA400C3736F /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		FAA423B21F740CB800C3736F /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		FAA423B31F740CB800C3736F /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		FAA423B41F740CB800C3736F /* HelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
+		FAA423B71F740CC400C3736F /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		FAA423B81F740CC400C3736F /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		FAA423B91F740CC400C3736F /* MasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MasterViewController.xib; sourceTree = "<group>"; };
+		FAA423BD1F7414B600C3736F /* HotDestinationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDestinationCell.h; sourceTree = "<group>"; };
+		FAA423BE1F7414B600C3736F /* HotDestinationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDestinationCell.m; sourceTree = "<group>"; };
+		FAA423BF1F7414B600C3736F /* HotDestinationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotDestinationCell.xib; sourceTree = "<group>"; };
+		FAA423C21F7414D100C3736F /* HotExperienceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotExperienceCell.h; sourceTree = "<group>"; };
+		FAA423C31F7414D100C3736F /* HotExperienceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotExperienceCell.m; sourceTree = "<group>"; };
+		FAA423C41F7414D100C3736F /* HotExperienceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotExperienceCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +324,9 @@
 		FAA423751F700F9C00C3736F /* profile */ = {
 			isa = PBXGroup;
 			children = (
+				FAA423AA1F740C8600C3736F /* master */,
+				FAA423AB1F740C8600C3736F /* help */,
+				FAA423AC1F740C8600C3736F /* setting */,
 				FAA423941F7015F400C3736F /* ClientProfileViewController.h */,
 				FAA423951F7015F400C3736F /* ClientProfileViewController.m */,
 				FAA423961F7015F400C3736F /* ClientProfileViewController.xib */,
@@ -339,6 +367,7 @@
 		FAA423791F700F9C00C3736F /* main */ = {
 			isa = PBXGroup;
 			children = (
+				FAA423BC1F74148600C3736F /* collectionCell */,
 				FAA423991F70162500C3736F /* ClientMainPageViewController.h */,
 				FAA4239A1F70162500C3736F /* ClientMainPageViewController.m */,
 				FAA4239B1F70162500C3736F /* ClientMainPageViewController.xib */,
@@ -368,6 +397,49 @@
 				FAA423A81F7167E100C3736F /* User.m */,
 			);
 			path = _tool;
+			sourceTree = "<group>";
+		};
+		FAA423AA1F740C8600C3736F /* master */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423B71F740CC400C3736F /* MasterViewController.h */,
+				FAA423B81F740CC400C3736F /* MasterViewController.m */,
+				FAA423B91F740CC400C3736F /* MasterViewController.xib */,
+			);
+			path = master;
+			sourceTree = "<group>";
+		};
+		FAA423AB1F740C8600C3736F /* help */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423B21F740CB800C3736F /* HelpViewController.h */,
+				FAA423B31F740CB800C3736F /* HelpViewController.m */,
+				FAA423B41F740CB800C3736F /* HelpViewController.xib */,
+			);
+			path = help;
+			sourceTree = "<group>";
+		};
+		FAA423AC1F740C8600C3736F /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423AD1F740CA400C3736F /* SettingViewController.h */,
+				FAA423AE1F740CA400C3736F /* SettingViewController.m */,
+				FAA423AF1F740CA400C3736F /* SettingViewController.xib */,
+			);
+			path = setting;
+			sourceTree = "<group>";
+		};
+		FAA423BC1F74148600C3736F /* collectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423BD1F7414B600C3736F /* HotDestinationCell.h */,
+				FAA423BE1F7414B600C3736F /* HotDestinationCell.m */,
+				FAA423BF1F7414B600C3736F /* HotDestinationCell.xib */,
+				FAA423C21F7414D100C3736F /* HotExperienceCell.h */,
+				FAA423C31F7414D100C3736F /* HotExperienceCell.m */,
+				FAA423C41F7414D100C3736F /* HotExperienceCell.xib */,
+			);
+			path = collectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,7 +507,11 @@
 				FAA423A21F701AEA00C3736F /* LoginViewController.xib in Resources */,
 				657D87DD1F70F05B00CD17DE /* com.huaaotech.core.conf.plist in Resources */,
 				FAA423931F7015DD00C3736F /* ClientOrderViewController.xib in Resources */,
+				FAA423B11F740CA400C3736F /* SettingViewController.xib in Resources */,
+				FAA423C11F7414B600C3736F /* HotDestinationCell.xib in Resources */,
 				FAA4234B1F70006500C3736F /* LaunchScreen.storyboard in Resources */,
+				FAA423BB1F740CC400C3736F /* MasterViewController.xib in Resources */,
+				FAA423B61F740CB800C3736F /* HelpViewController.xib in Resources */,
 				FAA423891F70159200C3736F /* FavoriteViewController.xib in Resources */,
 				657D87D71F70EA5900CD17DE /* Assets.xcassets in Resources */,
 				657D87DC1F70F05B00CD17DE /* conf-system-style.plist in Resources */,
@@ -443,6 +519,7 @@
 				FAA4239D1F70162500C3736F /* ClientMainPageViewController.xib in Resources */,
 				FAA423461F70006500C3736F /* Main.storyboard in Resources */,
 				FAA4238E1F7015C800C3736F /* ClientMsgViewController.xib in Resources */,
+				FAA423C61F7414D100C3736F /* HotExperienceCell.xib in Resources */,
 				FAA4237F1F7010E000C3736F /* LoginChooseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,10 +622,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA4236A1F700B3E00C3736F /* JJPhotoManeger.m in Sources */,
+				FAA423C51F7414D100C3736F /* HotExperienceCell.m in Sources */,
 				FAA423921F7015DD00C3736F /* ClientOrderViewController.m in Sources */,
 				FAA423681F700B3E00C3736F /* JJOneScrollView.m in Sources */,
 				FAA423431F70006500C3736F /* ViewController.m in Sources */,
+				FAA423B51F740CB800C3736F /* HelpViewController.m in Sources */,
 				FAA4236E1F700B6800C3736F /* NSString+Validation.m in Sources */,
+				FAA423BA1F740CC400C3736F /* MasterViewController.m in Sources */,
 				FAA4235D1F700A4900C3736F /* Const.m in Sources */,
 				FAA423971F7015F400C3736F /* ClientProfileViewController.m in Sources */,
 				FAA423A61F71498A00C3736F /* CoreAPI.m in Sources */,
@@ -557,12 +637,14 @@
 				FAA423721F700B9500C3736F /* EmptyDataView.m in Sources */,
 				FAA4239C1F70162500C3736F /* ClientMainPageViewController.m in Sources */,
 				FAA423671F700B3E00C3736F /* JJMainScrollView.m in Sources */,
+				FAA423C01F7414B600C3736F /* HotDestinationCell.m in Sources */,
 				FAA4238D1F7015C800C3736F /* ClientMsgViewController.m in Sources */,
 				FAA4237E1F7010E000C3736F /* LoginChooseViewController.m in Sources */,
 				FAA423A91F7167E100C3736F /* User.m in Sources */,
 				FAA423691F700B3E00C3736F /* JJPhoto.m in Sources */,
 				FAA4233D1F70006500C3736F /* main.m in Sources */,
 				FAA423881F70159200C3736F /* FavoriteViewController.m in Sources */,
+				FAA423B01F740CA400C3736F /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

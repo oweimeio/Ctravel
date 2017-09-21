@@ -7,8 +7,14 @@
 //
 
 #import "ClientProfileViewController.h"
+#import "SettingViewController.h"
+#import "HelpViewController.h"
+#import "MasterViewController.h"
 
 @interface ClientProfileViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *avatarBtn;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -19,6 +25,27 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"我的";
 }
+
+//MARK: -ACTION
+- (IBAction)avatarBtnClick:(id)sender {
+    
+}
+
+- (IBAction)settingViewPress:(id)sender {
+    [self.navigationController pushViewController:[SettingViewController new
+                                                   ] animated:YES];
+}
+
+- (IBAction)helpViewPress:(id)sender {
+    [self.navigationController pushViewController:[HelpViewController new
+                                                   ] animated:YES];
+}
+
+- (IBAction)masterViewPress:(id)sender {
+    [self.navigationController pushViewController:[MasterViewController new
+                                                   ] animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
