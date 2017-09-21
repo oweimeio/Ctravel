@@ -37,10 +37,12 @@
         _secondRowLabel.hidden = NO;
 		_secondLineView.hidden = NO;
         _secondRowLabel.text = info[@"secondRow"];
+        _passwordTextField.hidden = NO;
     }
     else {
         _secondRowLabel.hidden = YES;
 		_secondLineView.hidden = YES;
+        _passwordTextField.hidden = YES;
     }
 	if (info[@"buttonTitle"]) {
 		[_ensureBtn setTitle:info[@"buttonTitle"] forState:UIControlStateNormal];
@@ -58,7 +60,22 @@
 		case LoginTypeLogin: {
 			_passwordTextField.secureTextEntry = YES;
 			_passwordTextField.keyboardType = UIKeyboardTypePhonePad;
-		}
+        }   break;
+        case LoginTypeStepName: {
+            _phoneTextField.keyboardType = UIKeyboardTypeDefault;
+        }   break;
+        case LoginTypeStepPhone: {
+            _phoneTextField.keyboardType = UIKeyboardTypePhonePad;
+        }   break;
+        case LoginTypeStepCode: {
+            _phoneTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        }   break;
+        case LoginTypeStepPwd: {
+            _phoneTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+            _passwordTextField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+            _phoneTextField.secureTextEntry = YES;
+            _passwordTextField.secureTextEntry = YES;
+        }   break;
 		default:
 			break;
 	}
@@ -82,9 +99,8 @@
     
     if (_type == LoginTypeStepName) {
         //存姓名
-		User *usr = [User sharedUser];
-		usr.firstName = _phoneTextField.text;
-		usr.familyName = _passwordTextField.text;
+		[User sharedUser].firstName = _phoneTextField.text;
+		[User sharedUser].familyName = _passwordTextField.text;
 		
         LoginViewController *loginVc = [LoginViewController new];
         loginVc.info = @{@"title": @"您的电话号码?", @"firstRow": @"电话号码", @"buttonTitle": @"继续"};
@@ -101,8 +117,15 @@
 			[SVProgressHUD showErrorWithStatus:@"请输入正确的电话号码"];
 			return;
 		}
-		User *usr = [User sharedUser];
-		usr.phone = _phoneTextField.text;
+        [[CoreAPI core] GETURLString:@"" withParameters:@{} success:^(id ret) {
+            
+        } error:^(NSString *code, NSString *msg, id ret) {
+            
+        } failure:^(NSError *error) {
+            
+        }];
+        
+		[User sharedUser].phone = _phoneTextField.text;
         LoginViewController *loginVc = [LoginViewController new];
         loginVc.info = @{@"title": @"输入验证码", @"firstRow": @"验证码", @"buttonTitle": @"继续"};
         loginVc.type = LoginTypeStepCode;
@@ -111,15 +134,20 @@
 	else if (_type == LoginTypeStepCode) {
 		User *usr = [User sharedUser];
 		usr.phone = _phoneTextField.text;
-		NSLog(@"name:%@",usr.firstName);
-		
-		
 		LoginViewController *loginVc = [LoginViewController new];
-		loginVc.info = @{@"title": @"输入验证码", @"firstRow": @"验证码", @"name": _phoneTextField.text, @"firstname": _passwordTextField.text, @"buttonTitle": @"继续"};
-		loginVc.type = LoginTypeStepCode;
+		loginVc.info = @{@"title": @"输入密码", @"firstRow": @"密码", @"secondRow": @"确认密码", @"buttonTitle": @"注册"};
+		loginVc.type = LoginTypeStepPwd;
 		[self.navigationController pushViewController:loginVc animated:YES];
 	}
+    else if (_type == LoginTypeStepPwd) {
+        if (![_phoneTextField.text isEqualToString:_passwordTextField.text]) {
+            [SVProgressHUD showErrorWithStatus:@"两次密码输入不一致"];
+            return;
+        }
+        
+    }
 	else if (_type == LoginTypeLogin) {
+        [self.view endEditing:YES];
 		NSDictionary *params = @{
 								 @"account": _phoneTextField.text,
 								 @"password": _passwordTextField.text,
@@ -128,8 +156,8 @@
 								 };
 		[[CoreAPI core] GETURLString:LOGIN_LOGIN withParameters:params success:^(id ret) {
 			[[AppDelegate app] switchAppType:AppTypeResident];
-		} error:^(NSInteger code, NSString *msg, id ret) {
-			NSLog(@"%@",msg);
+		} error:^(NSString *code, NSString *msg, id ret) {
+            [SVProgressHUD showErrorWithStatus:msg];
 		} failure:^(NSError *error) {
 			
 		}];

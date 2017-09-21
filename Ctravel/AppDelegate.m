@@ -80,7 +80,7 @@
             cProfile.tabBarItem.image = [UIImage imageNamed:@"tab-consultation-gray"];
             cProfile.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-consultation-blue"];
             
-            tabs.viewControllers = @[cMain, cFov, cMsg, cOrder, cOrder];
+            tabs.viewControllers = @[cMain, cFov, cMsg, cOrder, cProfile];
             self.window.rootViewController = tabs;
             [HAApp current].appType = AppTypeResident;
             

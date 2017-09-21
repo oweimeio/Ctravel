@@ -8,14 +8,16 @@
 
 #import "Const.h"
 
-NSString *const CodeSuccess = @"E00000";
+NSString *const CodeSuccess = @"E000000";
 NSString *const CodeErrorFailed = @"E100001";
-NSString *const CodeErrorException = @"";
+NSString *const CodeErrorException = @"E999999";
 
 NSString *const LOGIN_LOGIN = @"/login";
-NSString *const LOGIN_NOTLOGIN = @"notLogin";
-NSString *const LOGIN_REFRESHPWD = @"refreshpwd";
-NSString *const LOGIN_REFRESHPWD_VALIDATE = @"refreshpwd/validate";
+NSString *const LOGIN_NOTLOGIN = @"/notLogin";
+NSString *const LOGIN_REFRESHPWD = @"/refreshpwd";
+NSString *const LOGIN_REFRESHPWD_VALIDATE = @"/refreshpwd/validate";
 
-NSString *const REGISTER_REGISTER = @"register";
-NSString *const REGISTER_VALIDATE = @"register/validate";
+NSString *const REGISTER_REGISTER = @"/register";
+NSString *const REGISTER_VALIDATE = @"/register/validate";
+
+NSString *const CODE_VALIDATE = @"/api/captcha";

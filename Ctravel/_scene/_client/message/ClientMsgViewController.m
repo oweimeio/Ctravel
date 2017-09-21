@@ -8,15 +8,40 @@
 
 #import "ClientMsgViewController.h"
 
-@interface ClientMsgViewController ()
+@interface ClientMsgViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) NSArray *dataSource;
+
+@property (weak, nonatomic) IBOutlet UITableView *msgTableView;
 
 @end
 
 @implementation ClientMsgViewController
 
+- (NSArray *)dataSource {
+    if (!_dataSource) {
+        _dataSource = @[];
+    }
+    return _dataSource;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationItem.title = @"消息";
+}
+
+//MARK: - TABLEDELEGATE & DATASOURCE
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

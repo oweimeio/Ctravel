@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "PreHeader.h"
 
 /**
@@ -69,7 +70,7 @@
 - (NSURLSessionDataTask *)GETURLString:(NSString *)URLString
                         withParameters:(NSDictionary *)params
                                success:(void (^)(id ret))success
-                                 error:(void (^)(NSInteger code, NSString *msg, id ret))apierror
+                                 error:(void (^)(NSString *code, NSString *msg, id ret))apierror
                                failure:(void (^)(NSError *error))failure;
 
 
@@ -114,7 +115,7 @@
 - (NSURLSessionDataTask *)POSTURLString:(NSString *)URLString
                          withParameters:(NSDictionary *)params
                                 success:(void (^)(id ret))success
-                                  error:(void (^)(NSInteger code, NSString *msg, id ret))apierror
+                                  error:(void (^)(NSString *code, NSString *msg, id ret))apierror
                                 failure:(void (^)(NSError *error))failure;
 
 /**
@@ -130,7 +131,7 @@
 - (NSURLSessionDataTask *)POSTImage:(UIImage *)image
                            progress:(void (^)(float completed, float total))progress
                             success:(void (^)(id ret))success
-                           apierror:(void (^)(NSInteger code, NSString *msg, id ret))apierror
+                           apierror:(void (^)(NSString *code, NSString *msg, id ret))apierror
                             failure:(void (^)(NSError *error))failure;
 
 /**
@@ -150,7 +151,7 @@
                              mimetype:(NSString *)mimetype
                              progress:(void (^)(float completed, float total))progress
                               success:(void (^)(id ret))success
-                             apierror:(void (^)(NSInteger code, NSString *msg, id ret))apierror
+                             apierror:(void (^)(NSString *code, NSString *msg, id ret))apierror
                               failure:(void (^)(NSError *error))failure;
 
 // MARK: PUT

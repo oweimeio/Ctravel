@@ -162,46 +162,34 @@
 - (NSURLSessionDataTask *)GETURLString:(NSString *)URLString
                         withParameters:(NSDictionary *)params
                                success:(void (^)(id))success
-                                 error:(void (^)(NSInteger, NSString *, id))apierror
+                                 error:(void (^)(NSString *, NSString *, id))apierror
                                failure:(void (^)(NSError *))failure {
-    
     NSURLSessionDataTask *dataTask = [manager GET:[API stringByAppendingString:URLString] parameters:params progress:^(NSProgress *downloadProgress) {
         // PROGRESS
     } success:^(NSURLSessionDataTask *task, id resp) {
         if ([resp isKindOfClass:[NSDictionary class]] == NO) {
-            apierror(-1, @"PARSE ERROR", resp);
+            apierror(@"-1", @"PARSE ERROR", resp);
             NSLog(@"\n\nREQUEST(GET) PARSE ERROR\n\tAPI\t\t%@\n\n", URLString);
         }
-        
         if ([[resp allKeys] containsObject:@"resultCode"] && [resp[@"resultCode"] isEqualToString:CodeSuccess] ) {
             // SUCCESS
             success(resp);
             NSLog(@"\n\nREQUEST(GET) SUCCESS\n\tAPI\t%@\n", URLString);
         } else {
             // API ERROR
-            NSLog(@"\n\nREQUEST(GET) ERROR\n\tAPI\t\t%@\n\tCode\t%@\n\tMessage\t%@\n\n", URLString, resp[@"resultCode"], resp[@"msg"]);
+            NSLog(@"\n\nREQUEST(GET) ERROR\n\tAPI\t\t%@\n\tCode\t%@\n\tMessage\t%@\n\n", URLString, resp[@"resultCode"], resp[@"errorMsg"]);
             NSString *code = resp[@"resultCode"];
-            
-            /*
-             if (code == 101) {
-             // USER NOT EXIST
-             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_USER_NEED_LOGIN object:nil];
-             }
-             */
-            
-            if ([code isEqualToString:@""]) {
+            if ([code isEqualToString:CodeErrorException]) {
                 // TOKEN LOSE NEED LOGIN
                 [[HAApp current] logout];
             }
-            
-            apierror(code, resp[@"msg"], resp);
+            apierror(code, resp[@"errorMsg"], resp);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // REQUEST FAILED
         failure(error);
         NSLog(@"\n\nREQUEST(GET) FAILED\n\tAPI\t%@\n", URLString);
     }];
-    
     return dataTask;
 }
 
@@ -214,7 +202,6 @@
         NSLog(@"\n\nREQUEST(Absolute GET) ERROR\n\tNOT A CORRECT URL STRING\n\t%@", URLString);
         return nil;
     }
-    
     NSURLSessionDataTask *dataTask = [absolute GET:URLString parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         // IN PROGRESS
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -236,7 +223,7 @@
  @param failure 网络请求失败块
  @return 网络请求任务
  */
-- (NSURLSessionDataTask *)GETPageFromURLString:(NSString *)URLString withParameters:(NSDictionary *)params success:(void (^)(id))success error:(void (^)(NSInteger, NSString *, id))apierror failure:(void (^)(NSError *))failure {
+- (NSURLSessionDataTask *)GETPageFromURLString:(NSString *)URLString withParameters:(NSDictionary *)params success:(void (^)(id))success error:(void (^)(NSString *, NSString *, id))apierror failure:(void (^)(NSError *))failure {
     
     NSURLSessionConfiguration *sconf = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFHTTPSessionManager *tmgr = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithFormat:@"%@%@", PROTOCOL, BASE_URL] sessionConfiguration:sconf];
@@ -275,16 +262,15 @@
 - (NSURLSessionDataTask *)POSTURLString:(NSString *)URLString
                          withParameters:(NSDictionary *)params
                                 success:(void (^)(id))success
-                                  error:(void (^)(NSInteger, NSString *, id))apierror
+                                  error:(void (^)(NSString *, NSString *, id))apierror
                                 failure:(void (^)(NSError *))failure {
-    
     
     NSURLSessionDataTask *dataTask = [manager POST:[API stringByAppendingString:URLString] parameters:params progress:^(NSProgress *uploadProgress) {
         
     } success:^(NSURLSessionDataTask *task, id resp) {
         
         if ([resp isKindOfClass:[NSDictionary class]] == NO) {
-            apierror(-1, @"PARSE ERROR", resp);
+            apierror(@"-1", @"PARSE ERROR", resp);
             NSLog(@"\n\nREQUEST(POST) PARSE ERROR\n\tAPI\t\t%@\n\n", URLString);
         }
         
@@ -294,22 +280,13 @@
             NSLog(@"\n\nREQUEST(POST) SUCCESS\n\tAPI\t%@\n", URLString);
         } else {
             // API ERROR
-            NSLog(@"\n\nREQUEST(POST) ERROR\n\tAPI\t\t%@\n\tCode\t%@\n\tMessage\t%@\n\n", URLString, resp[@"resultCode"], resp[@"msg"]);
-            NSInteger code = [resp[@"resultCode"] integerValue];
-            
-            /*
-             if (code == 101) {
-             // USER NOT EXIST
-             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIF_USER_NEED_LOGIN object:nil];
-             }
-             */
-            
-            if (code == 10001) {
+            NSLog(@"\n\nREQUEST(POST) ERROR\n\tAPI\t\t%@\n\tCode\t%@\n\tMessage\t%@\n\n", URLString, resp[@"resultCode"], resp[@"errorMsg"]);
+            NSString *code = resp[@"resultCode"];
+            if ([code isEqualToString:CodeErrorException]) {
                 // TOKEN LOSE NEED LOGIN
                 [[HAApp current] logout];
             }
-            
-            apierror(code, resp[@"msg"], resp);
+            apierror(code, resp[@"errorMsg"], resp);
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -324,7 +301,7 @@
 - (NSURLSessionDataTask *)POSTImage:(UIImage *)image
                            progress:(void (^)(float, float))progress
                             success:(void (^)(id))success
-                           apierror:(void (^)(NSInteger, NSString *, id))apierror
+                           apierror:(void (^)(NSString *, NSString *, id))apierror
                             failure:(void (^)(NSError *))failure {
     
     NSString *URLString = [NSString stringWithFormat:@"%@%@/file/upload/image.do",
@@ -343,8 +320,8 @@
             success(resp[@"data"]);
             NSLog(@"\n\nUPLOAD IMAGE(POST) SUCCESS\n\tAPI\t%@\n\tRESULT\t%@\n ", URLString, resp[@"data"]);
         } else {
-            apierror([resp[@"resultCode"] integerValue], resp[@"msg"], resp);
-            NSLog(@"\n\nUPLOAD IMAGE(POST) ERROR\n\tAPI\t%@\n\tERROR\tCODE=%@\tMSG=%@\n ", URLString, resp[@"resultCode"], resp[@"msg"]);
+            apierror(resp[@"resultCode"], resp[@"errorMsg"], resp);
+            NSLog(@"\n\nUPLOAD IMAGE(POST) ERROR\n\tAPI\t%@\n\tERROR\tCODE=%@\tMSG=%@\n ", URLString, resp[@"resultCode"], resp[@"errorMsg"]);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
@@ -359,7 +336,7 @@
                              mimetype:(NSString *)mimetype
                              progress:(void (^)(float, float))progress
                               success:(void (^)(id))success
-                             apierror:(void (^)(NSInteger, NSString *, id))apierror
+                             apierror:(void (^)(NSString *, NSString *, id))apierror
                               failure:(void (^)(NSError *))failure {
     
     NSString *URLString = [NSString stringWithFormat:@"%@%@/file/upload/file.do",
@@ -374,12 +351,12 @@
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         progress(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable resp) {
-        if ([resp[@"resultCode"] integerValue] == 0) {
+        if ([resp[@"resultCode"] isEqualToString:CodeSuccess]) {
             success(resp[@"data"]);
             NSLog(@"\n\nUPLOAD FILE(POST) SUCCESS\n\tAPI\t%@\n\tRESULT\t%@\n ", URLString, resp[@"data"]);
         } else {
-            apierror([resp[@"resultCode"] integerValue], resp[@"msg"], resp);
-            NSLog(@"\n\nUPLOAD FILE(POST) ERROR\n\tAPI\t%@\n\tERROR\tCODE=%@\tMSG=%@\n ", URLString, resp[@"code"], resp[@"msg"]);
+            apierror(resp[@"resultCode"], resp[@"errorMsg"], resp);
+            NSLog(@"\n\nUPLOAD FILE(POST) ERROR\n\tAPI\t%@\n\tERROR\tCODE=%@\tMSG=%@\n ", URLString, resp[@"resultCode"], resp[@"errorMsg"]);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
