@@ -7,12 +7,38 @@
 //
 
 #import "HotExperienceCell.h"
+#import "PreHeader.h"
+
+NSString *const hotExperienceCellInIdentifier = @"hotExperienceCellInIdentifier";
+
+@interface HotExperienceCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *picImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *heartButton;
+
+@end
 
 @implementation HotExperienceCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
+
+- (IBAction)heartBtnClick:(UIButton *)sender {
+    sender.selected = !sender.selected;
+}
+
+
+- (void)setDataSource:(NSDictionary *)dataSource {
+    _dataSource = dataSource;
+    [_picImageView setImageWithURLString:dataSource[@"imgUrl"] andPlaceholderNamed:@""];
+    _nameLabel.text = dataSource[@"title"];
 }
 
 @end

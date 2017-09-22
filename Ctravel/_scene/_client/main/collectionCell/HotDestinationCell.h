@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+FOUNDATION_EXPORT NSString *const hotDestinationCellInIdentifier;
+
 @interface HotDestinationCell : UICollectionViewCell
 
 @property (nonatomic, strong) NSDictionary *dataSource;

@@ -9,6 +9,8 @@
 #import "HotDestinationCell.h"
 #import "PreHeader.h"
 
+NSString *const hotDestinationCellInIdentifier = @"hotDestinationCellInIdentifier";
+
 @interface HotDestinationCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *picImageView;
@@ -26,7 +28,7 @@
 
 - (void)setDataSource:(NSDictionary *)dataSource {
     _dataSource = dataSource;
-    [_picImageView setImageWithURLString:dataSource[@"image"] andPlaceholderNamed:@""];
+    [_picImageView setImageWithURLString:dataSource[@"imgUrl"] andPlaceholderNamed:@""];
     _nameLabel.text = dataSource[@"title"];
 }
 

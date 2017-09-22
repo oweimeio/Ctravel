@@ -7,6 +7,9 @@
 //
 
 #import "ClientMainPageViewController.h"
+#import "HotExperienceCell.h"
+#import "HotDestinationCell.h"
+#import "PreHeader.h"
 
 @interface ClientMainPageViewController ()
 
@@ -25,18 +28,33 @@
 		_hotDestinationData = @[
 							@{@"title":@"罗马", @"imgUrl":@"http://imgstore.cdn.sogou.com/app/a/100540002/714860.jpg"},
 							@{@"title":@"罗马", @"imgUrl":@"http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/06/ChMkJlbKyiCIYAW0AA6U_PRWkBcAALIXAL8oScADpUU566.jpg"},
-							@{@"title":@"罗马", @"imgUrl":@""},
-							@{@"title":@"罗马", @"imgUrl":@""},];
+							@{@"title":@"罗马", @"imgUrl":@"http://imgstore.cdn.sogou.com/app/a/100540002/714860.jpg"}];
 		
 		[_hotDestinationView reloadData];
 	}
 	return _hotDestinationData;
 }
 
+- (NSArray *)hotExperienceData {
+    if (!_hotExperienceData) {
+        _hotExperienceData = @[
+                                @{@"title":@"罗马", @"imgUrl":@"http://imgstore.cdn.sogou.com/app/a/100540002/714860.jpg"},
+                                @{@"title":@"罗马", @"imgUrl":@"http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/06/ChMkJlbKyiCIYAW0AA6U_PRWkBcAALIXAL8oScADpUU566.jpg"},
+                                @{@"title":@"罗马", @"imgUrl":@"http://imgstore.cdn.sogou.com/app/a/100540002/714860.jpg"}];
+        
+        [_hotDestinationView reloadData];
+    }
+    return _hotExperienceData;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"热门";
+    
+    [self.hotDestinationView registerNib:[UINib nibWithNibName:@"HotDestinationCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotDestinationCellInIdentifier];
+    
+    [self.hotExperienceView registerNib:[UINib nibWithNibName:@"HotExperienceCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotExperienceCellInIdentifier];
 }
 
 //MARK:COLLECTIONDEGATE &DATASOURCE
@@ -55,12 +73,39 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (collectionView == _hotDestinationView) {
+        HotDestinationCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:hotDestinationCellInIdentifier forIndexPath:indexPath];
+        cell.dataSource = self.hotDestinationData[indexPath.row];
+        return cell;
+    }
+    else if (collectionView == _hotExperienceView) {
+        HotExperienceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:hotExperienceCellInIdentifier forIndexPath:indexPath];
+        __weak NSDictionary *dataSource = self.hotExperienceData[indexPath.row];
+        cell.dataSource = dataSource;
+//        [cell.picImageView setImageWithURLString:dataSource[@"imageUrl"] andPlaceholderNamed:@""];
+//        cell.nameLabel.text = dataSource[@"title"];
+        return cell;
+    }
     return nil;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
 }
+
+//MARK: - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (collectionView == _hotDestinationView) {
+        return (CGSize){110, 100};
+    }
+    else if (collectionView == _hotExperienceView) {
+        return (CGSize){(WIDTH - 40) * 0.5, (WIDTH - 40) * 0.5 *5/3};
+    }
+    return (CGSize){0, 0};
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

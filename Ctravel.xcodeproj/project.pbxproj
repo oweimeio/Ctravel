@@ -11,6 +11,8 @@
 		657D87DC1F70F05B00CD17DE /* conf-system-style.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657D87D91F70F05B00CD17DE /* conf-system-style.plist */; };
 		657D87DD1F70F05B00CD17DE /* com.huaaotech.core.conf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657D87DB1F70F05B00CD17DE /* com.huaaotech.core.conf.plist */; };
 		874F7B5B65253AAB04A1D209 /* Pods_Ctravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */; };
+		FA05D8031F7541AA00893EE3 /* ClientMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA05D8011F7541AA00893EE3 /* ClientMsgCell.m */; };
+		FA05D8041F7541AA00893EE3 /* ClientMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA05D8021F7541AA00893EE3 /* ClientMsgCell.xib */; };
 		FAA4233D1F70006500C3736F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4233C1F70006500C3736F /* main.m */; };
 		FAA423401F70006500C3736F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4233F1F70006500C3736F /* AppDelegate.m */; };
 		FAA423431F70006500C3736F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423421F70006500C3736F /* ViewController.m */; };
@@ -58,6 +60,9 @@
 		9BD509F4D33881358D3F5EDA /* Pods-Ctravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.release.xcconfig"; sourceTree = "<group>"; };
 		D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ctravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F223FEFEBA994EF4956C3534 /* Pods-Ctravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.debug.xcconfig"; sourceTree = "<group>"; };
+		FA05D8001F7541AA00893EE3 /* ClientMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientMsgCell.h; sourceTree = "<group>"; };
+		FA05D8011F7541AA00893EE3 /* ClientMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientMsgCell.m; sourceTree = "<group>"; };
+		FA05D8021F7541AA00893EE3 /* ClientMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientMsgCell.xib; sourceTree = "<group>"; };
 		FAA423381F70006500C3736F /* Ctravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ctravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA4233C1F70006500C3736F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FAA4233E1F70006500C3736F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -170,6 +175,16 @@
 				9BD509F4D33881358D3F5EDA /* Pods-Ctravel.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FA05D7FF1F75419400893EE3 /* clientMsgCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA05D8001F7541AA00893EE3 /* ClientMsgCell.h */,
+				FA05D8011F7541AA00893EE3 /* ClientMsgCell.m */,
+				FA05D8021F7541AA00893EE3 /* ClientMsgCell.xib */,
+			);
+			path = clientMsgCell;
 			sourceTree = "<group>";
 		};
 		FAA4232F1F70006500C3736F = {
@@ -347,6 +362,7 @@
 		FAA423771F700F9C00C3736F /* message */ = {
 			isa = PBXGroup;
 			children = (
+				FA05D7FF1F75419400893EE3 /* clientMsgCell */,
 				FAA4238A1F7015C800C3736F /* ClientMsgViewController.h */,
 				FAA4238B1F7015C800C3736F /* ClientMsgViewController.m */,
 				FAA4238C1F7015C800C3736F /* ClientMsgViewController.xib */,
@@ -518,6 +534,7 @@
 				FAA423981F7015F400C3736F /* ClientProfileViewController.xib in Resources */,
 				FAA4239D1F70162500C3736F /* ClientMainPageViewController.xib in Resources */,
 				FAA423461F70006500C3736F /* Main.storyboard in Resources */,
+				FA05D8041F7541AA00893EE3 /* ClientMsgCell.xib in Resources */,
 				FAA4238E1F7015C800C3736F /* ClientMsgViewController.xib in Resources */,
 				FAA423C61F7414D100C3736F /* HotExperienceCell.xib in Resources */,
 				FAA4237F1F7010E000C3736F /* LoginChooseViewController.xib in Resources */,
@@ -640,6 +657,7 @@
 				FAA423C01F7414B600C3736F /* HotDestinationCell.m in Sources */,
 				FAA4238D1F7015C800C3736F /* ClientMsgViewController.m in Sources */,
 				FAA4237E1F7010E000C3736F /* LoginChooseViewController.m in Sources */,
+				FA05D8031F7541AA00893EE3 /* ClientMsgCell.m in Sources */,
 				FAA423A91F7167E100C3736F /* User.m in Sources */,
 				FAA423691F700B3E00C3736F /* JJPhoto.m in Sources */,
 				FAA4233D1F70006500C3736F /* main.m in Sources */,
@@ -771,6 +789,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apple.hw.Ctravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -785,6 +804,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apple.hw.Ctravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

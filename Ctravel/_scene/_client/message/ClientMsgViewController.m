@@ -7,6 +7,7 @@
 //
 
 #import "ClientMsgViewController.h"
+#import "ClientMsgCell.h"
 
 @interface ClientMsgViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -20,7 +21,8 @@
 
 - (NSArray *)dataSource {
     if (!_dataSource) {
-        _dataSource = @[];
+        _dataSource = @[@{@"isRead":@"1",@"avatarUrl":@"",
+                          @"name":@"王者",@"content":@"顺丰到付地方的发"}];
     }
     return _dataSource;
 }
@@ -29,6 +31,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"消息";
+    
+    self.msgTableView.tableFooterView = [UIView new];
 }
 
 //MARK: - TABLEDELEGATE & DATASOURCE
@@ -36,12 +40,19 @@
     return self.dataSource.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    ClientMsgCell *cell = [ClientMsgCell clientMsgCellInTableView:tableView];
+    cell.dataSource = self.dataSource[indexPath.row];
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {

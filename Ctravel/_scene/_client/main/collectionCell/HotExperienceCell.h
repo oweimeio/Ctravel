@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+FOUNDATION_EXPORT NSString *const hotExperienceCellInIdentifier;
+
 @interface HotExperienceCell : UICollectionViewCell
+
+@property (nonatomic, strong) NSDictionary *dataSource;
 
 @end
