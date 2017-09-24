@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WatchDateViewController">
+            <connections>
+                <outlet property="tableView" destination="bIA-8d-m2X" id="QPI-zg-3pD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTp-n7-rvX">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验达人可提供的活动日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6c-je-9ee">
+                            <rect key="frame" x="20" y="11" width="292" height="29"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="d6c-je-9ee" firstAttribute="leading" secondItem="VTp-n7-rvX" secondAttribute="leading" constant="20" id="I9H-cz-4xp"/>
+                        <constraint firstAttribute="height" constant="50" id="ZCZ-Rx-mYJ"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ZOu-8a-Qux"/>
+                        <constraint firstItem="d6c-je-9ee" firstAttribute="centerY" secondItem="VTp-n7-rvX" secondAttribute="centerY" id="d0Z-0X-NTi"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bIA-8d-m2X">
+                    <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bIA-8d-m2X" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7uh-7n-XIA"/>
+                <constraint firstAttribute="trailing" secondItem="bIA-8d-m2X" secondAttribute="trailing" id="CmY-c0-mfv"/>
+                <constraint firstItem="VTp-n7-rvX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="V0h-cS-xFa"/>
+                <constraint firstAttribute="bottom" secondItem="bIA-8d-m2X" secondAttribute="bottom" id="gb5-y0-zHr"/>
+                <constraint firstAttribute="trailing" secondItem="VTp-n7-rvX" secondAttribute="trailing" id="lFS-8b-ycN"/>
+                <constraint firstItem="bIA-8d-m2X" firstAttribute="top" secondItem="VTp-n7-rvX" secondAttribute="bottom" id="n7s-gd-WYp"/>
+                <constraint firstItem="VTp-n7-rvX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="oGk-3c-fp6"/>
+            </constraints>
+            <point key="canvasLocation" x="32.5" y="71.5"/>
+        </view>
+    </objects>
+</document>

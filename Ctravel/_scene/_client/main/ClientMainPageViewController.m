@@ -50,8 +50,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //self.navigationItem.title = @"热门";
-    [self.navigationController.view addSubview:[UISearchBar new]];
     
     [self.hotDestinationView registerNib:[UINib nibWithNibName:@"HotDestinationCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotDestinationCellInIdentifier];
     
@@ -60,17 +58,28 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    NSDictionary *params = @{
-//                             @"token":[HAApp current].atoken
-//                             };
-//    [[CoreAPI core] GETURLString:@"/hot/hotDestinationExperience" withParameters:params success:^(id ret) {
-//        
-//    } error:^(NSString *code, NSString *msg, id ret) {
-//        
-//    } failure:^(NSError *error) {
-//        
-//    }];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
+    NSDictionary *params = @{
+                             @"token":[HAApp current].atoken
+                             };
+    [[CoreAPI core] GETURLString:CLIENT_HOMEPAGE withParameters:params success:^(id ret) {
+        
+    } error:^(NSString *code, NSString *msg, id ret) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
+
 
 //MARK:COLLECTIONDEGATE &DATASOURCE
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

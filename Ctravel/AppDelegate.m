@@ -193,6 +193,8 @@
     
     // MARK: STYLE
     [[ConfigKit kit] systemStyle];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
+    
     [ModuleProgressHUD autoConfigure];
     
     [[AFNetworkReachabilityManager sharedManager] isReachableViaWiFi];

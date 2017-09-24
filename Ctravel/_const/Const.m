@@ -20,4 +20,6 @@ NSString *const LOGIN_REFRESHPWD_VALIDATE = @"/refreshpwd/validate";
 NSString *const REGISTER_REGISTER = @"/register";
 NSString *const REGISTER_VALIDATE = @"/register/validate";
 
-NSString *const CODE_VALIDATE = @"/api/captcha";
+NSString *const CODE_VALIDATE = @"/captcha";
+
+NSString *const CLIENT_HOMEPAGE = @"/hot/homePage";

@@ -10,6 +10,7 @@
 #import "SettingViewController.h"
 #import "HelpViewController.h"
 #import "MasterViewController.h"
+#import "ProfileDetailViewController.h"
 #import "PreHeader.h"
 
 @interface ClientProfileViewController ()
@@ -29,7 +30,7 @@
 
 //MARK: -ACTION
 - (IBAction)avatarBtnClick:(id)sender {
-    
+    [self.navigationController pushViewController:[ProfileDetailViewController new] animated:YES];
 }
 
 - (IBAction)settingViewPress:(id)sender {

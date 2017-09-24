@@ -37,10 +37,21 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"收藏";
     
     [self.favCollectionView registerNib:[UINib nibWithNibName:@"HotExperienceCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotExperienceCellInIdentifier];
     
@@ -50,9 +61,12 @@
 
 //MARK: - METHOD
 - (void)requestListData {
-    NSDictionary *param = @{};
-    [[CoreAPI core] GETURLString:@"" withParameters:param success:^(id ret) {
-        
+    NSDictionary *param = @{
+                            @"token":[HAApp current].atoken,
+                            @"userId":[User sharedUser].userId
+                            };
+    [[CoreAPI core] GETURLString:@"/hot/hotDestinationExperience" withParameters:param success:^(id ret) {
+        NSLog(@"%@",ret);
     } error:^(NSString *code, NSString *msg, id ret) {
         [SVProgressHUD showErrorWithStatus:msg];
     } failure:^(NSError *error) {

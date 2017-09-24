@@ -21,8 +21,11 @@
                 <outlet property="meetMapView" destination="rde-fr-Cyt" id="NlQ-eY-RkZ"/>
                 <outlet property="meetPointLabel" destination="czY-hD-H7q" id="790-A4-HQ7"/>
                 <outlet property="moneyLabel" destination="saY-SL-L3o" id="9hF-m3-CBn"/>
+                <outlet property="picConstant" destination="yHQ-LF-N4C" id="LE5-pW-EnI"/>
                 <outlet property="picImageView" destination="vuH-wK-adY" id="hpO-9e-PYY"/>
                 <outlet property="remarkLabel" destination="5GL-tZ-i5J" id="0B8-x5-pUO"/>
+                <outlet property="scrollView" destination="Okg-lM-kKp" id="ipO-5C-OS8"/>
+                <outlet property="searchDisplayController" destination="yxi-se-d7c" id="b3F-b1-Mog"/>
                 <outlet property="simpleDesLabel" destination="bZ0-nS-gKk" id="38j-hR-zw3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -421,7 +424,7 @@ Label</string>
                                 <constraint firstItem="tjP-64-zmK" firstAttribute="centerY" secondItem="jk1-e2-uQY" secondAttribute="centerY" id="mMp-MR-AjV"/>
                             </constraints>
                             <connections>
-                                <action selector="watchEvaluation:" destination="-1" eventType="valueChanged" id="bcm-q5-2dy"/>
+                                <action selector="watchEvaluation:" destination="-1" eventType="touchUpInside" id="wke-t2-Dzf"/>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Urb-8i-7fp" customClass="UIControl">
@@ -502,6 +505,25 @@ Label</string>
                                 <constraint firstItem="h1U-Ie-jwj" firstAttribute="leading" secondItem="BAz-BF-8cu" secondAttribute="leading" constant="20" id="qQG-Fx-j44"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVD-bS-nDz">
+                            <rect key="frame" x="0.0" y="8" width="80" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="ITQ-n5-fcJ"/>
+                                <constraint firstAttribute="height" constant="40" id="zHT-fl-5jb"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="40" maxY="0.0"/>
+                            <state key="normal" image="nav-back"/>
+                            <connections>
+                                <action selector="navBackBtnClick:" destination="-1" eventType="touchUpInside" id="rcY-iA-mC8"/>
+                            </connections>
+                        </button>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NqY-Ui-dOY">
+                            <rect key="frame" x="-28" y="-15" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem title="Item" id="rAz-Wf-Ahi"/>
+                            </items>
+                        </toolbar>
                     </subviews>
                     <constraints>
                         <constraint firstItem="BAz-BF-8cu" firstAttribute="leading" secondItem="Okg-lM-kKp" secondAttribute="leading" id="0NM-Sd-c4f"/>
@@ -529,8 +551,10 @@ Label</string>
                         <constraint firstAttribute="trailing" secondItem="slT-1U-1hX" secondAttribute="trailing" id="W33-mT-bbG"/>
                         <constraint firstItem="obz-pm-j9C" firstAttribute="top" secondItem="slT-1U-1hX" secondAttribute="bottom" id="XzP-lz-shs"/>
                         <constraint firstItem="vuH-wK-adY" firstAttribute="top" secondItem="Okg-lM-kKp" secondAttribute="top" id="a3E-0q-Ybb"/>
+                        <constraint firstItem="VVD-bS-nDz" firstAttribute="top" secondItem="Okg-lM-kKp" secondAttribute="top" constant="8" id="aOc-dV-ql6"/>
                         <constraint firstItem="aB2-CH-tvf" firstAttribute="top" secondItem="SmH-tW-ocm" secondAttribute="bottom" id="cXW-Gw-YJP"/>
                         <constraint firstAttribute="trailing" secondItem="vuH-wK-adY" secondAttribute="trailing" id="e1e-QY-VnC"/>
+                        <constraint firstItem="VVD-bS-nDz" firstAttribute="leading" secondItem="Okg-lM-kKp" secondAttribute="leading" id="eF3-Mh-mbp"/>
                         <constraint firstAttribute="trailing" secondItem="2wP-Vh-UXV" secondAttribute="trailing" id="feG-L1-sXp"/>
                         <constraint firstItem="020-bw-hsM" firstAttribute="leading" secondItem="Okg-lM-kKp" secondAttribute="leading" id="fuP-eK-MZB"/>
                         <constraint firstItem="020-bw-hsM" firstAttribute="top" secondItem="4T2-gh-y3x" secondAttribute="bottom" id="hSp-mz-DQY"/>
@@ -546,6 +570,9 @@ Label</string>
                         <constraint firstAttribute="trailing" secondItem="Urb-8i-7fp" secondAttribute="trailing" id="wUn-x1-aPL"/>
                         <constraint firstItem="slT-1U-1hX" firstAttribute="top" secondItem="020-bw-hsM" secondAttribute="bottom" id="zl2-H2-Dah"/>
                     </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Kni-aP-825"/>
+                    </connections>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -558,8 +585,26 @@ Label</string>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="32.5" y="483"/>
         </view>
+        <searchBar contentMode="redraw" id="t8J-c5-W24">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+            <textInputTraits key="textInputTraits"/>
+            <connections>
+                <outlet property="delegate" destination="-1" id="o8e-om-3tL"/>
+            </connections>
+        </searchBar>
+        <searchDisplayController id="yxi-se-d7c">
+            <connections>
+                <outlet property="delegate" destination="-1" id="K4a-jq-AbZ"/>
+                <outlet property="searchBar" destination="t8J-c5-W24" id="cBb-tc-VgP"/>
+                <outlet property="searchContentsController" destination="-1" id="rne-vy-due"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="g4M-2c-fOP"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="xGr-vq-hCx"/>
+            </connections>
+        </searchDisplayController>
     </objects>
     <resources>
+        <image name="nav-back" width="20" height="20"/>
         <image name="nav-right" width="13" height="13"/>
     </resources>
 </document>

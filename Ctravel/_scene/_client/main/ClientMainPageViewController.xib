@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZLm-cy-aso">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="50" width="375" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="热门目的地" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3al-Zp-ivo">
                                     <rect key="frame" x="12" y="30" width="92" height="21"/>
@@ -43,7 +43,7 @@
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BxT-vX-uQa">
-                            <rect key="frame" x="0.0" y="60" width="375" height="100"/>
+                            <rect key="frame" x="0.0" y="110" width="375" height="100"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="Pvc-KR-hir"/>
@@ -60,7 +60,7 @@
                             </connections>
                         </collectionView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xv-wl-eBl" customClass="UIControl">
-                            <rect key="frame" x="0.0" y="160" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="210" width="375" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="热门体验" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5U-1T-4Ao">
                                     <rect key="frame" x="12" y="30" width="73.5" height="21"/>
@@ -86,7 +86,7 @@
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="obm-0u-VSM">
-                            <rect key="frame" x="0.0" y="220" width="375" height="280"/>
+                            <rect key="frame" x="0.0" y="270" width="375" height="280"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="obm-0u-VSM" secondAttribute="height" multiplier="375:280" id="qi9-TT-EIZ"/>
@@ -102,16 +102,36 @@
                                 <outlet property="delegate" destination="-1" id="Jbo-9i-WK2"/>
                             </connections>
                         </collectionView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPu-e7-6Rw">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" placeholder="想去哪里？" translatesAutoresizingMaskIntoConstraints="NO" id="VYe-KZ-NvE">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="VYe-KZ-NvE" secondAttribute="trailing" id="5aC-ee-1zh"/>
+                                <constraint firstAttribute="height" constant="50" id="5qT-9y-nId"/>
+                                <constraint firstAttribute="bottom" secondItem="VYe-KZ-NvE" secondAttribute="bottom" id="HpS-Vr-uZs"/>
+                                <constraint firstItem="VYe-KZ-NvE" firstAttribute="leading" secondItem="gPu-e7-6Rw" secondAttribute="leading" id="gym-q4-4Rd"/>
+                                <constraint firstItem="VYe-KZ-NvE" firstAttribute="top" secondItem="gPu-e7-6Rw" secondAttribute="top" id="it0-PY-7Sl"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="gPu-e7-6Rw" secondAttribute="trailing" id="0mf-Xv-4Wf"/>
                         <constraint firstAttribute="trailing" secondItem="6Xv-wl-eBl" secondAttribute="trailing" id="9bL-wo-kh6"/>
                         <constraint firstAttribute="trailing" secondItem="ZLm-cy-aso" secondAttribute="trailing" id="DPN-Ys-Pc2"/>
                         <constraint firstItem="obm-0u-VSM" firstAttribute="top" secondItem="6Xv-wl-eBl" secondAttribute="bottom" id="EhH-wI-0is"/>
                         <constraint firstItem="ZLm-cy-aso" firstAttribute="leading" secondItem="913-Ae-13Y" secondAttribute="leading" id="Q8K-CQ-4Hu"/>
                         <constraint firstItem="BxT-vX-uQa" firstAttribute="top" secondItem="ZLm-cy-aso" secondAttribute="bottom" id="X4S-0x-S3a"/>
                         <constraint firstAttribute="bottom" secondItem="obm-0u-VSM" secondAttribute="bottom" id="Y0j-mg-h5u"/>
-                        <constraint firstItem="ZLm-cy-aso" firstAttribute="top" secondItem="913-Ae-13Y" secondAttribute="top" id="al6-Kt-9EE"/>
+                        <constraint firstItem="gPu-e7-6Rw" firstAttribute="leading" secondItem="913-Ae-13Y" secondAttribute="leading" id="ZQA-sD-1L4"/>
                         <constraint firstItem="ZLm-cy-aso" firstAttribute="width" secondItem="913-Ae-13Y" secondAttribute="width" id="ays-yt-v1I"/>
+                        <constraint firstItem="ZLm-cy-aso" firstAttribute="top" secondItem="gPu-e7-6Rw" secondAttribute="bottom" id="ew0-t9-nwK"/>
+                        <constraint firstItem="gPu-e7-6Rw" firstAttribute="top" secondItem="913-Ae-13Y" secondAttribute="top" id="g0U-Fq-a5U"/>
                         <constraint firstItem="BxT-vX-uQa" firstAttribute="leading" secondItem="913-Ae-13Y" secondAttribute="leading" id="ko5-FG-DWb"/>
                         <constraint firstItem="obm-0u-VSM" firstAttribute="leading" secondItem="913-Ae-13Y" secondAttribute="leading" id="lvz-CG-4xO"/>
                         <constraint firstItem="6Xv-wl-eBl" firstAttribute="leading" secondItem="913-Ae-13Y" secondAttribute="leading" id="mkO-x1-fIJ"/>
@@ -128,6 +148,7 @@
                 <constraint firstAttribute="trailing" secondItem="913-Ae-13Y" secondAttribute="trailing" id="cF8-Xe-e9g"/>
                 <constraint firstItem="913-Ae-13Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fec-Sl-YtA"/>
             </constraints>
+            <point key="canvasLocation" x="32.5" y="71.5"/>
         </view>
     </objects>
 </document>

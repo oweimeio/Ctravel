@@ -10,6 +10,9 @@
 
 @interface FavDetailViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *picImageView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -33,5 +36,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *exPeopleCount;
 
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+
+@property (strong, nonatomic) NSDictionary *dataSource;
 
 @end

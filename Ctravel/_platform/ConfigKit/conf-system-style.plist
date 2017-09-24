@@ -7,7 +7,7 @@
 		<key>name</key>
 		<string>UIStatusBarStyle 样式</string>
 		<key>conf-value</key>
-		<string>1</string>
+		<string>0</string>
 	</dict>
 	<key>sys-navbar-bar-tint-color</key>
 	<dict>

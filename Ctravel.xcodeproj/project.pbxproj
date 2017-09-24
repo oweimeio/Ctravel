@@ -27,6 +27,18 @@
 		FA663D3E1F765F48001C6F25 /* ServerMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA663D3C1F765F48001C6F25 /* ServerMessageViewController.xib */; };
 		FA663D431F774A16001C6F25 /* CreatePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA663D411F774A16001C6F25 /* CreatePageViewController.m */; };
 		FA663D441F774A16001C6F25 /* CreatePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA663D421F774A16001C6F25 /* CreatePageViewController.xib */; };
+		FA663D491F77CE56001C6F25 /* EvaluationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA663D471F77CE56001C6F25 /* EvaluationViewController.m */; };
+		FA663D4A1F77CE56001C6F25 /* EvaluationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA663D481F77CE56001C6F25 /* EvaluationViewController.xib */; };
+		FA663D4E1F77D011001C6F25 /* EvaluationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA663D4C1F77D011001C6F25 /* EvaluationCell.m */; };
+		FA663D4F1F77D011001C6F25 /* EvaluationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA663D4D1F77D011001C6F25 /* EvaluationCell.xib */; };
+		FA663D541F77D39F001C6F25 /* WatchDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA663D521F77D39F001C6F25 /* WatchDateCell.m */; };
+		FA663D551F77D39F001C6F25 /* WatchDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA663D531F77D39F001C6F25 /* WatchDateCell.xib */; };
+		FA663D591F77D3B3001C6F25 /* WatchDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA663D571F77D3B3001C6F25 /* WatchDateViewController.m */; };
+		FA663D5A1F77D3B3001C6F25 /* WatchDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA663D581F77D3B3001C6F25 /* WatchDateViewController.xib */; };
+		FA663D5F1F77DD68001C6F25 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA663D5D1F77DD68001C6F25 /* ProfileDetailViewController.m */; };
+		FA663D601F77DD68001C6F25 /* ProfileDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA663D5E1F77DD68001C6F25 /* ProfileDetailViewController.xib */; };
+		FA663D641F77E2BD001C6F25 /* ProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA663D621F77E2BD001C6F25 /* ProfileEditViewController.m */; };
+		FA663D651F77E2BD001C6F25 /* ProfileEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA663D631F77E2BD001C6F25 /* ProfileEditViewController.xib */; };
 		FAA4233D1F70006500C3736F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4233C1F70006500C3736F /* main.m */; };
 		FAA423401F70006500C3736F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4233F1F70006500C3736F /* AppDelegate.m */; };
 		FAA423431F70006500C3736F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423421F70006500C3736F /* ViewController.m */; };
@@ -98,6 +110,24 @@
 		FA663D401F774A16001C6F25 /* CreatePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePageViewController.h; sourceTree = "<group>"; };
 		FA663D411F774A16001C6F25 /* CreatePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePageViewController.m; sourceTree = "<group>"; };
 		FA663D421F774A16001C6F25 /* CreatePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatePageViewController.xib; sourceTree = "<group>"; };
+		FA663D461F77CE56001C6F25 /* EvaluationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluationViewController.h; sourceTree = "<group>"; };
+		FA663D471F77CE56001C6F25 /* EvaluationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluationViewController.m; sourceTree = "<group>"; };
+		FA663D481F77CE56001C6F25 /* EvaluationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluationViewController.xib; sourceTree = "<group>"; };
+		FA663D4B1F77D011001C6F25 /* EvaluationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluationCell.h; sourceTree = "<group>"; };
+		FA663D4C1F77D011001C6F25 /* EvaluationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluationCell.m; sourceTree = "<group>"; };
+		FA663D4D1F77D011001C6F25 /* EvaluationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluationCell.xib; sourceTree = "<group>"; };
+		FA663D511F77D39F001C6F25 /* WatchDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchDateCell.h; sourceTree = "<group>"; };
+		FA663D521F77D39F001C6F25 /* WatchDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchDateCell.m; sourceTree = "<group>"; };
+		FA663D531F77D39F001C6F25 /* WatchDateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchDateCell.xib; sourceTree = "<group>"; };
+		FA663D561F77D3B3001C6F25 /* WatchDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchDateViewController.h; sourceTree = "<group>"; };
+		FA663D571F77D3B3001C6F25 /* WatchDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchDateViewController.m; sourceTree = "<group>"; };
+		FA663D581F77D3B3001C6F25 /* WatchDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchDateViewController.xib; sourceTree = "<group>"; };
+		FA663D5C1F77DD68001C6F25 /* ProfileDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailViewController.h; sourceTree = "<group>"; };
+		FA663D5D1F77DD68001C6F25 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
+		FA663D5E1F77DD68001C6F25 /* ProfileDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileDetailViewController.xib; sourceTree = "<group>"; };
+		FA663D611F77E2BD001C6F25 /* ProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditViewController.h; sourceTree = "<group>"; };
+		FA663D621F77E2BD001C6F25 /* ProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditViewController.m; sourceTree = "<group>"; };
+		FA663D631F77E2BD001C6F25 /* ProfileEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEditViewController.xib; sourceTree = "<group>"; };
 		FAA423381F70006500C3736F /* Ctravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ctravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA4233C1F70006500C3736F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FAA4233E1F70006500C3736F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -293,6 +323,45 @@
 			path = pages;
 			sourceTree = "<group>";
 		};
+		FA663D451F77CE37001C6F25 /* evaluation */ = {
+			isa = PBXGroup;
+			children = (
+				FA663D461F77CE56001C6F25 /* EvaluationViewController.h */,
+				FA663D471F77CE56001C6F25 /* EvaluationViewController.m */,
+				FA663D481F77CE56001C6F25 /* EvaluationViewController.xib */,
+				FA663D4B1F77D011001C6F25 /* EvaluationCell.h */,
+				FA663D4C1F77D011001C6F25 /* EvaluationCell.m */,
+				FA663D4D1F77D011001C6F25 /* EvaluationCell.xib */,
+			);
+			path = evaluation;
+			sourceTree = "<group>";
+		};
+		FA663D501F77D38D001C6F25 /* watchDate */ = {
+			isa = PBXGroup;
+			children = (
+				FA663D511F77D39F001C6F25 /* WatchDateCell.h */,
+				FA663D521F77D39F001C6F25 /* WatchDateCell.m */,
+				FA663D531F77D39F001C6F25 /* WatchDateCell.xib */,
+				FA663D561F77D3B3001C6F25 /* WatchDateViewController.h */,
+				FA663D571F77D3B3001C6F25 /* WatchDateViewController.m */,
+				FA663D581F77D3B3001C6F25 /* WatchDateViewController.xib */,
+			);
+			path = watchDate;
+			sourceTree = "<group>";
+		};
+		FA663D5B1F77DD51001C6F25 /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				FA663D5C1F77DD68001C6F25 /* ProfileDetailViewController.h */,
+				FA663D5D1F77DD68001C6F25 /* ProfileDetailViewController.m */,
+				FA663D5E1F77DD68001C6F25 /* ProfileDetailViewController.xib */,
+				FA663D611F77E2BD001C6F25 /* ProfileEditViewController.h */,
+				FA663D621F77E2BD001C6F25 /* ProfileEditViewController.m */,
+				FA663D631F77E2BD001C6F25 /* ProfileEditViewController.xib */,
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
 		FAA4232F1F70006500C3736F = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +519,7 @@
 		FAA423751F700F9C00C3736F /* profile */ = {
 			isa = PBXGroup;
 			children = (
+				FA663D5B1F77DD51001C6F25 /* detail */,
 				FAA423AA1F740C8600C3736F /* master */,
 				FAA423AB1F740C8600C3736F /* help */,
 				FAA423AC1F740C8600C3736F /* setting */,
@@ -485,6 +555,8 @@
 			isa = PBXGroup;
 			children = (
 				FA663D191F761744001C6F25 /* favDetail */,
+				FA663D451F77CE37001C6F25 /* evaluation */,
+				FA663D501F77D38D001C6F25 /* watchDate */,
 				FAA423851F70159200C3736F /* FavoriteViewController.h */,
 				FAA423861F70159200C3736F /* FavoriteViewController.m */,
 				FAA423871F70159200C3736F /* FavoriteViewController.xib */,
@@ -637,11 +709,15 @@
 				657D87DD1F70F05B00CD17DE /* com.huaaotech.core.conf.plist in Resources */,
 				FAA423931F7015DD00C3736F /* ClientOrderViewController.xib in Resources */,
 				FAA423B11F740CA400C3736F /* SettingViewController.xib in Resources */,
+				FA663D601F77DD68001C6F25 /* ProfileDetailViewController.xib in Resources */,
 				FAA423C11F7414B600C3736F /* HotDestinationCell.xib in Resources */,
 				FAA4234B1F70006500C3736F /* LaunchScreen.storyboard in Resources */,
+				FA663D5A1F77D3B3001C6F25 /* WatchDateViewController.xib in Resources */,
 				FAA423BB1F740CC400C3736F /* MasterViewController.xib in Resources */,
+				FA663D4F1F77D011001C6F25 /* EvaluationCell.xib in Resources */,
 				FAA423B61F740CB800C3736F /* HelpViewController.xib in Resources */,
 				FA663D391F765F35001C6F25 /* ServerProfileViewController.xib in Resources */,
+				FA663D551F77D39F001C6F25 /* WatchDateCell.xib in Resources */,
 				FAA423891F70159200C3736F /* FavoriteViewController.xib in Resources */,
 				FA663D441F774A16001C6F25 /* CreatePageViewController.xib in Resources */,
 				FA663D3E1F765F48001C6F25 /* ServerMessageViewController.xib in Resources */,
@@ -650,12 +726,14 @@
 				657D87DC1F70F05B00CD17DE /* conf-system-style.plist in Resources */,
 				FA663D1E1F761756001C6F25 /* FavDetailViewController.xib in Resources */,
 				FA663D341F765F21001C6F25 /* ServerOrderViewController.xib in Resources */,
+				FA663D651F77E2BD001C6F25 /* ProfileEditViewController.xib in Resources */,
 				FAA423981F7015F400C3736F /* ClientProfileViewController.xib in Resources */,
 				FAA4239D1F70162500C3736F /* ClientMainPageViewController.xib in Resources */,
 				FAA423461F70006500C3736F /* Main.storyboard in Resources */,
 				FA05D8041F7541AA00893EE3 /* ClientMsgCell.xib in Resources */,
 				FAA4238E1F7015C800C3736F /* ClientMsgViewController.xib in Resources */,
 				FAA423C61F7414D100C3736F /* HotExperienceCell.xib in Resources */,
+				FA663D4A1F77CE56001C6F25 /* EvaluationViewController.xib in Resources */,
 				FAA4237F1F7010E000C3736F /* LoginChooseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,6 +848,7 @@
 				FA663D3D1F765F48001C6F25 /* ServerMessageViewController.m in Sources */,
 				FAA4235D1F700A4900C3736F /* Const.m in Sources */,
 				FAA423971F7015F400C3736F /* ClientProfileViewController.m in Sources */,
+				FA663D4E1F77D011001C6F25 /* EvaluationCell.m in Sources */,
 				FAA423A61F71498A00C3736F /* CoreAPI.m in Sources */,
 				FAA423A11F701AEA00C3736F /* LoginViewController.m in Sources */,
 				FAA423401F70006500C3736F /* AppDelegate.m in Sources */,
@@ -778,14 +857,19 @@
 				FA663D1D1F761756001C6F25 /* FavDetailViewController.m in Sources */,
 				FAA423671F700B3E00C3736F /* JJMainScrollView.m in Sources */,
 				FAA423C01F7414B600C3736F /* HotDestinationCell.m in Sources */,
+				FA663D641F77E2BD001C6F25 /* ProfileEditViewController.m in Sources */,
 				FAA4238D1F7015C800C3736F /* ClientMsgViewController.m in Sources */,
 				FA663D291F765EFA001C6F25 /* ServerMainViewController.m in Sources */,
 				FA663D2E1F765F0F001C6F25 /* DateViewController.m in Sources */,
+				FA663D5F1F77DD68001C6F25 /* ProfileDetailViewController.m in Sources */,
 				FAA4237E1F7010E000C3736F /* LoginChooseViewController.m in Sources */,
 				FA05D8031F7541AA00893EE3 /* ClientMsgCell.m in Sources */,
 				FAA423A91F7167E100C3736F /* User.m in Sources */,
 				FA663D381F765F35001C6F25 /* ServerProfileViewController.m in Sources */,
+				FA663D541F77D39F001C6F25 /* WatchDateCell.m in Sources */,
 				FAA423691F700B3E00C3736F /* JJPhoto.m in Sources */,
+				FA663D491F77CE56001C6F25 /* EvaluationViewController.m in Sources */,
+				FA663D591F77D3B3001C6F25 /* WatchDateViewController.m in Sources */,
 				FAA4233D1F70006500C3736F /* main.m in Sources */,
 				FAA423881F70159200C3736F /* FavoriteViewController.m in Sources */,
 				FAA423B01F740CA400C3736F /* SettingViewController.m in Sources */,
