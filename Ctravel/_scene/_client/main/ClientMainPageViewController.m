@@ -50,11 +50,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"热门";
+    //self.navigationItem.title = @"热门";
+    [self.navigationController.view addSubview:[UISearchBar new]];
     
     [self.hotDestinationView registerNib:[UINib nibWithNibName:@"HotDestinationCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotDestinationCellInIdentifier];
     
     [self.hotExperienceView registerNib:[UINib nibWithNibName:@"HotExperienceCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotExperienceCellInIdentifier];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    NSDictionary *params = @{
+//                             @"token":[HAApp current].atoken
+//                             };
+//    [[CoreAPI core] GETURLString:@"/hot/hotDestinationExperience" withParameters:params success:^(id ret) {
+//        
+//    } error:^(NSString *code, NSString *msg, id ret) {
+//        
+//    } failure:^(NSError *error) {
+//        
+//    }];
 }
 
 //MARK:COLLECTIONDEGATE &DATASOURCE
@@ -101,7 +116,7 @@
         return (CGSize){110, 100};
     }
     else if (collectionView == _hotExperienceView) {
-        return (CGSize){(WIDTH - 40) * 0.5, (WIDTH - 40) * 0.5 *5/3};
+        return (CGSize){(WIDTH - 40) * 0.5, (WIDTH - 40) * 0.5 *284/168};
     }
     return (CGSize){0, 0};
 }

@@ -19,8 +19,16 @@
 #import "LoginChooseViewController.h"
 #import "LoginViewController.h"
 
+#import "FavDetailViewController.h"
 
 
 
+#import "ServerMainViewController.h"
+#import "DateViewController.h"
+#import "ServerMessageViewController.h"
+#import "ServerOrderViewController.h"
+#import "ServerProfileViewController.h"
+
+#import "CreatePageViewController.h"
 
 #endif /* Views_h */

@@ -86,10 +86,10 @@
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="obm-0u-VSM">
-                            <rect key="frame" x="0.0" y="220" width="375" height="250"/>
+                            <rect key="frame" x="0.0" y="220" width="375" height="280"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="obm-0u-VSM" secondAttribute="height" multiplier="3:2" id="qi9-TT-EIZ"/>
+                                <constraint firstAttribute="width" secondItem="obm-0u-VSM" secondAttribute="height" multiplier="375:280" id="qi9-TT-EIZ"/>
                             </constraints>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0H7-et-7nv">
                                 <size key="itemSize" width="50" height="50"/>

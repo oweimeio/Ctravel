@@ -7,6 +7,8 @@
 //
 
 #import "FavoriteViewController.h"
+#import "PreHeader.h"
+#import "HotExperienceCell.h"
 
 @interface FavoriteViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -17,6 +19,16 @@
 @end
 
 @implementation FavoriteViewController
+
+- (NSArray *)dataSource {
+    if (!_dataSource) {
+        _dataSource = @[
+                        @{@"title":@"罗马", @"imgUrl":@"http://imgstore.cdn.sogou.com/app/a/100540002/714860.jpg"},
+                        @{@"title":@"罗马", @"imgUrl":@"http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/06/ChMkJlbKyiCIYAW0AA6U_PRWkBcAALIXAL8oScADpUU566.jpg"},
+                        @{@"title":@"罗马", @"imgUrl":@"http://imgstore.cdn.sogou.com/app/a/100540002/714860.jpg"}];
+    }
+    return _dataSource;
+}
 
 - (instancetype)init {
     if (self = [super initWithNibName:@"FavoriteViewController" bundle:[NSBundle mainBundle]]) {
@@ -29,6 +41,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"收藏";
+    
+    [self.favCollectionView registerNib:[UINib nibWithNibName:@"HotExperienceCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotExperienceCellInIdentifier];
+    
+    //请求获取列表
+    [self requestListData];
+}
+
+//MARK: - METHOD
+- (void)requestListData {
+    NSDictionary *param = @{};
+    [[CoreAPI core] GETURLString:@"" withParameters:param success:^(id ret) {
+        
+    } error:^(NSString *code, NSString *msg, id ret) {
+        [SVProgressHUD showErrorWithStatus:msg];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 //MARK:COLLECTIONDEGATE &DATASOURCE
@@ -41,11 +70,22 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    HotExperienceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:hotExperienceCellInIdentifier forIndexPath:indexPath];
+    __weak NSDictionary *dataSource = self.dataSource[indexPath.row];
+    cell.dataSource = dataSource;
+    return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [self.navigationController pushViewController:[FavDetailViewController new] animated:YES];
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    return (CGSize){(WIDTH - 30) * 0.5, (WIDTH - 30) * 0.5 *284/168};
+   
 }
 
 - (void)didReceiveMemoryWarning {

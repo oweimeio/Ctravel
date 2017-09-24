@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,7 +28,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TVQ-aO-3PK">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav-right" translatesAutoresizingMaskIntoConstraints="NO" id="TVQ-aO-3PK">
                             <rect key="frame" x="350" y="19" width="13" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="13" id="K2l-qK-dLg"/>
@@ -54,6 +54,9 @@
                         <constraint firstItem="gQn-ws-QaP" firstAttribute="leading" secondItem="sDR-A2-FrA" secondAttribute="leading" constant="12" id="vWw-Ha-WeW"/>
                         <constraint firstItem="TVQ-aO-3PK" firstAttribute="centerY" secondItem="sDR-A2-FrA" secondAttribute="centerY" id="zTL-k3-fdV"/>
                     </constraints>
+                    <connections>
+                        <action selector="commonViewPress:" destination="-1" eventType="touchUpInside" id="yjF-Ab-2Eq"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9b-iR-HfH" customClass="UIControl">
                     <rect key="frame" x="0.0" y="150" width="375" height="50"/>
@@ -64,7 +67,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VcS-zV-RHc">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav-right" translatesAutoresizingMaskIntoConstraints="NO" id="VcS-zV-RHc">
                             <rect key="frame" x="350" y="19" width="13" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="13" id="MFO-QL-qUo"/>
@@ -90,6 +93,9 @@
                         <constraint firstAttribute="height" constant="50" id="n9c-iF-sru"/>
                         <constraint firstAttribute="trailing" secondItem="VcS-zV-RHc" secondAttribute="trailing" constant="12" id="oQm-77-ITT"/>
                     </constraints>
+                    <connections>
+                        <action selector="aboutViewPress:" destination="-1" eventType="touchUpInside" id="dKv-gg-tNA"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXe-wN-ZhR" customClass="UIControl">
                     <rect key="frame" x="0.0" y="200" width="375" height="50"/>
@@ -117,6 +123,9 @@
                         <constraint firstAttribute="bottom" secondItem="cuJ-9G-nDb" secondAttribute="bottom" id="q6e-KH-xU4"/>
                         <constraint firstAttribute="height" constant="50" id="wVf-cS-ud9"/>
                     </constraints>
+                    <connections>
+                        <action selector="logoutViewPress:" destination="-1" eventType="touchUpInside" id="cy8-oC-gDV"/>
+                    </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -134,4 +143,7 @@
             <point key="canvasLocation" x="32.5" y="71.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="nav-right" width="13" height="13"/>
+    </resources>
 </document>

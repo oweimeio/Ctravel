@@ -13,26 +13,26 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HotExperienceCell">
-            <rect key="frame" x="0.0" y="0.0" width="174" height="299"/>
+            <rect key="frame" x="0.0" y="0.0" width="168" height="284"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="174" height="299"/>
+                <rect key="frame" x="0.0" y="0.0" width="168" height="284"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X2m-xn-NPI">
-                        <rect key="frame" x="0.0" y="0.0" width="174" height="244"/>
+                        <rect key="frame" x="0.0" y="0.0" width="168" height="235.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="X2m-xn-NPI" secondAttribute="height" multiplier="175:245" id="JIZ-Qk-nox"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WA0-1l-OjL">
-                        <rect key="frame" x="0.0" y="248.5" width="174" height="17"/>
+                        <rect key="frame" x="0.0" y="240" width="168" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="money" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zz-Uz-czJ">
-                        <rect key="frame" x="0.0" y="268.5" width="174" height="14.5"/>
+                        <rect key="frame" x="0.0" y="260" width="168" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -64,14 +64,14 @@
                 <constraint firstItem="Tdf-u6-7Mp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="s6y-3u-gan"/>
                 <constraint firstItem="8zz-Uz-czJ" firstAttribute="top" secondItem="WA0-1l-OjL" secondAttribute="bottom" constant="3" id="zYe-NR-gXt"/>
             </constraints>
-            <size key="customSize" width="174" height="299"/>
+            <size key="customSize" width="174" height="284"/>
             <connections>
                 <outlet property="heartButton" destination="Tdf-u6-7Mp" id="gfV-Ep-LRX"/>
                 <outlet property="moneyLabel" destination="8zz-Uz-czJ" id="xUd-4Y-dac"/>
                 <outlet property="nameLabel" destination="WA0-1l-OjL" id="SOa-bl-AAP"/>
                 <outlet property="picImageView" destination="X2m-xn-NPI" id="Q75-r6-7Bc"/>
             </connections>
-            <point key="canvasLocation" x="170" y="210.5"/>
+            <point key="canvasLocation" x="170" y="203"/>
         </collectionViewCell>
     </objects>
     <resources>

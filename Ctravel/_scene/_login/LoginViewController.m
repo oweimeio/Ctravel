@@ -88,7 +88,9 @@
 	
 	[self setViewStyle];
 	
-    [self.view endEditing:YES];
+    [self.view bk_whenTapped:^{
+        [self.view endEditing:YES];
+    }];
     
 	[self setInfo:_info];
 	
@@ -148,6 +150,8 @@
     }
 	else if (_type == LoginTypeLogin) {
         [self.view endEditing:YES];
+//        [[AppDelegate app] switchAppType:AppTypeResident];
+//        return;
 		NSDictionary *params = @{
 								 @"account": _phoneTextField.text,
 								 @"password": _passwordTextField.text,
@@ -155,6 +159,9 @@
 								 @"captchaId": @"",
 								 };
 		[[CoreAPI core] GETURLString:LOGIN_LOGIN withParameters:params success:^(id ret) {
+            NSLog(@"%@",ret);
+            [[HAApp current] setAtoken:ret[@"data"][@"token"]];
+            [User sharedUser].userId = ret[@"data"][@"userId"];
 			[[AppDelegate app] switchAppType:AppTypeResident];
 		} error:^(NSString *code, NSString *msg, id ret) {
             [SVProgressHUD showErrorWithStatus:msg];

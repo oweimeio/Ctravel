@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServerMainViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOK-Lu-WuE">
+                    <rect key="frame" x="30" y="0.0" width="53" height="31.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGv-iV-rjr">
+                    <rect key="frame" x="0.0" y="283.5" width="375" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="K92-dr-jLS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="创建一个您的体验活动吧！">
+                        <color key="titleColor" red="0.095196895300000001" green="0.5627550483" blue="0.70894265170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="goToCreatePage:" destination="-1" eventType="touchUpInside" id="ICb-zN-Cc0"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fGv-iV-rjr" secondAttribute="trailing" id="4Ej-QT-ra9"/>
+                <constraint firstItem="aOK-Lu-WuE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CuP-hJ-nVH"/>
+                <constraint firstItem="aOK-Lu-WuE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="DMe-eJ-D9U"/>
+                <constraint firstItem="fGv-iV-rjr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FvW-4a-cTe"/>
+                <constraint firstItem="fGv-iV-rjr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jAn-CQ-xek"/>
+                <constraint firstItem="fGv-iV-rjr" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-30" id="yWe-K2-6sx"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

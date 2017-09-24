@@ -54,31 +54,31 @@
             
             UINavigationController *cMain = [[UINavigationController alloc] initWithRootViewController:[[ClientMainPageViewController alloc] init]];
             cMain.tabBarItem.title = @"主页";
-            cMain.tabBarItem.image = [UIImage imageNamed:@"tab-watch-gray"];
-            cMain.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-watch-blue"];
+            cMain.tabBarItem.image = [UIImage imageNamed:@"tab-job-gray"];
+            cMain.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-job-blue"];
             
             
             UINavigationController *cFov = [[UINavigationController alloc] initWithRootViewController:[[FavoriteViewController alloc] init]];
             cFov.tabBarItem.title =@"收藏";
-            cFov.tabBarItem.image = [UIImage imageNamed:@"tab-warning-gray"];
-            cFov.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-warning-blue"];
+            cFov.tabBarItem.image = [UIImage imageNamed:@"empty-heart"];
+            cFov.tabBarItem.selectedImage = [UIImage imageNamed:@"solid-heart"];
             
             
             UINavigationController *cMsg = [[UINavigationController alloc] initWithRootViewController:[ClientMsgViewController new]];
             cMsg.title = @"消息";
-            cMsg.tabBarItem.image = [UIImage imageNamed:@"tab-findPolice-gray"];
-            cMsg.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-findPolice-blue"];
+            cMsg.tabBarItem.image = [UIImage imageNamed:@"tab-msg-gray"];
+            cMsg.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-msg-gray"];
             
             UINavigationController *cOrder = [[UINavigationController alloc] initWithRootViewController:[[ClientOrderViewController alloc] init]];
             cOrder.navigationBar.translucent = NO;
             cOrder.tabBarItem.title =@"订单";
-            cOrder.tabBarItem.image = [UIImage imageNamed:@"tab-work-gray"];
-            cOrder.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-work-blue"];
+            cOrder.tabBarItem.image = [UIImage imageNamed:@"tab-order-gray"];
+            cOrder.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-order-gray"];
             
             UINavigationController *cProfile = [[UINavigationController alloc] initWithRootViewController:[ClientProfileViewController new]];
             cProfile.tabBarItem.title = @"我的";
-            cProfile.tabBarItem.image = [UIImage imageNamed:@"tab-consultation-gray"];
-            cProfile.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-consultation-blue"];
+            cProfile.tabBarItem.image = [UIImage imageNamed:@"tab-me-gray"];
+            cProfile.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-me-blue"];
             
             tabs.viewControllers = @[cMain, cFov, cMsg, cOrder, cProfile];
             self.window.rootViewController = tabs;
@@ -93,7 +93,35 @@
             
             tabs = [[UITabBarController alloc] init];
             
-            tabs.viewControllers = @[];
+            UINavigationController *sMain = [[UINavigationController alloc] initWithRootViewController:[[ServerMainViewController alloc] init]];
+            sMain.tabBarItem.title = @"主页";
+            sMain.tabBarItem.image = [UIImage imageNamed:@"tab-job-gray"];
+            sMain.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-job-blue"];
+            
+            
+            UINavigationController *sDate = [[UINavigationController alloc] initWithRootViewController:[[DateViewController alloc] init]];
+            sDate.tabBarItem.title =@"日期";
+            sDate.tabBarItem.image = [UIImage imageNamed:@"empty-heart"];
+            sDate.tabBarItem.selectedImage = [UIImage imageNamed:@"solid-heart"];
+            
+            
+            UINavigationController *sMsg = [[UINavigationController alloc] initWithRootViewController:[ServerMessageViewController new]];
+            sMsg.title = @"消息";
+            sMsg.tabBarItem.image = [UIImage imageNamed:@"tab-msg-gray"];
+            sMsg.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-msg-gray"];
+            
+            UINavigationController *sOrder = [[UINavigationController alloc] initWithRootViewController:[[ServerOrderViewController alloc] init]];
+            sOrder.navigationBar.translucent = NO;
+            sOrder.tabBarItem.title =@"订单";
+            sOrder.tabBarItem.image = [UIImage imageNamed:@"tab-order-gray"];
+            sOrder.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-order-gray"];
+            
+            UINavigationController *sProfile = [[UINavigationController alloc] initWithRootViewController:[ServerProfileViewController new]];
+            sProfile.tabBarItem.title = @"我的";
+            sProfile.tabBarItem.image = [UIImage imageNamed:@"tab-me-gray"];
+            sProfile.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-me-blue"];
+            
+            tabs.viewControllers = @[sMain, sDate, sMsg, sOrder, sProfile];
             
             self.window.rootViewController = tabs;
             [HAApp current].appType = AppTypePolice;

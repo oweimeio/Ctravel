@@ -10,6 +10,7 @@
 #import "SettingViewController.h"
 #import "HelpViewController.h"
 #import "MasterViewController.h"
+#import "PreHeader.h"
 
 @interface ClientProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *avatarBtn;
@@ -42,8 +43,9 @@
 }
 
 - (IBAction)masterViewPress:(id)sender {
-    [self.navigationController pushViewController:[MasterViewController new
-                                                   ] animated:YES];
+//    [self.navigationController pushViewController:[MasterViewController new
+//                                                   ] animated:YES];
+    [[AppDelegate app] switchAppType:AppTypePolice];
 }
 
 
