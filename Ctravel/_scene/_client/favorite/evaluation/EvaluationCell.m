@@ -9,7 +9,7 @@
 #import "EvaluationCell.h"
 #import "PreHeader.h"
 
-NSString *const EvaluationCellInIdentifier = @"EvaluationCellInIdentifier";
+NSString *const EvaluationCellIdentifier = @"EvaluationCellIdentifier";
 
 @implementation EvaluationCell
 

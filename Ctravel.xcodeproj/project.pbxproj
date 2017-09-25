@@ -76,6 +76,14 @@
 		FAA423C11F7414B600C3736F /* HotDestinationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423BF1F7414B600C3736F /* HotDestinationCell.xib */; };
 		FAA423C51F7414D100C3736F /* HotExperienceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423C31F7414D100C3736F /* HotExperienceCell.m */; };
 		FAA423C61F7414D100C3736F /* HotExperienceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA423C41F7414D100C3736F /* HotExperienceCell.xib */; };
+		FAEE5A0A1F792D8A00874A49 /* ClientOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE5A081F792D8A00874A49 /* ClientOrderCell.m */; };
+		FAEE5A0B1F792D8A00874A49 /* ClientOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE5A091F792D8A00874A49 /* ClientOrderCell.xib */; };
+		FAEE5A101F79313200874A49 /* ClientOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE5A0E1F79313200874A49 /* ClientOrderListViewController.m */; };
+		FAEE5A111F79313200874A49 /* ClientOrderListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE5A0F1F79313200874A49 /* ClientOrderListViewController.xib */; };
+		FAEE5A161F793DBB00874A49 /* IDValidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE5A141F793DBB00874A49 /* IDValidViewController.m */; };
+		FAEE5A171F793DBB00874A49 /* IDValidViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE5A151F793DBB00874A49 /* IDValidViewController.xib */; };
+		FAEE5A1C1F79422600874A49 /* CommonDesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE5A1A1F79422600874A49 /* CommonDesViewController.m */; };
+		FAEE5A1D1F79422600874A49 /* CommonDesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE5A1B1F79422600874A49 /* CommonDesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,6 +200,18 @@
 		FAA423C21F7414D100C3736F /* HotExperienceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotExperienceCell.h; sourceTree = "<group>"; };
 		FAA423C31F7414D100C3736F /* HotExperienceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotExperienceCell.m; sourceTree = "<group>"; };
 		FAA423C41F7414D100C3736F /* HotExperienceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotExperienceCell.xib; sourceTree = "<group>"; };
+		FAEE5A071F792D8A00874A49 /* ClientOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientOrderCell.h; sourceTree = "<group>"; };
+		FAEE5A081F792D8A00874A49 /* ClientOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientOrderCell.m; sourceTree = "<group>"; };
+		FAEE5A091F792D8A00874A49 /* ClientOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientOrderCell.xib; sourceTree = "<group>"; };
+		FAEE5A0D1F79313200874A49 /* ClientOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientOrderListViewController.h; sourceTree = "<group>"; };
+		FAEE5A0E1F79313200874A49 /* ClientOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientOrderListViewController.m; sourceTree = "<group>"; };
+		FAEE5A0F1F79313200874A49 /* ClientOrderListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientOrderListViewController.xib; sourceTree = "<group>"; };
+		FAEE5A131F793DBB00874A49 /* IDValidViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDValidViewController.h; sourceTree = "<group>"; };
+		FAEE5A141F793DBB00874A49 /* IDValidViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDValidViewController.m; sourceTree = "<group>"; };
+		FAEE5A151F793DBB00874A49 /* IDValidViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDValidViewController.xib; sourceTree = "<group>"; };
+		FAEE5A191F79422600874A49 /* CommonDesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDesViewController.h; sourceTree = "<group>"; };
+		FAEE5A1A1F79422600874A49 /* CommonDesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonDesViewController.m; sourceTree = "<group>"; };
+		FAEE5A1B1F79422600874A49 /* CommonDesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonDesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +302,7 @@
 		FA663D231F765E98001C6F25 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				FAEE5A181F79421400874A49 /* commonDes */,
 				FA663D3F1F7749D7001C6F25 /* pages */,
 				FA663D261F765EFA001C6F25 /* ServerMainViewController.h */,
 				FA663D271F765EFA001C6F25 /* ServerMainViewController.m */,
@@ -349,6 +370,7 @@
 		FA663D5B1F77DD51001C6F25 /* detail */ = {
 			isa = PBXGroup;
 			children = (
+				FAEE5A121F793DAC00874A49 /* idValid */,
 				FA663D5C1F77DD68001C6F25 /* ProfileDetailViewController.h */,
 				FA663D5D1F77DD68001C6F25 /* ProfileDetailViewController.m */,
 				FA663D5E1F77DD68001C6F25 /* ProfileDetailViewController.xib */,
@@ -528,6 +550,8 @@
 		FAA423761F700F9C00C3736F /* order */ = {
 			isa = PBXGroup;
 			children = (
+				FAEE5A0C1F79311900874A49 /* orderList */,
+				FAEE5A061F792D6D00874A49 /* orderCell */,
 				FAA4238F1F7015DD00C3736F /* ClientOrderViewController.h */,
 				FAA423901F7015DD00C3736F /* ClientOrderViewController.m */,
 				FAA423911F7015DD00C3736F /* ClientOrderViewController.xib */,
@@ -637,6 +661,46 @@
 			path = collectionCell;
 			sourceTree = "<group>";
 		};
+		FAEE5A061F792D6D00874A49 /* orderCell */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE5A071F792D8A00874A49 /* ClientOrderCell.h */,
+				FAEE5A081F792D8A00874A49 /* ClientOrderCell.m */,
+				FAEE5A091F792D8A00874A49 /* ClientOrderCell.xib */,
+			);
+			path = orderCell;
+			sourceTree = "<group>";
+		};
+		FAEE5A0C1F79311900874A49 /* orderList */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE5A0D1F79313200874A49 /* ClientOrderListViewController.h */,
+				FAEE5A0E1F79313200874A49 /* ClientOrderListViewController.m */,
+				FAEE5A0F1F79313200874A49 /* ClientOrderListViewController.xib */,
+			);
+			path = orderList;
+			sourceTree = "<group>";
+		};
+		FAEE5A121F793DAC00874A49 /* idValid */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE5A131F793DBB00874A49 /* IDValidViewController.h */,
+				FAEE5A141F793DBB00874A49 /* IDValidViewController.m */,
+				FAEE5A151F793DBB00874A49 /* IDValidViewController.xib */,
+			);
+			path = idValid;
+			sourceTree = "<group>";
+		};
+		FAEE5A181F79421400874A49 /* commonDes */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE5A191F79422600874A49 /* CommonDesViewController.h */,
+				FAEE5A1A1F79422600874A49 /* CommonDesViewController.m */,
+				FAEE5A1B1F79422600874A49 /* CommonDesViewController.xib */,
+			);
+			path = commonDes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -699,6 +763,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEE5A1D1F79422600874A49 /* CommonDesViewController.xib in Resources */,
 				FA663D2A1F765EFA001C6F25 /* ServerMainViewController.xib in Resources */,
 				FAA423A21F701AEA00C3736F /* LoginViewController.xib in Resources */,
 				657D87DD1F70F05B00CD17DE /* com.huaaotech.core.conf.plist in Resources */,
@@ -728,8 +793,11 @@
 				FA05D8041F7541AA00893EE3 /* ClientMsgCell.xib in Resources */,
 				FAA4238E1F7015C800C3736F /* ClientMsgViewController.xib in Resources */,
 				FAA423C61F7414D100C3736F /* HotExperienceCell.xib in Resources */,
+				FAEE5A111F79313200874A49 /* ClientOrderListViewController.xib in Resources */,
 				FA663D4A1F77CE56001C6F25 /* EvaluationViewController.xib in Resources */,
 				FAA4237F1F7010E000C3736F /* LoginChooseViewController.xib in Resources */,
+				FAEE5A171F793DBB00874A49 /* IDValidViewController.xib in Resources */,
+				FAEE5A0B1F792D8A00874A49 /* ClientOrderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,8 +912,11 @@
 				FAA423971F7015F400C3736F /* ClientProfileViewController.m in Sources */,
 				FA663D4E1F77D011001C6F25 /* EvaluationCell.m in Sources */,
 				FAA423A61F71498A00C3736F /* CoreAPI.m in Sources */,
+				FAEE5A161F793DBB00874A49 /* IDValidViewController.m in Sources */,
 				FAA423A11F701AEA00C3736F /* LoginViewController.m in Sources */,
 				FAA423401F70006500C3736F /* AppDelegate.m in Sources */,
+				FAEE5A1C1F79422600874A49 /* CommonDesViewController.m in Sources */,
+				FAEE5A101F79313200874A49 /* ClientOrderListViewController.m in Sources */,
 				FAA423721F700B9500C3736F /* EmptyDataView.m in Sources */,
 				FAA4239C1F70162500C3736F /* ClientMainPageViewController.m in Sources */,
 				FA663D1D1F761756001C6F25 /* FavDetailViewController.m in Sources */,
@@ -855,6 +926,7 @@
 				FAA4238D1F7015C800C3736F /* ClientMsgViewController.m in Sources */,
 				FA663D291F765EFA001C6F25 /* ServerMainViewController.m in Sources */,
 				FA663D2E1F765F0F001C6F25 /* DateViewController.m in Sources */,
+				FAEE5A0A1F792D8A00874A49 /* ClientOrderCell.m in Sources */,
 				FA663D5F1F77DD68001C6F25 /* ProfileDetailViewController.m in Sources */,
 				FAA4237E1F7010E000C3736F /* LoginChooseViewController.m in Sources */,
 				FA05D8031F7541AA00893EE3 /* ClientMsgCell.m in Sources */,

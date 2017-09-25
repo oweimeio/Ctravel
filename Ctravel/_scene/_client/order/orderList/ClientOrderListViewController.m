@@ -1,28 +1,29 @@
-
 //
-//  ProfileEditViewController.m
+//  ClientOrderListViewController.m
 //  Ctravel
 //
-//  Created by apple on 2017/9/24.
+//  Created by apple on 2017/9/25.
 //  Copyright © 2017年 apple. All rights reserved.
 //
 
-#import "ProfileEditViewController.h"
+#import "ClientOrderListViewController.h"
 
-@interface ProfileEditViewController ()
+@interface ClientOrderListViewController ()
 
 @end
 
-@implementation ProfileEditViewController
+@implementation ClientOrderListViewController
+
+- (instancetype)init {
+    if (self = [super initWithNibName:@"ClientOrderListViewController" bundle:[NSBundle mainBundle]]) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-}
-
-//MARK: - ACTION
-
-- (IBAction)idValidBtnClick:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning {

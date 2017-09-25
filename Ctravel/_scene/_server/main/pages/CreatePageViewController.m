@@ -8,6 +8,7 @@
 
 #import "CreatePageViewController.h"
 #import "PreHeader.h"
+#import "CommonDesViewController.h"
 
 @interface CreatePageViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -86,6 +87,9 @@
 }
 
 - (IBAction)showTipViewPress:(id)sender {
+    CommonDesViewController *commonVc = [CommonDesViewController new];
+    commonVc.type = CommonDesTypeStyle;
+    [self presentViewController:commonVc animated:YES completion:nil];
 }
 
 //MARK: - METHOD

@@ -31,7 +31,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.tableView registerNib:[UINib nibWithNibName:@"EvaluationCell" bundle:[NSBundle mainBundle
-                                                                  ]] forCellReuseIdentifier:EvaluationCellInIdentifier];
+                                                                  ]] forCellReuseIdentifier:EvaluationCellIdentifier];
     
     self.tableView.tableFooterView = [UIView new];
 }
@@ -45,7 +45,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    EvaluationCell *cell = [tableView dequeueReusableCellWithIdentifier:EvaluationCellInIdentifier forIndexPath:indexPath];
+    EvaluationCell *cell = [tableView dequeueReusableCellWithIdentifier:EvaluationCellIdentifier forIndexPath:indexPath];
     return cell;
 }
 

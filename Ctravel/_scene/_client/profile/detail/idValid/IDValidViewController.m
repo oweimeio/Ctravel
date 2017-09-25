@@ -1,28 +1,22 @@
-
 //
-//  ProfileEditViewController.m
+//  IDValidViewController.m
 //  Ctravel
 //
-//  Created by apple on 2017/9/24.
+//  Created by apple on 2017/9/25.
 //  Copyright © 2017年 apple. All rights reserved.
 //
 
-#import "ProfileEditViewController.h"
+#import "IDValidViewController.h"
 
-@interface ProfileEditViewController ()
+@interface IDValidViewController ()
 
 @end
 
-@implementation ProfileEditViewController
+@implementation IDValidViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-}
-
-//MARK: - ACTION
-
-- (IBAction)idValidBtnClick:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning {

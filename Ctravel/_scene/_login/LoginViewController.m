@@ -150,8 +150,9 @@
     }
 	else if (_type == LoginTypeLogin) {
         [self.view endEditing:YES];
-//        [[AppDelegate app] switchAppType:AppTypeResident];
-//        return;
+        [[AppDelegate app] switchAppType:AppTypeResident];
+        [HAApp current].atoken = @"asdfsadfsfdf";
+        return;
 		NSDictionary *params = @{
 								 @"account": _phoneTextField.text,
 								 @"password": _passwordTextField.text,

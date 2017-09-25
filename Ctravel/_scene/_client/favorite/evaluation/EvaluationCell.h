@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-FOUNDATION_EXPORT NSString *const EvaluationCellInIdentifier;
+FOUNDATION_EXPORT NSString *const EvaluationCellIdentifier;
 
 @interface EvaluationCell : UITableViewCell
 

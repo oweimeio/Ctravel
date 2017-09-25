@@ -56,7 +56,7 @@
     [self.favCollectionView registerNib:[UINib nibWithNibName:@"HotExperienceCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotExperienceCellInIdentifier];
     
     //请求获取列表
-    [self requestListData];
+    //[self requestListData];
 }
 
 //MARK: - METHOD
