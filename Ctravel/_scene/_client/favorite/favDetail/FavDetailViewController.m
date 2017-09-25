@@ -14,7 +14,8 @@
 @interface FavDetailViewController ()
 
 @property (nonatomic)CGSize headerDefaultSize;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *picConstant;
+
+@property (assign, nonatomic) BOOL isHideStatusBar;
 
 @end
 
@@ -42,13 +43,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
-    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
-        [self prefersStatusBarHidden];
-        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-    }
+    [self hideStatusBar:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -82,25 +79,30 @@
 }
 
 - (BOOL)prefersStatusBarHidden {
-    return YES;
+    return self.isHideStatusBar;
+}
+
+- (void)hideStatusBar:(BOOL)hide {
+    self.isHideStatusBar = hide;
+    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+        [self prefersStatusBarHidden];
+        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    }
 }
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
     scrollView.bounces = (scrollView.contentOffset.y <= 100) ? NO : YES;
-//    CGFloat diff = -self.scrollView.contentOffset.y;
-//    
-//    if (self.scrollView.contentOffset.y < 0) {
-//        CGFloat oldH = self.headerDefaultSize.height;
-//        CGFloat oldW = self.headerDefaultSize.width;
-//        
-//        CGFloat newH = oldH + diff;
-//        CGFloat newW = oldW *newH/oldH;
-//        
-//        self.picImageView.frame  = CGRectMake(0, 0, newW, newH);
-//        self.picImageView.center = CGPointMake(oldW/2.0f, (oldH-diff)/2.0f);
-//        
-//    }
+
+    if (self.scrollView.contentOffset.y > 40) {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        [self hideStatusBar:NO];
+    }
+    else {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        [self hideStatusBar:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

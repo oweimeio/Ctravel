@@ -21,7 +21,6 @@
                 <outlet property="meetMapView" destination="rde-fr-Cyt" id="NlQ-eY-RkZ"/>
                 <outlet property="meetPointLabel" destination="czY-hD-H7q" id="790-A4-HQ7"/>
                 <outlet property="moneyLabel" destination="saY-SL-L3o" id="9hF-m3-CBn"/>
-                <outlet property="picConstant" destination="yHQ-LF-N4C" id="LE5-pW-EnI"/>
                 <outlet property="picImageView" destination="vuH-wK-adY" id="hpO-9e-PYY"/>
                 <outlet property="remarkLabel" destination="5GL-tZ-i5J" id="0B8-x5-pUO"/>
                 <outlet property="scrollView" destination="Okg-lM-kKp" id="ipO-5C-OS8"/>
