@@ -7,19 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum : NSUInteger {
-    CommonDesTypeStyle,
-    CommonDesTypeCity,
-    CommonDesTypeTitle,
-    CommonDesTypeDes,
-    CommonDesTypeAddress,
-    CommonDesTypeMark,
-    CommonDesTypeRequire,
-    CommonDesTypePlace,
-    CommonDesTypeTime,
-    CommonDesTypePrice,
-} CommonDesType;
+#import "CreatePageViewController.h"
 
 @interface CommonDesViewController : UIViewController
 

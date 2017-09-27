@@ -11,13 +11,30 @@
 typedef enum : NSUInteger {
     CreatPageStyleSelect,
     CreatPageStyleWrite,
-    CreatPageStyleOther,
+    CreatPageStyleWriteDes,
 } CreatPageStyle;
+
+typedef enum : NSUInteger {
+    CommonDesTypeStyle,
+    CommonDesTypeCity,
+    CommonDesTypeTitle,
+    CommonDesTypeDes,
+    CommonDesTypeAddress,
+    CommonDesTypeMark,
+    CommonDesTypeMustKnow,
+    CommonDesTypeRequire,
+    CommonDesTypePlace,
+    CommonDesTypeTime,
+    CommonDesTypePic,
+    CommonDesTypePrice,
+} CommonDesType;
 
 @interface CreatePageViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *info;
 
 @property (nonatomic, assign) CreatPageStyle style;
+
+@property (assign, nonatomic) CommonDesType type;
 
 @end

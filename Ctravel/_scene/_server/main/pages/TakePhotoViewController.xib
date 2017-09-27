@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TakePhotoViewController">
+            <connections>
+                <outlet property="nextStepBtn" destination="K5p-be-mlK" id="6Uk-Sx-OoB"/>
+                <outlet property="preViewBtn" destination="y3h-wG-nWg" id="25v-PZ-aQX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMc-nc-gpU">
+                    <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3h-wG-nWg">
+                            <rect key="frame" x="20" y="0.0" width="70" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="nx2-FZ-o8h"/>
+                                <constraint firstAttribute="width" constant="70" id="vBn-Ut-Jkk"/>
+                            </constraints>
+                            <state key="normal" title="预览">
+                                <color key="titleColor" red="0.094117647060000004" green="0.56470588239999997" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="preViewBtnClick:" destination="-1" eventType="touchUpInside" id="8Nd-wB-74l"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5p-be-mlK">
+                            <rect key="frame" x="265" y="0.0" width="90" height="40"/>
+                            <color key="backgroundColor" red="0.095196895300000001" green="0.5627550483" blue="0.70894265170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="Lfr-gG-Rvi"/>
+                                <constraint firstAttribute="height" constant="40" id="ulJ-aA-HPw"/>
+                            </constraints>
+                            <state key="normal" title="下一步">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="nextStepBtnClick:" destination="-1" eventType="touchUpInside" id="NQH-2E-sPF"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="y3h-wG-nWg" firstAttribute="leading" secondItem="bMc-nc-gpU" secondAttribute="leading" constant="20" id="7Ze-LW-PxY"/>
+                        <constraint firstItem="K5p-be-mlK" firstAttribute="top" secondItem="bMc-nc-gpU" secondAttribute="top" id="Oyd-Xe-jmx"/>
+                        <constraint firstAttribute="height" constant="80" id="cNE-X1-I56"/>
+                        <constraint firstItem="y3h-wG-nWg" firstAttribute="top" secondItem="bMc-nc-gpU" secondAttribute="top" id="i9u-Um-J2P"/>
+                        <constraint firstAttribute="trailing" secondItem="K5p-be-mlK" secondAttribute="trailing" constant="20" id="yeT-Ch-WJS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bMc-nc-gpU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LZO-bM-j5V"/>
+                <constraint firstAttribute="bottom" secondItem="bMc-nc-gpU" secondAttribute="bottom" id="P68-iD-Tdw"/>
+                <constraint firstAttribute="trailing" secondItem="bMc-nc-gpU" secondAttribute="trailing" id="v9H-wK-ppi"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

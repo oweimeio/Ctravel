@@ -84,6 +84,11 @@
 		FAEE5A171F793DBB00874A49 /* IDValidViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE5A151F793DBB00874A49 /* IDValidViewController.xib */; };
 		FAEE5A1C1F79422600874A49 /* CommonDesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE5A1A1F79422600874A49 /* CommonDesViewController.m */; };
 		FAEE5A1D1F79422600874A49 /* CommonDesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE5A1B1F79422600874A49 /* CommonDesViewController.xib */; };
+		FAEE90391F7BC936008CC1CE /* LYAreaPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE90361F7BC936008CC1CE /* LYAreaPicker.m */; };
+		FAEE903A1F7BC936008CC1CE /* LYPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE90381F7BC936008CC1CE /* LYPicker.m */; };
+		FAEE903E1F7BDF0F008CC1CE /* Experience.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE903D1F7BDF0F008CC1CE /* Experience.m */; };
+		FAEE90421F7BF8A8008CC1CE /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE90401F7BF8A8008CC1CE /* TakePhotoViewController.m */; };
+		FAEE90431F7BF8A8008CC1CE /* TakePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE90411F7BF8A8008CC1CE /* TakePhotoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,8 +188,8 @@
 		FAA423A01F701AEA00C3736F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		FAA423A41F71498A00C3736F /* CoreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAPI.h; sourceTree = "<group>"; };
 		FAA423A51F71498A00C3736F /* CoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAPI.m; sourceTree = "<group>"; };
-		FAA423A71F7167E100C3736F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		FAA423A81F7167E100C3736F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		FAA423A71F7167E100C3736F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../_tool/User.h; sourceTree = "<group>"; };
+		FAA423A81F7167E100C3736F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../_tool/User.m; sourceTree = "<group>"; };
 		FAA423AD1F740CA400C3736F /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		FAA423AE1F740CA400C3736F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		FAA423AF1F740CA400C3736F /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
@@ -212,6 +217,15 @@
 		FAEE5A191F79422600874A49 /* CommonDesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDesViewController.h; sourceTree = "<group>"; };
 		FAEE5A1A1F79422600874A49 /* CommonDesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonDesViewController.m; sourceTree = "<group>"; };
 		FAEE5A1B1F79422600874A49 /* CommonDesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonDesViewController.xib; sourceTree = "<group>"; };
+		FAEE90351F7BC936008CC1CE /* LYAreaPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYAreaPicker.h; sourceTree = "<group>"; };
+		FAEE90361F7BC936008CC1CE /* LYAreaPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYAreaPicker.m; sourceTree = "<group>"; };
+		FAEE90371F7BC936008CC1CE /* LYPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYPicker.h; sourceTree = "<group>"; };
+		FAEE90381F7BC936008CC1CE /* LYPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYPicker.m; sourceTree = "<group>"; };
+		FAEE903C1F7BDF0F008CC1CE /* Experience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Experience.h; sourceTree = "<group>"; };
+		FAEE903D1F7BDF0F008CC1CE /* Experience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Experience.m; sourceTree = "<group>"; };
+		FAEE903F1F7BF8A8008CC1CE /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
+		FAEE90401F7BF8A8008CC1CE /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
+		FAEE90411F7BF8A8008CC1CE /* TakePhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TakePhotoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +351,9 @@
 				FA663D401F774A16001C6F25 /* CreatePageViewController.h */,
 				FA663D411F774A16001C6F25 /* CreatePageViewController.m */,
 				FA663D421F774A16001C6F25 /* CreatePageViewController.xib */,
+				FAEE903F1F7BF8A8008CC1CE /* TakePhotoViewController.h */,
+				FAEE90401F7BF8A8008CC1CE /* TakePhotoViewController.m */,
+				FAEE90411F7BF8A8008CC1CE /* TakePhotoViewController.xib */,
 			);
 			path = pages;
 			sourceTree = "<group>";
@@ -402,6 +419,7 @@
 		FAA4233A1F70006500C3736F /* Ctravel */ = {
 			isa = PBXGroup;
 			children = (
+				FAEE903B1F7BDEB5008CC1CE /* _model */,
 				FAA423A31F71495A00C3736F /* _tool */,
 				FAA423521F70061D00C3736F /* _const */,
 				FAA423531F70061D00C3736F /* _library */,
@@ -440,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA423581F70091800C3736F /* Libraries.h */,
+				FAEE90341F7BC936008CC1CE /* LYPicker */,
 				FAA4236F1F700B9500C3736F /* EmptyDataViews */,
 				FAA4236B1F700B6800C3736F /* NSString+Validation */,
 				FAA4235E1F700B3E00C3736F /* JJPhotoViewer */,
@@ -612,8 +631,6 @@
 			children = (
 				FAA423A41F71498A00C3736F /* CoreAPI.h */,
 				FAA423A51F71498A00C3736F /* CoreAPI.m */,
-				FAA423A71F7167E100C3736F /* User.h */,
-				FAA423A81F7167E100C3736F /* User.m */,
 			);
 			path = _tool;
 			sourceTree = "<group>";
@@ -699,6 +716,28 @@
 				FAEE5A1B1F79422600874A49 /* CommonDesViewController.xib */,
 			);
 			path = commonDes;
+			sourceTree = "<group>";
+		};
+		FAEE90341F7BC936008CC1CE /* LYPicker */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE90351F7BC936008CC1CE /* LYAreaPicker.h */,
+				FAEE90361F7BC936008CC1CE /* LYAreaPicker.m */,
+				FAEE90371F7BC936008CC1CE /* LYPicker.h */,
+				FAEE90381F7BC936008CC1CE /* LYPicker.m */,
+			);
+			path = LYPicker;
+			sourceTree = "<group>";
+		};
+		FAEE903B1F7BDEB5008CC1CE /* _model */ = {
+			isa = PBXGroup;
+			children = (
+				FAA423A71F7167E100C3736F /* User.h */,
+				FAA423A81F7167E100C3736F /* User.m */,
+				FAEE903C1F7BDF0F008CC1CE /* Experience.h */,
+				FAEE903D1F7BDF0F008CC1CE /* Experience.m */,
+			);
+			path = _model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -789,6 +828,7 @@
 				FA663D651F77E2BD001C6F25 /* ProfileEditViewController.xib in Resources */,
 				FAA423981F7015F400C3736F /* ClientProfileViewController.xib in Resources */,
 				FAA4239D1F70162500C3736F /* ClientMainPageViewController.xib in Resources */,
+				FAEE90431F7BF8A8008CC1CE /* TakePhotoViewController.xib in Resources */,
 				FAA423461F70006500C3736F /* Main.storyboard in Resources */,
 				FA05D8041F7541AA00893EE3 /* ClientMsgCell.xib in Resources */,
 				FAA4238E1F7015C800C3736F /* ClientMsgViewController.xib in Resources */,
@@ -904,6 +944,8 @@
 				FAA423681F700B3E00C3736F /* JJOneScrollView.m in Sources */,
 				FA663D431F774A16001C6F25 /* CreatePageViewController.m in Sources */,
 				FAA423B51F740CB800C3736F /* HelpViewController.m in Sources */,
+				FAEE903A1F7BC936008CC1CE /* LYPicker.m in Sources */,
+				FAEE903E1F7BDF0F008CC1CE /* Experience.m in Sources */,
 				FAA4236E1F700B6800C3736F /* NSString+Validation.m in Sources */,
 				FA663D331F765F21001C6F25 /* ServerOrderViewController.m in Sources */,
 				FAA423BA1F740CC400C3736F /* MasterViewController.m in Sources */,
@@ -921,6 +963,7 @@
 				FAA4239C1F70162500C3736F /* ClientMainPageViewController.m in Sources */,
 				FA663D1D1F761756001C6F25 /* FavDetailViewController.m in Sources */,
 				FAA423671F700B3E00C3736F /* JJMainScrollView.m in Sources */,
+				FAEE90421F7BF8A8008CC1CE /* TakePhotoViewController.m in Sources */,
 				FAA423C01F7414B600C3736F /* HotDestinationCell.m in Sources */,
 				FA663D641F77E2BD001C6F25 /* ProfileEditViewController.m in Sources */,
 				FAA4238D1F7015C800C3736F /* ClientMsgViewController.m in Sources */,
@@ -939,6 +982,7 @@
 				FAA4233D1F70006500C3736F /* main.m in Sources */,
 				FAA423881F70159200C3736F /* FavoriteViewController.m in Sources */,
 				FAA423B01F740CA400C3736F /* SettingViewController.m in Sources */,
+				FAEE90391F7BC936008CC1CE /* LYAreaPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

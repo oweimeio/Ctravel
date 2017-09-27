@@ -39,6 +39,10 @@
             _titleLabel.text = @"地点";
             _contenLabel.text = @"列出要去的地点";
             break;
+        case CommonDesTypeMustKnow:
+            _titleLabel.text = @"须知";
+            _contenLabel.text = @"您需要自己安排的内容";
+            break;
         case CommonDesTypeMark:
             _titleLabel.text = @"注明";
             _contenLabel.text = @"您可以注明体验包含的项目要点";
