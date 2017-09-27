@@ -60,8 +60,8 @@
             
             UINavigationController *cFov = [[UINavigationController alloc] initWithRootViewController:[[FavoriteViewController alloc] init]];
             cFov.tabBarItem.title =@"收藏";
-            cFov.tabBarItem.image = [UIImage imageNamed:@"empty-heart"];
-            cFov.tabBarItem.selectedImage = [UIImage imageNamed:@"solid-heart"];
+            cFov.tabBarItem.image = [UIImage imageNamed:@"tab-fav-gray"];
+            cFov.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-fav-gray"];
             
             
             UINavigationController *cMsg = [[UINavigationController alloc] initWithRootViewController:[ClientMsgViewController new]];
