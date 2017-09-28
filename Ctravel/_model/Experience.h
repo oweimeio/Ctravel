@@ -10,8 +10,6 @@
 
 @interface Experience : NSObject
 
-+ (instancetype)defaultExperience;
-
 /**
  风格
  */
@@ -43,9 +41,9 @@
 @property (strong, nonatomic) NSString *destination;
 
 /**
- 备注
+ 注明
  */
-@property (strong, nonatomic) NSString *remark;
+@property (strong, nonatomic) NSString *mark;
 
 /**
  须知
@@ -67,17 +65,17 @@
  */
 @property (strong, nonatomic) NSString *defaultTimeStart;
 
-
 /**
  活动默认时间结束
  */
 @property (strong, nonatomic) NSString *defaultTimeEnd;
 
-
 /**
  图片
  */
-@property (strong, nonatomic) NSString *imageUrl;
+@property (strong, nonatomic) NSString *imageUrl_main;
+@property (strong, nonatomic) NSString *imageUrl_left;
+@property (strong, nonatomic) NSString *imageUrl_right;
 
 /**
  价格
@@ -85,9 +83,9 @@
 @property (assign, nonatomic) float price;
 
 /**
- 体验内容明细
+ 货币类型
  */
-@property (strong, nonatomic) NSString *contentDetail;
+@property (strong, nonatomic) NSString *currencyType;
 
 /**
  人数
@@ -95,14 +93,12 @@
 @property (assign, nonatomic) NSInteger peopleCount;
 
 
-/**
- 货币类型
- */
-@property (strong, nonatomic) NSString *currencyType;
 
-/**
- 服务名称
- */
-@property (strong, nonatomic) NSString *serviceName;
++ (instancetype)defaultExperience;
+
++ (instancetype)getExperienceDataWithUID:(NSString *)UID;
+
++ (void)saveExperienceDataWithUID:(NSString *)UID;
+
 
 @end

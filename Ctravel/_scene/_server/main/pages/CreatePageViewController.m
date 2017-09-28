@@ -89,9 +89,16 @@
     // Do any additional setup after loading the view from its nib.
     [self setDefaultTheme];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"保存" style:UIBarButtonItemStylePlain handler:^(id sender) {
+        //Experience *experience = [Experience defaultExperience];
+        [Experience saveExperienceDataWithUID:[HAApp current].userID];
+    }];
+    
     [self setInfo:_info];
     
     [self setStyle:_style];
+    
+    [self setDefaultValueWithType:_type];
 }
 
 //MARK: - ACTION
@@ -219,6 +226,52 @@
     self.preViewBtn.layer.masksToBounds = YES;
     self.nextStepBtn.layer.cornerRadius = 5;
     self.nextStepBtn.layer.masksToBounds = YES;
+}
+
+- (void)setDefaultValueWithType:(CommonDesType)type {
+    Experience *experience = [Experience getExperienceDataWithUID:[HAApp current].userID];
+    switch (type) {
+        case CommonDesTypeStyle: {
+            NSLog(@"%@",experience.style);
+            [_selectViewBtn setTitle:experience.style forState:UIControlStateNormal];
+        }   break;
+        case CommonDesTypeCity: {
+            
+        }   break;
+        case CommonDesTypeTitle: {
+            
+        }   break;
+        case CommonDesTypeDes: {
+            
+        }   break;
+        case CommonDesTypeAddress: {
+            
+        }   break;
+        case CommonDesTypeMark: {
+            
+        }   break;
+        case CommonDesTypeMustKnow: {
+            
+        }   break;
+        case CommonDesTypeRequire: {
+            
+        }   break;
+        case CommonDesTypePlace: {
+            
+        }   break;
+        case CommonDesTypeTime: {
+            
+        }   break;
+        case CommonDesTypePic: {
+
+        }   break;
+        case CommonDesTypePrice: {
+            
+        }   break;
+        default:
+            break;
+    }
+
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
