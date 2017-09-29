@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="hotDestinationView" destination="BxT-vX-uQa" id="f3R-mw-GTA"/>
                 <outlet property="hotExperienceView" destination="obm-0u-VSM" id="e9D-6p-ZgS"/>
+                <outlet property="searchDisplayController" destination="dHc-vq-H6r" id="yf0-vE-pha"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="913-Ae-13Y">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="913-Ae-13Y">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZLm-cy-aso">
@@ -74,6 +75,9 @@
                                     <state key="normal" title="查看更多 &gt;">
                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </state>
+                                    <connections>
+                                        <action selector="watchMore:" destination="-1" eventType="touchUpInside" id="eJI-xT-dkl"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,18 +109,21 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPu-e7-6Rw">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <subviews>
-                                <searchBar contentMode="redraw" placeholder="想去哪里？" translatesAutoresizingMaskIntoConstraints="NO" id="VYe-KZ-NvE">
+                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="热门搜索" translatesAutoresizingMaskIntoConstraints="NO" id="l5s-K0-r6i">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="ydE-nq-1BY"/>
+                                    </connections>
                                 </searchBar>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="VYe-KZ-NvE" secondAttribute="trailing" id="5aC-ee-1zh"/>
                                 <constraint firstAttribute="height" constant="50" id="5qT-9y-nId"/>
-                                <constraint firstAttribute="bottom" secondItem="VYe-KZ-NvE" secondAttribute="bottom" id="HpS-Vr-uZs"/>
-                                <constraint firstItem="VYe-KZ-NvE" firstAttribute="leading" secondItem="gPu-e7-6Rw" secondAttribute="leading" id="gym-q4-4Rd"/>
-                                <constraint firstItem="VYe-KZ-NvE" firstAttribute="top" secondItem="gPu-e7-6Rw" secondAttribute="top" id="it0-PY-7Sl"/>
+                                <constraint firstItem="l5s-K0-r6i" firstAttribute="leading" secondItem="gPu-e7-6Rw" secondAttribute="leading" id="DNq-FT-bLM"/>
+                                <constraint firstAttribute="trailing" secondItem="l5s-K0-r6i" secondAttribute="trailing" id="NsI-cw-rgf"/>
+                                <constraint firstAttribute="bottom" secondItem="l5s-K0-r6i" secondAttribute="bottom" id="WGV-ac-gP3"/>
+                                <constraint firstItem="l5s-K0-r6i" firstAttribute="top" secondItem="gPu-e7-6Rw" secondAttribute="top" id="rmy-Kz-qyr"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -150,5 +157,13 @@
             </constraints>
             <point key="canvasLocation" x="32.5" y="71.5"/>
         </view>
+        <searchDisplayController id="dHc-vq-H6r">
+            <connections>
+                <outlet property="delegate" destination="-1" id="7Vi-mz-7s0"/>
+                <outlet property="searchContentsController" destination="-1" id="KSL-bc-WEj"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="hOB-ta-3ID"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="DVI-sI-B5N"/>
+            </connections>
+        </searchDisplayController>
     </objects>
 </document>

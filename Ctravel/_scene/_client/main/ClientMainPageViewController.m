@@ -11,7 +11,7 @@
 #import "HotDestinationCell.h"
 #import "PreHeader.h"
 
-@interface ClientMainPageViewController ()
+@interface ClientMainPageViewController () <UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *hotDestinationView;
 @property (strong, nonatomic) NSArray *hotDestinationData;
@@ -54,6 +54,10 @@
     [self.hotDestinationView registerNib:[UINib nibWithNibName:@"HotDestinationCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotDestinationCellInIdentifier];
     
     [self.hotExperienceView registerNib:[UINib nibWithNibName:@"HotExperienceCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotExperienceCellInIdentifier];
+    
+    [self.view bk_whenTapped:^{
+        [self.view endEditing:YES];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,6 +81,13 @@
     [super viewWillDisappear:animated];
     
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
+- (IBAction)watchMore:(id)sender {
+    //跳入收藏详情 查询结果保存收藏和未收藏的
+    FavoriteViewController *favVc = [[FavoriteViewController alloc] init];
+    favVc.type = FavTypeAll;
+    [self.navigationController pushViewController:favVc animated:YES];
 }
 
 
@@ -130,6 +141,12 @@
     return (CGSize){0, 0};
 }
 
+
+//MARK: - SEARCH
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self.view endEditing:YES];
+    //跳入收藏详情
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

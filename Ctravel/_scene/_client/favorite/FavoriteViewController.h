@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    FavTypeAll,     //所有
+    FavTypeOnlyFav, //仅收藏
+    FavTypeUnFav,   //未收藏
+} FavType;
+
 @interface FavoriteViewController : UIViewController
+
+@property (assign, nonatomic) FavType type;
+
+@property (strong, nonatomic) NSString *keywords;
 
 @end

@@ -233,19 +233,29 @@
     switch (type) {
         case CommonDesTypeStyle: {
             NSLog(@"%@",experience.style);
-            [_selectViewBtn setTitle:experience.style forState:UIControlStateNormal];
+            if (experience.style) {
+                [_selectViewBtn setTitle:experience.style forState:UIControlStateNormal];
+            }
         }   break;
         case CommonDesTypeCity: {
-            
+            if (experience.city) {
+                _writeContentTextField.text = experience.city;
+            }
         }   break;
         case CommonDesTypeTitle: {
-            
+            if (experience.title) {
+                _writeContentTextField.text = experience.title;
+            }
         }   break;
         case CommonDesTypeDes: {
-            
+            if (experience.contentDes) {
+                _writeTextView.text = experience.contentDes;
+            }
         }   break;
         case CommonDesTypeAddress: {
-            
+            if (experience.destination) {
+                _writeTextView.text = experience.destination;
+            }
         }   break;
         case CommonDesTypeMark: {
             

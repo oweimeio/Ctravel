@@ -19,16 +19,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdW-BP-AIo">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdW-BP-AIo">
                     <rect key="frame" x="30" y="60" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="TyT-Co-w5o"/>
                         <constraint firstAttribute="width" constant="60" id="VZA-XI-0Xm"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" image="appLog"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RL-9L-2Yp">
-                    <rect key="frame" x="257" y="74.5" width="68" height="31.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jerry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RL-9L-2Yp">
+                    <rect key="frame" x="260" y="74.5" width="65" height="31.5"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -49,10 +49,19 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-income" translatesAutoresizingMaskIntoConstraints="NO" id="r3D-Kv-wDR">
+                            <rect key="frame" x="30" y="17.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="f4V-qj-E5U"/>
+                                <constraint firstAttribute="width" constant="25" id="nza-FP-yeZ"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="r3D-Kv-wDR" firstAttribute="leading" secondItem="OHx-55-4kw" secondAttribute="leading" constant="30" id="1Al-KX-Xqi"/>
                         <constraint firstItem="Uni-fM-8ym" firstAttribute="leading" secondItem="OHx-55-4kw" secondAttribute="leading" constant="20" id="E1Z-yA-yTy"/>
+                        <constraint firstItem="r3D-Kv-wDR" firstAttribute="centerY" secondItem="OHx-55-4kw" secondAttribute="centerY" id="PfV-3d-DSJ"/>
                         <constraint firstAttribute="trailing" secondItem="Uni-fM-8ym" secondAttribute="trailing" constant="20" id="Qge-D3-dUK"/>
                         <constraint firstAttribute="height" constant="60" id="aZG-dK-U0w"/>
                         <constraint firstAttribute="bottom" secondItem="Uni-fM-8ym" secondAttribute="bottom" id="dQ6-cM-psx"/>
@@ -76,11 +85,11 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hmf-mD-Aaf">
-                            <rect key="frame" x="30" y="15" width="30" height="30"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-setting" translatesAutoresizingMaskIntoConstraints="NO" id="Hmf-mD-Aaf">
+                            <rect key="frame" x="30" y="17.5" width="25" height="25"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="Shd-er-4zk"/>
-                                <constraint firstAttribute="width" constant="30" id="Tb4-lq-fII"/>
+                                <constraint firstAttribute="height" constant="25" id="Shd-er-4zk"/>
+                                <constraint firstAttribute="width" constant="25" id="Tb4-lq-fII"/>
                             </constraints>
                         </imageView>
                     </subviews>
@@ -112,11 +121,11 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cOL-Sw-oEg">
-                            <rect key="frame" x="30" y="15" width="30" height="30"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-payment" translatesAutoresizingMaskIntoConstraints="NO" id="cOL-Sw-oEg">
+                            <rect key="frame" x="30" y="17.5" width="25" height="25"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="cez-OI-ZYV"/>
-                                <constraint firstAttribute="height" constant="30" id="jL6-1o-IlR"/>
+                                <constraint firstAttribute="width" constant="25" id="cez-OI-ZYV"/>
+                                <constraint firstAttribute="height" constant="25" id="jL6-1o-IlR"/>
                             </constraints>
                         </imageView>
                     </subviews>
@@ -148,11 +157,11 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SaU-Qo-BB8">
-                            <rect key="frame" x="30" y="15" width="30" height="30"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-changeMd" translatesAutoresizingMaskIntoConstraints="NO" id="SaU-Qo-BB8">
+                            <rect key="frame" x="30" y="17.5" width="25" height="25"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="LmY-9n-KE0"/>
-                                <constraint firstAttribute="height" constant="30" id="ff0-Rz-sK1"/>
+                                <constraint firstAttribute="width" constant="25" id="LmY-9n-KE0"/>
+                                <constraint firstAttribute="height" constant="25" id="ff0-Rz-sK1"/>
                             </constraints>
                         </imageView>
                     </subviews>
@@ -194,4 +203,11 @@
             <point key="canvasLocation" x="32.5" y="71.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="appLog" width="60" height="60"/>
+        <image name="icon-changeMd" width="30" height="30"/>
+        <image name="icon-income" width="30" height="30"/>
+        <image name="icon-payment" width="30" height="30"/>
+        <image name="icon-setting" width="30" height="30"/>
+    </resources>
 </document>

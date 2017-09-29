@@ -61,6 +61,8 @@
 
 //MARK: - METHOD
 - (void)requestListData {
+    
+    //查询的时候通过keyword 查询
     NSDictionary *param = @{
                             @"token":[HAApp current].atoken,
                             @"userId":[User sharedUser].userId
