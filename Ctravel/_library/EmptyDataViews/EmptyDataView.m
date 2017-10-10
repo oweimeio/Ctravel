@@ -67,7 +67,6 @@
 	
 	self.userInteractionEnabled = _lblHint.userInteractionEnabled = _ivIcon.userInteractionEnabled = NO;
 	self.backgroundColor = _lblHint.backgroundColor = _ivIcon.backgroundColor = [UIColor clearColor];
-	self.hidden = YES;
 	
 	[imageIcon mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.centerX.equalTo(self);

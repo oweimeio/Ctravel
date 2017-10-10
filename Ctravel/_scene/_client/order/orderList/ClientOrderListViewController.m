@@ -7,6 +7,8 @@
 //
 
 #import "ClientOrderListViewController.h"
+#import "PreHeader.h"
+#import "ClientCompleteViewController.h"
 
 @interface ClientOrderListViewController ()
 
@@ -24,6 +26,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self setupTitle];
+    
+}
+- (void)setupTitle {
+    
+    SLSegmentPageView *page = [[SLSegmentPageView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
+    [page slPageTitleArr:^NSArray *{
+        return @[@"已完成",@"未来"];
+    } contentController:^UIViewController *(NSInteger item) {
+        ClientCompleteViewController *list = [[ClientCompleteViewController alloc] init];
+        if (item == 0) {
+            list.type = OrderTypeCompleted;
+        }else{
+            list.type = OrderTypeFuture;
+        }
+        return list;
+    }];
+    [self.view addSubview:page];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -59,6 +59,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JTCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>LYCategory.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -142,11 +147,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>61E7B9087D99AB51B95CF1C8D81D4FAB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>6C91B98981A4A601C1E8BC0CC1AB7307</key>
 		<dict>
 			<key>primary</key>
@@ -157,12 +157,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>74D695958691C25D024DC932660EE752</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>773F6EB90E9CDAC1F67DCC9C0C8B681B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7B78C4160F1617F783C8C98FA5F2DD5D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91D0AFD51BF2D04784321D0DCD086326</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -22,5 +22,6 @@
 #import "NSString+Validation.h"
 #import "EmptyDataView.h"
 #import "LYPicker.h"
+#import "SLSegmentPageView.h"
 
 #endif /* Libraries_h */

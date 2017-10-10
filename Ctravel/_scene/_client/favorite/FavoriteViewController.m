@@ -14,7 +14,11 @@
 
 @property (nonatomic, strong)NSArray *dataSource;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *favCollectionView;
+
+@property (weak, nonatomic) IBOutlet EmptyDataView *emptyView;
 
 @end
 
@@ -40,13 +44,17 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    if (_hideNavBar) {
+        [self.navigationController setNavigationBarHidden:YES animated:animated];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    if (_hideNavBar) {
+        [self.navigationController setNavigationBarHidden:NO animated:animated];
+    }
 }
 
 - (void)viewDidLoad {
@@ -54,6 +62,10 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.favCollectionView registerNib:[UINib nibWithNibName:@"HotExperienceCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotExperienceCellInIdentifier];
+    
+    if (_keywords) {
+        _titleLabel.text = _keywords;
+    }
     
     //请求获取列表
     //[self requestListData];
@@ -65,10 +77,12 @@
     //查询的时候通过keyword 查询
     NSDictionary *param = @{
                             @"token":[HAApp current].atoken,
-                            @"userId":[User sharedUser].userId
+                            @"userId":[User sharedUser].userId,
+                            @"keyword":!self.keywords?@"":self.keywords
                             };
     [[CoreAPI core] GETURLString:@"/hot/hotDestinationExperience" withParameters:param success:^(id ret) {
         NSLog(@"%@",ret);
+        _emptyView.hidden = self.dataSource.count;
     } error:^(NSString *code, NSString *msg, id ret) {
         [SVProgressHUD showErrorWithStatus:msg];
     } failure:^(NSError *error) {

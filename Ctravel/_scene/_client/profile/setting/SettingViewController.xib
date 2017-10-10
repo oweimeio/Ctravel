@@ -127,18 +127,38 @@
                         <action selector="logoutViewPress:" destination="-1" eventType="touchUpInside" id="cy8-oC-gDV"/>
                     </connections>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwB-bV-Ggh">
+                    <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QlW-Da-Rb0">
+                            <rect key="frame" x="20" y="10" width="53" height="31.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="7PM-om-yOg"/>
+                        <constraint firstItem="QlW-Da-Rb0" firstAttribute="leading" secondItem="hwB-bV-Ggh" secondAttribute="leading" constant="20" id="7kh-2z-zo0"/>
+                        <constraint firstItem="QlW-Da-Rb0" firstAttribute="top" secondItem="hwB-bV-Ggh" secondAttribute="top" constant="10" id="mDd-CT-gIX"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Q9b-iR-HfH" firstAttribute="top" secondItem="sDR-A2-FrA" secondAttribute="bottom" id="0ws-Pv-1P7"/>
                 <constraint firstAttribute="trailing" secondItem="sDR-A2-FrA" secondAttribute="trailing" id="CTI-X7-jtE"/>
+                <constraint firstAttribute="trailing" secondItem="hwB-bV-Ggh" secondAttribute="trailing" id="FeK-Ux-4Pr"/>
                 <constraint firstAttribute="trailing" secondItem="LXe-wN-ZhR" secondAttribute="trailing" id="Quy-MC-EBl"/>
                 <constraint firstItem="LXe-wN-ZhR" firstAttribute="top" secondItem="Q9b-iR-HfH" secondAttribute="bottom" id="RlX-lI-E6y"/>
                 <constraint firstAttribute="trailing" secondItem="Q9b-iR-HfH" secondAttribute="trailing" id="V0x-bo-DLR"/>
                 <constraint firstItem="sDR-A2-FrA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="cLM-8H-bHG"/>
                 <constraint firstItem="Q9b-iR-HfH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eDj-Dz-gQE"/>
+                <constraint firstItem="hwB-bV-Ggh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="ls5-Ap-Zfl"/>
                 <constraint firstItem="LXe-wN-ZhR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oXw-TN-wST"/>
                 <constraint firstItem="sDR-A2-FrA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pVG-bW-83a"/>
+                <constraint firstItem="hwB-bV-Ggh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="txM-g7-Zuh"/>
             </constraints>
             <point key="canvasLocation" x="32.5" y="71.5"/>
         </view>

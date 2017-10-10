@@ -146,6 +146,9 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.view endEditing:YES];
     //跳入收藏详情
+    FavoriteViewController *favVc = [[FavoriteViewController alloc] init];
+    favVc.keywords = searchBar.text;
+    [self.navigationController pushViewController:favVc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

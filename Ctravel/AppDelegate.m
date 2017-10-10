@@ -57,8 +57,9 @@
             cMain.tabBarItem.image = [UIImage imageNamed:@"tab-find-gray"];
             cMain.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-job-blue"];
             
-            
-            UINavigationController *cFov = [[UINavigationController alloc] initWithRootViewController:[[FavoriteViewController alloc] init]];
+            FavoriteViewController *favVc = [[FavoriteViewController alloc] init];
+            favVc.hideNavBar = YES;
+            UINavigationController *cFov = [[UINavigationController alloc] initWithRootViewController:favVc];
             cFov.tabBarItem.title =@"收藏";
             cFov.tabBarItem.image = [UIImage imageNamed:@"tab-fav-gray"];
             cFov.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-fav-blue"];
@@ -73,7 +74,7 @@
             cOrder.navigationBar.translucent = NO;
             cOrder.tabBarItem.title =@"预订";
             cOrder.tabBarItem.image = [UIImage imageNamed:@"tab-cOrder-gray"];
-            cOrder.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-order-blue"];
+            cOrder.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-cOrder-blue"];
             
             UINavigationController *cProfile = [[UINavigationController alloc] initWithRootViewController:[ClientProfileViewController new]];
             cProfile.tabBarItem.title = @"我的";
@@ -98,8 +99,9 @@
             sMain.tabBarItem.image = [UIImage imageNamed:@"tab-ex-gray"];
             sMain.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-ex-blue"];
             
-            
-            UINavigationController *sDate = [[UINavigationController alloc] initWithRootViewController:[[DateViewController alloc] init]];
+            DateViewController *dateVc = [[DateViewController alloc] init];
+            dateVc.hideNavBar = YES;
+            UINavigationController *sDate = [[UINavigationController alloc] initWithRootViewController:dateVc];
             sDate.tabBarItem.title =@"日期";
             sDate.tabBarItem.image = [UIImage imageNamed:@"tab-date-gray"];
             sDate.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-date-blue"];

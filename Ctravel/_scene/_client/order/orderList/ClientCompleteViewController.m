@@ -1,36 +1,22 @@
 //
-//  ServerProfileViewController.m
+//  ClientCompleteViewController.m
 //  Ctravel
 //
-//  Created by apple on 2017/9/23.
+//  Created by apple on 2017/10/3.
 //  Copyright © 2017年 apple. All rights reserved.
 //
 
-#import "ServerProfileViewController.h"
-#import "PreHeader.h"
-#import "SettingViewController.h"
+#import "ClientCompleteViewController.h"
 
-@interface ServerProfileViewController ()
+@interface ClientCompleteViewController ()
 
 @end
 
-@implementation ServerProfileViewController
+@implementation ClientCompleteViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-}
-
-//MARK: - ACTION
-
-- (IBAction)settingViewPress:(id)sender {
-    SettingViewController *settingVc = [SettingViewController new];
-    [self.navigationController pushViewController:settingVc animated:YES];
-}
-
-
-- (IBAction)changeToClientViewPress:(id)sender {
-    [[AppDelegate app] switchAppType:AppTypeResident];
 }
 
 - (void)didReceiveMemoryWarning {

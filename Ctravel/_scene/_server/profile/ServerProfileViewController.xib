@@ -33,7 +33,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHx-55-4kw" customClass="UIControl">
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHx-55-4kw" customClass="UIControl">
                     <rect key="frame" x="0.0" y="180" width="375" height="60"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uni-fM-8ym">
@@ -104,8 +104,11 @@
                         <constraint firstAttribute="height" constant="60" id="bDq-3k-USO"/>
                         <constraint firstAttribute="trailing" secondItem="ed8-fk-t1x" secondAttribute="trailing" constant="50" id="laE-i2-Rg1"/>
                     </constraints>
+                    <connections>
+                        <action selector="settingViewPress:" destination="-1" eventType="touchUpInside" id="VqC-Uw-TGB"/>
+                    </connections>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVp-Xi-rKg" customClass="UIControl">
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVp-Xi-rKg" customClass="UIControl">
                     <rect key="frame" x="0.0" y="300" width="375" height="60"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6a-2q-3E3">

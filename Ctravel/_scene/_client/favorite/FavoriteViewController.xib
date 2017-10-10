@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteViewController">
             <connections>
+                <outlet property="emptyView" destination="ieh-kk-XaR" id="Do5-5G-aAL"/>
                 <outlet property="favCollectionView" destination="4Kj-fh-lL9" id="90P-bV-1kf"/>
+                <outlet property="titleLabel" destination="EAc-5l-Cs7" id="yPz-ht-jQy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -51,6 +53,10 @@
                         <outlet property="delegate" destination="-1" id="3WZ-5D-vQu"/>
                     </connections>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieh-kk-XaR" customClass="EmptyDataView">
+                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -58,8 +64,12 @@
                 <constraint firstItem="0zc-hi-ZQO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="617-Rw-DwH"/>
                 <constraint firstAttribute="trailing" secondItem="4Kj-fh-lL9" secondAttribute="trailing" id="8wb-Af-hqg"/>
                 <constraint firstItem="4Kj-fh-lL9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AOL-hy-Gmf"/>
+                <constraint firstItem="ieh-kk-XaR" firstAttribute="top" secondItem="0zc-hi-ZQO" secondAttribute="bottom" id="C4x-Gf-QOI"/>
                 <constraint firstAttribute="bottom" secondItem="4Kj-fh-lL9" secondAttribute="bottom" id="F2L-fF-8YH"/>
+                <constraint firstItem="ieh-kk-XaR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sad-1q-gxO"/>
                 <constraint firstItem="4Kj-fh-lL9" firstAttribute="top" secondItem="0zc-hi-ZQO" secondAttribute="bottom" id="cYW-ig-ms8"/>
+                <constraint firstAttribute="bottom" secondItem="ieh-kk-XaR" secondAttribute="bottom" id="qNX-6Z-xF2"/>
+                <constraint firstAttribute="trailing" secondItem="ieh-kk-XaR" secondAttribute="trailing" id="vLw-WQ-8v8"/>
                 <constraint firstItem="0zc-hi-ZQO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="xid-Ur-2S1"/>
             </constraints>
             <point key="canvasLocation" x="32.5" y="71.5"/>

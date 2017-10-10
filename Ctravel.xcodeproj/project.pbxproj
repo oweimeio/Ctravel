@@ -39,6 +39,10 @@
 		FA663D601F77DD68001C6F25 /* ProfileDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA663D5E1F77DD68001C6F25 /* ProfileDetailViewController.xib */; };
 		FA663D641F77E2BD001C6F25 /* ProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA663D621F77E2BD001C6F25 /* ProfileEditViewController.m */; };
 		FA663D651F77E2BD001C6F25 /* ProfileEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA663D631F77E2BD001C6F25 /* ProfileEditViewController.xib */; };
+		FA9C50991F83E01A0075C329 /* SLSegmentPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C50981F83E01A0075C329 /* SLSegmentPageView.m */; };
+		FA9C509C1F83E05C0075C329 /* EmptyDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C509B1F83E05C0075C329 /* EmptyDataView.m */; };
+		FA9C50A01F83E1570075C329 /* ClientCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C509E1F83E1570075C329 /* ClientCompleteViewController.m */; };
+		FA9C50A11F83E1570075C329 /* ClientCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9C509F1F83E1570075C329 /* ClientCompleteViewController.xib */; };
 		FAA4233D1F70006500C3736F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4233C1F70006500C3736F /* main.m */; };
 		FAA423401F70006500C3736F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4233F1F70006500C3736F /* AppDelegate.m */; };
 		FAA423461F70006500C3736F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA423441F70006500C3736F /* Main.storyboard */; };
@@ -49,7 +53,6 @@
 		FAA423691F700B3E00C3736F /* JJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423641F700B3E00C3736F /* JJPhoto.m */; };
 		FAA4236A1F700B3E00C3736F /* JJPhotoManeger.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423661F700B3E00C3736F /* JJPhotoManeger.m */; };
 		FAA4236E1F700B6800C3736F /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4236D1F700B6800C3736F /* NSString+Validation.m */; };
-		FAA423721F700B9500C3736F /* EmptyDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423711F700B9500C3736F /* EmptyDataView.m */; };
 		FAA4237E1F7010E000C3736F /* LoginChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4237C1F7010E000C3736F /* LoginChooseViewController.m */; };
 		FAA4237F1F7010E000C3736F /* LoginChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA4237D1F7010E000C3736F /* LoginChooseViewController.xib */; };
 		FAA423881F70159200C3736F /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA423861F70159200C3736F /* FavoriteViewController.m */; };
@@ -140,6 +143,13 @@
 		FA663D611F77E2BD001C6F25 /* ProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditViewController.h; sourceTree = "<group>"; };
 		FA663D621F77E2BD001C6F25 /* ProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditViewController.m; sourceTree = "<group>"; };
 		FA663D631F77E2BD001C6F25 /* ProfileEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEditViewController.xib; sourceTree = "<group>"; };
+		FA9C50971F83E01A0075C329 /* SLSegmentPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSegmentPageView.h; sourceTree = "<group>"; };
+		FA9C50981F83E01A0075C329 /* SLSegmentPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSegmentPageView.m; sourceTree = "<group>"; };
+		FA9C509A1F83E05C0075C329 /* EmptyDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyDataView.h; sourceTree = "<group>"; };
+		FA9C509B1F83E05C0075C329 /* EmptyDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyDataView.m; sourceTree = "<group>"; };
+		FA9C509D1F83E1570075C329 /* ClientCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientCompleteViewController.h; sourceTree = "<group>"; };
+		FA9C509E1F83E1570075C329 /* ClientCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientCompleteViewController.m; sourceTree = "<group>"; };
+		FA9C509F1F83E1570075C329 /* ClientCompleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientCompleteViewController.xib; sourceTree = "<group>"; };
 		FAA423381F70006500C3736F /* Ctravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ctravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA4233C1F70006500C3736F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FAA4233E1F70006500C3736F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,8 +173,6 @@
 		FAA423661F700B3E00C3736F /* JJPhotoManeger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJPhotoManeger.m; sourceTree = "<group>"; };
 		FAA4236C1F700B6800C3736F /* NSString+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validation.h"; sourceTree = "<group>"; };
 		FAA4236D1F700B6800C3736F /* NSString+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validation.m"; sourceTree = "<group>"; };
-		FAA423701F700B9500C3736F /* EmptyDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyDataView.h; sourceTree = "<group>"; };
-		FAA423711F700B9500C3736F /* EmptyDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyDataView.m; sourceTree = "<group>"; };
 		FAA4237B1F7010E000C3736F /* LoginChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginChooseViewController.h; sourceTree = "<group>"; };
 		FAA4237C1F7010E000C3736F /* LoginChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginChooseViewController.m; sourceTree = "<group>"; };
 		FAA4237D1F7010E000C3736F /* LoginChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginChooseViewController.xib; sourceTree = "<group>"; };
@@ -400,6 +408,24 @@
 			path = detail;
 			sourceTree = "<group>";
 		};
+		FA9C50951F83E01A0075C329 /* EmptyDataViews */ = {
+			isa = PBXGroup;
+			children = (
+				FA9C509A1F83E05C0075C329 /* EmptyDataView.h */,
+				FA9C509B1F83E05C0075C329 /* EmptyDataView.m */,
+			);
+			path = EmptyDataViews;
+			sourceTree = "<group>";
+		};
+		FA9C50961F83E01A0075C329 /* SLSegmentView */ = {
+			isa = PBXGroup;
+			children = (
+				FA9C50971F83E01A0075C329 /* SLSegmentPageView.h */,
+				FA9C50981F83E01A0075C329 /* SLSegmentPageView.m */,
+			);
+			path = SLSegmentView;
+			sourceTree = "<group>";
+		};
 		FAA4232F1F70006500C3736F = {
 			isa = PBXGroup;
 			children = (
@@ -460,8 +486,9 @@
 			isa = PBXGroup;
 			children = (
 				FAA423581F70091800C3736F /* Libraries.h */,
+				FA9C50951F83E01A0075C329 /* EmptyDataViews */,
+				FA9C50961F83E01A0075C329 /* SLSegmentView */,
 				FAEE90341F7BC936008CC1CE /* LYPicker */,
-				FAA4236F1F700B9500C3736F /* EmptyDataViews */,
 				FAA4236B1F700B6800C3736F /* NSString+Validation */,
 				FAA4235E1F700B3E00C3736F /* JJPhotoViewer */,
 			);
@@ -519,15 +546,6 @@
 				FAA4236D1F700B6800C3736F /* NSString+Validation.m */,
 			);
 			path = "NSString+Validation";
-			sourceTree = "<group>";
-		};
-		FAA4236F1F700B9500C3736F /* EmptyDataViews */ = {
-			isa = PBXGroup;
-			children = (
-				FAA423701F700B9500C3736F /* EmptyDataView.h */,
-				FAA423711F700B9500C3736F /* EmptyDataView.m */,
-			);
-			path = EmptyDataViews;
 			sourceTree = "<group>";
 		};
 		FAA423731F700E4900C3736F /* _client */ = {
@@ -696,6 +714,9 @@
 				FAEE5A0D1F79313200874A49 /* ClientOrderListViewController.h */,
 				FAEE5A0E1F79313200874A49 /* ClientOrderListViewController.m */,
 				FAEE5A0F1F79313200874A49 /* ClientOrderListViewController.xib */,
+				FA9C509D1F83E1570075C329 /* ClientCompleteViewController.h */,
+				FA9C509E1F83E1570075C329 /* ClientCompleteViewController.m */,
+				FA9C509F1F83E1570075C329 /* ClientCompleteViewController.xib */,
 			);
 			path = orderList;
 			sourceTree = "<group>";
@@ -814,6 +835,7 @@
 				FAA423C11F7414B600C3736F /* HotDestinationCell.xib in Resources */,
 				FAA4234B1F70006500C3736F /* LaunchScreen.storyboard in Resources */,
 				FA663D5A1F77D3B3001C6F25 /* WatchDateViewController.xib in Resources */,
+				FA9C50A11F83E1570075C329 /* ClientCompleteViewController.xib in Resources */,
 				FAA423BB1F740CC400C3736F /* MasterViewController.xib in Resources */,
 				FA663D4F1F77D011001C6F25 /* EvaluationCell.xib in Resources */,
 				FAA423B61F740CB800C3736F /* HelpViewController.xib in Resources */,
@@ -852,9 +874,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel-resources.sh",
+				"${PODS_ROOT}/Pingpp/lib/Channels/Alipay/AlipaySDK.bundle",
+				"${PODS_ROOT}/Pingpp/lib/Pingpp.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -878,6 +904,7 @@
 				"${BUILT_PRODUCTS_DIR}/FreeStreamer/FreeStreamer.framework",
 				"${BUILT_PRODUCTS_DIR}/HACore/HACore.framework",
 				"${BUILT_PRODUCTS_DIR}/HALogKit/HALogKit.framework",
+				"${BUILT_PRODUCTS_DIR}/JTCalendar/JTCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/LYCategory/LYCategory.framework",
 				"${BUILT_PRODUCTS_DIR}/LYPopView/LYPopView.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -900,6 +927,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FreeStreamer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HACore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HALogKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LYCategory.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LYPopView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
@@ -961,12 +989,12 @@
 				FAA423401F70006500C3736F /* AppDelegate.m in Sources */,
 				FAEE5A1C1F79422600874A49 /* CommonDesViewController.m in Sources */,
 				FAEE5A101F79313200874A49 /* ClientOrderListViewController.m in Sources */,
-				FAA423721F700B9500C3736F /* EmptyDataView.m in Sources */,
 				FAA4239C1F70162500C3736F /* ClientMainPageViewController.m in Sources */,
 				FA663D1D1F761756001C6F25 /* FavDetailViewController.m in Sources */,
 				FAA423671F700B3E00C3736F /* JJMainScrollView.m in Sources */,
 				FAEE90421F7BF8A8008CC1CE /* TakePhotoViewController.m in Sources */,
 				FAA423C01F7414B600C3736F /* HotDestinationCell.m in Sources */,
+				FA9C50A01F83E1570075C329 /* ClientCompleteViewController.m in Sources */,
 				FA663D641F77E2BD001C6F25 /* ProfileEditViewController.m in Sources */,
 				FAA4238D1F7015C800C3736F /* ClientMsgViewController.m in Sources */,
 				FA663D291F765EFA001C6F25 /* ServerMainViewController.m in Sources */,
@@ -977,9 +1005,11 @@
 				FA05D8031F7541AA00893EE3 /* ClientMsgCell.m in Sources */,
 				FAA423A91F7167E100C3736F /* User.m in Sources */,
 				FA663D381F765F35001C6F25 /* ServerProfileViewController.m in Sources */,
+				FA9C509C1F83E05C0075C329 /* EmptyDataView.m in Sources */,
 				FA663D541F77D39F001C6F25 /* WatchDateCell.m in Sources */,
 				FAA423691F700B3E00C3736F /* JJPhoto.m in Sources */,
 				FA663D491F77CE56001C6F25 /* EvaluationViewController.m in Sources */,
+				FA9C50991F83E01A0075C329 /* SLSegmentPageView.m in Sources */,
 				FA663D591F77D3B3001C6F25 /* WatchDateViewController.m in Sources */,
 				FAA4233D1F70006500C3736F /* main.m in Sources */,
 				FAA423881F70159200C3736F /* FavoriteViewController.m in Sources */,
