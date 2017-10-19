@@ -11,6 +11,10 @@
 		657D87DC1F70F05B00CD17DE /* conf-system-style.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657D87D91F70F05B00CD17DE /* conf-system-style.plist */; };
 		657D87DD1F70F05B00CD17DE /* com.huaaotech.core.conf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657D87DB1F70F05B00CD17DE /* com.huaaotech.core.conf.plist */; };
 		874F7B5B65253AAB04A1D209 /* Pods_Ctravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */; };
+		FA04A8581F98F1FE009A72DE /* ReceivablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04A8561F98F1FE009A72DE /* ReceivablesViewController.m */; };
+		FA04A8591F98F1FE009A72DE /* ReceivablesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04A8571F98F1FE009A72DE /* ReceivablesViewController.xib */; };
+		FA04A85E1F98F4CE009A72DE /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04A85C1F98F4CE009A72DE /* IncomeViewController.m */; };
+		FA04A85F1F98F4CE009A72DE /* IncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04A85D1F98F4CE009A72DE /* IncomeViewController.xib */; };
 		FA05D8031F7541AA00893EE3 /* ClientMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA05D8011F7541AA00893EE3 /* ClientMsgCell.m */; };
 		FA05D8041F7541AA00893EE3 /* ClientMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA05D8021F7541AA00893EE3 /* ClientMsgCell.xib */; };
 		FA663D1D1F761756001C6F25 /* FavDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA663D1B1F761756001C6F25 /* FavDetailViewController.m */; };
@@ -101,6 +105,12 @@
 		9BD509F4D33881358D3F5EDA /* Pods-Ctravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.release.xcconfig"; sourceTree = "<group>"; };
 		D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ctravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F223FEFEBA994EF4956C3534 /* Pods-Ctravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.debug.xcconfig"; sourceTree = "<group>"; };
+		FA04A8551F98F1FE009A72DE /* ReceivablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivablesViewController.h; sourceTree = "<group>"; };
+		FA04A8561F98F1FE009A72DE /* ReceivablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivablesViewController.m; sourceTree = "<group>"; };
+		FA04A8571F98F1FE009A72DE /* ReceivablesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceivablesViewController.xib; sourceTree = "<group>"; };
+		FA04A85B1F98F4CE009A72DE /* IncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncomeViewController.h; sourceTree = "<group>"; };
+		FA04A85C1F98F4CE009A72DE /* IncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncomeViewController.m; sourceTree = "<group>"; };
+		FA04A85D1F98F4CE009A72DE /* IncomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IncomeViewController.xib; sourceTree = "<group>"; };
 		FA05D8001F7541AA00893EE3 /* ClientMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientMsgCell.h; sourceTree = "<group>"; };
 		FA05D8011F7541AA00893EE3 /* ClientMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientMsgCell.m; sourceTree = "<group>"; };
 		FA05D8021F7541AA00893EE3 /* ClientMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientMsgCell.xib; sourceTree = "<group>"; };
@@ -283,6 +293,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FA04A8541F98F1F2009A72DE /* receivables */ = {
+			isa = PBXGroup;
+			children = (
+				FA04A8551F98F1FE009A72DE /* ReceivablesViewController.h */,
+				FA04A8561F98F1FE009A72DE /* ReceivablesViewController.m */,
+				FA04A8571F98F1FE009A72DE /* ReceivablesViewController.xib */,
+			);
+			name = receivables;
+			path = Receivables;
+			sourceTree = "<group>";
+		};
+		FA04A85A1F98F4B7009A72DE /* income */ = {
+			isa = PBXGroup;
+			children = (
+				FA04A85B1F98F4CE009A72DE /* IncomeViewController.h */,
+				FA04A85C1F98F4CE009A72DE /* IncomeViewController.m */,
+				FA04A85D1F98F4CE009A72DE /* IncomeViewController.xib */,
+			);
+			path = income;
+			sourceTree = "<group>";
+		};
 		FA05D7FF1F75419400893EE3 /* clientMsgCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +379,8 @@
 		FA663D251F765EE0001C6F25 /* profile */ = {
 			isa = PBXGroup;
 			children = (
+				FA04A85A1F98F4B7009A72DE /* income */,
+				FA04A8541F98F1F2009A72DE /* receivables */,
 				FA663D351F765F35001C6F25 /* ServerProfileViewController.h */,
 				FA663D361F765F35001C6F25 /* ServerProfileViewController.m */,
 				FA663D371F765F35001C6F25 /* ServerProfileViewController.xib */,
@@ -825,6 +858,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA04A8591F98F1FE009A72DE /* ReceivablesViewController.xib in Resources */,
 				FAEE5A1D1F79422600874A49 /* CommonDesViewController.xib in Resources */,
 				FA663D2A1F765EFA001C6F25 /* ServerMainViewController.xib in Resources */,
 				FAA423A21F701AEA00C3736F /* LoginViewController.xib in Resources */,
@@ -853,6 +887,7 @@
 				FAA423981F7015F400C3736F /* ClientProfileViewController.xib in Resources */,
 				FAA4239D1F70162500C3736F /* ClientMainPageViewController.xib in Resources */,
 				FAEE90431F7BF8A8008CC1CE /* TakePhotoViewController.xib in Resources */,
+				FA04A85F1F98F4CE009A72DE /* IncomeViewController.xib in Resources */,
 				FAA423461F70006500C3736F /* Main.storyboard in Resources */,
 				FA05D8041F7541AA00893EE3 /* ClientMsgCell.xib in Resources */,
 				FAA4238E1F7015C800C3736F /* ClientMsgViewController.xib in Resources */,
@@ -992,8 +1027,10 @@
 				FAA4239C1F70162500C3736F /* ClientMainPageViewController.m in Sources */,
 				FA663D1D1F761756001C6F25 /* FavDetailViewController.m in Sources */,
 				FAA423671F700B3E00C3736F /* JJMainScrollView.m in Sources */,
+				FA04A85E1F98F4CE009A72DE /* IncomeViewController.m in Sources */,
 				FAEE90421F7BF8A8008CC1CE /* TakePhotoViewController.m in Sources */,
 				FAA423C01F7414B600C3736F /* HotDestinationCell.m in Sources */,
+				FA04A8581F98F1FE009A72DE /* ReceivablesViewController.m in Sources */,
 				FA9C50A01F83E1570075C329 /* ClientCompleteViewController.m in Sources */,
 				FA663D641F77E2BD001C6F25 /* ProfileEditViewController.m in Sources */,
 				FAA4238D1F7015C800C3736F /* ClientMsgViewController.m in Sources */,

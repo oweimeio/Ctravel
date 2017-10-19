@@ -9,6 +9,8 @@
 #import "ServerProfileViewController.h"
 #import "PreHeader.h"
 #import "SettingViewController.h"
+#import "ReceivablesViewController.h"
+#import "IncomeViewController.h"
 
 @interface ServerProfileViewController ()
 
@@ -35,12 +37,19 @@
     
 }
 
+- (IBAction)IncomeViewPress:(id)sender {
+    [self.navigationController pushViewController:[IncomeViewController new] animated:YES];
+}
+
 
 - (IBAction)settingViewPress:(id)sender {
     SettingViewController *settingVc = [SettingViewController new];
     [self.navigationController pushViewController:settingVc animated:YES];
 }
 
+- (IBAction)bindReceivablesStyle:(id)sender {
+    [self.navigationController pushViewController:[ReceivablesViewController new] animated:YES];
+}
 
 - (IBAction)changeToClientViewPress:(id)sender {
     [[AppDelegate app] switchAppType:AppTypeResident];

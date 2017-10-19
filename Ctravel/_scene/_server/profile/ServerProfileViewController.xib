@@ -79,6 +79,9 @@
                         <constraint firstAttribute="trailing" secondItem="8rd-je-kTa" secondAttribute="trailing" constant="50" id="pGb-mN-cca"/>
                         <constraint firstItem="8rd-je-kTa" firstAttribute="centerY" secondItem="OHx-55-4kw" secondAttribute="centerY" id="zpR-mE-6wd"/>
                     </constraints>
+                    <connections>
+                        <action selector="IncomeViewPress:" destination="-1" eventType="touchUpInside" id="MJa-c0-fPt"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yy6-He-rbZ" customClass="UIControl">
                     <rect key="frame" x="0.0" y="240" width="375" height="60"/>
@@ -154,6 +157,9 @@
                         <constraint firstItem="P6a-2q-3E3" firstAttribute="leading" secondItem="LVp-Xi-rKg" secondAttribute="leading" constant="20" id="b5P-b1-gSs"/>
                         <constraint firstItem="giY-C3-Aws" firstAttribute="centerY" secondItem="LVp-Xi-rKg" secondAttribute="centerY" id="hkY-JS-KV2"/>
                     </constraints>
+                    <connections>
+                        <action selector="bindReceivablesStyle:" destination="-1" eventType="touchUpInside" id="EU0-2T-Lrc"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFe-ZR-Zdo" customClass="UIControl">
                     <rect key="frame" x="0.0" y="360" width="375" height="60"/>
