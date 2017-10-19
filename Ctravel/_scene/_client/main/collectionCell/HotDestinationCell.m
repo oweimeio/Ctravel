@@ -28,8 +28,8 @@ NSString *const hotDestinationCellInIdentifier = @"hotDestinationCellInIdentifie
 
 - (void)setDataSource:(NSDictionary *)dataSource {
     _dataSource = dataSource;
-    [_picImageView setImageWithURLString:dataSource[@"imgUrl"] andPlaceholderNamed:@""];
-    _nameLabel.text = dataSource[@"title"];
+    [_picImageView setImageWithURLString:dataSource[@"destinationImage"] andPlaceholderNamed:@"placeholder-none"];
+    _nameLabel.text = dataSource[@"destination"];
 }
 
 @end

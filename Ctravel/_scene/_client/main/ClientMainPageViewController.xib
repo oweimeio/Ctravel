@@ -109,21 +109,44 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPu-e7-6Rw">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <subviews>
-                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="热门搜索" translatesAutoresizingMaskIntoConstraints="NO" id="l5s-K0-r6i">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-search" translatesAutoresizingMaskIntoConstraints="NO" id="Sx4-g0-m2D">
+                                    <rect key="frame" x="20" y="15" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="4dT-de-Ndg"/>
+                                        <constraint firstAttribute="height" constant="20" id="RTU-1I-5SD"/>
+                                    </constraints>
+                                </imageView>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="想去哪里？" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cqr-Yy-wwh">
+                                    <rect key="frame" x="52" y="10" width="311" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="FY9-0y-kdx"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     <connections>
-                                        <outlet property="delegate" destination="-1" id="ydE-nq-1BY"/>
+                                        <outlet property="delegate" destination="-1" id="ukn-at-sX8"/>
                                     </connections>
-                                </searchBar>
+                                </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1QN-Uq-srI">
+                                    <rect key="frame" x="0.0" y="49" width="375" height="1"/>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="oUu-nQ-iqK"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="5qT-9y-nId"/>
-                                <constraint firstItem="l5s-K0-r6i" firstAttribute="leading" secondItem="gPu-e7-6Rw" secondAttribute="leading" id="DNq-FT-bLM"/>
-                                <constraint firstAttribute="trailing" secondItem="l5s-K0-r6i" secondAttribute="trailing" id="NsI-cw-rgf"/>
-                                <constraint firstAttribute="bottom" secondItem="l5s-K0-r6i" secondAttribute="bottom" id="WGV-ac-gP3"/>
-                                <constraint firstItem="l5s-K0-r6i" firstAttribute="top" secondItem="gPu-e7-6Rw" secondAttribute="top" id="rmy-Kz-qyr"/>
+                                <constraint firstItem="Sx4-g0-m2D" firstAttribute="centerY" secondItem="gPu-e7-6Rw" secondAttribute="centerY" id="6XY-8S-G7H"/>
+                                <constraint firstAttribute="bottom" secondItem="1QN-Uq-srI" secondAttribute="bottom" id="PdB-bN-3pg"/>
+                                <constraint firstItem="Cqr-Yy-wwh" firstAttribute="leading" secondItem="Sx4-g0-m2D" secondAttribute="trailing" constant="12" id="UUX-dD-r6m"/>
+                                <constraint firstAttribute="trailing" secondItem="1QN-Uq-srI" secondAttribute="trailing" id="W9S-q4-lfJ"/>
+                                <constraint firstAttribute="trailing" secondItem="Cqr-Yy-wwh" secondAttribute="trailing" constant="12" id="i36-Hp-txK"/>
+                                <constraint firstItem="Sx4-g0-m2D" firstAttribute="leading" secondItem="gPu-e7-6Rw" secondAttribute="leading" constant="20" id="p1C-aa-d3r"/>
+                                <constraint firstItem="1QN-Uq-srI" firstAttribute="leading" secondItem="gPu-e7-6Rw" secondAttribute="leading" id="pCg-ft-coq"/>
+                                <constraint firstItem="Cqr-Yy-wwh" firstAttribute="centerY" secondItem="gPu-e7-6Rw" secondAttribute="centerY" id="qNS-0q-DCZ"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -166,4 +189,7 @@
             </connections>
         </searchDisplayController>
     </objects>
+    <resources>
+        <image name="icon-search" width="30" height="30"/>
+    </resources>
 </document>

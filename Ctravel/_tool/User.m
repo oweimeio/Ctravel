@@ -73,7 +73,14 @@
         self.firstName = [coder decodeObjectForKey:@"self.firstName"];
         self.familyName = [coder decodeObjectForKey:@"self.familyName"];
         self.phone = [coder decodeObjectForKey:@"self.phone"];
-        self.avatar = [coder decodeObjectForKey:@"self.avatar"];
+        self.avatarUrl = [coder decodeObjectForKey:@"self.avatarUrl"];
+        self.city = [coder decodeObjectForKey:@"self.avatarUrl"];
+        self.registerTime = [coder decodeObjectForKey:@"self.avatarUrl"];
+        self.about = [coder decodeObjectForKey:@"self.about"];
+        self.language = [coder decodeObjectForKey:@"self.language"];
+        self.school = [coder decodeObjectForKey:@"self.school"];
+        self.job = [coder decodeObjectForKey:@"self.job"];
+        self.email = [coder decodeObjectForKey:@"self.email"];
     }
     return self;
 }
@@ -83,7 +90,14 @@
     [coder encodeObject:self.firstName forKey:@"self.firstName"];
     [coder encodeObject:self.familyName forKey:@"self.familyName"];
     [coder encodeObject:self.phone forKey:@"self.phone"];
-    [coder encodeObject:self.avatar forKey:@"self.avatar"];
+    [coder encodeObject:self.avatarUrl forKey:@"self.avatarUrl"];
+    [coder encodeObject:self.city forKey:@"self.city"];
+    [coder encodeObject:self.registerTime forKey:@"self.registerTime"];
+    [coder encodeObject:self.about forKey:@"self.about"];
+    [coder encodeObject:self.language forKey:@"self.language"];
+    [coder encodeObject:self.school forKey:@"self.school"];
+    [coder encodeObject:self.job forKey:@"self.job"];
+    [coder encodeObject:self.email forKey:@"self.email"];
 }
 
 

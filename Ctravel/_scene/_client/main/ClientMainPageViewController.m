@@ -10,8 +10,9 @@
 #import "HotExperienceCell.h"
 #import "HotDestinationCell.h"
 #import "PreHeader.h"
+#import "User.h"
 
-@interface ClientMainPageViewController () <UISearchBarDelegate>
+@interface ClientMainPageViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *hotDestinationView;
 @property (strong, nonatomic) NSArray *hotDestinationData;
@@ -66,10 +67,15 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     
     NSDictionary *params = @{
-                             @"token":[HAApp current].atoken
+                             @"token":[HAApp current].atoken,
+                             @"userId":[User sharedUser].userId
                              };
     [[CoreAPI core] GETURLString:CLIENT_HOMEPAGE withParameters:params success:^(id ret) {
-        
+        NSLog(@"%@",ret);
+        _hotDestinationData = ret[@"hotDestinationList"];
+        [self.hotDestinationView reloadData];
+        _hotExperienceData = ret[@"hotExperienceList"];
+        [self.hotExperienceView reloadData];
     } error:^(NSString *code, NSString *msg, id ret) {
         
     } failure:^(NSError *error) {
@@ -143,12 +149,17 @@
 
 
 //MARK: - SEARCH
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:YES];
+    if (textField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入想去的城市"];
+        return false;
+    }
     //跳入收藏详情
     FavoriteViewController *favVc = [[FavoriteViewController alloc] init];
-    favVc.keywords = searchBar.text;
+    favVc.keywords = textField.text;
     [self.navigationController pushViewController:favVc animated:YES];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

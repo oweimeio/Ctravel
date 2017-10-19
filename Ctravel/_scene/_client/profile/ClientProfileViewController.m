@@ -25,6 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    _nameLabel.text = [NSString stringWithFormat:@"%@%@", [User sharedUser].familyName, [User sharedUser].firstName];
+    
+    [_avatarBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:[User sharedUser].avatarUrl] placeholderImage:[UIImage imageNamed:@"placeholder-none"]];
 }
 
 //MARK: -ACTION

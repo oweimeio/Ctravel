@@ -21,8 +21,6 @@
 
 #import "FavDetailViewController.h"
 
-
-
 #import "ServerMainViewController.h"
 #import "DateViewController.h"
 #import "ServerMessageViewController.h"
@@ -30,5 +28,6 @@
 #import "ServerProfileViewController.h"
 
 #import "CreatePageViewController.h"
+#import "IDValidViewController.h"
 
 #endif /* Views_h */

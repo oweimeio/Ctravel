@@ -151,6 +151,7 @@
 	else if (_type == LoginTypeLogin) {
         [self.view endEditing:YES];
         [[AppDelegate app] switchAppType:AppTypeResident];
+        [User sharedUser].userId = @"1221";
         [HAApp current].atoken = @"asdfsadfsfdf";
         return;
 		NSDictionary *params = @{

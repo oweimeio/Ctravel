@@ -94,6 +94,10 @@
         [Experience saveExperienceDataWithUID:[HAApp current].userID];
     }];
     
+    [self.view bk_whenTapped:^{
+        [self.view endEditing:YES];
+    }];
+    
     [self setInfo:_info];
     
     [self setStyle:_style];

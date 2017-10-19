@@ -42,14 +42,14 @@
 		<key>name</key>
 		<string>Core Networking Domain</string>
 		<key>conf-value</key>
-		<string>apitest.ctravel.cc</string>
+		<string>192.168.1.104</string>
 	</dict>
 	<key>core-net-domain-dev</key>
 	<dict>
 		<key>name</key>
 		<string>Core Networking Dev Domain</string>
 		<key>conf-value</key>
-		<string>ggejw.huaao24.com.cn</string>
+		<string>apitest.ctravel.cc</string>
 	</dict>
 	<key>core-net-api-path</key>
 	<dict>

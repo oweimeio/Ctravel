@@ -22,19 +22,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDR-A2-FrA" customClass="UIControl">
                     <rect key="frame" x="0.0" y="100" width="375" height="50"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQn-ws-QaP">
-                            <rect key="frame" x="12" y="16" width="33" height="19.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0版本" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQn-ws-QaP">
+                            <rect key="frame" x="12" y="16" width="53" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav-right" translatesAutoresizingMaskIntoConstraints="NO" id="TVQ-aO-3PK">
-                            <rect key="frame" x="350" y="19" width="13" height="13"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="13" id="K2l-qK-dLg"/>
-                                <constraint firstAttribute="height" constant="13" id="SgA-7W-Vtt"/>
-                            </constraints>
-                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8va-dh-yBc">
                             <rect key="frame" x="12" y="49" width="351" height="1"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -47,35 +40,33 @@
                     <constraints>
                         <constraint firstItem="8va-dh-yBc" firstAttribute="leading" secondItem="sDR-A2-FrA" secondAttribute="leading" constant="12" id="1nu-k3-EKi"/>
                         <constraint firstItem="gQn-ws-QaP" firstAttribute="centerY" secondItem="sDR-A2-FrA" secondAttribute="centerY" id="GkK-TT-6rX"/>
-                        <constraint firstAttribute="trailing" secondItem="TVQ-aO-3PK" secondAttribute="trailing" constant="12" id="Xgg-Bs-HBQ"/>
                         <constraint firstAttribute="trailing" secondItem="8va-dh-yBc" secondAttribute="trailing" constant="12" id="YGM-AH-hwe"/>
                         <constraint firstAttribute="height" constant="50" id="ctU-sc-q7Y"/>
                         <constraint firstAttribute="bottom" secondItem="8va-dh-yBc" secondAttribute="bottom" id="dsv-Zt-UaC"/>
                         <constraint firstItem="gQn-ws-QaP" firstAttribute="leading" secondItem="sDR-A2-FrA" secondAttribute="leading" constant="12" id="vWw-Ha-WeW"/>
-                        <constraint firstItem="TVQ-aO-3PK" firstAttribute="centerY" secondItem="sDR-A2-FrA" secondAttribute="centerY" id="zTL-k3-fdV"/>
                     </constraints>
                     <connections>
                         <action selector="commonViewPress:" destination="-1" eventType="touchUpInside" id="yjF-Ab-2Eq"/>
                     </connections>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9b-iR-HfH" customClass="UIControl">
-                    <rect key="frame" x="0.0" y="150" width="375" height="50"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9b-iR-HfH" customClass="UIControl">
+                    <rect key="frame" x="0.0" y="150" width="375" height="0.0"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F65-bX-BNE">
-                            <rect key="frame" x="12" y="16" width="33" height="19.5"/>
+                            <rect key="frame" x="12" y="-9" width="33" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav-right" translatesAutoresizingMaskIntoConstraints="NO" id="VcS-zV-RHc">
-                            <rect key="frame" x="350" y="19" width="13" height="13"/>
+                            <rect key="frame" x="350" y="-6" width="13" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="13" id="MFO-QL-qUo"/>
                                 <constraint firstAttribute="width" constant="13" id="gqR-p2-w1p"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoA-tP-sZq">
-                            <rect key="frame" x="12" y="49" width="351" height="1"/>
+                            <rect key="frame" x="12" y="-1" width="351" height="1"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="rC4-Je-ehA"/>
@@ -90,7 +81,7 @@
                         <constraint firstItem="F65-bX-BNE" firstAttribute="leading" secondItem="Q9b-iR-HfH" secondAttribute="leading" constant="12" id="Gcn-Ue-lU4"/>
                         <constraint firstItem="F65-bX-BNE" firstAttribute="centerY" secondItem="Q9b-iR-HfH" secondAttribute="centerY" id="Vxk-kl-sKp"/>
                         <constraint firstAttribute="bottom" secondItem="GoA-tP-sZq" secondAttribute="bottom" id="fcv-Bb-t8p"/>
-                        <constraint firstAttribute="height" constant="50" id="n9c-iF-sru"/>
+                        <constraint firstAttribute="height" id="n9c-iF-sru"/>
                         <constraint firstAttribute="trailing" secondItem="VcS-zV-RHc" secondAttribute="trailing" constant="12" id="oQm-77-ITT"/>
                     </constraints>
                     <connections>
@@ -98,7 +89,7 @@
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXe-wN-ZhR" customClass="UIControl">
-                    <rect key="frame" x="0.0" y="200" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="150" width="375" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="退出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIf-m6-4t8">
                             <rect key="frame" x="12" y="16" width="33" height="19.5"/>
