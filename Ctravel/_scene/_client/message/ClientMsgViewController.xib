@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClientMsgViewController">
             <connections>
+                <outlet property="emptyDataView" destination="efM-hV-lrU" id="QwI-Lj-g44"/>
                 <outlet property="msgTableView" destination="4c1-q5-9qm" id="8IH-vS-3lc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -45,11 +46,19 @@
                         <constraint firstItem="Abl-ws-UVZ" firstAttribute="top" secondItem="2Ea-Sn-Qdk" secondAttribute="top" constant="10" id="sel-7W-q6Y"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efM-hV-lrU" customClass="EmptyDataView">
+                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="4c1-q5-9qm" secondAttribute="bottom" id="S1m-58-w9p"/>
+                <constraint firstAttribute="trailing" secondItem="efM-hV-lrU" secondAttribute="trailing" id="Tn5-jR-Wje"/>
                 <constraint firstItem="2Ea-Sn-Qdk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="VXE-io-Pbs"/>
+                <constraint firstAttribute="bottom" secondItem="efM-hV-lrU" secondAttribute="bottom" id="a0I-C0-IMf"/>
+                <constraint firstItem="efM-hV-lrU" firstAttribute="top" secondItem="2Ea-Sn-Qdk" secondAttribute="bottom" id="ehJ-Lf-pP7"/>
+                <constraint firstItem="efM-hV-lrU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gim-aB-fsz"/>
                 <constraint firstAttribute="trailing" secondItem="4c1-q5-9qm" secondAttribute="trailing" id="nzX-0z-XNs"/>
                 <constraint firstItem="4c1-q5-9qm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="o7p-2U-bFS"/>
                 <constraint firstItem="4c1-q5-9qm" firstAttribute="top" secondItem="2Ea-Sn-Qdk" secondAttribute="bottom" id="p1d-IP-pgz"/>

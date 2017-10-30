@@ -22,4 +22,6 @@ typedef enum : NSUInteger {
 
 @property (assign, nonatomic) BOOL hideNavBar;
 
+@property (strong, nonatomic) NSString *titleStr;
+
 @end

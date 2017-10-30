@@ -47,6 +47,9 @@
     if (_hideNavBar) {
         [self.navigationController setNavigationBarHidden:YES animated:animated];
     }
+    else {
+        [self.navigationController setNavigationBarHidden:NO animated:animated];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -66,9 +69,12 @@
     if (_keywords) {
         _titleLabel.text = _keywords;
     }
+    if (_titleStr) {
+        _titleLabel.text = _titleStr;
+    }
     
     //请求获取列表
-    //[self requestListData];
+    [self requestListData];
 }
 
 //MARK: - METHOD
@@ -76,12 +82,16 @@
     
     //查询的时候通过keyword 查询
     NSDictionary *param = @{
-                            @"token":[HAApp current].atoken,
+                            @"token":[User sharedUser].token,
                             @"userId":[User sharedUser].userId,
-                            @"keyword":!self.keywords?@"":self.keywords
+                            @"title":!self.keywords?@"":self.keywords,
+                            @"page":@(1),
+                            @"rows":@(10)
                             };
-    [[CoreAPI core] GETURLString:@"/hot/hotDestinationExperience" withParameters:param success:^(id ret) {
+    [[CoreAPI core] GETURLString:@"/experience/conditionQuery" withParameters:param success:^(id ret) {
         NSLog(@"%@",ret);
+        self.dataSource = ret[@"experienceDetail"];
+        [_favCollectionView reloadData];
         _emptyView.hidden = self.dataSource.count;
     } error:^(NSString *code, NSString *msg, id ret) {
         [SVProgressHUD showErrorWithStatus:msg];
@@ -107,7 +117,9 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self.navigationController pushViewController:[FavDetailViewController new] animated:YES];
+    FavDetailViewController *favDetailVc = [FavDetailViewController new];
+    favDetailVc.dataSource = self.dataSource[indexPath.row];
+    [self.navigationController pushViewController:favDetailVc animated:YES];
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout

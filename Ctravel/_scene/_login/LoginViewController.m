@@ -119,7 +119,7 @@
 			[SVProgressHUD showErrorWithStatus:@"请输入正确的电话号码"];
 			return;
 		}
-        [[CoreAPI core] GETURLString:@"" withParameters:@{} success:^(id ret) {
+        [[CoreAPI core] GETURLString: [NSString stringWithFormat:@"/sms/%@/1",_phoneTextField.text] withParameters:@{} success:^(id ret) {
             
         } error:^(NSString *code, NSString *msg, id ret) {
             
@@ -152,7 +152,7 @@
         [self.view endEditing:YES];
         [[AppDelegate app] switchAppType:AppTypeResident];
         [User sharedUser].userId = @"1221";
-        [HAApp current].atoken = @"asdfsadfsfdf";
+        [User sharedUser].token = @"asdfsadfsfdf";
         return;
 		NSDictionary *params = @{
 								 @"account": _phoneTextField.text,
@@ -162,7 +162,8 @@
 								 };
 		[[CoreAPI core] GETURLString:LOGIN_LOGIN withParameters:params success:^(id ret) {
             NSLog(@"%@",ret);
-            [[HAApp current] setAtoken:ret[@"data"][@"token"]];
+            [User sharedUser].isLogin = YES;
+            [User sharedUser].token = ret[@"data"][@"token"];
             [User sharedUser].userId = ret[@"data"][@"userId"];
 			[[AppDelegate app] switchAppType:AppTypeResident];
 		} error:^(NSString *code, NSString *msg, id ret) {

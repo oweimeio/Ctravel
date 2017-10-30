@@ -10,4 +10,6 @@
 
 @interface BuyProViewController : UIViewController
 
+@property (nonatomic, strong) NSDictionary *dataSource;
+
 @end

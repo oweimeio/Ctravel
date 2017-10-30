@@ -10,6 +10,7 @@
 #import "PreHeader.h"
 #import "EvaluationViewController.h"
 #import "WatchDateViewController.h"
+#import "BuyProViewController.h"
 
 @interface FavDetailViewController ()
 
@@ -30,7 +31,17 @@
 
 - (void)setDataSource:(NSDictionary *)dataSource {
     _dataSource = dataSource;
-    [self.picImageView setImageWithURLString:@"http://imgstore.cdn.sogou.com/app/a/100540002/714860.jpg" andPlaceholderNamed:@""];
+    [self.picImageView setImageWithURLString:dataSource[@"imageUrl"] andPlaceholderNamed:@"placeholder-none"];
+    [self.avatarImageView setImageWithURLString:@"" andPlaceholderNamed:@"placeholder-none"];
+    self.simpleDesLabel.text = [NSString stringWithFormat:@"%@\n%@\n",dataSource[@"contentDescription"], dataSource[@"contentDetails"]];
+    self.exContentLabel.text = dataSource[@"contentDetails"];
+    self.goWhereLabel.text = dataSource[@"destination"];
+    self.meetPointLabel.text = dataSource[@"rendezvous"];
+    self.exHaveLabel.text = dataSource[@"contentDetails"];
+    self.remarkLabel.text = dataSource[@"comment"];
+    self.masterRegulationsLabel.text = dataSource[@"requirement"];
+    self.exPeopleCount.text = dataSource[@"peopleNumber"];
+    self.moneyLabel.text = [NSString stringWithFormat:@"￥%.2f",[dataSource[@"price"] floatValue]];
 }
 
 - (void)viewDidLoad {
@@ -39,20 +50,19 @@
     [self setDataSource:_dataSource];
     
     self.headerDefaultSize = self.picImageView.frame.size;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
-    [self hideStatusBar:YES];
+    self.navigationController.navigationBar.translucent = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+    self.navigationController.navigationBar.translucent = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 //MARK: - ACTION
@@ -74,8 +84,28 @@
 
 - (IBAction)connectMaster:(id)sender {
 }
-
+//预定
 - (IBAction)reserveBtnClick:(id)sender {
+    
+    
+    NSDictionary *param = @{
+                             @"experienceId":@"2345678",
+                             @"userId":[User sharedUser].userId,
+                             @"token":[User sharedUser].token,
+                             @"serviceTimeId":@"333"
+                             };
+    [[CoreAPI core] GETURLString:@"/pay/reserve/2345678" withParameters:param success:^(id ret) {
+        NSLog(@"%@",ret);
+        BuyProViewController *buyVc = [[BuyProViewController alloc] init];
+        buyVc.dataSource = ret[@""];
+        [self.navigationController pushViewController:buyVc animated:YES];
+        
+    } error:^(NSString *code, NSString *msg, id ret) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -96,12 +126,10 @@
     scrollView.bounces = (scrollView.contentOffset.y <= 100) ? NO : YES;
 
     if (self.scrollView.contentOffset.y > 40) {
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
-        [self hideStatusBar:NO];
+        self.navigationController.navigationBar.translucent = NO;
     }
     else {
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
-        [self hideStatusBar:YES];
+        self.navigationController.navigationBar.translucent = YES;
     }
 }
 

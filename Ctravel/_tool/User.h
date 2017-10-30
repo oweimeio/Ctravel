@@ -10,6 +10,10 @@
 
 @interface User : NSObject<NSCoding>
 
+@property (nonatomic, strong) NSString *token;
+
+@property (nonatomic, assign) BOOL isLogin;
+
 @property (nonatomic, strong) NSString *userId;
 
 @property (nonatomic, strong) NSString *firstName;
@@ -33,6 +37,8 @@
 @property (nonatomic, strong) NSString *job;
 
 @property (nonatomic, strong) NSString *email;
+
+@property (nonatomic, strong) NSString *validCode;
 
 + (instancetype)sharedUser;
 

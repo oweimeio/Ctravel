@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClientOrderViewController">
             <connections>
+                <outlet property="emptyDataView" destination="vGh-fq-uW4" id="44R-iC-4Xi"/>
                 <outlet property="tableView" destination="XJe-Zn-WWx" id="c81-fk-xfV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -65,6 +66,10 @@
                         <action selector="watchDealRecordsBtnClick:" destination="-1" eventType="touchUpInside" id="DqF-hs-iLV"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGh-fq-uW4" customClass="EmptyDataView">
+                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -72,12 +77,17 @@
                 <constraint firstAttribute="bottom" secondItem="4lg-K4-yue" secondAttribute="bottom" constant="30" id="BUj-dr-fhs"/>
                 <constraint firstItem="FAt-Zb-Xvg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DO0-pR-quG"/>
                 <constraint firstAttribute="bottom" secondItem="XJe-Zn-WWx" secondAttribute="bottom" id="NYe-iD-NK5"/>
+                <constraint firstAttribute="bottom" secondItem="vGh-fq-uW4" secondAttribute="bottom" id="OJo-K1-oeu"/>
                 <constraint firstAttribute="trailing" secondItem="XJe-Zn-WWx" secondAttribute="trailing" id="SjW-1m-Vtq"/>
                 <constraint firstItem="FAt-Zb-Xvg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Vm6-MM-emG"/>
+                <constraint firstAttribute="trailing" secondItem="vGh-fq-uW4" secondAttribute="trailing" id="Xa7-ew-qxD"/>
                 <constraint firstItem="XJe-Zn-WWx" firstAttribute="top" secondItem="FAt-Zb-Xvg" secondAttribute="bottom" id="bds-ob-ZZY"/>
+                <constraint firstItem="vGh-fq-uW4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hcf-0i-Dgi"/>
+                <constraint firstItem="vGh-fq-uW4" firstAttribute="top" secondItem="FAt-Zb-Xvg" secondAttribute="bottom" id="s5P-Gv-MlL"/>
                 <constraint firstAttribute="trailing" secondItem="FAt-Zb-Xvg" secondAttribute="trailing" id="slg-xx-pfm"/>
                 <constraint firstItem="XJe-Zn-WWx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sr4-z5-ChS"/>
             </constraints>
+            <point key="canvasLocation" x="32.5" y="71.5"/>
         </view>
     </objects>
 </document>

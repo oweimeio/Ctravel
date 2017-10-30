@@ -9,10 +9,13 @@
 #import "ClientOrderViewController.h"
 #import "ClientOrderCell.h"
 #import "ClientOrderListViewController.h"
+#import "PreHeader.h"
 
 @interface ClientOrderViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet EmptyDataView *emptyDataView;
 
 @property (strong, nonatomic) NSArray *dataSource;
 
@@ -35,6 +38,8 @@
                                                                                 ]] forCellReuseIdentifier:ClientOrderCellIdentifier];
     
     self.tableView.tableFooterView = [UIView new];
+    
+    [self requestOrderListData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,8 +54,27 @@
     [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
+
+//MARK: - ACTION
 - (IBAction)watchDealRecordsBtnClick:(id)sender {
     [self.navigationController pushViewController:[ClientOrderListViewController new] animated:YES];
+}
+
+//MARK: - METHOD
+- (void)requestOrderListData {
+    NSDictionary *param = @{
+                            @"token": [User sharedUser].token,
+                            @"userId": [User sharedUser].userId,
+                            };
+    [[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/orderInfoCustomer/%@", [User sharedUser].userId] withParameters:param success:^(id ret) {
+        self.dataSource = ret[@""];
+        [_tableView reloadData];
+        self.emptyDataView.hidden = self.dataSource.count;
+    } error:^(NSString *code, NSString *msg, id ret) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

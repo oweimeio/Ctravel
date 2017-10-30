@@ -40,6 +40,7 @@ NSString *const hotExperienceCellInIdentifier = @"hotExperienceCellInIdentifier"
     [_picImageView setImageWithURLString:dataSource[@"imageUrl"] andPlaceholderNamed:@"placeholder-none"];
     _nameLabel.text = dataSource[@"title"];
     _moneyLabel.text = [NSString stringWithFormat:@"￥%.2f 12条评论",[dataSource[@"price"] floatValue]];
+    
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "ClientMsgViewController.h"
 #import "ClientMsgCell.h"
+#import "PreHeader.h"
 
 @interface ClientMsgViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -15,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *msgTableView;
 
+@property (weak, nonatomic) IBOutlet EmptyDataView *emptyDataView;
 @end
 
 @implementation ClientMsgViewController
@@ -32,6 +34,9 @@
     // Do any additional setup after loading the view from its nib.
     
     self.msgTableView.tableFooterView = [UIView new];
+    
+    //请求消息数据
+    [self requestMsgData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -44,6 +49,22 @@
     [super viewWillDisappear:animated];
     
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
+- (void)requestMsgData {
+    NSDictionary *param = @{
+                            @"token": [User sharedUser].token,
+                            @"userId": [User sharedUser].userId,
+                            };
+    [[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/orderInfoCustomer/%@", [User sharedUser].userId] withParameters:param success:^(id ret) {
+        self.dataSource = ret[@""];
+        [_msgTableView reloadData];
+        self.emptyDataView.hidden = self.dataSource.count;
+    } error:^(NSString *code, NSString *msg, id ret) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 //MARK: - TABLEDELEGATE & DATASOURCE

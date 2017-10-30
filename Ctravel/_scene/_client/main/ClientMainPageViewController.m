@@ -55,10 +55,6 @@
     [self.hotDestinationView registerNib:[UINib nibWithNibName:@"HotDestinationCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotDestinationCellInIdentifier];
     
     [self.hotExperienceView registerNib:[UINib nibWithNibName:@"HotExperienceCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:hotExperienceCellInIdentifier];
-    
-    [self.view bk_whenTapped:^{
-        [self.view endEditing:YES];
-    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -67,7 +63,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     
     NSDictionary *params = @{
-                             @"token":[HAApp current].atoken,
+                             @"token":[User sharedUser].token,
                              @"userId":[User sharedUser].userId
                              };
     [[CoreAPI core] GETURLString:CLIENT_HOMEPAGE withParameters:params success:^(id ret) {
@@ -92,7 +88,9 @@
 - (IBAction)watchMore:(id)sender {
     //跳入收藏详情 查询结果保存收藏和未收藏的
     FavoriteViewController *favVc = [[FavoriteViewController alloc] init];
+    favVc.hidesBottomBarWhenPushed = YES;
     favVc.type = FavTypeAll;
+    favVc.titleStr = @"更多热门体验";
     [self.navigationController pushViewController:favVc animated:YES];
 }
 
@@ -123,14 +121,21 @@
         HotExperienceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:hotExperienceCellInIdentifier forIndexPath:indexPath];
         __weak NSDictionary *dataSource = self.hotExperienceData[indexPath.row];
         cell.dataSource = dataSource;
-//        [cell.picImageView setImageWithURLString:dataSource[@"imageUrl"] andPlaceholderNamed:@""];
-//        cell.nameLabel.text = dataSource[@"title"];
         return cell;
     }
     return nil;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self.view endEditing:YES];
+    if (collectionView == _hotDestinationView) {
+       
+    }
+    else if (collectionView == _hotExperienceView) {
+        FavDetailViewController *favDetailVc = [FavDetailViewController new];
+        favDetailVc.dataSource = self.hotExperienceData[indexPath.row];
+        [self.navigationController pushViewController:favDetailVc animated:YES];
+    }
     
 }
 
@@ -157,6 +162,7 @@
     }
     //跳入收藏详情
     FavoriteViewController *favVc = [[FavoriteViewController alloc] init];
+    favVc.hidesBottomBarWhenPushed = YES;
     favVc.keywords = textField.text;
     [self.navigationController pushViewController:favVc animated:YES];
     return YES;

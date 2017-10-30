@@ -69,6 +69,8 @@
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     if (self = [super init]) {
+        self.token = [coder decodeObjectForKey:@"self.token"];
+        self.isLogin = [coder decodeBoolForKey:@"self.isLogin"];
         self.userId = [coder decodeObjectForKey:@"self.userId"];
         self.firstName = [coder decodeObjectForKey:@"self.firstName"];
         self.familyName = [coder decodeObjectForKey:@"self.familyName"];
@@ -81,11 +83,14 @@
         self.school = [coder decodeObjectForKey:@"self.school"];
         self.job = [coder decodeObjectForKey:@"self.job"];
         self.email = [coder decodeObjectForKey:@"self.email"];
+        self.validCode = [coder decodeObjectForKey:@"self.validCode"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.token forKey:@"self.token"];
+    [coder encodeBool:self.isLogin forKey:@"self.isLogin"];
     [coder encodeObject:self.userId forKey:@"self.userId"];
     [coder encodeObject:self.firstName forKey:@"self.firstName"];
     [coder encodeObject:self.familyName forKey:@"self.familyName"];
@@ -98,6 +103,7 @@
     [coder encodeObject:self.school forKey:@"self.school"];
     [coder encodeObject:self.job forKey:@"self.job"];
     [coder encodeObject:self.email forKey:@"self.email"];
+    [coder encodeObject:self.validCode forKey:@"self.validCode"];
 }
 
 

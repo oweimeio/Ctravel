@@ -7,8 +7,13 @@
 //
 
 #import "BuyProViewController.h"
+#import "PreHeader.h"
+#import <Pingpp.h>
 
 @interface BuyProViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 @end
 
@@ -18,6 +23,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
+- (IBAction)reserveBtnClick:(id)sender {
+    NSDictionary *params = @{
+                             @"userId":[User sharedUser].userId,
+                             @"token":[User sharedUser].token
+                             };
+    [[CoreAPI core] GETURLString:@"/pay/pay/150866062587490952" withParameters:params success:^(id ret) {
+        NSLog(@"%@",ret);
+        [Pingpp createPayment:ret[@"charge"] appURLScheme:@"com.ctravelApp.www" withCompletion:^(NSString *result, PingppError *error) {
+            NSLog(@"%@",result);
+        }];
+    } error:^(NSString *code, NSString *msg, id ret) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
