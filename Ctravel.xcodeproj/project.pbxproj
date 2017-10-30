@@ -96,6 +96,8 @@
 		FAEE903E1F7BDF0F008CC1CE /* Experience.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE903D1F7BDF0F008CC1CE /* Experience.m */; };
 		FAEE90421F7BF8A8008CC1CE /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE90401F7BF8A8008CC1CE /* TakePhotoViewController.m */; };
 		FAEE90431F7BF8A8008CC1CE /* TakePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE90411F7BF8A8008CC1CE /* TakePhotoViewController.xib */; };
+		FAF8D3C51F9CE57E00D6063E /* BuyProViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF8D3C31F9CE57E00D6063E /* BuyProViewController.m */; };
+		FAF8D3C61F9CE57E00D6063E /* BuyProViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF8D3C41F9CE57E00D6063E /* BuyProViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -246,6 +248,9 @@
 		FAEE903F1F7BF8A8008CC1CE /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
 		FAEE90401F7BF8A8008CC1CE /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
 		FAEE90411F7BF8A8008CC1CE /* TakePhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TakePhotoViewController.xib; sourceTree = "<group>"; };
+		FAF8D3C21F9CE57E00D6063E /* BuyProViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyProViewController.h; sourceTree = "<group>"; };
+		FAF8D3C31F9CE57E00D6063E /* BuyProViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyProViewController.m; sourceTree = "<group>"; };
+		FAF8D3C41F9CE57E00D6063E /* BuyProViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyProViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +335,9 @@
 				FA663D1A1F761756001C6F25 /* FavDetailViewController.h */,
 				FA663D1B1F761756001C6F25 /* FavDetailViewController.m */,
 				FA663D1C1F761756001C6F25 /* FavDetailViewController.xib */,
+				FAF8D3C21F9CE57E00D6063E /* BuyProViewController.h */,
+				FAF8D3C31F9CE57E00D6063E /* BuyProViewController.m */,
+				FAF8D3C41F9CE57E00D6063E /* BuyProViewController.xib */,
 			);
 			path = favDetail;
 			sourceTree = "<group>";
@@ -859,6 +867,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA04A8591F98F1FE009A72DE /* ReceivablesViewController.xib in Resources */,
+				FAF8D3C61F9CE57E00D6063E /* BuyProViewController.xib in Resources */,
 				FAEE5A1D1F79422600874A49 /* CommonDesViewController.xib in Resources */,
 				FA663D2A1F765EFA001C6F25 /* ServerMainViewController.xib in Resources */,
 				FAA423A21F701AEA00C3736F /* LoginViewController.xib in Resources */,
@@ -1052,6 +1061,7 @@
 				FAA423881F70159200C3736F /* FavoriteViewController.m in Sources */,
 				FAA423B01F740CA400C3736F /* SettingViewController.m in Sources */,
 				FAEE90391F7BC936008CC1CE /* LYAreaPicker.m in Sources */,
+				FAF8D3C51F9CE57E00D6063E /* BuyProViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
