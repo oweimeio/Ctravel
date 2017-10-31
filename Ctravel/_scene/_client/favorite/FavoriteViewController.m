@@ -26,10 +26,7 @@
 
 - (NSArray *)dataSource {
     if (!_dataSource) {
-        _dataSource = @[
-                        @{@"title":@"罗马", @"imgUrl":@"http://imgstore.cdn.sogou.com/app/a/100540002/714860.jpg"},
-                        @{@"title":@"罗马", @"imgUrl":@"http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/06/ChMkJlbKyiCIYAW0AA6U_PRWkBcAALIXAL8oScADpUU566.jpg"},
-                        @{@"title":@"罗马", @"imgUrl":@"http://imgstore.cdn.sogou.com/app/a/100540002/714860.jpg"}];
+        _dataSource = @[];
     }
     return _dataSource;
 }
