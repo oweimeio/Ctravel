@@ -6,17 +6,18 @@
 //  COPYRIGHT © 2016 HUAAO TECH. ALL RIGHTS RESERVED.
 //
 
-#import "LYPicker.h"
+#import "LYDatePicker.h"
 #import "PreHeader.h"
 
-@interface LYPicker () <UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface LYDatePicker () {
 	UIView *vPicker;
-	UIPickerView *pvPicker;
-	didSelectItem selectionBlock;
+	UIDatePicker *pvPicker;
+	didSelectDate selectionBlock;
+	NSDate *selectedDate;
 }
 @end
 
-@implementation LYPicker
+@implementation LYDatePicker
 
 /*
 // ONLY OVERRIDE drawRect: IF YOU PERFORM CUSTOM DRAWING.
@@ -58,16 +59,21 @@
 	
 	UIView *viewPicker = [UIView new];
 	viewPicker.backgroundColor = [UIColor whiteColor];
+
 	[self addSubview:viewPicker];
 	vPicker = viewPicker;
 	
-	UIPickerView *piPicker = [[UIPickerView alloc] init];
+	UIDatePicker *piPicker = [[UIDatePicker alloc] init];
 	piPicker.frame = (CGRect){0, 44, WIDTH, WIDTH / 1.48148f};
-	piPicker.dataSource = self;
-	piPicker.delegate = self;
 	piPicker.backgroundColor = [UIColor whiteColor];
-
+	piPicker.date = [NSDate new];
+	piPicker.timeZone = [NSTimeZone timeZoneWithName:@"GTM+8"]; // 设置时区，中国在东八区
+	piPicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:72 * 60 * 60 * -1]; // 设置最小时间
+	piPicker.maximumDate = [NSDate dateWithTimeIntervalSinceNow:72 * 60 * 60]; // 设置最大时间
+	piPicker.datePickerMode = UIDatePickerModeTime; // 设置样式
+	[piPicker addTarget:self action:@selector(oneDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged]; // 添加监听器
 	[viewPicker addSubview:piPicker];
+	selectedDate = piPicker.date;
 	pvPicker = piPicker;
 	
 	viewPicker.frame = (CGRect){0, 0, WIDTH, piPicker.frame.size.height + 44};
@@ -92,6 +98,11 @@
 }
 
 #pragma mark - METHOD
+
+- (void)oneDatePickerValueChanged:(UIDatePicker *) sender {
+	selectedDate = [sender date];
+	NSLog(@"%@", [sender date]);
+}
 
 - (void)show {
 	CGFloat const ANIMATE = 0.25f;
@@ -120,7 +131,7 @@
 	[self show];
 }
 
-- (void)setSelectBlock:(didSelectItem)selectBlock {
+- (void)setSelectBlock:(didSelectDate)selectBlock {
 	selectionBlock = selectBlock;
 }
 
@@ -147,50 +158,14 @@
 }
 
 - (void)done {
-	
-	if (_datasource != nil && [_datasource count] > 0 && _selectedIndex >= 0 && _selectedIndex < [_datasource count]) {
-		selectionBlock(_selectedIndex, _datasource[_selectedIndex]);
-	}
+
+	selectionBlock(selectedDate);
 	
 	[self dismiss];
 }
 
 #pragma mark - PROPERTY
 
-- (NSInteger)selectedIndex {
-	if (_datasource == nil || [_datasource count] == 0) {
-		NSLog(@"\n\nLYPicker ERROR\n\tDATA SOURCE NIL\n");
-		return -1;
-	}
-	return _selectedIndex;
-}
-
-- (void)setDatasource:(NSArray *)datasource {
-	
-	if (datasource == nil || [datasource isKindOfClass:[NSArray class]] == NO || [datasource count] == 0) {
-		return;
-	}
-	
-	_datasource = datasource;
-	
-	[pvPicker reloadAllComponents];
-	
-	_selectedIndex = 0;
-	[pvPicker selectRow:0 inComponent:0 animated:NO];
-}
-
-- (void)setKeyTitle:(NSString *)keyTitle {
-	
-	if (keyTitle == nil || [keyTitle isEqualToString:@""]) {
-		return;
-	}
-	
-	_keyTitle = keyTitle;
-	
-	[pvPicker reloadAllComponents];
-	_selectedIndex = 0;
-	[pvPicker selectRow:0 inComponent:0 animated:NO];
-}
 
 - (void)setTintColor:(UIColor *)tintColor {
 	
@@ -201,34 +176,6 @@
 			}
 		}
 	}
-}
-
-#pragma mark - DELEGATE
-
-#pragma mark | UIPickerViewDelegate
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-	_selectedIndex = row;
-}
-
-#pragma mark | UIPickerViewDataSource
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-	return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-	return [_datasource count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-	
-	if (_keyTitle == nil || [_keyTitle isEqualToString:@""]) {
-		NSLog(@"\n\nLYPicker ERROR\n\tPLEASE SET KEYTITLE PROPERTY FIRST\n");
-		return @"";
-	}
-	
-	return _datasource[row][_keyTitle];
 }
 
 @end

@@ -21,6 +21,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *selectViewBtn;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *chooseTimeViewHeight;
+
 @property (weak, nonatomic) IBOutlet UITextField *writeContentTextField;
 
 @property (weak, nonatomic) IBOutlet UITextView *writeTextView;
@@ -37,6 +39,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *showTipTitleLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *startTimeBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *endTimeBtn;
 
 @end
 
@@ -59,6 +64,7 @@
 
 - (void)setStyle:(CreatPageStyle)style {
     _style = style;
+	self.chooseTimeViewHeight.constant = 0;
     switch (style) {
         case CreatPageStyleSelect: {
             self.selectViewHeight.constant = 100;
@@ -79,6 +85,13 @@
             self.writeTextView.hidden = NO;
             self.writeViewPlaceholderLabel.hidden = NO;
         }   break;
+		case CreatPageStyleChooseTime: {
+			self.chooseTimeViewHeight.constant = 50;
+			self.selectViewHeight.constant = 0;
+			self.writeTextView.hidden = YES;
+			self.writeViewPlaceholderLabel.hidden = YES;
+			break;
+		}
         default:
             break;
     }
@@ -125,6 +138,33 @@
     }
 }
 
+//选择开始时间
+- (IBAction)chooseStartTime:(UIButton *)sender {
+
+	LYDatePicker *picker = [[LYDatePicker alloc] init];
+	[picker setSelectBlock:^(NSDate *date) {
+		NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
+		selectDateFormatter.dateFormat = @"HH:mm"; // 设置时间和日期的格式
+		NSString *dateAndTime = [selectDateFormatter stringFromDate:date];
+		[sender setTitle:dateAndTime forState:UIControlStateNormal];
+		[Experience defaultExperience].defaultTimeStart = dateAndTime;
+	}];
+	[picker showInView:self.view];
+}
+
+//选择结束时间
+- (IBAction)chooseEndTime:(UIButton *)sender {
+	LYDatePicker *picker = [[LYDatePicker alloc] init];
+	[picker setSelectBlock:^(NSDate *date) {
+		NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
+		selectDateFormatter.dateFormat = @"HH:mm"; // 设置时间和日期的格式
+		NSString *dateAndTime = [selectDateFormatter stringFromDate:date];
+		[sender setTitle:dateAndTime forState:UIControlStateNormal];
+		[Experience defaultExperience].defaultTimeEnd = dateAndTime;
+	}];
+	[picker showInView:self.view];
+}
+
 // 预览
 - (IBAction)preViewBtnClick:(id)sender {
     Experience *experience = [Experience defaultExperience];
@@ -145,61 +185,64 @@
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeCity: {
-            
             experience.city = self.writeContentTextField.text;
-    
             createVc.info = @{@"title":@"为您的体验起了简短但吸引眼球的名称",@"selectTitle":@"标题",@"showTip":@"点击进一步了解标题"};
             createVc.style = CreatPageStyleWrite;
             createVc.type = CommonDesTypeTitle;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeTitle: {
-            
             experience.title = self.writeContentTextField.text;
-            
             createVc.info = @{@"title":@"告诉参与者我们要做些什么？（描述您行程安排）",@"showTip":@"点击进一步了解要做些什么"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeDes;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeDes: {
+			experience.contentDes = self.writeContentTextField.text;
             createVc.info = @{@"title":@"向参与者描述一下要去何处（列出要去的点，不要包括详细地址）",@"showTip":@"点击进一步了解地点"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeAddress;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeAddress: {
+			experience.destination = self.writeContentTextField.text;
             createVc.info = @{@"title":@"注明体验包含的项目（门票、交通、餐费）",@"showTip":@"点击进一步了解注明"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeMark;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeMark: {
+			experience.mark = self.writeContentTextField.text;
             createVc.info = @{@"title":@"告诉参与者还需要知道些什么？（需要携带或自己安排）",@"showTip":@"点击进一步了解须知"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeMustKnow;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeMustKnow: {
+			experience.mustKnow = self.writeContentTextField.text;
             createVc.info = @{@"title":@"您对参与者的要求？（年龄限制、体验需要的基本技能）",@"showTip":@"点击进一步了解要求"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeRequire;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeRequire: {
+			experience.requirement = self.writeContentTextField.text;
             createVc.info = @{@"title":@"您打算在哪里与参与者集合？",@"showTip":@"点击进一步了解集合"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypePlace;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypePlace: {
+			experience.rendezvous = self.writeContentTextField.text;
             createVc.info = @{@"title":@"您的活动默认时间？",@"showTip":@"点击进一步了解时间"};
-            createVc.style = CreatPageStyleWriteDes;
+            createVc.style = CreatPageStyleChooseTime;
             createVc.type = CommonDesTypeTime;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeTime: {
             TakePhotoViewController *photoVc = [TakePhotoViewController new];
+			
             [self.navigationController pushViewController: photoVc animated:YES];
         }   break;
         case CommonDesTypePic: {
@@ -262,16 +305,22 @@
             }
         }   break;
         case CommonDesTypeMark: {
-            
+			if (experience.mark) {
+				_writeTextView.text = experience.mark;
+			}
         }   break;
         case CommonDesTypeMustKnow: {
-            
+			if (experience.mustKnow) {
+				_writeTextView.text = experience.mustKnow;
+			}
         }   break;
         case CommonDesTypeRequire: {
-            
+			if (experience.requirement) {
+				_writeTextView.text = experience.requirement;
+			}
         }   break;
         case CommonDesTypePlace: {
-            
+			
         }   break;
         case CommonDesTypeTime: {
             

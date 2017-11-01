@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IncomeViewController">
             <connections>
+                <outlet property="totalIncomeLabel" destination="WcA-IF-ego" id="MR4-k3-jQY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,11 +37,31 @@
                         <constraint firstItem="Jaw-yM-eCj" firstAttribute="leading" secondItem="hti-ac-xyD" secondAttribute="leading" constant="20" id="aCz-Ya-mzF"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总收入：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhK-UE-Cc1">
+                    <rect key="frame" x="30" y="120" width="70" height="19.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="zGc-TR-ALr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcA-IF-ego">
+                    <rect key="frame" x="120" y="119.5" width="235" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="WcA-IF-ego" firstAttribute="leading" secondItem="uhK-UE-Cc1" secondAttribute="trailing" constant="20" id="Coy-B1-37x"/>
+                <constraint firstItem="uhK-UE-Cc1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Rg1-La-tVK"/>
                 <constraint firstItem="hti-ac-xyD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XVN-Ae-ycA"/>
+                <constraint firstItem="uhK-UE-Cc1" firstAttribute="top" secondItem="hti-ac-xyD" secondAttribute="bottom" constant="50" id="jIe-dL-cP8"/>
+                <constraint firstAttribute="trailing" secondItem="WcA-IF-ego" secondAttribute="trailing" constant="20" id="jJb-Hi-7ce"/>
                 <constraint firstItem="hti-ac-xyD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="vF5-Ta-Fwz"/>
+                <constraint firstItem="WcA-IF-ego" firstAttribute="centerY" secondItem="uhK-UE-Cc1" secondAttribute="centerY" id="zlI-18-FY7"/>
                 <constraint firstAttribute="trailing" secondItem="hti-ac-xyD" secondAttribute="trailing" id="zpI-eJ-flS"/>
             </constraints>
         </view>

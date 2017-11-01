@@ -146,7 +146,21 @@
             [SVProgressHUD showErrorWithStatus:@"两次密码输入不一致"];
             return;
         }
-        
+		NSDictionary *params = @{
+								 @"account": [User sharedUser].phone,
+								 @"password": _passwordTextField.text
+								 };
+		[[CoreAPI core] GETURLString:REGISTER_REGISTER withParameters:params success:^(id ret) {
+			NSLog(@"%@",ret);
+			[SVProgressHUD showSuccessWithStatus:@"注册成功"];
+			[[HAApp current] logout];
+			[[AppDelegate app] switchAppType:AppTypeLogin];
+		} error:^(NSString *code, NSString *msg, id ret) {
+			[SVProgressHUD showErrorWithStatus:msg];
+		} failure:^(NSError *error) {
+			[SVProgressHUD showErrorWithStatus:@"网络错误"];
+		}];
+		
     }
 	else if (_type == LoginTypeLogin) {
         [self.view endEditing:YES];

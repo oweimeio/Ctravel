@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^ didSelectItem)(NSDate *date);
+typedef void (^ didSelectDate)(NSDate *date);
 
 @interface LYDatePicker : UIControl
 
@@ -17,6 +17,6 @@ typedef void (^ didSelectItem)(NSDate *date);
 - (void)show;
 - (void)showInView:(UIView *)view;
 
-- (void)setSelectBlock:(didSelectItem)selectBlock;
+- (void)setSelectBlock:(didSelectDate)selectBlock;
 
 @end

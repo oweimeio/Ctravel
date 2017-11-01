@@ -39,8 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	[self.tableView registerNib:[UINib nibWithNibName:@"ClientOrderCell" bundle:[NSBundle mainBundle
-																				 ]] forCellReuseIdentifier:ClientOrderCellIdentifier];
+	[self.tableView registerNib:[UINib nibWithNibName:@"ClientOrderCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:ClientOrderCellIdentifier];
 	
 	self.tableView.tableFooterView = [UIView new];
 	

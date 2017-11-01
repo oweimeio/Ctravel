@@ -11,6 +11,8 @@
 
 @interface IncomeViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *totalIncomeLabel;
+
 @end
 
 @implementation IncomeViewController
@@ -25,9 +27,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.view bk_whenTapped:^{
-        [self.view endEditing:YES];
-    }];
+	
+	//获取总收入
+	[self requestIncomeData];
+}
+
+- (void)requestIncomeData {
+	_totalIncomeLabel.text = @"0元";
 }
 
 - (void)didReceiveMemoryWarning {

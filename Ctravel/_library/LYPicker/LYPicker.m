@@ -66,6 +66,7 @@
 	piPicker.dataSource = self;
 	piPicker.delegate = self;
 	piPicker.backgroundColor = [UIColor whiteColor];
+
 	[viewPicker addSubview:piPicker];
 	pvPicker = piPicker;
 	

@@ -1,20 +1,89 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServerOrderViewController">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="emptyDataView" destination="i8o-Uc-Op9" id="H5w-aG-2yr"/>
+                <outlet property="tableView" destination="FM0-ON-luq" id="mNe-hr-BKh"/>
+                <outlet property="view" destination="wkl-0d-LYU" id="8uu-Oz-a6V"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="wkl-0d-LYU">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIg-ux-yOu">
+                    <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预订" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMT-Ji-LeP">
+                            <rect key="frame" x="20" y="10" width="53" height="31.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="K7K-KR-Fw1"/>
+                        <constraint firstItem="rMT-Ji-LeP" firstAttribute="top" secondItem="KIg-ux-yOu" secondAttribute="top" constant="10" id="o9S-tz-XyL"/>
+                        <constraint firstItem="rMT-Ji-LeP" firstAttribute="leading" secondItem="KIg-ux-yOu" secondAttribute="leading" constant="20" id="qPK-Vu-wvn"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FM0-ON-luq">
+                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7X-4j-lHF">
+                    <rect key="frame" x="225" y="597" width="120" height="40"/>
+                    <color key="backgroundColor" red="0.094117647060000004" green="0.56470588239999997" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="FEG-Mt-BKc"/>
+                        <constraint firstAttribute="width" constant="120" id="hGJ-Eo-7kK"/>
+                    </constraints>
+                    <state key="normal" title="查看交易记录">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="watchDealRecordsBtnClick:" destination="-1" eventType="touchUpInside" id="JUs-ar-uFc"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8o-Uc-Op9" customClass="EmptyDataView">
+                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="FM0-ON-luq" firstAttribute="top" secondItem="KIg-ux-yOu" secondAttribute="bottom" id="1BQ-VR-zwy"/>
+                <constraint firstAttribute="trailing" secondItem="FM0-ON-luq" secondAttribute="trailing" id="1IW-KN-nlb"/>
+                <constraint firstAttribute="bottom" secondItem="V7X-4j-lHF" secondAttribute="bottom" constant="30" id="78G-82-Jzt"/>
+                <constraint firstAttribute="trailing" secondItem="i8o-Uc-Op9" secondAttribute="trailing" id="A6g-Xh-2K6"/>
+                <constraint firstAttribute="trailing" secondItem="KIg-ux-yOu" secondAttribute="trailing" id="Hlh-0G-LdG"/>
+                <constraint firstItem="KIg-ux-yOu" firstAttribute="top" secondItem="wkl-0d-LYU" secondAttribute="top" constant="20" id="OHh-LQ-PEd"/>
+                <constraint firstItem="FM0-ON-luq" firstAttribute="leading" secondItem="wkl-0d-LYU" secondAttribute="leading" id="QNE-wb-nmg"/>
+                <constraint firstAttribute="trailing" secondItem="V7X-4j-lHF" secondAttribute="trailing" constant="30" id="RDq-of-xTX"/>
+                <constraint firstItem="i8o-Uc-Op9" firstAttribute="leading" secondItem="wkl-0d-LYU" secondAttribute="leading" id="SCi-Sj-EM7"/>
+                <constraint firstItem="i8o-Uc-Op9" firstAttribute="top" secondItem="KIg-ux-yOu" secondAttribute="bottom" id="SGq-ya-NZ7"/>
+                <constraint firstAttribute="bottom" secondItem="i8o-Uc-Op9" secondAttribute="bottom" id="bme-dq-5mC"/>
+                <constraint firstItem="KIg-ux-yOu" firstAttribute="leading" secondItem="wkl-0d-LYU" secondAttribute="leading" id="hfS-c3-CS6"/>
+                <constraint firstAttribute="bottom" secondItem="FM0-ON-luq" secondAttribute="bottom" id="tF4-hv-nDa"/>
+            </constraints>
+            <point key="canvasLocation" x="32.5" y="71.5"/>
         </view>
     </objects>
 </document>

@@ -1,20 +1,65 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServerMessageViewController">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view" destination="AXR-zL-z24" id="aTY-Ba-k0L"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="AXR-zL-z24">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rxW-N9-vDe">
+                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQY-oh-o1F">
+                    <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tN-bh-FlP">
+                            <rect key="frame" x="20" y="10" width="53" height="31.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="3tN-bh-FlP" firstAttribute="top" secondItem="XQY-oh-o1F" secondAttribute="top" constant="10" id="BNy-0V-IUc"/>
+                        <constraint firstItem="3tN-bh-FlP" firstAttribute="leading" secondItem="XQY-oh-o1F" secondAttribute="leading" constant="20" id="bYQ-Pa-q1V"/>
+                        <constraint firstAttribute="height" constant="50" id="bsg-uk-8fa"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qat-a5-yrS" customClass="EmptyDataView">
+                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="XQY-oh-o1F" firstAttribute="leading" secondItem="AXR-zL-z24" secondAttribute="leading" id="1wd-9h-Aoq"/>
+                <constraint firstAttribute="bottom" secondItem="rxW-N9-vDe" secondAttribute="bottom" id="AKI-j0-W6s"/>
+                <constraint firstItem="rxW-N9-vDe" firstAttribute="leading" secondItem="AXR-zL-z24" secondAttribute="leading" id="BOn-Wv-tq8"/>
+                <constraint firstItem="Qat-a5-yrS" firstAttribute="leading" secondItem="AXR-zL-z24" secondAttribute="leading" id="EOb-Rg-hVb"/>
+                <constraint firstAttribute="trailing" secondItem="XQY-oh-o1F" secondAttribute="trailing" id="IFY-Ps-Q59"/>
+                <constraint firstAttribute="trailing" secondItem="rxW-N9-vDe" secondAttribute="trailing" id="Mk8-9s-ZMS"/>
+                <constraint firstItem="Qat-a5-yrS" firstAttribute="top" secondItem="XQY-oh-o1F" secondAttribute="bottom" id="g3e-1f-Yev"/>
+                <constraint firstItem="rxW-N9-vDe" firstAttribute="top" secondItem="XQY-oh-o1F" secondAttribute="bottom" id="j8Z-5Z-vQe"/>
+                <constraint firstAttribute="bottom" secondItem="Qat-a5-yrS" secondAttribute="bottom" id="rqn-Ip-pKR"/>
+                <constraint firstAttribute="trailing" secondItem="Qat-a5-yrS" secondAttribute="trailing" id="vlT-aY-Vnl"/>
+                <constraint firstItem="XQY-oh-o1F" firstAttribute="top" secondItem="AXR-zL-z24" secondAttribute="top" constant="20" id="zEK-dx-4kP"/>
+            </constraints>
+            <point key="canvasLocation" x="32.5" y="71.5"/>
         </view>
     </objects>
 </document>

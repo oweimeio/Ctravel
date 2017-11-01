@@ -12,6 +12,7 @@ typedef enum : NSUInteger {
     CreatPageStyleSelect,
     CreatPageStyleWrite,
     CreatPageStyleWriteDes,
+	CreatPageStyleChooseTime,
 } CreatPageStyle;
 
 typedef enum : NSUInteger {
