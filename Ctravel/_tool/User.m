@@ -84,6 +84,7 @@
         self.job = [coder decodeObjectForKey:@"self.job"];
         self.email = [coder decodeObjectForKey:@"self.email"];
         self.validCode = [coder decodeObjectForKey:@"self.validCode"];
+		self.payAccount = [coder decodeObjectForKey:@"payAccount"];
     }
     return self;
 }
@@ -104,6 +105,7 @@
     [coder encodeObject:self.job forKey:@"self.job"];
     [coder encodeObject:self.email forKey:@"self.email"];
     [coder encodeObject:self.validCode forKey:@"self.validCode"];
+	[coder encodeObject:self.payAccount forKey:@"self.payAccount"];
 }
 
 

@@ -38,7 +38,11 @@
 
 @property (nonatomic, strong) NSString *email;
 
+//验证码
 @property (nonatomic, strong) NSString *validCode;
+
+//支付宝账号
+@property (nonatomic, strong) NSString *payAccount;
 
 + (instancetype)sharedUser;
 

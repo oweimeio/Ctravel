@@ -30,6 +30,7 @@
     [self setupTitle];
     
 }
+
 - (void)setupTitle {
     
     SLSegmentPageView *page = [[SLSegmentPageView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];

@@ -10,6 +10,7 @@
 #import "PreHeader.h"
 
 @interface ReceivablesViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *zfbIDLabel;
 
 @end
@@ -30,6 +31,10 @@
     [self.view bk_whenTapped:^{
         [self.view endEditing:YES];
     }];
+	
+	if ([User sharedUser].payAccount) {
+		_zfbIDLabel.text = [User sharedUser].payAccount;
+	}
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +43,9 @@
 }
 
 - (IBAction)saveBtnClick:(id)sender {
+	[User sharedUser].payAccount = _zfbIDLabel.text;
+	[SVProgressHUD showSuccessWithStatus:@"保存成功"];
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 

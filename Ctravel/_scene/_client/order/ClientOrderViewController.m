@@ -67,13 +67,13 @@
                             @"userId": [User sharedUser].userId,
                             };
     [[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/orderInfoCustomer/%@", [User sharedUser].userId] withParameters:param success:^(id ret) {
-        self.dataSource = ret[@""];
+        self.dataSource = ret[@"orderInfo"];
         [_tableView reloadData];
         self.emptyDataView.hidden = self.dataSource.count;
     } error:^(NSString *code, NSString *msg, id ret) {
-        
+		[SVProgressHUD showErrorWithStatus:msg];
     } failure:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:@"网络连接错误"];
     }];
 }
 
@@ -87,6 +87,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ClientOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:ClientOrderCellIdentifier forIndexPath:indexPath];
+	__weak NSDictionary *dic = self.dataSource[indexPath.row];
+	[cell.photoView setImageWithURLString:dic[@"imageUrl"] andPlaceholderNamed:@"placeholder-none"];
+	cell.desLabel.text = [NSString stringWithFormat:@"%@\n@体验时间:%@\n体验价格:%@",dic[@"title"],dic[@"serviceTime"],dic[@"tradeAmount"]];
     return cell;
 }
 

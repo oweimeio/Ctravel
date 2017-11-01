@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+	OrderTypeCompleted,
+	OrderTypeFuture
+} OrderType;
+
 @interface ServerOrderHistoryListViewController : UIViewController
+
+@property (assign, nonatomic) OrderType type;
 
 @end

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+FOUNDATION_EXPORT NSString *const ServerOrderCellIdentifier;
+
 @interface ServerOrderCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *photoView;
+
+@property (weak, nonatomic) IBOutlet UILabel *desLabel;
 
 @end

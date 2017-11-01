@@ -8,6 +8,8 @@
 
 #import "ServerOrderCell.h"
 
+NSString *const ServerOrderCellIdentifier = @"ServerOrderCellIdentifier";
+
 @implementation ServerOrderCell
 
 - (void)awakeFromNib {
