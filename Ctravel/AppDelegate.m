@@ -235,5 +235,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
+	
+	NSLog(@"\n\nENTER\n\t-application:didReceiveRemoteNotification:fetchCompletionHandler:\n\n");
+	
+	completionHandler(UIBackgroundFetchResultNoData);
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+	NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+	NSLog(@"\n\nDEVICE DID REGISTER REMOTE NOTIFICATION\n\tDEVICE TOKEN\n\t%@", token);
+}
 
 @end
