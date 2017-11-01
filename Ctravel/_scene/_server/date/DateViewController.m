@@ -10,7 +10,11 @@
 #import "PreHeader.h"
 
 @interface DateViewController ()<JTCalendarDelegate> {
-    NSDate *_dateSelected;
+    NSMutableDictionary *_eventsByDate;
+    
+    NSMutableArray *_datesSelected;
+    
+    BOOL _selectionMode;
 }
 
 @end
@@ -26,6 +30,9 @@
     [_calendarManager setMenuView:_calendarMenuView];
     [_calendarManager setContentView:_calendarContentView];
     [_calendarManager setDate:[NSDate date]];
+    
+    _datesSelected = [NSMutableArray new];
+    _selectionMode = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -45,16 +52,55 @@
 }
 
 - (IBAction)saveBtnClick:(id)sender {
-    if (!_dateSelected) {
+    if (_datesSelected.count == 0) {
         [SVProgressHUD showErrorWithStatus:@"请选择日期"];
         return;
     }
-    NSLog(@"%@", [_dateSelected stringWithFormat:@"yyyy-MM-dd"]);
-    
+    for (NSDate *date in _datesSelected) {
+        NSLog(@"%@", [date stringWithFormat:@"yyyy-MM-dd"]);
+    }
 }
 
-- (NSDateFormatter *)dateFormatter
+- (void)clearUpAllDate {
+    if(_selectionMode){
+        [_datesSelected removeAllObjects];
+        [_calendarManager reload];
+    }
+}
+
+- (BOOL)isInDatesSelected:(NSDate *)date
 {
+    for(NSDate *dateSelected in _datesSelected){
+        if([_calendarManager.dateHelper date:dateSelected isTheSameDayThan:date]){
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+- (void)selectDates
+{
+    NSDate * startDate = [_datesSelected firstObject];
+    NSDate * endDate = [_datesSelected lastObject];
+    
+    if([_calendarManager.dateHelper date:startDate isEqualOrAfter:endDate]){
+        NSDate *nextDate = endDate;
+        while ([nextDate compare:startDate] == NSOrderedAscending) {
+            [_datesSelected addObject:nextDate];
+            nextDate = [_calendarManager.dateHelper addToDate:nextDate days:1];
+        }
+    }
+    else {
+        NSDate *nextDate = startDate;
+        while ([nextDate compare:endDate] == NSOrderedAscending) {
+            [_datesSelected addObject:nextDate];
+            nextDate = [_calendarManager.dateHelper addToDate:nextDate days:1];
+        }
+    }
+}
+
+- (NSDateFormatter *)dateFormatter {
     static NSDateFormatter *dateFormatter;
     if(!dateFormatter){
         dateFormatter = [NSDateFormatter new];
@@ -65,26 +111,25 @@
 
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView
 {
-    dayView.hidden = NO;
-    
-    // Test if the dayView is from another month than the page
-    // Use only in month mode for indicate the day of the previous or next month
-    if([dayView isFromAnotherMonth]){
-        dayView.hidden = YES;
-    }
     // Today
-    else if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+    if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
         dayView.circleView.backgroundColor = [UIColor blueColor];
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
     // Selected date
-    else if(_dateSelected && [_calendarManager.dateHelper date:_dateSelected isTheSameDayThan:dayView.date]){
+    else if([self isInDatesSelected:dayView.date]){
         dayView.circleView.hidden = NO;
         dayView.circleView.backgroundColor = [UIColor redColor];
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
+    }
+    // Other month
+    else if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
+        dayView.circleView.hidden = YES;
+        dayView.dotView.backgroundColor = [UIColor redColor];
+        dayView.textLabel.textColor = [UIColor lightGrayColor];
     }
     // Another day of the current month
     else{
@@ -97,18 +142,42 @@
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView
 {
-    // Use to indicate the selected date
-    _dateSelected = dayView.date;
+    if(_selectionMode && _datesSelected.count == 1 && ![_calendarManager.dateHelper date:[_datesSelected firstObject] isTheSameDayThan:dayView.date]){
+        [_datesSelected addObject:dayView.date];
+        [self selectDates];
+        _selectionMode = NO;
+        [_calendarManager reload];
+        return;
+    }
     
-    // Animation for the circleView
-    dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
-    [UIView transitionWithView:dayView
-                      duration:.3
-                       options:0
-                    animations:^{
-                        dayView.circleView.transform = CGAffineTransformIdentity;
-                        [_calendarManager reload];
-                    } completion:nil];
+    
+    if([self isInDatesSelected:dayView.date]){
+        [_datesSelected removeObject:dayView.date];
+        
+        [UIView transitionWithView:dayView
+                          duration:.3
+                           options:0
+                        animations:^{
+                            [_calendarManager reload];
+                            dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
+                        } completion:nil];
+    }
+    else{
+        [_datesSelected addObject:dayView.date];
+        
+        dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
+        [UIView transitionWithView:dayView
+                          duration:.3
+                           options:0
+                        animations:^{
+                            [_calendarManager reload];
+                            dayView.circleView.transform = CGAffineTransformIdentity;
+                        } completion:nil];
+    }
+    
+    if(_selectionMode) {
+        return;
+    }
     
     // Load the previous or next page if touch a day from another month
     if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
