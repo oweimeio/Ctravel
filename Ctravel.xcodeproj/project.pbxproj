@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		656F59121FAAFDF90017649A /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656F59101FAAFDF90017649A /* PublishViewController.m */; };
+		656F59131FAAFDF90017649A /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656F59111FAAFDF90017649A /* PublishViewController.xib */; };
 		657D87D71F70EA5900CD17DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 657D87D61F70EA5900CD17DE /* Assets.xcassets */; };
 		657D87DC1F70F05B00CD17DE /* conf-system-style.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657D87D91F70F05B00CD17DE /* conf-system-style.plist */; };
 		657D87DD1F70F05B00CD17DE /* com.huaaotech.core.conf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657D87DB1F70F05B00CD17DE /* com.huaaotech.core.conf.plist */; };
@@ -108,6 +110,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		656F590F1FAAFDF90017649A /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
+		656F59101FAAFDF90017649A /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
+		656F59111FAAFDF90017649A /* PublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PublishViewController.xib; sourceTree = "<group>"; };
 		657D87D61F70EA5900CD17DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		657D87D91F70F05B00CD17DE /* conf-system-style.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "conf-system-style.plist"; sourceTree = "<group>"; };
 		657D87DB1F70F05B00CD17DE /* com.huaaotech.core.conf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.huaaotech.core.conf.plist; sourceTree = "<group>"; };
@@ -432,6 +437,9 @@
 				FAEE903F1F7BF8A8008CC1CE /* TakePhotoViewController.h */,
 				FAEE90401F7BF8A8008CC1CE /* TakePhotoViewController.m */,
 				FAEE90411F7BF8A8008CC1CE /* TakePhotoViewController.xib */,
+				656F590F1FAAFDF90017649A /* PublishViewController.h */,
+				656F59101FAAFDF90017649A /* PublishViewController.m */,
+				656F59111FAAFDF90017649A /* PublishViewController.xib */,
 			);
 			path = pages;
 			sourceTree = "<group>";
@@ -895,6 +903,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656F59131FAAFDF90017649A /* PublishViewController.xib in Resources */,
 				FA04A8591F98F1FE009A72DE /* ReceivablesViewController.xib in Resources */,
 				FAF8D3C61F9CE57E00D6063E /* BuyProViewController.xib in Resources */,
 				FAEE5A1D1F79422600874A49 /* CommonDesViewController.xib in Resources */,
@@ -1097,6 +1106,7 @@
 				FAA423881F70159200C3736F /* FavoriteViewController.m in Sources */,
 				FAA423B01F740CA400C3736F /* SettingViewController.m in Sources */,
 				FAEE90391F7BC936008CC1CE /* LYAreaPicker.m in Sources */,
+				656F59121FAAFDF90017649A /* PublishViewController.m in Sources */,
 				FAF8D3C51F9CE57E00D6063E /* BuyProViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

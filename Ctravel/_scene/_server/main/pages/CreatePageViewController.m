@@ -10,6 +10,7 @@
 #import "PreHeader.h"
 #import "CommonDesViewController.h"
 #import "TakePhotoViewController.h"
+#import "PublishViewController.h"
 
 @interface CreatePageViewController () <UITextViewDelegate>
 
@@ -199,42 +200,42 @@
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeDes: {
-			experience.contentDes = self.writeContentTextField.text;
+			experience.contentDes = self.writeTextView.text;
             createVc.info = @{@"title":@"向参与者描述一下要去何处（列出要去的点，不要包括详细地址）",@"showTip":@"点击进一步了解地点"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeAddress;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeAddress: {
-			experience.destination = self.writeContentTextField.text;
+			experience.destination = self.writeTextView.text;
             createVc.info = @{@"title":@"注明体验包含的项目（门票、交通、餐费）",@"showTip":@"点击进一步了解注明"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeMark;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeMark: {
-			experience.mark = self.writeContentTextField.text;
+			experience.mark = self.writeTextView.text;
             createVc.info = @{@"title":@"告诉参与者还需要知道些什么？（需要携带或自己安排）",@"showTip":@"点击进一步了解须知"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeMustKnow;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeMustKnow: {
-			experience.mustKnow = self.writeContentTextField.text;
+			experience.mustKnow = self.writeTextView.text;
             createVc.info = @{@"title":@"您对参与者的要求？（年龄限制、体验需要的基本技能）",@"showTip":@"点击进一步了解要求"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeRequire;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeRequire: {
-			experience.requirement = self.writeContentTextField.text;
+			experience.requirement = self.writeTextView.text;
             createVc.info = @{@"title":@"您打算在哪里与参与者集合？",@"showTip":@"点击进一步了解集合"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypePlace;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypePlace: {
-			experience.rendezvous = self.writeContentTextField.text;
+			experience.rendezvous = self.writeTextView.text;
             createVc.info = @{@"title":@"您的活动默认时间？",@"showTip":@"点击进一步了解时间"};
             createVc.style = CreatPageStyleChooseTime;
             createVc.type = CommonDesTypeTime;
@@ -246,12 +247,16 @@
             [self.navigationController pushViewController: photoVc animated:YES];
         }   break;
         case CommonDesTypePic: {
-            createVc.info = @{@"title":@"为您提供的体验设定一个适中的价格？"};
-            createVc.type = CommonDesTypePrice;
+//			experience.price = [self.writeContentTextField.text floatValue];
+//            createVc.info = @{@"title":@"为您提供的体验设定一个适中的价格？",@"showTip":@"点击进一步了解价格"};
+//            createVc.type = CommonDesTypePrice;
+//			createVc.style = CreatPageStyleWrite;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypePrice: {
-            
+			experience.price = [self.writeContentTextField.text floatValue];
+			PublishViewController *publishVc = [PublishViewController new];
+			[self.navigationController pushViewController:publishVc animated:YES];
 
         }   break;
         default:
@@ -320,16 +325,25 @@
 			}
         }   break;
         case CommonDesTypePlace: {
-			
+			if (experience.rendezvous) {
+				_writeTextView.text = experience.rendezvous;
+			}
         }   break;
         case CommonDesTypeTime: {
-            
+			if (experience.defaultTimeStart) {
+				[_startTimeBtn setTitle:experience.defaultTimeStart forState:UIControlStateNormal];
+			}
+			if (experience.defaultTimeEnd) {
+				[_endTimeBtn setTitle:experience.defaultTimeEnd forState:UIControlStateNormal];
+			}
         }   break;
         case CommonDesTypePic: {
-
+			//在照片页面设置
         }   break;
         case CommonDesTypePrice: {
-            
+			if (experience.price) {
+				_writeContentTextField.text = [NSString stringWithFormat:@"%f", experience.price];
+			}
         }   break;
         default:
             break;
