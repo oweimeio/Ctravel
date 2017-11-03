@@ -304,7 +304,7 @@
                            apierror:(void (^)(NSString *, NSString *, id))apierror
                             failure:(void (^)(NSError *))failure {
     
-    NSString *URLString = [NSString stringWithFormat:@"%@%@/file/upload/image.do",
+    NSString *URLString = [NSString stringWithFormat:@"%@%@/file/file/fileupload",
                            [[HACore core] valueForConfWithKey:[HACore core].debug ? @"core-net-is-secure-transport-dev" : @"core-net-is-secure-transport"],
                            [[HACore core] valueForConfWithKey:[HACore core].debug ? @"core-net-domain-dev" : @"core-net-domain"]];
     

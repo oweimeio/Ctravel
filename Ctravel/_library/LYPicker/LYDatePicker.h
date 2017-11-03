@@ -12,6 +12,8 @@ typedef void (^ didSelectDate)(NSDate *date);
 
 @interface LYDatePicker : UIControl
 
+@property (nonatomic, assign) UIDatePickerMode datePickerMode;
+
 @property (nonatomic, assign) BOOL removeWhenDismissed;
 
 - (void)show;

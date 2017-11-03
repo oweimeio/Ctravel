@@ -56,9 +56,13 @@
         [SVProgressHUD showErrorWithStatus:@"请选择日期"];
         return;
     }
+    NSString *dateStr = @"";
     for (NSDate *date in _datesSelected) {
-        NSLog(@"%@", [date stringWithFormat:@"yyyy-MM-dd"]);
+        dateStr = [NSString stringWithFormat:@"%@,%@", dateStr,[date stringWithFormat:@"yyyy-MM-dd"]];
     }
+    //去除第一个逗号
+    dateStr = [dateStr substringFromIndex:1];
+    NSLog(@"%@", dateStr);
 }
 
 - (void)clearUpAllDate {

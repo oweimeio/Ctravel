@@ -104,8 +104,11 @@
     [self setDefaultTheme];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"保存" style:UIBarButtonItemStylePlain handler:^(id sender) {
-        //Experience *experience = [Experience defaultExperience];
+        if (_type == CommonDesTypePrice) {
+            [Experience defaultExperience].price = [self.writeContentTextField.text floatValue];
+        }
         [Experience saveExperienceDataWithUID:[HAApp current].userID];
+        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
     }];
     
     [self.view bk_whenTapped:^{
@@ -251,7 +254,7 @@
 //            createVc.info = @{@"title":@"为您提供的体验设定一个适中的价格？",@"showTip":@"点击进一步了解价格"};
 //            createVc.type = CommonDesTypePrice;
 //			createVc.style = CreatPageStyleWrite;
-            [self.navigationController pushViewController: createVc animated:YES];
+//            [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypePrice: {
 			experience.price = [self.writeContentTextField.text floatValue];
@@ -302,31 +305,37 @@
         case CommonDesTypeDes: {
             if (experience.contentDes) {
                 _writeTextView.text = experience.contentDes;
+                self.writeViewPlaceholderLabel.text = @"";
             }
         }   break;
         case CommonDesTypeAddress: {
             if (experience.destination) {
                 _writeTextView.text = experience.destination;
+                self.writeViewPlaceholderLabel.text = @"";
             }
         }   break;
         case CommonDesTypeMark: {
 			if (experience.mark) {
 				_writeTextView.text = experience.mark;
+                self.writeViewPlaceholderLabel.text = @"";
 			}
         }   break;
         case CommonDesTypeMustKnow: {
 			if (experience.mustKnow) {
 				_writeTextView.text = experience.mustKnow;
+                self.writeViewPlaceholderLabel.text = @"";
 			}
         }   break;
         case CommonDesTypeRequire: {
 			if (experience.requirement) {
 				_writeTextView.text = experience.requirement;
+                self.writeViewPlaceholderLabel.text = @"";
 			}
         }   break;
         case CommonDesTypePlace: {
 			if (experience.rendezvous) {
 				_writeTextView.text = experience.rendezvous;
+                self.writeViewPlaceholderLabel.text = @"";
 			}
         }   break;
         case CommonDesTypeTime: {
@@ -342,7 +351,7 @@
         }   break;
         case CommonDesTypePrice: {
 			if (experience.price) {
-				_writeContentTextField.text = [NSString stringWithFormat:@"%f", experience.price];
+				_writeContentTextField.text = [NSString stringWithFormat:@"%.2f", experience.price];
 			}
         }   break;
         default:

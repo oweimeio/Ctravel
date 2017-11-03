@@ -97,6 +97,11 @@
 	[super setFrame:frame];
 }
 
+- (void)setDatePickerMode:(UIDatePickerMode)datePickerMode {
+    _datePickerMode = datePickerMode;
+    pvPicker.datePickerMode = datePickerMode;
+}
+
 #pragma mark - METHOD
 
 - (void)oneDatePickerValueChanged:(UIDatePicker *) sender {

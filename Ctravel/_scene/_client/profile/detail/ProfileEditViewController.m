@@ -8,8 +8,25 @@
 //
 
 #import "ProfileEditViewController.h"
+#import "PreHeader.h"
 
-@interface ProfileEditViewController ()
+@interface ProfileEditViewController () <UIScrollViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *familyNameTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *positionTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *schoolTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *jobTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *languageTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *emalTextField;
 
 @end
 
@@ -22,7 +39,43 @@
 
 //MARK: - ACTION
 
+
+//拍照
+- (IBAction)takePhotoBtnClick:(id)sender {
+    
+}
+
+//选择性别
+- (IBAction)chooseGenderBtnClick:(UIButton *)sender {
+    LYPicker *picker = [LYPicker new];
+    picker.datasource = @[
+                          @{@"title":@"男",@"value":@"1"},
+                          @{@"title":@"女",@"value":@"0"}
+                          ];
+    picker.keyTitle = @"title";
+    [picker setSelectBlock:^(NSInteger idx, NSDictionary *item) {
+        [sender setTitle:item[@"title"] forState:UIControlStateNormal];
+    }];
+    [picker showInView:self.view];
+}
+
+//选择出生日期
+- (IBAction)chooseBornDate:(UIButton *)sender {
+    LYDatePicker *datePicker = [LYDatePicker new];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [datePicker setSelectBlock:^(NSDate *date) {
+        NSLog(@"%@",date);
+    }];
+    [datePicker showInView:self.view];
+}
+
+//提供身份验证
 - (IBAction)idValidBtnClick:(id)sender {
+    
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {

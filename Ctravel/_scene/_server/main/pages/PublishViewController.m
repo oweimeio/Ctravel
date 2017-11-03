@@ -7,6 +7,7 @@
 //
 
 #import "PublishViewController.h"
+#import "PreHeader.h"
 
 @interface PublishViewController ()
 
@@ -24,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.photoView setImageWithURLString:[Experience defaultExperience].imageUrl_main andPlaceholderNamed:@"placeholder-none"];
 }
 
 //预览
@@ -33,7 +35,35 @@
 
 //发布
 - (IBAction)publishBtnClick:(id)sender {
-	
+    [SVProgressHUD showSuccessWithStatus:@"发布成功,请设置您的体验日期"];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    return;
+    Experience * exVc = [Experience defaultExperience];
+    NSLog(@"%@",exVc);
+    NSDictionary *params = @{
+                             @"token":[User sharedUser].token,
+                             @"customerId":[User sharedUser].userId,
+                             @"title":exVc.title,
+                             @"contentDescription":exVc.contentDes,
+                             @"destination":exVc.destination,
+                             @"rendezvous":exVc.rendezvous,
+                             @"contentDetails":exVc.mustKnow,
+                             @"comment":exVc.mark,
+                             @"requirement":exVc.requirement,
+                             @"peopleNumber":@(exVc.peopleCount),
+                             @"currencyType":!exVc.currencyType ? @"" : exVc.currencyType,
+                             @"price":@(exVc.price),
+                             @"imageUrl":!exVc.imageUrl_main? @"" : exVc.imageUrl_main
+                             };
+    [[CoreAPI core] GETURLString:@"/experience/experiences" withParameters:params success:^(id ret) {
+        [SVProgressHUD showSuccessWithStatus:@"发布成功,请设置您的体验日期"];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } error:^(NSString *code, NSString *msg, id ret) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
