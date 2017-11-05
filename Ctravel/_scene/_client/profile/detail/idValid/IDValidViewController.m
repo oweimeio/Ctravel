@@ -7,8 +7,11 @@
 //
 
 #import "IDValidViewController.h"
+#import "PreHeader.h"
 
 @interface IDValidViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *idCardImage;
 
 @end
 
@@ -18,6 +21,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
+- (IBAction)uploadIDCard:(id)sender {
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

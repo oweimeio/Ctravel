@@ -44,6 +44,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *endTimeBtn;
 
+//下拉选择
+@property (strong, nonatomic) NSArray *serviceTypeData;
+
 @end
 
 @implementation CreatePageViewController
@@ -107,7 +110,7 @@
         if (_type == CommonDesTypePrice) {
             [Experience defaultExperience].price = [self.writeContentTextField.text floatValue];
         }
-        [Experience saveExperienceDataWithUID:[HAApp current].userID];
+        [Experience saveExperienceDataWithUID:[User sharedUser].userId];
         [SVProgressHUD showSuccessWithStatus:@"保存成功"];
     }];
     
@@ -128,15 +131,12 @@
     //根据type传递不同的DataSource
     if (_type == CommonDesTypeStyle) {
         LYPicker *picker = [[LYPicker alloc] init];
-        picker.keyTitle = @"value";
-        picker.datasource = @[@{@"key":@"1",@"value":@"选择1"},
-                              @{@"key":@"2",@"value":@"选择2"},
-                              @{@"key":@"3",@"value":@"选择3"},
-                              @{@"key":@"4",@"value":@"选择4"}];
+        picker.keyTitle = @"serviceName";
+        picker.datasource = self.serviceTypeData;
         [picker setSelectBlock:^(NSInteger idx, NSDictionary *item) {
-            [sender setTitle:item[@"value"] forState:UIControlStateNormal];
-            Experience *experience = [Experience defaultExperience];
-            experience.style = item[@"value"];
+            [sender setTitle:item[@"serviceName"] forState:UIControlStateNormal];
+            [Experience defaultExperience].style = item[@"serviceName"];
+            [Experience defaultExperience].styleId = item[@"serviceTypeId"];
         }];
         [picker showInView:self.view];
     }
@@ -183,6 +183,10 @@
     Experience *experience = [Experience defaultExperience];
     switch (_type) {
         case CommonDesTypeStyle: {
+            if ([self.selectViewBtn.titleLabel.text isEqualToString:@"户外体验（选择）"] || ![Experience defaultExperience].style) {
+                [SVProgressHUD showErrorWithStatus:@"请填写体验风格"];
+                return;
+            }
             createVc.info = @{@"title":@"您打算在哪座城市提供体验？",@"selectTitle":@"城市",@"showTip":@"点击进一步了解城市提供"};
             createVc.style = CreatPageStyleWrite;
             createVc.type = CommonDesTypeCity;
@@ -245,6 +249,14 @@
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeTime: {
+            if ([self.startTimeBtn.titleLabel.text isEqualToString:@"选择开始时间"]) {
+                [SVProgressHUD showErrorWithStatus:@"请选择默认开始时间"];
+                return;
+            }
+            else if ([self.endTimeBtn.titleLabel.text isEqualToString:@"选择结束时间"]) {
+                [SVProgressHUD showErrorWithStatus:@"请选择默认结束时间"];
+                return;
+            }
             TakePhotoViewController *photoVc = [TakePhotoViewController new];
 			
             [self.navigationController pushViewController: photoVc animated:YES];
@@ -284,9 +296,21 @@
 }
 
 - (void)setDefaultValueWithType:(CommonDesType)type {
-    Experience *experience = [Experience getExperienceDataWithUID:[HAApp current].userID];
+    Experience *experience = [Experience getExperienceDataWithUID:[User sharedUser].userId];
     switch (type) {
         case CommonDesTypeStyle: {
+            NSDictionary *param = @{
+                                    @"customerId" : [User sharedUser].userId,
+                                    @"token" : [User sharedUser].token
+                                    };
+            [[CoreAPI core] GETURLString:@"/experience/serviceType" withParameters:param success:^(id ret) {
+                self.serviceTypeData = ret[@"serviceTypeDetail"];
+            } error:^(NSString *code, NSString *msg, id ret) {
+                [SVProgressHUD showErrorWithStatus:msg];
+            } failure:^(NSError *error) {
+                [SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+            }];
+            
             NSLog(@"%@",experience.style);
             if (experience.style) {
                 [_selectViewBtn setTitle:experience.style forState:UIControlStateNormal];

@@ -164,10 +164,10 @@
     }
 	else if (_type == LoginTypeLogin) {
         [self.view endEditing:YES];
-        [[AppDelegate app] switchAppType:AppTypeResident];
-        [User sharedUser].userId = @"1221";
-        [User sharedUser].token = @"asdfsadfsfdf";
-        return;
+//        [[AppDelegate app] switchAppType:AppTypeResident];
+//        [User sharedUser].userId = @"1221";
+//        [User sharedUser].token = @"asdfsadfsfdf";
+//        return;
 		NSDictionary *params = @{
 								 @"account": _phoneTextField.text,
 								 @"password": _passwordTextField.text,

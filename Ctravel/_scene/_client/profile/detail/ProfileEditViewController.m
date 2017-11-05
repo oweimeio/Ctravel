@@ -9,6 +9,7 @@
 
 #import "ProfileEditViewController.h"
 #import "PreHeader.h"
+#import "IDValidViewController.h"
 
 @interface ProfileEditViewController () <UIScrollViewDelegate>
 
@@ -35,6 +36,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"保存" style:UIBarButtonItemStylePlain handler:^(id sender) {
+        User *user = [User sharedUser];
+        user.firstName = self.nameTextField.text;
+        user.familyName = self.familyNameTextField.text;
+        user.city = self.positionTextField.text;
+        user.school = self.schoolTextField.text;
+        user.job = self.jobTextField.text;
+        user.language = self.languageTextField.text;
+        user.email = self.emalTextField.text;
+        [user saveUserData];
+    }];
 }
 
 //MARK: - ACTION
@@ -55,6 +67,7 @@
     picker.keyTitle = @"title";
     [picker setSelectBlock:^(NSInteger idx, NSDictionary *item) {
         [sender setTitle:item[@"title"] forState:UIControlStateNormal];
+        [User sharedUser].gender = [item[@"value"] integerValue];
     }];
     [picker showInView:self.view];
 }
@@ -71,7 +84,8 @@
 
 //提供身份验证
 - (IBAction)idValidBtnClick:(id)sender {
-    
+    IDValidViewController *idValidVc = [IDValidViewController new];
+    [self.navigationController pushViewController:idValidVc animated:YES];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

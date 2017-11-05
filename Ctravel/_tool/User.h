@@ -20,6 +20,8 @@
 
 @property (nonatomic, strong) NSString *familyName;
 
+@property (nonatomic, assign) NSInteger gender;
+
 @property (nonatomic, strong) NSString *phone;
 
 @property (nonatomic, strong) NSString *avatarUrl;

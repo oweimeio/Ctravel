@@ -16,6 +16,11 @@
 @property (strong, nonatomic) NSString *style;
 
 /**
+ 风格Id
+ */
+@property (strong, nonatomic) NSString *styleId;
+
+/**
  城市
  */
 @property (strong, nonatomic) NSString *city;

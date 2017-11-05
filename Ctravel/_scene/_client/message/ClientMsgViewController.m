@@ -23,8 +23,7 @@
 
 - (NSArray *)dataSource {
     if (!_dataSource) {
-        _dataSource = @[@{@"isRead":@"1",@"avatarUrl":@"",
-                          @"name":@"王者",@"content":@"顺丰到付地方的发"}];
+        _dataSource = @[];
     }
     return _dataSource;
 }
@@ -35,8 +34,15 @@
     
     self.msgTableView.tableFooterView = [UIView new];
     
-    //请求消息数据
-    [self requestMsgData];
+    self.msgTableView.mj_header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+        [self requestMsgData:NO];
+    }];
+    
+    self.msgTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self requestMsgData:YES];
+    }];
+    
+    [self.msgTableView.mj_header beginRefreshing];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,19 +57,28 @@
     [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
-- (void)requestMsgData {
+- (void)requestMsgData:(BOOL)paging {
+    NSInteger pageSize = 10;
     NSDictionary *param = @{
                             @"token": [User sharedUser].token,
-                            @"userId": [User sharedUser].userId,
+                            @"customerId": [User sharedUser].userId,
+                            @"pageNumber" : paging ? @(self.dataSource.count / pageSize + 1) : @1,
+                            @"pageSize": @(pageSize)
                             };
-    [[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/orderInfoCustomer/%@", [User sharedUser].userId] withParameters:param success:^(id ret) {
-        self.dataSource = ret[@""];
+    [[CoreAPI core] GETURLString:@"/message" withParameters:param success:^(id ret) {
+        self.dataSource = ret[@"messageList"];
         [_msgTableView reloadData];
         self.emptyDataView.hidden = self.dataSource.count;
+        [_msgTableView.mj_header endRefreshing];
+        [_msgTableView.mj_footer endRefreshing];
     } error:^(NSString *code, NSString *msg, id ret) {
-        
+        [SVProgressHUD showErrorWithStatus:msg];
+        [_msgTableView.mj_header endRefreshing];
+        [_msgTableView.mj_footer endRefreshing];
     } failure:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+        [_msgTableView.mj_header endRefreshing];
+        [_msgTableView.mj_footer endRefreshing];
     }];
 }
 
@@ -84,7 +99,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    //让未读的信息变已读
 }
 
 - (void)didReceiveMemoryWarning {

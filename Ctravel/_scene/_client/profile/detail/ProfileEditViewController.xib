@@ -37,10 +37,9 @@
                                 <constraint firstAttribute="width" secondItem="KFm-Jc-6Cx" secondAttribute="height" multiplier="375:250" id="Jtz-GV-vvo"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhc-Vn-HYl">
-                            <rect key="frame" x="304" y="201" width="46" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhc-Vn-HYl">
+                            <rect key="frame" x="325" y="200" width="30" height="30"/>
+                            <state key="normal" image="icon-camera"/>
                             <connections>
                                 <action selector="takePhotoBtnClick:" destination="-1" eventType="touchUpInside" id="wzy-QP-CwL"/>
                             </connections>
@@ -462,6 +461,7 @@
                         <constraint firstAttribute="trailing" secondItem="TzG-TQ-fQO" secondAttribute="trailing" id="3c4-Sx-k41"/>
                         <constraint firstItem="KFm-Jc-6Cx" firstAttribute="leading" secondItem="DSc-Z8-U77" secondAttribute="leading" id="8VW-lZ-9B1"/>
                         <constraint firstAttribute="bottom" secondItem="wEl-YY-qki" secondAttribute="bottom" id="AXD-wZ-P7O"/>
+                        <constraint firstItem="Ewr-3M-7gY" firstAttribute="top" secondItem="Vhc-Vn-HYl" secondAttribute="bottom" constant="20" id="AYV-Zf-y4K"/>
                         <constraint firstAttribute="trailing" secondItem="wEl-YY-qki" secondAttribute="trailing" id="AoI-QK-Srq"/>
                         <constraint firstItem="Fln-AQ-Nvy" firstAttribute="leading" secondItem="DSc-Z8-U77" secondAttribute="leading" id="Ap1-nJ-DJv"/>
                         <constraint firstAttribute="trailing" secondItem="KFm-Jc-6Cx" secondAttribute="trailing" id="At0-gy-AfN"/>
@@ -472,6 +472,7 @@
                         <constraint firstItem="fv6-HM-8Rp" firstAttribute="top" secondItem="Ewr-3M-7gY" secondAttribute="bottom" id="HyW-UB-xBR"/>
                         <constraint firstItem="rOv-jC-ntR" firstAttribute="leading" secondItem="DSc-Z8-U77" secondAttribute="leading" id="JlS-h8-CuF"/>
                         <constraint firstAttribute="trailing" secondItem="fsB-c7-AhJ" secondAttribute="trailing" id="JyQ-gn-4nl"/>
+                        <constraint firstAttribute="trailing" secondItem="Vhc-Vn-HYl" secondAttribute="trailing" constant="20" id="KbZ-3x-tra"/>
                         <constraint firstItem="ZTA-m9-saS" firstAttribute="leading" secondItem="DSc-Z8-U77" secondAttribute="leading" id="Law-UG-45h"/>
                         <constraint firstAttribute="trailing" secondItem="Fln-AQ-Nvy" secondAttribute="trailing" id="QnE-9h-yvi"/>
                         <constraint firstItem="fv6-HM-8Rp" firstAttribute="leading" secondItem="DSc-Z8-U77" secondAttribute="leading" id="SMb-TI-hxd"/>
@@ -512,4 +513,7 @@
             <point key="canvasLocation" x="48.5" y="336.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon-camera" width="30" height="30"/>
+    </resources>
 </document>

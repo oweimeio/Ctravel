@@ -58,6 +58,7 @@
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     if (self = [super init]) {
+        self.styleId = [coder decodeObjectForKey:@"self.styleId"];
         self.style = [coder decodeObjectForKey:@"self.style"];
         self.city = [coder decodeObjectForKey:@"self.city"];
         self.title = [coder decodeObjectForKey:@"self.title"];
@@ -80,6 +81,7 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.styleId forKey:@"self.styleId"];
     [coder encodeObject:self.style forKey:@"self.style"];
     [coder encodeObject:self.city forKey:@"self.city"];
     [coder encodeObject:self.title forKey:@"self.title"];

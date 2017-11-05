@@ -36,32 +36,37 @@
 //发布
 - (IBAction)publishBtnClick:(id)sender {
     [SVProgressHUD showSuccessWithStatus:@"发布成功,请设置您的体验日期"];
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    return;
-    Experience * exVc = [Experience defaultExperience];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+//    return;
+    Experience *exVc = [Experience getExperienceDataWithUID:[User sharedUser].userId];
     NSLog(@"%@",exVc);
     NSDictionary *params = @{
                              @"token":[User sharedUser].token,
                              @"customerId":[User sharedUser].userId,
-                             @"title":exVc.title,
+                             @"title":!exVc.title?[Experience defaultExperience].title:exVc.title,
+                             @"styleId":!exVc.styleId?[Experience defaultExperience].styleId:exVc.styleId,
+                             @"serviceName":!exVc.style?[Experience defaultExperience].style:exVc.style,
+                             @"city":exVc.city,
                              @"contentDescription":exVc.contentDes,
                              @"destination":exVc.destination,
                              @"rendezvous":exVc.rendezvous,
-                             @"contentDetails":exVc.mustKnow,
+                             @"mustKnow":exVc.mustKnow,
                              @"comment":exVc.mark,
                              @"requirement":exVc.requirement,
                              @"peopleNumber":@(exVc.peopleCount),
-                             @"currencyType":!exVc.currencyType ? @"" : exVc.currencyType,
+                             @"defaultStartTime":!exVc.defaultTimeStart ? [Experience defaultExperience].defaultTimeStart : exVc.defaultTimeStart ,
+                             @"defaultEndTime":!exVc.defaultTimeEnd ?[Experience defaultExperience].defaultTimeEnd :exVc.defaultTimeEnd,
+                             @"currencyType":!exVc.currencyType ? @"RMB" : exVc.currencyType,
                              @"price":@(exVc.price),
                              @"imageUrl":!exVc.imageUrl_main? @"" : exVc.imageUrl_main
                              };
-    [[CoreAPI core] GETURLString:@"/experience/experiences" withParameters:params success:^(id ret) {
+    [[CoreAPI core] POSTURLString:@"/experience/experiences" withParameters:params success:^(id ret) {
         [SVProgressHUD showSuccessWithStatus:@"发布成功,请设置您的体验日期"];
         [self.navigationController popToRootViewControllerAnimated:YES];
     } error:^(NSString *code, NSString *msg, id ret) {
-        
+        [SVProgressHUD showErrorWithStatus:msg];
     } failure:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
     }];
     
 }

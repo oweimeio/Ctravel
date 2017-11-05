@@ -43,33 +43,39 @@
 	
 	self.tableView.tableFooterView = [UIView new];
 	
-	if (_type == OrderTypeCompleted) {
-		self.view.backgroundColor = [UIColor redColor];
-		self.emptyDataView.hidden = YES;
-	}
-	else {
-		self.view.backgroundColor = [UIColor blueColor];
-		self.emptyDataView.hidden = NO;
-	}
+    self.tableView.mj_header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+        if (_type == OrderTypeCompleted) {
+            [self requestOrderListDataWithState:2];
+        }
+        else {
+            [self requestOrderListDataWithState:1];
+        }
+    }];
+    
+    [self.tableView.mj_header beginRefreshing];
 	
-	[self requestOrderListData];
 }
 
 //MARK: - METHOD
-- (void)requestOrderListData {
-	NSDictionary *param = @{
-							@"token": [User sharedUser].token,
-							@"userId": [User sharedUser].userId,
-							};
-	[[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/orderInfoCustomer/%@", [User sharedUser].userId] withParameters:param success:^(id ret) {
-		self.dataSource = ret[@"orderInfo"];
-		[_tableView reloadData];
-		self.emptyDataView.hidden = self.dataSource.count;
-	} error:^(NSString *code, NSString *msg, id ret) {
-		[SVProgressHUD showErrorWithStatus:msg];
-	} failure:^(NSError *error) {
-		[SVProgressHUD showErrorWithStatus:@"网络连接错误"];
-	}];
+//MARK: - METHOD
+- (void)requestOrderListDataWithState:(NSInteger)state {
+    NSDictionary *param = @{
+                            @"token": [User sharedUser].token,
+                            @"userId": [User sharedUser].userId,
+                            @"tradeStatus":@(state)
+                            };
+    [[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/orderInfoCustomer/%@", [User sharedUser].userId] withParameters:param success:^(id ret) {
+        self.dataSource = ret[@"orderInfo"];
+        [_tableView reloadData];
+        self.emptyDataView.hidden = self.dataSource.count;
+        [self.tableView.mj_header endRefreshing];
+    } error:^(NSString *code, NSString *msg, id ret) {
+        [SVProgressHUD showErrorWithStatus:msg];
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络连接错误"];
+        [self.tableView.mj_header endRefreshing];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

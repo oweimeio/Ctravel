@@ -42,7 +42,7 @@
 		<key>name</key>
 		<string>Core Networking Domain</string>
 		<key>conf-value</key>
-		<string>192.168.1.105</string>
+		<string>192.168.1.103</string>
 	</dict>
 	<key>core-net-domain-dev</key>
 	<dict>
