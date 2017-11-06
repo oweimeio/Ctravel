@@ -69,31 +69,44 @@
     if (_titleStr) {
         _titleLabel.text = _titleStr;
     }
-    
-    //请求获取列表
-    [self requestListData];
+	self.favCollectionView.mj_header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+		[self requestListData:NO];
+	}];
+	
+	self.favCollectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+		[self requestListData:YES];
+	}];
+	
+	[self.favCollectionView.mj_header beginRefreshing];
+
 }
 
 //MARK: - METHOD
-- (void)requestListData {
-    
+- (void)requestListData:(BOOL)paging {
+	NSInteger pageSize = 10;
     //查询的时候通过keyword 查询
     NSDictionary *param = @{
                             @"token":[User sharedUser].token,
                             @"userId":[User sharedUser].userId,
                             @"title":!self.keywords?@"":self.keywords,
-                            @"page":@(1),
-                            @"rows":@(10)
+							@"page":paging ? @(self.dataSource.count / pageSize + 1) : @1,
+                            @"rows":@(pageSize)
                             };
     [[CoreAPI core] GETURLString:@"/experience/conditionQuery" withParameters:param success:^(id ret) {
         NSLog(@"%@",ret);
         self.dataSource = ret[@"experienceDetail"];
         [_favCollectionView reloadData];
         _emptyView.hidden = self.dataSource.count;
+		[self.favCollectionView.mj_header endRefreshing];
+		[self.favCollectionView.mj_footer endRefreshing];
     } error:^(NSString *code, NSString *msg, id ret) {
         [SVProgressHUD showErrorWithStatus:msg];
+		[self.favCollectionView.mj_header endRefreshing];
+		[self.favCollectionView.mj_footer endRefreshing];
     } failure:^(NSError *error) {
-        
+		[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+		[self.favCollectionView.mj_header endRefreshing];
+		[self.favCollectionView.mj_footer endRefreshing];
     }];
 }
 

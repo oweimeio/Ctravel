@@ -46,7 +46,23 @@
 	
 	self.tableView.tableFooterView = [UIView new];
 	
-	[self requestOrderListData];
+	self.tableView.mj_header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+		[self requestOrderListData];
+	}];
+	
+	[self.tableView.mj_header beginRefreshing];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	[self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	
+	[self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 //MARK: - ACTION
@@ -58,16 +74,19 @@
 - (void)requestOrderListData {
 	NSDictionary *param = @{
 							@"token": [User sharedUser].token,
-							@"userId": [User sharedUser].userId,
+							@"userId": [User sharedUser].userId
 							};
 	[[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/orderInfoCustomer/%@", [User sharedUser].userId] withParameters:param success:^(id ret) {
 		self.dataSource = ret[@"orderInfo"];
 		[_tableView reloadData];
 		self.emptyDataView.hidden = self.dataSource.count;
+		[self.tableView.mj_header endRefreshing];
 	} error:^(NSString *code, NSString *msg, id ret) {
 		[SVProgressHUD showErrorWithStatus:msg];
+		[self.tableView.mj_header endRefreshing];
 	} failure:^(NSError *error) {
 		[SVProgressHUD showErrorWithStatus:@"网络连接错误"];
+		[self.tableView.mj_header endRefreshing];
 	}];
 }
 

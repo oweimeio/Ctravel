@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServerMessageViewController">
             <connections>
+                <outlet property="emptyDataView" destination="Qat-a5-yrS" id="v5P-7v-cOJ"/>
+                <outlet property="msgTableView" destination="rxW-N9-vDe" id="cHT-qA-i5P"/>
                 <outlet property="view" destination="AXR-zL-z24" id="aTY-Ba-k0L"/>
             </connections>
         </placeholder>
@@ -22,6 +24,10 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rxW-N9-vDe">
                     <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="MKu-cY-ugT"/>
+                        <outlet property="delegate" destination="-1" id="LEc-xJ-XqA"/>
+                    </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQY-oh-o1F">
                     <rect key="frame" x="0.0" y="20" width="375" height="50"/>
