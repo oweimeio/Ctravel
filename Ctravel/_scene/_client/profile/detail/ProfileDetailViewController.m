@@ -12,6 +12,8 @@
 
 @interface ProfileDetailViewController ()
 
+@property (strong, nonatomic) NSDictionary *dataSource;
+
 @end
 
 @implementation ProfileDetailViewController
@@ -31,6 +33,22 @@
         [self.navigationController pushViewController:editVc animated:YES];
     }];
     
+    [self requestUserInfo];
+    
+}
+
+- (void)requestUserInfo {
+    NSDictionary *param = @{
+                            @"token":[User sharedUser].token,
+                            @"customerId":[User sharedUser].userId
+                            };
+    [[CoreAPI core] GETURLString:@"/customer" withParameters:param success:^(id ret) {
+        self.dataSource = ret[@"customerDetail"];
+    } error:^(NSString *code, NSString *msg, id ret) {
+        [SVProgressHUD showErrorWithStatus:msg];
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
