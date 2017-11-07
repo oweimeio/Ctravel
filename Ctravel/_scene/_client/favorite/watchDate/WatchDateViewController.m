@@ -13,7 +13,10 @@
 @interface WatchDateViewController ()
 
 @property (nonatomic, strong) NSArray *dataSource;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet EmptyDataView *emptyDataView;
 
 @end
 
@@ -33,6 +36,25 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"WatchDateCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:WatchDateCellIdentifier];
     
     self.tableView.tableFooterView = [UIView new];
+	
+	[self requestDateData];
+}
+
+- (void)requestDateData {
+	NSDictionary *param = @{
+							@"token":[User sharedUser].token,
+							@"customerId":[User sharedUser].userId,
+							@"experienceId":self.expId
+							};
+	[[CoreAPI core] GETURLString:@"/experience/serviceTime" withParameters:param success:^(id ret) {
+		self.dataSource = ret[@"serviceTimeVOList"];
+		self.emptyDataView.hidden = self.dataSource.count;
+		[_tableView reloadData];
+	} error:^(NSString *code, NSString *msg, id ret) {
+		[SVProgressHUD showErrorWithStatus:msg];
+	} failure:^(NSError *error) {
+		[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+	}];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -45,6 +67,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WatchDateCell *cell = [tableView dequeueReusableCellWithIdentifier:WatchDateCellIdentifier forIndexPath:indexPath];
+	__weak NSDictionary *dic = self.dataSource[indexPath.row];
+	cell.timeLabel.text = dic[@"serviceDate"];
+	[cell.reserveBtn bk_addEventHandler:^(id sender) {
+		NSDictionary *param = @{
+								@"token":[User sharedUser].token,
+								@"customerId":[User sharedUser].userId,
+								@"dateTimeString":dic[@"serviceDate"]
+								};
+		[[CoreAPI core] POSTURLString:@"" withParameters:param success:^(id ret) {
+			[SVProgressHUD showSuccessWithStatus:@"预定成功"];
+		} error:^(NSString *code, NSString *msg, id ret) {
+			[SVProgressHUD showErrorWithStatus:msg];
+		} failure:^(NSError *error) {
+			[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+		}];
+	} forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 

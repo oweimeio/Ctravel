@@ -31,7 +31,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DSc-Z8-U77">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="1203"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KFm-Jc-6Cx">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-none" translatesAutoresizingMaskIntoConstraints="NO" id="KFm-Jc-6Cx">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="KFm-Jc-6Cx" secondAttribute="height" multiplier="375:250" id="Jtz-GV-vvo"/>
@@ -515,5 +515,6 @@
     </objects>
     <resources>
         <image name="icon-camera" width="30" height="30"/>
+        <image name="placeholder-none" width="5" height="5"/>
     </resources>
 </document>

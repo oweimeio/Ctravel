@@ -50,7 +50,7 @@
     [self.avatarImageView setImageWithURLString:dataSource[@"customerStatImage"] andPlaceholderNamed:@"placeholder-none"];
     self.nameLabel.text = dataSource[@"title"];
     self.contentLabel.text = dataSource[@"content"];
-    self.timeLabel.text = [[NSDate dateWithTimeIntervalSince1970:[dataSource[@"createTime"] doubleValue]/1000] stringWithFormat:@"yyyy-MM-dd" andTimezone:SHANGHAI] ;
+    self.timeLabel.text = [[NSDate dateWithTimeIntervalSince1970:[dataSource[@"createTime"] doubleValue]/1000] stringWithFormat:@"yyyy-MM-dd" andTimezone:SHANGHAI];
 }
 
 

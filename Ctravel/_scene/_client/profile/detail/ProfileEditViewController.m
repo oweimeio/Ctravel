@@ -47,6 +47,8 @@
         user.email = self.emalTextField.text;
         [user saveUserData];
     }];
+	
+	[self setUsrInfo];
 }
 
 //MARK: - ACTION
@@ -86,6 +88,17 @@
 - (IBAction)idValidBtnClick:(id)sender {
     IDValidViewController *idValidVc = [IDValidViewController new];
     [self.navigationController pushViewController:idValidVc animated:YES];
+}
+
+- (void)setUsrInfo {
+	[self.avatarImageView setImageWithURLString:_dataSource[@""] andPlaceholderNamed:@"placeholder-none"];
+	self.nameTextField.text = _dataSource[@"firstName"];
+	self.familyNameTextField.text = _dataSource[@"familyName"];
+	self.positionTextField.text = _dataSource[@"city"];
+	self.schoolTextField.text = _dataSource[@"school"];
+	self.jobTextField.text = _dataSource[@"job"];
+	self.emalTextField.text = _dataSource[@"email"];
+	
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

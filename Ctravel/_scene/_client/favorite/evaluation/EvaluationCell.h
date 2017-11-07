@@ -12,8 +12,9 @@ FOUNDATION_EXPORT NSString *const EvaluationCellIdentifier;
 
 @interface EvaluationCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
-@property (weak, nonatomic) IBOutlet UIButton *reserveBtn;
+@property (weak, nonatomic) IBOutlet UILabel *dateTime;
+
 
 @end

@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSArray *dataSource;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet EmptyDataView *emptyDataView;
 @end
 
 @implementation EvaluationViewController
@@ -34,6 +36,43 @@
                                                                   ]] forCellReuseIdentifier:EvaluationCellIdentifier];
     
     self.tableView.tableFooterView = [UIView new];
+	
+	self.tableView.mj_header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+		[self requestCommont:NO];
+	}];
+	
+	self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+		[self requestCommont:YES];
+	}];
+	
+	[self.tableView.mj_header beginRefreshing];
+}
+
+- (void)requestCommont:(BOOL)paging {
+	NSInteger pageSize = 10;
+	NSDictionary *param = @{
+							@"token":[User sharedUser].token,
+							@"customerId":[User sharedUser].userId,
+							@"page":paging ? @(self.dataSource.count / pageSize + 1) : @1,
+							@"rows":@(pageSize),
+							@"experienceId":self.expId
+							};
+	[[CoreAPI core] GETURLString:@"/comment/conditionQuery" withParameters:param success:^(id ret) {
+		NSLog(@"%@",ret);
+		self.dataSource = ret[@"experienceDetail"];
+		[_tableView reloadData];
+		_emptyDataView.hidden = self.dataSource.count;
+		[self.tableView.mj_header endRefreshing];
+		[self.tableView.mj_footer endRefreshing];
+	} error:^(NSString *code, NSString *msg, id ret) {
+		[SVProgressHUD showErrorWithStatus:msg];
+		[self.tableView.mj_header endRefreshing];
+		[self.tableView.mj_footer endRefreshing];
+	} failure:^(NSError *error) {
+		[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+		[self.tableView.mj_header endRefreshing];
+		[self.tableView.mj_footer endRefreshing];
+	}];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -46,6 +85,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     EvaluationCell *cell = [tableView dequeueReusableCellWithIdentifier:EvaluationCellIdentifier forIndexPath:indexPath];
+	__weak NSDictionary *dic = self.dataSource[indexPath.row];
+	cell.dateTime.text = [[NSDate dateWithTimeIntervalSince1970:[dic[@"createTime"] doubleValue]/1000] stringWithFormat:@"yyyy-MM-dd" andTimezone:SHANGHAI];;
+	cell.contentLabel.text = [NSString stringWithFormat:@"评论内容：%@",dic[@"commentContent"]];
     return cell;
 }
 

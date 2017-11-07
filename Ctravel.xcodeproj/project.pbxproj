@@ -875,7 +875,7 @@
 				TargetAttributes = {
 					FAA423371F70006500C3736F = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = N7CHPU5S4M;
+						DevelopmentTeam = MG7K4Z98K7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1232,11 +1232,11 @@
 			baseConfigurationReference = F223FEFEBA994EF4956C3534 /* Pods-Ctravel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = N7CHPU5S4M;
+				DEVELOPMENT_TEAM = MG7K4Z98K7;
 				INFOPLIST_FILE = Ctravel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.hw.Ctravel;
+				PRODUCT_BUNDLE_IDENTIFIER = apple.fyc.Ctravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1247,11 +1247,11 @@
 			baseConfigurationReference = 9BD509F4D33881358D3F5EDA /* Pods-Ctravel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = N7CHPU5S4M;
+				DEVELOPMENT_TEAM = MG7K4Z98K7;
 				INFOPLIST_FILE = Ctravel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.hw.Ctravel;
+				PRODUCT_BUNDLE_IDENTIFIER = apple.fyc.Ctravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

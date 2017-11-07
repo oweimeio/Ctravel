@@ -11,6 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileDetailViewController">
             <connections>
+                <outlet property="aboutLabel" destination="tGA-gB-nYl" id="aXM-iK-HiG"/>
+                <outlet property="avatarImageView" destination="uS2-zV-WyF" id="4ar-n2-t7l"/>
+                <outlet property="cityLabel" destination="63W-KZ-PjF" id="WJk-gh-jsx"/>
+                <outlet property="createTimeLabel" destination="IaI-lg-SOy" id="oGh-k6-eBc"/>
+                <outlet property="jobLabel" destination="UQq-bU-i5i" id="fPS-Yp-9aW"/>
+                <outlet property="languageLabel" destination="o2a-S2-Kg1" id="TIv-MH-8bd"/>
+                <outlet property="nameLabel" destination="qKv-7k-fRs" id="e9Z-eM-VGf"/>
+                <outlet property="schoolLabel" destination="ZhU-oN-O3e" id="xBU-Ku-5g1"/>
+                <outlet property="validLabel" destination="AQj-Zz-Wof" id="iWV-Aa-xCK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -307,7 +316,7 @@
                                 <constraint firstAttribute="trailing" secondItem="UQq-bU-i5i" secondAttribute="trailing" constant="20" id="tAB-53-7Ub"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fo-bu-Q0J">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fo-bu-Q0J" customClass="UIButton">
                             <rect key="frame" x="0.0" y="726.5" width="375" height="89.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYM-7A-izC">
@@ -342,6 +351,9 @@
                                 <constraint firstAttribute="trailing" secondItem="mod-XH-JDy" secondAttribute="trailing" constant="20" id="qO5-VR-L2I"/>
                                 <constraint firstItem="yYM-7A-izC" firstAttribute="leading" secondItem="2fo-bu-Q0J" secondAttribute="leading" constant="12" id="qYg-KT-BBf"/>
                             </constraints>
+                            <connections>
+                                <action selector="lookEv:" destination="-1" eventType="valueChanged" id="zsh-cU-lqQ"/>
+                            </connections>
                         </view>
                     </subviews>
                     <constraints>

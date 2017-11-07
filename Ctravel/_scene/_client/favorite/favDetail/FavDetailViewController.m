@@ -74,22 +74,26 @@
 
 - (IBAction)watchExMasterDate:(id)sender {
     WatchDateViewController *watchVc = [WatchDateViewController new];
+	watchVc.expId = _dataSource[@"experienceId"];
     [self.navigationController pushViewController:watchVc animated:YES];
 }
 
 - (IBAction)watchEvaluation:(id)sender {
     EvaluationViewController *evaVc = [EvaluationViewController new];
+	evaVc.expId = _dataSource[@"experienceId"];
     [self.navigationController pushViewController:evaVc animated:YES];
 }
 
 - (IBAction)connectMaster:(id)sender {
+	
 }
 //预定
 - (IBAction)reserveBtnClick:(id)sender {
-    
+    //选择时间
+	
     
     NSDictionary *param = @{
-                             @"experienceId":@"2345678",
+                             @"experienceId":_dataSource[@"experienceId"],
                              @"userId":[User sharedUser].userId,
                              @"token":[User sharedUser].token,
                              @"serviceTimeId":@"333"

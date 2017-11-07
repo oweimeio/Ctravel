@@ -33,6 +33,8 @@
     
     _datesSelected = [NSMutableArray new];
     _selectionMode = NO;
+	
+	[self requestDateData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,6 +65,39 @@
     //去除第一个逗号
     dateStr = [dateStr substringFromIndex:1];
     NSLog(@"%@", dateStr);
+	NSDictionary *param = @{
+							@"token":[User sharedUser].token,
+							@"customerId":[User sharedUser].userId,
+							@"dateTimeString":dateStr
+							};
+	[[CoreAPI core] POSTURLString:@"/experience/serviceTime" withParameters:param success:^(id ret) {
+		[SVProgressHUD showSuccessWithStatus:@"保存成功"];
+	} error:^(NSString *code, NSString *msg, id ret) {
+		[SVProgressHUD showErrorWithStatus:msg];
+	} failure:^(NSError *error) {
+		[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+	}];
+}
+
+- (void)requestDateData {
+	NSDictionary *param = @{
+							@"token":[User sharedUser].token,
+							@"customerId":[User sharedUser].userId
+							};
+	[[CoreAPI core] GETURLString:@"/experience/serviceTime" withParameters:param success:^(id ret) {
+		for (NSDictionary *dic in ret[@"serviceTimeVOList"]) {
+			NSString *dateStr = dic[@"serviceDate"];
+			NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+			[dateFormatter setDateFormat:@"yyyy-MM-dd"];
+			NSDate *date = [dateFormatter dateFromString:dateStr];
+			[_datesSelected addObject:date];
+		}
+		[_calendarManager reload];
+	} error:^(NSString *code, NSString *msg, id ret) {
+		[SVProgressHUD showErrorWithStatus:msg];
+	} failure:^(NSError *error) {
+		[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+	}];
 }
 
 - (void)clearUpAllDate {

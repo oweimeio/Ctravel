@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WatchDateViewController">
             <connections>
+                <outlet property="emptyDataView" destination="zZ1-k0-SMC" id="Mf1-l4-4Xj"/>
                 <outlet property="tableView" destination="bIA-8d-m2X" id="QPI-zg-3pD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -41,13 +42,25 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bIA-8d-m2X">
                     <rect key="frame" x="0.0" y="50" width="375" height="617"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="W7Q-9h-UP6"/>
+                        <outlet property="delegate" destination="-1" id="XSC-YE-kGO"/>
+                    </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZ1-k0-SMC" customClass="EmptyDataView">
+                    <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="zZ1-k0-SMC" firstAttribute="top" secondItem="VTp-n7-rvX" secondAttribute="bottom" id="0u0-cM-oEH"/>
+                <constraint firstAttribute="bottom" secondItem="zZ1-k0-SMC" secondAttribute="bottom" id="59r-mj-S9P"/>
                 <constraint firstItem="bIA-8d-m2X" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7uh-7n-XIA"/>
+                <constraint firstItem="zZ1-k0-SMC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Bb-Yi-13y"/>
                 <constraint firstAttribute="trailing" secondItem="bIA-8d-m2X" secondAttribute="trailing" id="CmY-c0-mfv"/>
                 <constraint firstItem="VTp-n7-rvX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="V0h-cS-xFa"/>
+                <constraint firstAttribute="trailing" secondItem="zZ1-k0-SMC" secondAttribute="trailing" id="f6i-VK-Ajq"/>
                 <constraint firstAttribute="bottom" secondItem="bIA-8d-m2X" secondAttribute="bottom" id="gb5-y0-zHr"/>
                 <constraint firstAttribute="trailing" secondItem="VTp-n7-rvX" secondAttribute="trailing" id="lFS-8b-ycN"/>
                 <constraint firstItem="bIA-8d-m2X" firstAttribute="top" secondItem="VTp-n7-rvX" secondAttribute="bottom" id="n7s-gd-WYp"/>

@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSDictionary *detailData;
 
+@property (nonatomic, strong) NSString *expId;
+
 @end

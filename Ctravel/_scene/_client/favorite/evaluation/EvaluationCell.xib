@@ -11,44 +11,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="52" id="KGk-i7-Jjw" customClass="EvaluationCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="125" id="KGk-i7-Jjw" customClass="EvaluationCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="125"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="51.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="125"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6q-hA-Auu">
-                        <rect key="frame" x="20" y="17" width="210" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6q-hA-Auu">
+                        <rect key="frame" x="12" y="32" width="296" height="82.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFb-Rl-BV1">
-                        <rect key="frame" x="250" y="11" width="50" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcD-3q-7ma">
+                        <rect key="frame" x="12" y="6" width="29" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="3YG-7v-sCO"/>
-                            <constraint firstAttribute="width" constant="50" id="XyI-cT-1JX"/>
+                            <constraint firstAttribute="height" constant="18" id="dXa-OA-4bK"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title="预定">
-                            <color key="titleColor" red="0.094117647060000004" green="0.56470588239999997" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                    </button>
+                        <color key="textColor" red="0.20353314280000001" green="0.15287294979999999" blue="0.17283675070000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="s6q-hA-Auu" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="a5n-8B-3sh"/>
-                    <constraint firstItem="s6q-hA-Auu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="aNn-ZU-y7f"/>
-                    <constraint firstAttribute="trailing" secondItem="MFb-Rl-BV1" secondAttribute="trailing" constant="20" id="dDj-ZZ-lT6"/>
-                    <constraint firstItem="MFb-Rl-BV1" firstAttribute="leading" secondItem="s6q-hA-Auu" secondAttribute="trailing" constant="20" id="efv-Ua-Ss2"/>
-                    <constraint firstItem="MFb-Rl-BV1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wIF-7z-doo"/>
+                    <constraint firstItem="s6q-hA-Auu" firstAttribute="top" secondItem="CcD-3q-7ma" secondAttribute="bottom" constant="8" id="Rfe-Ri-F1U"/>
+                    <constraint firstItem="CcD-3q-7ma" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="YC8-ns-9fW"/>
+                    <constraint firstAttribute="trailing" secondItem="s6q-hA-Auu" secondAttribute="trailing" constant="12" id="eYM-tl-NMJ"/>
+                    <constraint firstItem="s6q-hA-Auu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="hdD-k1-CBy"/>
+                    <constraint firstItem="CcD-3q-7ma" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="qwI-86-Ixy"/>
+                    <constraint firstAttribute="bottom" secondItem="s6q-hA-Auu" secondAttribute="bottom" constant="10" id="rwq-kQ-ncE"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="reserveBtn" destination="MFb-Rl-BV1" id="ibh-Ic-cWX"/>
-                <outlet property="timeLabel" destination="s6q-hA-Auu" id="7mK-KI-8Qc"/>
+                <outlet property="contentLabel" destination="s6q-hA-Auu" id="Aa2-63-feh"/>
+                <outlet property="dateTime" destination="CcD-3q-7ma" id="1SH-sH-fdp"/>
             </connections>
-            <point key="canvasLocation" x="32" y="75"/>
+            <point key="canvasLocation" x="32" y="111.5"/>
         </tableViewCell>
     </objects>
 </document>
