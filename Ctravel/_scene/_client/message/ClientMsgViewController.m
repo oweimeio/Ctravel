@@ -10,7 +10,7 @@
 #import "ClientMsgCell.h"
 #import "PreHeader.h"
 
-@interface ClientMsgViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ClientMsgViewController () <RCIMUserInfoDataSource>
 
 @property (strong, nonatomic) NSArray *dataSource;
 
@@ -32,22 +32,43 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.msgTableView.tableFooterView = [UIView new];
-    
-    self.msgTableView.mj_header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
-        [self requestMsgData:NO];
-    }];
-    
-    self.msgTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self requestMsgData:YES];
-    }];
-    
-    [self.msgTableView.mj_header beginRefreshing];
+//    self.msgTableView.tableFooterView = [UIView new];
+//    
+//    self.msgTableView.mj_header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+//        [self requestMsgData:NO];
+//    }];
+//    
+//    self.msgTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//        [self requestMsgData:YES];
+//    }];
+//    
+//    [self.msgTableView.mj_header beginRefreshing];
+	[[RCIM sharedRCIM] setUserInfoDataSource:self];
+	
+	//设置需要显示哪些类型的会话
+	[self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),
+										@(ConversationType_DISCUSSION),
+										@(ConversationType_CHATROOM),
+										@(ConversationType_GROUP),
+										@(ConversationType_APPSERVICE),
+										@(ConversationType_SYSTEM)]];
+	//设置需要将哪些类型的会话在会话列表中聚合显示
+	[self setCollectionConversationType:@[@(ConversationType_DISCUSSION),
+										  @(ConversationType_GROUP)]];
+	UIView *headerView = [[UIView alloc] init];
+	headerView.frame = CGRectMake(0, 0, WIDTH, 50);
+	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 200, 32)];
+	titleLabel.text = @"消息";
+	titleLabel.font = [UIFont systemFontOfSize:26 weight:1];
+	titleLabel.textColor = [UIColor blackColor];
+	[headerView addSubview:titleLabel];
+	self.conversationListTableView.tableHeaderView = headerView;
+	self.conversationListTableView.tableFooterView = [UIView new];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+	
     [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
@@ -82,25 +103,61 @@
     }];
 }
 
+	/**
+	 *重写RCConversationListViewController的onSelectedTableRow事件
+	 *
+	 *  @param conversationModelType 数据模型类型
+	 *  @param model                 数据模型
+	 *  @param indexPath             索引
+	 */
+- (void)onSelectedTableRow:(RCConversationModelType)conversationModelType conversationModel:(RCConversationModel *)model atIndexPath:(NSIndexPath *)indexPath {
+	RCConversationViewController *conversationVC = [[RCConversationViewController alloc]init];
+	conversationVC.conversationType =model.conversationType;
+	conversationVC.targetId = model.targetId;
+	conversationVC.title = model.conversationTitle;
+	conversationVC.hidesBottomBarWhenPushed = YES;
+	[self.navigationController pushViewController:conversationVC animated:YES];
+}
+	
+- (void)getUserInfoWithUserId:(NSString *)userId completion:(void(^)(RCUserInfo* userInfo))completion {
+	//此处为了演示写了一个用户信息
+	if ([@"11111" isEqual:userId]) {
+		RCUserInfo *user = [[RCUserInfo alloc]init];
+		user.userId = @"11111";
+		user.name = @"测试1";
+		user.portraitUri = @"https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=1756054607,4047938258&fm=96&s=94D712D20AA1875519EB37BE0300C008";
+		
+		return completion(user);
+	}else if([@"22222" isEqual:userId]) {
+		RCUserInfo *user = [[RCUserInfo alloc]init];
+		user.userId = @"2";
+		user.name = @"测试2";
+		user.portraitUri = @"https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=1756054607,4047938258&fm=96&s=94D712D20AA1875519EB37BE0300C008";
+		return completion(user);
+	}
+}
+	
 //MARK: - TABLEDELEGATE & DATASOURCE
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSource.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ClientMsgCell *cell = [ClientMsgCell clientMsgCellInTableView:tableView];
-    cell.dataSource = self.dataSource[indexPath.row];
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //让未读的信息变已读
-}
+	
+	
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    return self.dataSource.count;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 60;
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    ClientMsgCell *cell = [ClientMsgCell clientMsgCellInTableView:tableView];
+//    cell.dataSource = self.dataSource[indexPath.row];
+//    return cell;
+//}
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    //让未读的信息变已读
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

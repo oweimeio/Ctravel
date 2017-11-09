@@ -12,6 +12,8 @@
 		657D87D71F70EA5900CD17DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 657D87D61F70EA5900CD17DE /* Assets.xcassets */; };
 		657D87DC1F70F05B00CD17DE /* conf-system-style.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657D87D91F70F05B00CD17DE /* conf-system-style.plist */; };
 		657D87DD1F70F05B00CD17DE /* com.huaaotech.core.conf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657D87DB1F70F05B00CD17DE /* com.huaaotech.core.conf.plist */; };
+		6586DA071FB2B7750085A9FF /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6586DA051FB2B7750085A9FF /* TestViewController.m */; };
+		6586DA081FB2B7750085A9FF /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6586DA061FB2B7750085A9FF /* TestViewController.xib */; };
 		6587C1C61FA97390006CBC6E /* ServerOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587C1C41FA97390006CBC6E /* ServerOrderCell.m */; };
 		6587C1C71FA97390006CBC6E /* ServerOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6587C1C51FA97390006CBC6E /* ServerOrderCell.xib */; };
 		6587C1CB1FA973CB006CBC6E /* ServerOrderHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587C1C91FA973CB006CBC6E /* ServerOrderHistoryListViewController.m */; };
@@ -116,6 +118,9 @@
 		657D87D61F70EA5900CD17DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		657D87D91F70F05B00CD17DE /* conf-system-style.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "conf-system-style.plist"; sourceTree = "<group>"; };
 		657D87DB1F70F05B00CD17DE /* com.huaaotech.core.conf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.huaaotech.core.conf.plist; sourceTree = "<group>"; };
+		6586DA041FB2B7750085A9FF /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		6586DA051FB2B7750085A9FF /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		6586DA061FB2B7750085A9FF /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		6587C1C31FA97390006CBC6E /* ServerOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerOrderCell.h; sourceTree = "<group>"; };
 		6587C1C41FA97390006CBC6E /* ServerOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerOrderCell.m; sourceTree = "<group>"; };
 		6587C1C51FA97390006CBC6E /* ServerOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerOrderCell.xib; sourceTree = "<group>"; };
@@ -681,6 +686,9 @@
 				FAA4238A1F7015C800C3736F /* ClientMsgViewController.h */,
 				FAA4238B1F7015C800C3736F /* ClientMsgViewController.m */,
 				FAA4238C1F7015C800C3736F /* ClientMsgViewController.xib */,
+				6586DA041FB2B7750085A9FF /* TestViewController.h */,
+				6586DA051FB2B7750085A9FF /* TestViewController.m */,
+				6586DA061FB2B7750085A9FF /* TestViewController.xib */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -934,6 +942,7 @@
 				FA663D651F77E2BD001C6F25 /* ProfileEditViewController.xib in Resources */,
 				6587C1D11FA97C86006CBC6E /* ServerOrderListViewController.xib in Resources */,
 				FAA423981F7015F400C3736F /* ClientProfileViewController.xib in Resources */,
+				6586DA081FB2B7750085A9FF /* TestViewController.xib in Resources */,
 				FAA4239D1F70162500C3736F /* ClientMainPageViewController.xib in Resources */,
 				FAEE90431F7BF8A8008CC1CE /* TakePhotoViewController.xib in Resources */,
 				FA04A85F1F98F4CE009A72DE /* IncomeViewController.xib in Resources */,
@@ -962,6 +971,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel-resources.sh",
 				"${PODS_ROOT}/Pingpp/lib/Channels/Alipay/AlipaySDK.bundle",
 				"${PODS_ROOT}/Pingpp/lib/Pingpp.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1083,6 +1097,7 @@
 				FAA423671F700B3E00C3736F /* JJMainScrollView.m in Sources */,
 				FA04A85E1F98F4CE009A72DE /* IncomeViewController.m in Sources */,
 				FAEE90421F7BF8A8008CC1CE /* TakePhotoViewController.m in Sources */,
+				6586DA071FB2B7750085A9FF /* TestViewController.m in Sources */,
 				FAA423C01F7414B600C3736F /* HotDestinationCell.m in Sources */,
 				FA04A8581F98F1FE009A72DE /* ReceivablesViewController.m in Sources */,
 				FA9C50A01F83E1570075C329 /* ClientCompleteViewController.m in Sources */,
@@ -1236,7 +1251,7 @@
 				INFOPLIST_FILE = Ctravel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.fyc.Ctravel;
+				PRODUCT_BUNDLE_IDENTIFIER = apple.fyc.ctravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1251,7 +1266,7 @@
 				INFOPLIST_FILE = Ctravel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.fyc.Ctravel;
+				PRODUCT_BUNDLE_IDENTIFIER = apple.fyc.ctravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

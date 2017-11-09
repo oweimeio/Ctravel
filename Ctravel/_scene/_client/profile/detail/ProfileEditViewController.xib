@@ -13,8 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileEditViewController">
             <connections>
                 <outlet property="avatarImageView" destination="KFm-Jc-6Cx" id="Ajw-df-Aot"/>
+                <outlet property="bornDateBtn" destination="CZm-S0-qrx" id="DYh-Ro-UU2"/>
                 <outlet property="emalTextField" destination="q1y-BI-CXc" id="GJ4-cE-jHf"/>
                 <outlet property="familyNameTextField" destination="HeO-JC-zqa" id="axO-ea-oNv"/>
+                <outlet property="genderBtn" destination="pVo-1p-41h" id="az9-6n-zED"/>
                 <outlet property="jobTextField" destination="ZqW-KC-XZd" id="vJg-Ly-bXX"/>
                 <outlet property="languageTextField" destination="Zgi-0a-y7M" id="opk-WE-Gax"/>
                 <outlet property="nameTextField" destination="n1e-bi-Dtk" id="F8D-Hu-50L"/>

@@ -129,7 +129,10 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self.view endEditing:YES];
     if (collectionView == _hotDestinationView) {
-       
+		FavoriteViewController *favVc = [[FavoriteViewController alloc] init];
+		favVc.hidesBottomBarWhenPushed = YES;
+		favVc.keywords = self.hotDestinationData[indexPath.row][@"destination"];
+		[self.navigationController pushViewController:favVc animated:YES];
     }
     else if (collectionView == _hotExperienceView) {
         FavDetailViewController *favDetailVc = [FavDetailViewController new];

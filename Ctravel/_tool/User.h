@@ -11,6 +11,8 @@
 @interface User : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSString *token;
+	
+@property (nonatomic, strong) NSString *deviceToken;
 
 @property (nonatomic, assign) BOOL isLogin;
 
@@ -21,6 +23,8 @@
 @property (nonatomic, strong) NSString *familyName;
 
 @property (nonatomic, assign) NSInteger gender;
+	
+@property (nonatomic, assign) NSString *bornDate;
 
 @property (nonatomic, strong) NSString *phone;
 
@@ -39,7 +43,10 @@
 @property (nonatomic, strong) NSString *job;
 
 @property (nonatomic, strong) NSString *email;
+	
+@property (nonatomic, strong) NSString *idCardNum;
 
+@property (nonatomic, strong) NSString *idCardImageUrl;
 //验证码
 @property (nonatomic, strong) NSString *validCode;
 

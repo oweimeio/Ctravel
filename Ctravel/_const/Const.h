@@ -20,6 +20,9 @@
 //    AppTypeClient = 1,
 //    AppTypeServer = 2,
 //};
+//融云appkey
+FOUNDATION_EXPORT NSString *const RYAppKey;
+FOUNDATION_EXPORT NSString *const RYAppSecret;
 
 FOUNDATION_EXPORT NSString *const CodeSuccess;
 FOUNDATION_EXPORT NSString *const CodeErrorFailed;

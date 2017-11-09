@@ -40,7 +40,7 @@
 	
 	UIImagePickerController *ip = [[UIImagePickerController alloc] init];
 	
-	ip.allowsEditing = YES;
+	ip.allowsEditing = NO;
 	
 	[ip setBk_didCancelBlock:^(UIImagePickerController *imp) {
 		[imp dismissViewControllerAnimated:YES completion:nil];
@@ -48,9 +48,11 @@
 	
 	[ip setBk_didFinishPickingMediaBlock:^(UIImagePickerController *imp, NSDictionary *ret) {
 		
-		[SVProgressHUD showWithStatus:@"正在上传头像"];
+		[SVProgressHUD showWithStatus:@"正在上传图片"];
 		
-		UIImage *photo = [ret[UIImagePickerControllerEditedImage] resize:(CGSize){750, 750}];
+		//UIImage *photo = [ret[UIImagePickerControllerEditedImage] resize:(CGSize){750, 750}];
+		UIImage *photo = [ret objectForKey:UIImagePickerControllerOriginalImage];
+		photo = [self compressImage:photo toMaxFileSize:50000];
 		
 		[[CoreAPI core] POSTImage:photo progress:^(float completed, float total) {
 			
@@ -58,14 +60,17 @@
 			
 			if (sender == _firstPicBtn) {
 				NSLog(@"第一張圖");
-				[Experience defaultExperience].imageUrl_main = @"";
+				[_firstPicBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:ret[@"url"]] placeholderImage:[UIImage imageNamed:@"placeholder-none"]];
+				[Experience defaultExperience].imageUrl_main = ret[@"url"];
 			}
 			else if (sender == _secondPicBtn) {
 				NSLog(@"第二張圖");
-				[Experience defaultExperience].imageUrl_left = @"";
+				[_secondPicBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:ret[@"url"]] placeholderImage:[UIImage imageNamed:@"placeholder-none"]];
+				[Experience defaultExperience].imageUrl_left = ret[@"url"];
 			}
 			else if (sender == _thirdPicBtn) {
-				[Experience defaultExperience].imageUrl_right = @"";
+				[_thirdPicBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:ret[@"url"]] placeholderImage:[UIImage imageNamed:@"placeholder-none"]];
+				[Experience defaultExperience].imageUrl_right = ret[@"url"];
 			}
 			else {
 				
@@ -85,7 +90,7 @@
 	[alert addAction:[UIAlertAction actionWithTitle:@"从相册选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 		
 		
-		ip.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+		ip.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 		
 		if (![[HACore core] isPhotoLibraryAuthorized]) {
 			return;
@@ -137,6 +142,18 @@
     self.preViewBtn.layer.masksToBounds = YES;
     self.nextStepBtn.layer.cornerRadius = 5;
     self.nextStepBtn.layer.masksToBounds = YES;
+}
+
+- (UIImage *)compressImage:(UIImage *)image toMaxFileSize:(NSInteger)maxFileSize {
+	CGFloat compression = 0.9f;
+	CGFloat maxCompression = 0.1f;
+	NSData *imageData = UIImageJPEGRepresentation(image, compression);
+	while ([imageData length] > maxFileSize && compression > maxCompression) {
+		compression -= 0.1;
+		imageData = UIImageJPEGRepresentation(image, compression);
+	}
+	UIImage *compressedImage = [UIImage imageWithData:imageData];
+	return compressedImage;
 }
 
 - (void)didReceiveMemoryWarning {

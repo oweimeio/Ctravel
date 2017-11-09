@@ -312,13 +312,13 @@
     NSDictionary *param = @{@"name":filename,};
     
     NSURLSessionDataTask *dataTask = [absolute POST:URLString parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        [formData appendPartWithFileData:UIImageJPEGRepresentation(image, 1) name:@"ios" fileName:filename mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(image, 1) name:@"file" fileName:filename mimeType:@"image/jpeg"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         progress(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable resp) {
         if ([resp[@"resultCode"] integerValue] == 0) {
-            success(resp[@"data"]);
-            NSLog(@"\n\nUPLOAD IMAGE(POST) SUCCESS\n\tAPI\t%@\n\tRESULT\t%@\n ", URLString, resp[@"data"]);
+            success(resp);
+            NSLog(@"\n\nUPLOAD IMAGE(POST) SUCCESS\n\tAPI\t%@\n\tRESULT\t%@\n ", URLString, resp[@"url"]);
         } else {
             apierror(resp[@"resultCode"], resp[@"errorMsg"], resp);
             NSLog(@"\n\nUPLOAD IMAGE(POST) ERROR\n\tAPI\t%@\n\tERROR\tCODE=%@\tMSG=%@\n ", URLString, resp[@"resultCode"], resp[@"errorMsg"]);

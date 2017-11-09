@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClientMsgViewController">
             <connections>
                 <outlet property="emptyDataView" destination="efM-hV-lrU" id="QwI-Lj-g44"/>
-                <outlet property="msgTableView" destination="4c1-q5-9qm" id="8IH-vS-3lc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,14 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4c1-q5-9qm">
-                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="csR-BR-WQ9"/>
-                        <outlet property="delegate" destination="-1" id="8ZH-wf-g2f"/>
-                    </connections>
-                </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ea-Sn-Qdk">
                     <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                     <subviews>
@@ -53,15 +44,11 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="4c1-q5-9qm" secondAttribute="bottom" id="S1m-58-w9p"/>
                 <constraint firstAttribute="trailing" secondItem="efM-hV-lrU" secondAttribute="trailing" id="Tn5-jR-Wje"/>
                 <constraint firstItem="2Ea-Sn-Qdk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="VXE-io-Pbs"/>
                 <constraint firstAttribute="bottom" secondItem="efM-hV-lrU" secondAttribute="bottom" id="a0I-C0-IMf"/>
                 <constraint firstItem="efM-hV-lrU" firstAttribute="top" secondItem="2Ea-Sn-Qdk" secondAttribute="bottom" id="ehJ-Lf-pP7"/>
                 <constraint firstItem="efM-hV-lrU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gim-aB-fsz"/>
-                <constraint firstAttribute="trailing" secondItem="4c1-q5-9qm" secondAttribute="trailing" id="nzX-0z-XNs"/>
-                <constraint firstItem="4c1-q5-9qm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="o7p-2U-bFS"/>
-                <constraint firstItem="4c1-q5-9qm" firstAttribute="top" secondItem="2Ea-Sn-Qdk" secondAttribute="bottom" id="p1d-IP-pgz"/>
                 <constraint firstItem="2Ea-Sn-Qdk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vHf-Mb-rag"/>
                 <constraint firstAttribute="trailing" secondItem="2Ea-Sn-Qdk" secondAttribute="trailing" id="xue-Rd-yWd"/>
             </constraints>

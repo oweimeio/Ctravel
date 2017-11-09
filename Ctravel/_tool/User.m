@@ -52,11 +52,18 @@
 	if (![FCFileManager isFileItemAtPath:userpath]) {
 		[[HACore core] logInnerError:@"user file not exist"];
 	}
-	[NSKeyedArchiver archiveRootObject:[self class] toFile:userpath];
+	[NSKeyedArchiver archiveRootObject:self toFile:userpath];
 }
 
-//- (id)copyWithZone:(NSZone *)zone {
-//    User *copy = (User *) [super copyWithZone:zone];
+- (void)setValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)keyedValues {
+	_firstName = keyedValues[@"firstName"];
+	_familyName = keyedValues[@"familyName"];
+	_userId = keyedValues[@"customerId"];
+	_gender = [keyedValues[@"gender"] isEqualToString:@"男"] ? 1 : 0;
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+//    User *copy = [self class] [super copyWithZone:zone];
 //    if (copy != nil) {
 //        copy.userId = self.userId;
 //        copy.firstName = self.firstName;
@@ -64,16 +71,19 @@
 //        copy.phone = self.phone;
 //        copy.avatar = self.avatar;
 //    }
-//    return copy;
-//}
+    return self;
+}
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     if (self = [super init]) {
         self.token = [coder decodeObjectForKey:@"self.token"];
+		self.deviceToken = [coder decodeObjectForKey:@"self.deviceToken"];
         self.isLogin = [coder decodeBoolForKey:@"self.isLogin"];
         self.userId = [coder decodeObjectForKey:@"self.userId"];
         self.firstName = [coder decodeObjectForKey:@"self.firstName"];
         self.familyName = [coder decodeObjectForKey:@"self.familyName"];
+		self.gender = [coder decodeIntegerForKey:@"self.gender"];
+		self.bornDate = [coder decodeObjectForKey:@"self.bornDate"];
         self.phone = [coder decodeObjectForKey:@"self.phone"];
         self.avatarUrl = [coder decodeObjectForKey:@"self.avatarUrl"];
         self.city = [coder decodeObjectForKey:@"self.avatarUrl"];
@@ -84,17 +94,22 @@
         self.job = [coder decodeObjectForKey:@"self.job"];
         self.email = [coder decodeObjectForKey:@"self.email"];
         self.validCode = [coder decodeObjectForKey:@"self.validCode"];
-		self.payAccount = [coder decodeObjectForKey:@"payAccount"];
+		self.payAccount = [coder decodeObjectForKey:@"self.payAccount"];
+		self.idCardNum = [coder decodeObjectForKey:@"self.idCardNum"];
+		self.idCardImageUrl = [coder decodeObjectForKey:@"self.idCardImageUrl"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.token forKey:@"self.token"];
+	[coder encodeObject:self.deviceToken forKey:@"self.deviceToken"];
     [coder encodeBool:self.isLogin forKey:@"self.isLogin"];
     [coder encodeObject:self.userId forKey:@"self.userId"];
     [coder encodeObject:self.firstName forKey:@"self.firstName"];
     [coder encodeObject:self.familyName forKey:@"self.familyName"];
+	[coder encodeInteger:self.gender forKey:@"self.gender"];
+	[coder encodeObject:self.bornDate forKey:@"self.bornDate"];
     [coder encodeObject:self.phone forKey:@"self.phone"];
     [coder encodeObject:self.avatarUrl forKey:@"self.avatarUrl"];
     [coder encodeObject:self.city forKey:@"self.city"];
@@ -106,6 +121,8 @@
     [coder encodeObject:self.email forKey:@"self.email"];
     [coder encodeObject:self.validCode forKey:@"self.validCode"];
 	[coder encodeObject:self.payAccount forKey:@"self.payAccount"];
+	[coder encodeObject:self.idCardNum forKey:@"self.idCardNum"];
+	[coder encodeObject:self.idCardImageUrl forKey:@"self.idCardImageUrl"];
 }
 
 

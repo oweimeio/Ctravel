@@ -50,7 +50,12 @@
     [self setDataSource:_dataSource];
     
     self.headerDefaultSize = self.picImageView.frame.size;
-    
+	
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"empty-heart"] style:UIBarButtonItemStyleDone handler:^(id sender) {
+		//收藏或取消当前体验
+		
+	}];
+	self.navigationItem.rightBarButtonItem.tintColor = [UIColor darkGrayColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,8 +89,13 @@
     [self.navigationController pushViewController:evaVc animated:YES];
 }
 
+//联络达人
 - (IBAction)connectMaster:(id)sender {
-	
+	RCConversationViewController *conversationVC = [[RCConversationViewController alloc]init];
+	conversationVC.conversationType = ConversationType_PRIVATE;
+	conversationVC.targetId = @"11111"; //这里模拟自己给自己发消息，您可以替换成其他登录的用户的UserId
+	conversationVC.title = @"自问自答";
+	[self.navigationController pushViewController:conversationVC animated:YES];
 }
 //预定
 - (IBAction)reserveBtnClick:(id)sender {

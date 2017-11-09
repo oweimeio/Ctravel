@@ -24,5 +24,6 @@
 #import "LYPicker.h"
 #import "LYDatePicker.h"
 #import "SLSegmentPageView.h"
+#import <RongIMKit/RongIMKit.h>
 
 #endif /* Libraries_h */

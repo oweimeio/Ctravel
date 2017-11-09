@@ -183,7 +183,7 @@
     Experience *experience = [Experience defaultExperience];
     switch (_type) {
         case CommonDesTypeStyle: {
-            if ([self.selectViewBtn.titleLabel.text isEqualToString:@"户外体验（选择）"] || ![Experience defaultExperience].style) {
+			if ([self.selectViewBtn.titleLabel.text isEqualToString:@"户外体验（选择）"] || ![Experience getExperienceDataWithUID:[User sharedUser].userId].style) {
                 [SVProgressHUD showErrorWithStatus:@"请填写体验风格"];
                 return;
             }
@@ -262,13 +262,13 @@
             [self.navigationController pushViewController: photoVc animated:YES];
         }   break;
         case CommonDesTypePic: {
-//			experience.price = [self.writeContentTextField.text floatValue];
-//            createVc.info = @{@"title":@"为您提供的体验设定一个适中的价格？",@"showTip":@"点击进一步了解价格"};
-//            createVc.type = CommonDesTypePrice;
-//			createVc.style = CreatPageStyleWrite;
-//            [self.navigationController pushViewController: createVc animated:YES];
+			
         }   break;
         case CommonDesTypePrice: {
+			if (self.writeContentTextField.text.length == 0) {
+				[SVProgressHUD showErrorWithStatus:@"请设置此次活动的价格"];
+				return;
+			}
 			experience.price = [self.writeContentTextField.text floatValue];
 			PublishViewController *publishVc = [PublishViewController new];
 			[self.navigationController pushViewController:publishVc animated:YES];
@@ -377,6 +377,8 @@
 			if (experience.price) {
 				_writeContentTextField.text = [NSString stringWithFormat:@"%.2f", experience.price];
 			}
+			_writeContentTextField.placeholder = @"请输入价格";
+			_writeContentTextField.keyboardType = UIKeyboardTypeNumberPad;
         }   break;
         default:
             break;

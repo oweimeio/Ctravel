@@ -179,8 +179,13 @@
     
 }
 
-- (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView
-{
+- (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView {
+	//比较日期 只能选今天以后的日期
+	NSTimeInterval secs = [dayView.date timeIntervalSinceDate:[NSDate date]];
+	if (secs <= 0) {
+		return;
+	}
+	
     if(_selectionMode && _datesSelected.count == 1 && ![_calendarManager.dateHelper date:[_datesSelected firstObject] isTheSameDayThan:dayView.date]){
         [_datesSelected addObject:dayView.date];
         [self selectDates];

@@ -15,6 +15,8 @@ def libpods
 	pod 'Masonry'
     pod 'Pingpp', '~> 2.2.13'
     pod 'JTCalendar', '~> 2.0'
+	pod 'RongCloudIM/IMLib', '~> 2.8.3'
+	pod 'RongCloudIM/IMKit', '~> 2.8.3'
 end
 
 def lypods

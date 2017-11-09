@@ -60,6 +60,9 @@
 		case LoginTypeLogin: {
 			_passwordTextField.secureTextEntry = YES;
 			_passwordTextField.keyboardType = UIKeyboardTypePhonePad;
+			if ([[User sharedUser] getUserData].phone) {
+				_phoneTextField.text = [[User sharedUser] getUserData].phone;
+			}
         }   break;
         case LoginTypeStepName: {
             _phoneTextField.keyboardType = UIKeyboardTypeDefault;
@@ -120,11 +123,11 @@
 			return;
 		}
         [[CoreAPI core] GETURLString: [NSString stringWithFormat:@"/sms/%@/1",_phoneTextField.text] withParameters:@{} success:^(id ret) {
-            
+			[User sharedUser].validCode = ret[@"code"];
         } error:^(NSString *code, NSString *msg, id ret) {
             
         } failure:^(NSError *error) {
-            
+			[SVProgressHUD showErrorWithStatus:@"验证码发送失败"];
         }];
         
 		[User sharedUser].phone = _phoneTextField.text;
@@ -134,8 +137,10 @@
         [self.navigationController pushViewController:loginVc animated:YES];
     }
 	else if (_type == LoginTypeStepCode) {
-		User *usr = [User sharedUser];
-		usr.phone = _phoneTextField.text;
+		if(![_phoneTextField.text isEqualToString:[User sharedUser].validCode]) {
+			[SVProgressHUD showErrorWithStatus:@"输入的验证不正确"];
+			return;
+		}
 		LoginViewController *loginVc = [LoginViewController new];
 		loginVc.info = @{@"title": @"输入密码", @"firstRow": @"密码", @"secondRow": @"确认密码", @"buttonTitle": @"注册"};
 		loginVc.type = LoginTypeStepPwd;
@@ -148,12 +153,15 @@
         }
 		NSDictionary *params = @{
 								 @"account": [User sharedUser].phone,
-								 @"password": _passwordTextField.text
+								 @"password": _passwordTextField.text,
+								 @"firstName": [User sharedUser].firstName,
+								 @"familyName": [User sharedUser].familyName
 								 };
 		[[CoreAPI core] GETURLString:REGISTER_REGISTER withParameters:params success:^(id ret) {
 			NSLog(@"%@",ret);
 			[SVProgressHUD showSuccessWithStatus:@"注册成功"];
-			[[HAApp current] logout];
+			[[User sharedUser] saveUserData];
+			//[[HAApp current] logout];
 			[[AppDelegate app] switchAppType:AppTypeLogin];
 		} error:^(NSString *code, NSString *msg, id ret) {
 			[SVProgressHUD showErrorWithStatus:msg];
@@ -164,10 +172,15 @@
     }
 	else if (_type == LoginTypeLogin) {
         [self.view endEditing:YES];
-//        [[AppDelegate app] switchAppType:AppTypeResident];
-//        [User sharedUser].userId = @"1221";
-//        [User sharedUser].token = @"asdfsadfsfdf";
-//        return;
+		if (_phoneTextField.text.length == 0) {
+			[SVProgressHUD showErrorWithStatus:@"请输入电话号码"];
+			return;
+		}
+		else if (_passwordTextField.text.length == 0) {
+			[SVProgressHUD showErrorWithStatus:@"请输入密码"];
+			return;
+		}
+		[SVProgressHUD showWithStatus:@"登录中..."];
 		NSDictionary *params = @{
 								 @"account": _phoneTextField.text,
 								 @"password": _passwordTextField.text,
@@ -179,11 +192,14 @@
             [User sharedUser].isLogin = YES;
             [User sharedUser].token = ret[@"data"][@"token"];
             [User sharedUser].userId = ret[@"data"][@"userId"];
+			[User sharedUser].phone = _phoneTextField.text;
+			[SVProgressHUD dismiss];
+			[[User sharedUser] saveUserData];
 			[[AppDelegate app] switchAppType:AppTypeResident];
 		} error:^(NSString *code, NSString *msg, id ret) {
             [SVProgressHUD showErrorWithStatus:msg];
 		} failure:^(NSError *error) {
-			
+			[SVProgressHUD showErrorWithStatus:@"网络错误"];
 		}];
 	}
 

@@ -87,7 +87,7 @@
     //查询的时候通过keyword 查询
     NSDictionary *param = @{
                             @"token":[User sharedUser].token,
-                            @"userId":[User sharedUser].userId,
+                            @"customerId":[User sharedUser].userId,
                             @"title":!self.keywords?@"":self.keywords,
 							@"page":paging ? @(self.dataSource.count / pageSize + 1) : @1,
                             @"rows":@(pageSize)

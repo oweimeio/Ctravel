@@ -8,6 +8,9 @@
 
 #import "Const.h"
 
+NSString *const RYAppKey = @"8luwapkv8ricl";
+NSString *const RYSecret = @"Udmbd6RQv0Upy";
+
 NSString *const CodeSuccess = @"E000000";
 NSString *const CodeErrorFailed = @"E100001";
 NSString *const CodeErrorException = @"E999999";

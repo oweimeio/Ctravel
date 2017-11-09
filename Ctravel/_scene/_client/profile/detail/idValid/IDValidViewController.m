@@ -23,7 +23,69 @@
 }
 
 - (IBAction)uploadIDCard:(id)sender {
-    
+	UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+	
+	UIImagePickerController *ip = [[UIImagePickerController alloc] init];
+	
+	ip.allowsEditing = YES;
+	
+	[ip setBk_didCancelBlock:^(UIImagePickerController *imp) {
+		[imp dismissViewControllerAnimated:YES completion:nil];
+	}];
+	
+	[ip setBk_didFinishPickingMediaBlock:^(UIImagePickerController *imp, NSDictionary *ret) {
+		
+		[SVProgressHUD showWithStatus:@"正在上传身份证"];
+		
+		UIImage *photo = [ret[UIImagePickerControllerEditedImage] resize:(CGSize){750, 750}];
+		
+		[[CoreAPI core] POSTImage:photo progress:^(float completed, float total) {
+			
+		} success:^(id ret) {
+			[_idCardImage setImageWithURLString:ret[@""] andPlaceholderNamed:@"placeholder-none"];
+			[User sharedUser].avatarUrl = ret[@""];
+			[SVProgressHUD showSuccessWithFormatStatus:@"上传成功"];
+			
+		} apierror:^(NSString *code, NSString *msg, id ret) {
+			[SVProgressHUD showErrorWithFormatStatus:@"%@", msg];
+		} failure:^(NSError *error) {
+			[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+		}];
+		
+		[imp dismissViewControllerAnimated:YES completion:^{}];
+	}];
+	
+	[alert addAction:[UIAlertAction actionWithTitle:@"从相册选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+		
+		
+		ip.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+		
+		if (![[HACore core] isPhotoLibraryAuthorized]) {
+			return;
+		} else {
+			// SHOW PICKER
+			[self presentViewController:ip animated:YES completion:^{}];
+		}
+	}]];
+	
+	[alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+		
+		ip.sourceType = UIImagePickerControllerSourceTypeCamera;
+		
+		if (![[HACore core] isCameraAuthorized]) {
+			return;
+		} else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO) {
+			return;
+		} else {
+			// SHOW PICKER
+			[self presentViewController:ip animated:YES completion:^{}];
+		}
+	}]];
+	
+	[alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+	}]];
+	
+	[self presentViewController:alert animated:YES completion:^{}];
 }
 
 

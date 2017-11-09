@@ -47,10 +47,10 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"编辑" style:UIBarButtonItemStyleDone handler:^(id sender) {
         ProfileEditViewController *editVc = [ProfileEditViewController new];
-		editVc.dataSource =  _dataSource;
         [self.navigationController pushViewController:editVc animated:YES];
     }];
-    
+	
+	//先从沙盒读取数据  如果没有就请求网络
     [self requestUserInfo];
     
 }
@@ -68,6 +68,7 @@
                             };
     [[CoreAPI core] GETURLString:@"/customer" withParameters:param success:^(id ret) {
         self.dataSource = ret[@"customerDetail"];
+		[[User sharedUser] setValuesForKeysWithDictionary:ret[@"customerDetail"]];
 		[self setInfo];
     } error:^(NSString *code, NSString *msg, id ret) {
         [SVProgressHUD showErrorWithStatus:msg];
@@ -77,15 +78,17 @@
 }
 
 - (void)setInfo {
-	self.nameLabel.text = [NSString stringWithFormat:@"%@ %@",_dataSource[@"firstName"],_dataSource[@"familyName"]];
+	User *user = [User sharedUser];
+	self.nameLabel.text = [NSString stringWithFormat:@"%@ %@",user.firstName,user.familyName];
 	self.validLabel.text = @"电话号码";
-	[self.avatarImageView setImageWithURLString:_dataSource[@"headImg"] andPlaceholderNamed:@"placeholder-none"];
-	self.cityLabel.text = _dataSource[@"area"];
-	self.createTimeLabel.text = [[NSDate dateWithTimeIntervalSince1970:[_dataSource[@"createTime"] doubleValue]/1000] stringWithFormat:@"yyyy-MM-dd" andTimezone:SHANGHAI];
-	self.aboutLabel.text = @"";
-	self.languageLabel.text = _dataSource[@"language"];
-	self.schoolLabel.text = _dataSource[@"school"];
-	self.jobLabel.text = _dataSource[@"job"];
+	[self.avatarImageView setImageWithURLString:user.avatarUrl andPlaceholderNamed:@"placeholder-none"];
+	self.cityLabel.text = user.city;
+	self.createTimeLabel.text = user.registerTime;
+	//[[NSDate dateWithTimeIntervalSince1970:[_dataSource[@"createTime"] doubleValue]/1000] stringWithFormat:@"yyyy-MM-dd" andTimezone:SHANGHAI];
+	self.aboutLabel.text = user.about;
+	self.languageLabel.text = user.language;
+	self.schoolLabel.text = user.school;
+	self.jobLabel.text = user.job;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -6,8 +6,8 @@
 //  Copyright © 2017年 apple. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <RongIMKit/RongIMKit.h>
 
-@interface ClientMsgViewController : UIViewController
+@interface ClientMsgViewController : RCConversationListViewController
 
 @end
