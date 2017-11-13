@@ -186,10 +186,10 @@
         
     } else {
         //加载引导页
-        LoginChooseViewController *gudideVC = [[LoginChooseViewController alloc] init];
-        
-        self.window.rootViewController = gudideVC;
-        
+//        LoginChooseViewController *gudideVC = [[LoginChooseViewController alloc] init];
+//        
+//        self.window.rootViewController = gudideVC;
+		
         //再去存储当前app的版本号
         
         [userDefaults setObject:currentVersion forKey:@"AppVersion"];

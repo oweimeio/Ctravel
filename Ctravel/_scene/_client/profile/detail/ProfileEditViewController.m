@@ -79,8 +79,8 @@
 		[[CoreAPI core] POSTImage:photo progress:^(float completed, float total) {
 			
 		} success:^(id ret) {
-			[_avatarImageView setImageWithURLString:ret[@""] andPlaceholderNamed:@"placeholder-none"];
-			[User sharedUser].avatarUrl = ret[@""];
+			[_avatarImageView setImageWithURLString:ret[@"url"] andPlaceholderNamed:@"placeholder-none"];
+			[User sharedUser].avatarUrl = ret[@"url"];
 			[SVProgressHUD showSuccessWithFormatStatus:@"上传成功"];
 			
 		} apierror:^(NSString *code, NSString *msg, id ret) {

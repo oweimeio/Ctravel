@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	if ([User sharedUser].idCardImageUrl) {
+		[_idCardImage setImageWithURLString:[User sharedUser].idCardImageUrl andPlaceholderNamed:@"placeholder-none"];
+	}
 }
 
 - (IBAction)uploadIDCard:(id)sender {
@@ -42,8 +45,8 @@
 		[[CoreAPI core] POSTImage:photo progress:^(float completed, float total) {
 			
 		} success:^(id ret) {
-			[_idCardImage setImageWithURLString:ret[@""] andPlaceholderNamed:@"placeholder-none"];
-			[User sharedUser].avatarUrl = ret[@""];
+			[_idCardImage setImageWithURLString:ret[@"url"] andPlaceholderNamed:@"placeholder-none"];
+			[User sharedUser].idCardImageUrl = ret[@"url"];
 			[SVProgressHUD showSuccessWithFormatStatus:@"上传成功"];
 			
 		} apierror:^(NSString *code, NSString *msg, id ret) {

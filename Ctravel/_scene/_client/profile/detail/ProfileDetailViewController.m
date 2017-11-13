@@ -79,10 +79,10 @@
 
 - (void)setInfo {
 	User *user = [User sharedUser];
-	self.nameLabel.text = [NSString stringWithFormat:@"%@ %@",user.firstName,user.familyName];
+	self.nameLabel.text = [NSString stringWithFormat:@"%@ %@",!user.firstName?@"名字":user.firstName,!user.familyName?@"姓氏":user.familyName];
 	self.validLabel.text = @"电话号码";
 	[self.avatarImageView setImageWithURLString:user.avatarUrl andPlaceholderNamed:@"placeholder-none"];
-	self.cityLabel.text = user.city;
+	self.cityLabel.text = !user.city?@"暂无位置信息":user.city;
 	self.createTimeLabel.text = user.registerTime;
 	//[[NSDate dateWithTimeIntervalSince1970:[_dataSource[@"createTime"] doubleValue]/1000] stringWithFormat:@"yyyy-MM-dd" andTimezone:SHANGHAI];
 	self.aboutLabel.text = user.about;
