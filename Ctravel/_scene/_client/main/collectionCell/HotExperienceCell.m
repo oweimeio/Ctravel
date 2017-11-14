@@ -37,7 +37,7 @@ NSString *const hotExperienceCellInIdentifier = @"hotExperienceCellInIdentifier"
 
 - (void)setDataSource:(NSDictionary *)dataSource {
     _dataSource = dataSource;
-    [_picImageView setImageWithURLString:dataSource[@"imageUrl"] andPlaceholderNamed:@"placeholder-none"];
+    [_picImageView setImageWithURLString:[dataSource[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
     _nameLabel.text = dataSource[@"title"];
 	_moneyLabel.text = [NSString stringWithFormat:@"￥%.2f %@条评论 %@",[dataSource[@"price"] floatValue],!dataSource[@"commentNum"]?@"0":dataSource[@"commentNum"], !dataSource[@"city"] ? @"" : dataSource[@"city"]];
     if ([dataSource[@"isFavourite"] isEqualToString:@"1"]) {

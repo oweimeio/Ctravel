@@ -142,9 +142,9 @@
 			user.portraitUri = dic[@"idcardImg"];
 			return completion(user);
 		} error:^(NSString *code, NSString *msg, id ret) {
-			[SVProgressHUD showErrorWithStatus:msg];
+			
 		} failure:^(NSError *error) {
-			[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+			
 		}];
 	}
 }

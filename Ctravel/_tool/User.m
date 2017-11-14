@@ -63,13 +63,13 @@
 	_userId = keyedValues[@"customerId"];
 	_gender = [keyedValues[@"gender"] isEqualToString:@"1"] ? 1 : 0;
 	_bornDate = keyedValues[@"bornDate"];
-	_registerTime = keyedValues[@"createTime"];
+	_registerTime = [[NSDate dateWithTimeIntervalSince1970:[keyedValues[@"createTime"] doubleValue]/1000] stringWithFormat:@"yyyy-MM-dd" andTimezone:SHANGHAI];
 	_about = keyedValues[@"about"];
 	_language = keyedValues[@"language"];
 	_school = keyedValues[@"school"];
 	_job = keyedValues[@"job"];
 	_email = keyedValues[@"email"];
-	_isServer = [keyedValues[@"gender"] isEqualToString:@"2"] ? 1 : 0;
+	_isServer = [keyedValues[@"idcardCheckStatus"] isEqualToString:@"9"] ? 1 : 0;
 	_idCardImageUrl = keyedValues[@"idcardImg"];
 	_city = keyedValues[@"area"];
 }

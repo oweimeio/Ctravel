@@ -33,9 +33,10 @@
 
 - (void)setDataSource:(NSDictionary *)dataSource {
     _dataSource = dataSource;
-    [self.picImageView setImageWithURLString:dataSource[@"imageUrl"] andPlaceholderNamed:@"placeholder-none"];
-    [self.avatarImageView setImageWithURLString:dataSource[@"headImg"] andPlaceholderNamed:@"placeholder-none"];
-    self.simpleDesLabel.text = [NSString stringWithFormat:@"%@\n%@\n",dataSource[@"contentDescription"], dataSource[@"contentDetails"]];
+    
+    [self.picImageView setImageWithURLString:[dataSource[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
+    [self.avatarImageView setImageWithURLString:dataSource[@"headImg"] andPlaceholderNamed:@"defaultHeadImage"];
+    self.simpleDesLabel.text = [NSString stringWithFormat:@"达人：%@%@\n体验类型：%@\n描述：%@\n",dataSource[@"firstName"],dataSource[@"familyName"],dataSource[@"serviceName"], dataSource[@"contentDescription"]];
     self.exContentLabel.text = dataSource[@"contentDetails"];
     self.goWhereLabel.text = dataSource[@"destination"];
     self.meetPointLabel.text = dataSource[@"rendezvous"];

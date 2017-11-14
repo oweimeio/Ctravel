@@ -28,6 +28,10 @@
 	_nameLabel.text = [NSString stringWithFormat:@"%@ %@", ![User sharedUser].familyName ? @"名字" : [User sharedUser].familyName, ![User sharedUser].firstName ? @"姓氏" : [User sharedUser].firstName];
 	
 	[_avatarBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:[User sharedUser].avatarUrl] placeholderImage:[UIImage imageNamed:@"defaultHeadImage"]];
+    
+    if ([User sharedUser].isServer) {
+        _isServerLabel.text = @"切换到达人模式";
+    }
 }
 
 - (void)viewDidLoad {
@@ -53,7 +57,6 @@
 - (IBAction)masterViewPress:(id)sender {
 	//判断身份  如果还不是达人  就先申请
 	if ([User sharedUser].isServer) {
-		_isServerLabel.text = @"切换到达人模式";
 		[[AppDelegate app] switchAppType:AppTypePolice];
 	}
 	else {

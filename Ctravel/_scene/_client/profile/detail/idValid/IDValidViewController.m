@@ -17,6 +17,13 @@
 
 @implementation IDValidViewController
 
+- (instancetype)init {
+    if (self = [super initWithNibName:@"IDValidViewController" bundle:nil]) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -47,8 +54,19 @@
 		} success:^(id ret) {
 			[_idCardImage setImageWithURLString:ret[@"url"] andPlaceholderNamed:@"placeholder-none"];
 			[User sharedUser].idCardImageUrl = ret[@"url"];
-			[SVProgressHUD showSuccessWithFormatStatus:@"上传成功,审核通过后可切换到达人模式"];
-			
+            NSDictionary *param = @{
+                                    @"token":[User sharedUser].token,
+                                    @"customerId":[User sharedUser].userId,
+                                    @"idcardImg":[User sharedUser].idCardImageUrl,
+                                    @"idcardCheckStatus":@(1)
+                                    };
+            [[CoreAPI core] POSTURLString:@"/customer" withParameters:param success:^(id ret) {
+                [SVProgressHUD showSuccessWithFormatStatus:@"上传成功,审核通过后可切换到达人模式"];
+            } error:^(NSString *code, NSString *msg, id ret) {
+                [SVProgressHUD showErrorWithStatus:msg];
+            } failure:^(NSError *error) {
+                [SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+            }];
 		} apierror:^(NSString *code, NSString *msg, id ret) {
 			[SVProgressHUD showErrorWithFormatStatus:@"%@", msg];
 		} failure:^(NSError *error) {

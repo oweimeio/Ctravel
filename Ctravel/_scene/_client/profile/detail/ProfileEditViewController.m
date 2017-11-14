@@ -50,8 +50,8 @@
         user.language = self.languageTextField.text;
         user.email = self.emalTextField.text;
         [user saveUserData];
+        [self saveUserInfo];
     }];
-	
 	[self setUsrInfo];
 }
 
@@ -173,6 +173,30 @@
 	self.jobTextField.text = user.job;
 	self.languageTextField.text = user.language;
 	self.emalTextField.text = user.email;
+}
+
+- (void)saveUserInfo {
+    NSDictionary *param = @{
+                            @"token":[User sharedUser].token,
+                            @"customerId":[User sharedUser].userId,
+                            @"headImg":[User sharedUser].avatarUrl,
+                            @"firstName":_nameTextField.text,
+                            @"familyName":_familyNameTextField.text,
+                            @"gender":[_genderBtn.titleLabel.text isEqualToString:@"男"]?@(1):@(0),
+                            @"city":_positionTextField.text,
+                            @"school":_schoolTextField.text,
+                            @"language":_languageTextField.text,
+                            @"job":_jobTextField.text,
+                            @"email":_emalTextField.text
+                            };
+    [[CoreAPI core] POSTURLString:@"/customer" withParameters:param success:^(id ret) {
+        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    } error:^(NSString *code, NSString *msg, id ret) {
+        [SVProgressHUD showErrorWithStatus:msg];
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+    }];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

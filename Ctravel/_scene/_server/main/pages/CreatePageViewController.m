@@ -183,7 +183,7 @@
     Experience *experience = [Experience defaultExperience];
     switch (_type) {
         case CommonDesTypeStyle: {
-			if ([self.selectViewBtn.titleLabel.text isEqualToString:@"户外体验（选择）"] || ![Experience getExperienceDataWithUID:[User sharedUser].userId].style) {
+			if ([self.selectViewBtn.titleLabel.text isEqualToString:@"户外体验（选择）"] || (![Experience getExperienceDataWithUID:[User sharedUser].userId].style &&[Experience defaultExperience].style)) {
                 [SVProgressHUD showErrorWithStatus:@"请填写体验风格"];
                 return;
             }
