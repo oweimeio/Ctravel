@@ -167,6 +167,7 @@
 	self.nameTextField.text = user.firstName;
 	self.familyNameTextField.text = user.familyName;
 	[self.genderBtn setTitle:user.gender == 1 ? @"男" : @"女" forState:UIControlStateNormal];
+	[self.bornDateBtn setTitle:user.bornDate forState:UIControlStateNormal];
 	self.positionTextField.text = user.city;
 	self.schoolTextField.text = user.school;
 	self.jobTextField.text = user.job;

@@ -86,7 +86,7 @@
             tabs.viewControllers = @[cMain, cFov, cMsg, cOrder, cProfile];
             self.window.rootViewController = tabs;
             [HAApp current].appType = AppTypeResident;
-            [self logInRongCloud];
+
         } break;
         case AppTypePolice: {
             
@@ -129,7 +129,7 @@
             
             self.window.rootViewController = tabs;
             [HAApp current].appType = AppTypePolice;
-			[self logInRongCloud];
+
         } break;
         case AppTypeLogin:
         default: {
@@ -141,29 +141,12 @@
             UINavigationController *preauthNav = [[UINavigationController alloc] initWithRootViewController:[LoginChooseViewController new]];
             self.window.rootViewController = preauthNav;
             [HAApp current].appType = AppTypeLogin;
-			[[RCIM sharedRCIM] logout];
-            
+
         } break;
     }
 }
 
-// 登录融云
-- (void)logInRongCloud {
-	[[RCIM sharedRCIM] logout];
-	
-	[[RCIM sharedRCIM] initWithAppKey:RYAppKey];
-	
-	[[RCIM sharedRCIM] connectWithToken:@"373m1E7bldFmEP5AcwU4hIVkWK5JQbEML4v8DOmU38zm/m8iAxIg37JGTsCl9L00Pnx+fYmTN7naRN0lKh+74R/vL1l5ZPKJQnBs5I/jleLwSch1/hzK5HLSM6hnoadyK5bVq03eAIw=" success:^(NSString *userId) {
-		NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
-	} error:^(RCConnectErrorCode status) {
-		NSLog(@"登陆的错误码为:%zi", status);
-	} tokenIncorrect:^{
-		//token过期或者不正确。
-		//如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
-		//如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
-		NSLog(@"token错误");
-	}];
-}
+
 
 // MARK: Guide
 
@@ -222,6 +205,8 @@
     [[AFNetworkReachabilityManager sharedManager] isReachableViaWiFi];
     [[AFNetworkReachabilityManager sharedManager] isReachableViaWWAN];
     [[AFNetworkReachabilityManager sharedManager] isReachable];
+	
+	[[RCIM sharedRCIM] initWithAppKey:RYAppKey];
     
     [self startSelectViewController];
     

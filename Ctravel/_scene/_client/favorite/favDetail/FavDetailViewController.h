@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
-
 @property (weak, nonatomic) IBOutlet UIImageView *picImageView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;

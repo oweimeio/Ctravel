@@ -70,18 +70,19 @@
 	__weak NSDictionary *dic = self.dataSource[indexPath.row];
 	cell.timeLabel.text = dic[@"serviceDate"];
 	[cell.reserveBtn bk_addEventHandler:^(id sender) {
-		NSDictionary *param = @{
-								@"token":[User sharedUser].token,
-								@"customerId":[User sharedUser].userId,
-								@"dateTimeString":dic[@"serviceDate"]
-								};
-		[[CoreAPI core] POSTURLString:@"" withParameters:param success:^(id ret) {
-			[SVProgressHUD showSuccessWithStatus:@"预定成功"];
-		} error:^(NSString *code, NSString *msg, id ret) {
-			[SVProgressHUD showErrorWithStatus:msg];
-		} failure:^(NSError *error) {
-			[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
-		}];
+		
+//		NSDictionary *param = @{
+//								@"token":[User sharedUser].token,
+//								@"customerId":[User sharedUser].userId,
+//								@"dateTimeString":dic[@"serviceDate"]
+//								};
+//		[[CoreAPI core] POSTURLString:@"" withParameters:param success:^(id ret) {
+//			[SVProgressHUD showSuccessWithStatus:@"预定成功"];
+//		} error:^(NSString *code, NSString *msg, id ret) {
+//			[SVProgressHUD showErrorWithStatus:msg];
+//		} failure:^(NSError *error) {
+//			[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+//		}];
 	} forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }

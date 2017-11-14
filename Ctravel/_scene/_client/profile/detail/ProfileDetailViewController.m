@@ -42,6 +42,11 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	[self setInfo];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -49,10 +54,6 @@
         ProfileEditViewController *editVc = [ProfileEditViewController new];
         [self.navigationController pushViewController:editVc animated:YES];
     }];
-	
-	//先从沙盒读取数据  如果没有就请求网络
-    [self requestUserInfo];
-    
 }
 
 //查看评价
@@ -61,27 +62,11 @@
 }
 
 
-- (void)requestUserInfo {
-    NSDictionary *param = @{
-                            @"token":[User sharedUser].token,
-                            @"customerId":[User sharedUser].userId
-                            };
-    [[CoreAPI core] GETURLString:@"/customer" withParameters:param success:^(id ret) {
-        self.dataSource = ret[@"customerDetail"];
-		[[User sharedUser] setValuesForKeysWithDictionary:ret[@"customerDetail"]];
-		[self setInfo];
-    } error:^(NSString *code, NSString *msg, id ret) {
-        [SVProgressHUD showErrorWithStatus:msg];
-    } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
-    }];
-}
-
 - (void)setInfo {
 	User *user = [User sharedUser];
 	self.nameLabel.text = [NSString stringWithFormat:@"%@ %@",!user.firstName?@"名字":user.firstName,!user.familyName?@"姓氏":user.familyName];
 	self.validLabel.text = @"电话号码";
-	[self.avatarImageView setImageWithURLString:user.avatarUrl andPlaceholderNamed:@"placeholder-none"];
+	[self.avatarImageView setImageWithURLString:user.avatarUrl andPlaceholderNamed:@"defaultHeadImage"];
 	self.cityLabel.text = !user.city?@"暂无位置信息":user.city;
 	self.createTimeLabel.text = user.registerTime;
 	//[[NSDate dateWithTimeIntervalSince1970:[_dataSource[@"createTime"] doubleValue]/1000] stringWithFormat:@"yyyy-MM-dd" andTimezone:SHANGHAI];

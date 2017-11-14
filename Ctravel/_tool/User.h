@@ -53,6 +53,9 @@
 //支付宝账号
 @property (nonatomic, strong) NSString *payAccount;
 
+//是否是达人
+@property (nonatomic, assign) BOOL isServer;
+
 + (instancetype)sharedUser;
 
 - (void)saveUserData;

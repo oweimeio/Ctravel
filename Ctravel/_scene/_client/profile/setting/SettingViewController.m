@@ -59,6 +59,8 @@
         
         // LET IT OUT
         [[HAApp current] logout];
+		
+		[[RCIM sharedRCIM] logout];
         
         [[AppDelegate app] switchAppType:AppTypeLogin];
         

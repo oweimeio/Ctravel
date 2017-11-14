@@ -120,22 +120,38 @@
 }
 	
 - (void)getUserInfoWithUserId:(NSString *)userId completion:(void(^)(RCUserInfo* userInfo))completion {
-	//此处为了演示写了一个用户信息
-	if ([@"11111" isEqual:userId]) {
+	//自己
+	if ([[User sharedUser].userId isEqual:userId]) {
 		RCUserInfo *user = [[RCUserInfo alloc]init];
-		user.userId = @"11111";
-		user.name = @"测试1";
-		user.portraitUri = @"https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=1756054607,4047938258&fm=96&s=94D712D20AA1875519EB37BE0300C008";
-		
-		return completion(user);
-	}else if([@"22222" isEqual:userId]) {
-		RCUserInfo *user = [[RCUserInfo alloc]init];
-		user.userId = @"2";
-		user.name = @"测试2";
-		user.portraitUri = @"https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=1756054607,4047938258&fm=96&s=94D712D20AA1875519EB37BE0300C008";
+		user.userId = [User sharedUser].userId;
+		user.name = [NSString stringWithFormat:@"%@%@",[User sharedUser].firstName,[User sharedUser].familyName];
+		user.portraitUri = [User sharedUser].avatarUrl;
 		return completion(user);
 	}
+	//别人
+	else {
+		NSDictionary *param = @{
+								@"token":[User sharedUser].token,
+								@"customerId":userId
+								};
+		[[CoreAPI core] GETURLString:@"/customer" withParameters:param success:^(id ret) {
+			NSDictionary *dic = ret[@"customerDetail"];
+			RCUserInfo *user = [[RCUserInfo alloc]init];
+			user.userId = dic[@"customerId"];
+			user.name = [NSString stringWithFormat:@"%@%@",dic[@"firstName"],dic[@"familyName"]];
+			user.portraitUri = dic[@"idcardImg"];
+			return completion(user);
+		} error:^(NSString *code, NSString *msg, id ret) {
+			[SVProgressHUD showErrorWithStatus:msg];
+		} failure:^(NSError *error) {
+			[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+		}];
+	}
 }
+
+
+
+
 	
 //MARK: - TABLEDELEGATE & DATASOURCE
 	
@@ -145,7 +161,7 @@
 //}
 //
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 60;
+//    return UITableViewAutomaticDimension;
 //}
 //
 //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

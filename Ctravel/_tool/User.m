@@ -56,10 +56,22 @@
 }
 
 - (void)setValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)keyedValues {
+	_imToken = keyedValues[@"imToken"];
+	_avatarUrl = keyedValues[@"headImg"];
 	_firstName = keyedValues[@"firstName"];
 	_familyName = keyedValues[@"familyName"];
 	_userId = keyedValues[@"customerId"];
-	_gender = [keyedValues[@"gender"] isEqualToString:@"男"] ? 1 : 0;
+	_gender = [keyedValues[@"gender"] isEqualToString:@"1"] ? 1 : 0;
+	_bornDate = keyedValues[@"bornDate"];
+	_registerTime = keyedValues[@"createTime"];
+	_about = keyedValues[@"about"];
+	_language = keyedValues[@"language"];
+	_school = keyedValues[@"school"];
+	_job = keyedValues[@"job"];
+	_email = keyedValues[@"email"];
+	_isServer = [keyedValues[@"gender"] isEqualToString:@"2"] ? 1 : 0;
+	_idCardImageUrl = keyedValues[@"idcardImg"];
+	_city = keyedValues[@"area"];
 }
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -97,6 +109,7 @@
 		self.payAccount = [coder decodeObjectForKey:@"self.payAccount"];
 		self.idCardNum = [coder decodeObjectForKey:@"self.idCardNum"];
 		self.idCardImageUrl = [coder decodeObjectForKey:@"self.idCardImageUrl"];
+		self.isServer = [coder decodeBoolForKey:@"self.isServer"];
     }
     return self;
 }
@@ -123,6 +136,7 @@
 	[coder encodeObject:self.payAccount forKey:@"self.payAccount"];
 	[coder encodeObject:self.idCardNum forKey:@"self.idCardNum"];
 	[coder encodeObject:self.idCardImageUrl forKey:@"self.idCardImageUrl"];
+	[coder encodeBool:self.isServer forKey:@"self.isServer"];
 }
 
 

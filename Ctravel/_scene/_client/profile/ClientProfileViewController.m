@@ -17,18 +17,22 @@
 @property (weak, nonatomic) IBOutlet UIButton *avatarBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *isServerLabel;
 
 @end
 
 @implementation ClientProfileViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	_nameLabel.text = [NSString stringWithFormat:@"%@ %@", ![User sharedUser].familyName ? @"名字" : [User sharedUser].familyName, ![User sharedUser].firstName ? @"姓氏" : [User sharedUser].firstName];
+	
+	[_avatarBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:[User sharedUser].avatarUrl] placeholderImage:[UIImage imageNamed:@"defaultHeadImage"]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-	_nameLabel.text = [NSString stringWithFormat:@"%@ %@", ![User sharedUser].familyName ? @"名字" : [User sharedUser].familyName, ![User sharedUser].firstName ? @"姓氏" : [User sharedUser].firstName];
-    
-    [_avatarBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:[User sharedUser].avatarUrl] placeholderImage:[UIImage imageNamed:@"placeholder-none"]];
 }
 
 //MARK: -ACTION
@@ -47,11 +51,16 @@
 }
 
 - (IBAction)masterViewPress:(id)sender {
-//    [self.navigationController pushViewController:[MasterViewController new
-//                                                   ] animated:YES];
-    [[AppDelegate app] switchAppType:AppTypePolice];
+	//判断身份  如果还不是达人  就先申请
+	if ([User sharedUser].isServer) {
+		_isServerLabel.text = @"切换到达人模式";
+		[[AppDelegate app] switchAppType:AppTypePolice];
+	}
+	else {
+		[self.navigationController pushViewController:[IDValidViewController new
+                                                   ] animated:YES];
+	}
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -47,7 +47,7 @@
 		} success:^(id ret) {
 			[_idCardImage setImageWithURLString:ret[@"url"] andPlaceholderNamed:@"placeholder-none"];
 			[User sharedUser].idCardImageUrl = ret[@"url"];
-			[SVProgressHUD showSuccessWithFormatStatus:@"上传成功"];
+			[SVProgressHUD showSuccessWithFormatStatus:@"上传成功,审核通过后可切换到达人模式"];
 			
 		} apierror:^(NSString *code, NSString *msg, id ret) {
 			[SVProgressHUD showErrorWithFormatStatus:@"%@", msg];
@@ -59,7 +59,6 @@
 	}];
 	
 	[alert addAction:[UIAlertAction actionWithTitle:@"从相册选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-		
 		
 		ip.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
 		
