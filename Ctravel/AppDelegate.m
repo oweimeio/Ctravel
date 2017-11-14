@@ -153,7 +153,7 @@
 	
 	[[RCIM sharedRCIM] initWithAppKey:RYAppKey];
 	
-	[[RCIM sharedRCIM] connectWithToken:@"xQ/mSL2wWnx7BndG6AABkMilvHITGG541WQvArQDBKoAH+DPd9k+rto/SXzgIU7xp/P8CzgHzvCh00zlYe9j4Q==" success:^(NSString *userId) {
+	[[RCIM sharedRCIM] connectWithToken:@"373m1E7bldFmEP5AcwU4hIVkWK5JQbEML4v8DOmU38zm/m8iAxIg37JGTsCl9L00Pnx+fYmTN7naRN0lKh+74R/vL1l5ZPKJQnBs5I/jleLwSch1/hzK5HLSM6hnoadyK5bVq03eAIw=" success:^(NSString *userId) {
 		NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
 	} error:^(RCConnectErrorCode status) {
 		NSLog(@"登陆的错误码为:%zi", status);
@@ -264,7 +264,7 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 	NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
-	[User sharedUser].deviceToken = token;
+	[User sharedUser].imToken = token;
 	NSLog(@"\n\nDEVICE DID REGISTER REMOTE NOTIFICATION\n\tDEVICE TOKEN\n\t%@", token);
 }
 

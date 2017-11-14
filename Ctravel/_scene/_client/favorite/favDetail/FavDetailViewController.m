@@ -18,6 +18,8 @@
 
 @property (assign, nonatomic) BOOL isHideStatusBar;
 
+@property (nonatomic, strong) UIBarButtonItem *rightBarItem;
+
 @end
 
 @implementation FavDetailViewController
@@ -32,7 +34,7 @@
 - (void)setDataSource:(NSDictionary *)dataSource {
     _dataSource = dataSource;
     [self.picImageView setImageWithURLString:dataSource[@"imageUrl"] andPlaceholderNamed:@"placeholder-none"];
-    [self.avatarImageView setImageWithURLString:@"" andPlaceholderNamed:@"placeholder-none"];
+    [self.avatarImageView setImageWithURLString:dataSource[@"headImg"] andPlaceholderNamed:@"placeholder-none"];
     self.simpleDesLabel.text = [NSString stringWithFormat:@"%@\n%@\n",dataSource[@"contentDescription"], dataSource[@"contentDetails"]];
     self.exContentLabel.text = dataSource[@"contentDetails"];
     self.goWhereLabel.text = dataSource[@"destination"];
@@ -42,6 +44,7 @@
     self.masterRegulationsLabel.text = dataSource[@"requirement"];
     self.exPeopleCount.text = dataSource[@"peopleNumber"];
     self.moneyLabel.text = [NSString stringWithFormat:@"￥%.2f",[dataSource[@"price"] floatValue]];
+    _rightBarItem.image = [dataSource[@"isFavourite"] isEqualToString:@"1"] ? [UIImage imageNamed:@"solid-heart"] : [UIImage imageNamed:@"empty-heart"];
 }
 
 - (void)viewDidLoad {
@@ -51,10 +54,13 @@
     
     self.headerDefaultSize = self.picImageView.frame.size;
 	
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"empty-heart"] style:UIBarButtonItemStyleDone handler:^(id sender) {
-		//收藏或取消当前体验
-		
-	}];
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"empty-heart"] style:UIBarButtonItemStyleDone handler:^(id sender) {
+        //收藏或取消当前体验
+        
+    }];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+    _rightBarItem = rightBarItem;
+    
 	self.navigationItem.rightBarButtonItem.tintColor = [UIColor darkGrayColor];
 }
 
@@ -93,8 +99,8 @@
 - (IBAction)connectMaster:(id)sender {
 	RCConversationViewController *conversationVC = [[RCConversationViewController alloc]init];
 	conversationVC.conversationType = ConversationType_PRIVATE;
-	conversationVC.targetId = @"11111"; //这里模拟自己给自己发消息，您可以替换成其他登录的用户的UserId
-	conversationVC.title = @"自问自答";
+	conversationVC.targetId = _dataSource[@"customerId"]; //这里模拟自己给自己发消息，您可以替换成其他登录的用户的UserId
+	conversationVC.title = [NSString stringWithFormat:@"%@%@",_dataSource[@"firstName"],_dataSource[@"familyName"]];
 	[self.navigationController pushViewController:conversationVC animated:YES];
 }
 //预定

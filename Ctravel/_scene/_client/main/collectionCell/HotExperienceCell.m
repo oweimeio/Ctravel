@@ -40,7 +40,13 @@ NSString *const hotExperienceCellInIdentifier = @"hotExperienceCellInIdentifier"
     [_picImageView setImageWithURLString:dataSource[@"imageUrl"] andPlaceholderNamed:@"placeholder-none"];
     _nameLabel.text = dataSource[@"title"];
 	_moneyLabel.text = [NSString stringWithFormat:@"￥%.2f %@条评论 %@",[dataSource[@"price"] floatValue],!dataSource[@"commentNum"]?@"0":dataSource[@"commentNum"], !dataSource[@"city"] ? @"" : dataSource[@"city"]];
-	
+    if ([dataSource[@"isFavourite"] isEqualToString:@"1"]) {
+        [_heartButton setImage:[UIImage imageNamed:@"solid-heart"] forState:UIControlStateNormal];
+    }
+    else {
+        [_heartButton setImage:[UIImage imageNamed:@"empty-heart"] forState:UIControlStateNormal];
+    }
+    
 }
 
 @end

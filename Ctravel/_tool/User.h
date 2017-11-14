@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSString *token;
 	
-@property (nonatomic, strong) NSString *deviceToken;
+@property (nonatomic, strong) NSString *imToken;
 
 @property (nonatomic, assign) BOOL isLogin;
 
