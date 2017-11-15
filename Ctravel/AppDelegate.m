@@ -109,7 +109,7 @@
             sDate.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-date-blue"];
             
             
-            UINavigationController *sMsg = [[UINavigationController alloc] initWithRootViewController:[ServerMessageViewController new]];
+            UINavigationController *sMsg = [[UINavigationController alloc] initWithRootViewController:[ClientMsgViewController new]];
             sMsg.title = @"消息";
             sMsg.tabBarItem.image = [UIImage imageNamed:@"tab-msg-gray"];
             sMsg.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-msg-blue"];
