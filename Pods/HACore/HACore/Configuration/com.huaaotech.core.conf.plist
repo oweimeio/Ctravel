@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>core-net-multi-media</key>
+	<dict>
+		<key>conf-value</key>
+		<string>file.huaaotech.com</string>
+		<key>name</key>
+		<string>Multimedia Networking</string>
+	</dict>
+	<key>core-net-multi-media-dev</key>
+	<dict>
+		<key>conf-value</key>
+		<string>file.huaaotech.com</string>
+		<key>name</key>
+		<string>Multimedia Networking Dev</string>
+	</dict>
 	<key>auth-login-pwd-min-length</key>
 	<dict>
 		<key>name</key>

@@ -364,7 +364,7 @@
 	
 	NSString *URLString = [NSString stringWithFormat:@"%@%@/file/upload/file.do",
 						   [[HACore core] valueForConfWithKey:[HACore core].debug ? @"core-net-is-secure-transport-dev" : @"core-net-is-secure-transport"],
-						   [[HACore core] valueForConfWithKey:[HACore core].debug ? @"core-net-domain-dev" : @"core-net-domain"]];
+						   [[HACore core] valueForConfWithKey:[HACore core].debug ? @"core-net-multi-media-dev" : @"core-net-multi-media"]];
 
 	NSString *filename = [NSString stringWithFormat:@"ios%@.%@", [[NSDate date] stringWithFormat:@"yyyyMMddHHmmss" andTimezone:SHANGHAI], filetype];
 	NSDictionary *param = @{@"name":filename,};

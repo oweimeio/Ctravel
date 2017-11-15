@@ -10,6 +10,8 @@
 #endif
 #endif
 
+#import "LYDatePicker.h"
+#import "LYPickerView.h"
 #import "LYPopActionView.h"
 #import "LYPopDate.h"
 #import "LYPopMessage.h"
@@ -17,7 +19,6 @@
 #import "LYPopView.h"
 #import "NSBundle+PopView.h"
 #import "PopView.h"
-#import "UIColor+LYPopViewHex.h"
 
 FOUNDATION_EXPORT double LYPopViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char LYPopViewVersionString[];

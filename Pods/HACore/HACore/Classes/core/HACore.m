@@ -83,7 +83,13 @@ NSString *const NAME_CONF_HA_CORE = @"com.huaaotech.core.conf";
 	}
 	
 	// GET VALUE
-	return [self conf][keys][@"conf-value"];
+    if ([[self conf][keys][@"conf-value"] length]) {
+        return [self conf][keys][@"conf-value"];
+    }else{
+        NSString *confpath = [[NSBundle bundleWithIdentifier:LIB_HACONF_BUNDLE_ID] pathForResource:NAME_CONF_HA_CORE ofType:@"plist"];
+        NSDictionary *conf = [FCFileManager readFileAtPathAsDictionary:confpath];
+        return conf[keys][@"conf-value"];
+    }
 }
 
 // MARK: - TOOL
