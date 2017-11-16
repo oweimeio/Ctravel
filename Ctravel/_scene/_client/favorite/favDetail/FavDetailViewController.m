@@ -12,7 +12,7 @@
 #import "WatchDateViewController.h"
 #import "BuyProViewController.h"
 
-@interface FavDetailViewController ()
+@interface FavDetailViewController () <ChooseDateDelegate>
 
 @property (nonatomic)CGSize headerDefaultSize;
 
@@ -152,6 +152,11 @@
     else {
         self.navigationController.navigationBar.translucent = YES;
     }
+}
+
+
+- (void)chooseDate:(NSString *)date {
+	_dateLabel.text = date;
 }
 
 - (void)didReceiveMemoryWarning {

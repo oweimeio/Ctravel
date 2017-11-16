@@ -70,19 +70,9 @@
 	__weak NSDictionary *dic = self.dataSource[indexPath.row];
 	cell.timeLabel.text = dic[@"serviceDate"];
 	[cell.reserveBtn bk_addEventHandler:^(id sender) {
-		
-//		NSDictionary *param = @{
-//								@"token":[User sharedUser].token,
-//								@"customerId":[User sharedUser].userId,
-//								@"dateTimeString":dic[@"serviceDate"]
-//								};
-//		[[CoreAPI core] POSTURLString:@"" withParameters:param success:^(id ret) {
-//			[SVProgressHUD showSuccessWithStatus:@"预定成功"];
-//		} error:^(NSString *code, NSString *msg, id ret) {
-//			[SVProgressHUD showErrorWithStatus:msg];
-//		} failure:^(NSError *error) {
-//			[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
-//		}];
+		if ([_delegate respondsToSelector:@selector(chooseDate:)]) {
+			[_delegate chooseDate:dic[@"serviceDate"]];
+		}
 	} forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }

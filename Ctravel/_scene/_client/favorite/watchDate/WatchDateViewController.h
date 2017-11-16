@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ChooseDateDelegate <NSObject>
+@optional
+
+- (void)chooseDate:(NSString *) date;
+
+@end
 
 @interface WatchDateViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *detailData;
 
 @property (nonatomic, strong) NSString *expId;
+
+@property (nonatomic, weak) id<ChooseDateDelegate> delegate;
 
 @end

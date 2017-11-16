@@ -32,6 +32,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *masterRegulationsLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *exPeopleCount;
 
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
