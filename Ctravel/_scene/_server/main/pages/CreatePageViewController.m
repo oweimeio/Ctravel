@@ -145,7 +145,7 @@
 //选择开始时间
 - (IBAction)chooseStartTime:(UIButton *)sender {
 
-	LYDatePicker *picker = [[LYDatePicker alloc] init];
+	LCDatePicker *picker = [[LCDatePicker alloc] init];
 	[picker setSelectBlock:^(NSDate *date) {
 		NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
 		selectDateFormatter.dateFormat = @"HH:mm"; // 设置时间和日期的格式
@@ -158,7 +158,7 @@
 
 //选择结束时间
 - (IBAction)chooseEndTime:(UIButton *)sender {
-	LYDatePicker *picker = [[LYDatePicker alloc] init];
+	LCDatePicker *picker = [[LCDatePicker alloc] init];
 	[picker setSelectBlock:^(NSDate *date) {
 		NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
 		selectDateFormatter.dateFormat = @"HH:mm"; // 设置时间和日期的格式

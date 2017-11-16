@@ -142,7 +142,7 @@
 
 //选择出生日期
 - (IBAction)chooseBornDate:(UIButton *)sender {
-    LYDatePicker *datePicker = [LYDatePicker new];
+    LCDatePicker *datePicker = [LCDatePicker new];
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker setSelectBlock:^(NSDate *date) {
         NSLog(@"%@",date);

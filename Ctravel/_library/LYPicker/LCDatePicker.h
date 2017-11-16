@@ -10,7 +10,7 @@
 
 typedef void (^ didSelectDate)(NSDate *date);
 
-@interface LYDatePicker : UIControl
+@interface LCDatePicker : UIControl
 
 @property (nonatomic, assign) UIDatePickerMode datePickerMode;
 

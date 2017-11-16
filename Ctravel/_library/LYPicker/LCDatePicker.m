@@ -6,10 +6,10 @@
 //  COPYRIGHT © 2016 HUAAO TECH. ALL RIGHTS RESERVED.
 //
 
-#import "LYDatePicker.h"
+#import "LCDatePicker.h"
 #import "PreHeader.h"
 
-@interface LYDatePicker () {
+@interface LCDatePicker () {
 	UIView *vPicker;
 	UIDatePicker *pvPicker;
 	didSelectDate selectionBlock;
@@ -17,7 +17,7 @@
 }
 @end
 
-@implementation LYDatePicker
+@implementation LCDatePicker
 
 /*
 // ONLY OVERRIDE drawRect: IF YOU PERFORM CUSTOM DRAWING.

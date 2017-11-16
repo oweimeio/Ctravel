@@ -42,7 +42,7 @@
 		<key>name</key>
 		<string>Core Networking Domain</string>
 		<key>conf-value</key>
-		<string>apitest.ctravel.cc</string>
+		<string>192.168.1.104</string>
 	</dict>
 	<key>core-net-domain-dev</key>
 	<dict>
