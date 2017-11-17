@@ -18,7 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 
 @property (weak, nonatomic) IBOutlet UITextField *familyNameTextField;
-	
+
+@property (weak, nonatomic) IBOutlet UITextField *aboutTextField;
+
 @property (weak, nonatomic) IBOutlet UIButton *genderBtn;
 	
 @property (weak, nonatomic) IBOutlet UIButton *bornDateBtn;
@@ -44,6 +46,7 @@
         User *user = [User sharedUser];
         user.firstName = self.nameTextField.text;
         user.familyName = self.familyNameTextField.text;
+		user.about = self.aboutTextField.text;
         user.city = self.positionTextField.text;
         user.school = self.schoolTextField.text;
         user.job = self.jobTextField.text;
@@ -182,6 +185,7 @@
                             @"headImg":[User sharedUser].avatarUrl,
                             @"firstName":_nameTextField.text,
                             @"familyName":_familyNameTextField.text,
+							@"about":_aboutTextField.text,
                             @"gender":[_genderBtn.titleLabel.text isEqualToString:@"男"]?@(1):@(0),
                             @"city":_positionTextField.text,
                             @"school":_schoolTextField.text,

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -101,6 +101,9 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ALB-Kj-3GM">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                </progressView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -116,7 +119,10 @@
                 <constraint firstItem="Xtl-hd-L0q" firstAttribute="top" secondItem="P0E-Lq-qUU" secondAttribute="bottom" constant="30" id="i14-X0-ezX"/>
                 <constraint firstItem="bMc-nc-gpU" firstAttribute="top" secondItem="Xtl-hd-L0q" secondAttribute="bottom" constant="40" id="m4z-dH-Age"/>
                 <constraint firstAttribute="trailing" secondItem="P0E-Lq-qUU" secondAttribute="trailing" constant="90" id="pEh-o9-2oi"/>
+                <constraint firstItem="ALB-Kj-3GM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="q5l-sE-Wr5"/>
                 <constraint firstItem="Ysj-Lm-B43" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="sYY-nQ-rDH"/>
+                <constraint firstAttribute="trailing" secondItem="ALB-Kj-3GM" secondAttribute="trailing" id="txu-Os-u8g"/>
+                <constraint firstItem="ALB-Kj-3GM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uU6-Qx-v7t"/>
                 <constraint firstAttribute="trailing" secondItem="bMc-nc-gpU" secondAttribute="trailing" id="v9H-wK-ppi"/>
                 <constraint firstAttribute="trailing" secondItem="Xtl-hd-L0q" secondAttribute="trailing" constant="40" id="xE4-hi-Yeo"/>
             </constraints>

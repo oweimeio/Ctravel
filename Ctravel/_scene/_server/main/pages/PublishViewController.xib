@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,6 +66,9 @@
                         <action selector="publishBtnClick:" destination="-1" eventType="touchUpInside" id="JEM-14-Ysq"/>
                     </connections>
                 </button>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="bbZ-7M-tOm">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="2"/>
+                </progressView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -81,8 +84,11 @@
                 <constraint firstItem="ZM9-oR-0Ob" firstAttribute="leading" secondItem="6tp-qp-7qA" secondAttribute="trailing" constant="40" id="Yya-8d-3Da"/>
                 <constraint firstItem="ZM9-oR-0Ob" firstAttribute="height" secondItem="6tp-qp-7qA" secondAttribute="height" id="bGX-cY-a4C"/>
                 <constraint firstItem="y5R-XC-mUm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="d1L-QS-GSo"/>
+                <constraint firstItem="bbZ-7M-tOm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="d3e-IZ-IkC"/>
                 <constraint firstItem="8bZ-vh-mIU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="gME-I4-5Vm"/>
                 <constraint firstAttribute="bottom" secondItem="ZM9-oR-0Ob" secondAttribute="bottom" constant="40" id="gaP-qg-GlP"/>
+                <constraint firstItem="bbZ-7M-tOm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gb7-Dy-r4K"/>
+                <constraint firstAttribute="trailing" secondItem="bbZ-7M-tOm" secondAttribute="trailing" id="haa-7a-dDG"/>
                 <constraint firstAttribute="trailing" secondItem="LnU-8n-Wmr" secondAttribute="trailing" constant="20" id="lWm-k5-RKJ"/>
             </constraints>
             <point key="canvasLocation" x="26.5" y="51.5"/>

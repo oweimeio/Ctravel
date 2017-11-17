@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -38,8 +38,8 @@
                         <action selector="avatarBtnClick:" destination="-1" eventType="touchUpInside" id="Nmb-5U-nhV"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jerry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RL-9L-2Yp">
-                    <rect key="frame" x="260" y="89.5" width="65" height="31.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jerry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RL-9L-2Yp">
+                    <rect key="frame" x="140" y="89.5" width="215" height="31.5"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -203,6 +203,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="5RL-9L-2Yp" firstAttribute="leading" secondItem="hdW-BP-AIo" secondAttribute="trailing" constant="20" id="2Df-zA-LV4"/>
                 <constraint firstItem="OHx-55-4kw" firstAttribute="leading" secondItem="NnF-cs-aHM" secondAttribute="leading" id="5n0-uo-fV7"/>
                 <constraint firstAttribute="trailing" secondItem="bFe-ZR-Zdo" secondAttribute="trailing" id="7V5-s1-Uhj"/>
                 <constraint firstItem="LVp-Xi-rKg" firstAttribute="top" secondItem="Yy6-He-rbZ" secondAttribute="bottom" id="CxP-Ft-8sh"/>
@@ -211,7 +212,7 @@
                 <constraint firstItem="Yy6-He-rbZ" firstAttribute="top" secondItem="OHx-55-4kw" secondAttribute="bottom" id="GgI-8t-8qR"/>
                 <constraint firstItem="hdW-BP-AIo" firstAttribute="leading" secondItem="NnF-cs-aHM" secondAttribute="leading" constant="30" id="Jj4-wR-Mla"/>
                 <constraint firstItem="5RL-9L-2Yp" firstAttribute="centerY" secondItem="hdW-BP-AIo" secondAttribute="centerY" id="NbM-IW-CLQ"/>
-                <constraint firstAttribute="trailing" secondItem="5RL-9L-2Yp" secondAttribute="trailing" constant="50" id="Xf5-sm-F5X"/>
+                <constraint firstAttribute="trailing" secondItem="5RL-9L-2Yp" secondAttribute="trailing" constant="20" id="Xf5-sm-F5X"/>
                 <constraint firstItem="bFe-ZR-Zdo" firstAttribute="leading" secondItem="NnF-cs-aHM" secondAttribute="leading" id="ZNQ-tN-QuV"/>
                 <constraint firstAttribute="trailing" secondItem="OHx-55-4kw" secondAttribute="trailing" id="fO1-D4-Jz9"/>
                 <constraint firstItem="OHx-55-4kw" firstAttribute="top" secondItem="hdW-BP-AIo" secondAttribute="bottom" constant="40" id="lXm-pW-XWO"/>

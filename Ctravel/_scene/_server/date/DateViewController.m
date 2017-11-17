@@ -153,14 +153,14 @@
     // Today
     if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor blueColor];
+        dayView.circleView.backgroundColor = [UIColor colorWithHex:@"1890B5" andAlpha:1];
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
     // Selected date
     else if([self isInDatesSelected:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor redColor];
+        dayView.circleView.backgroundColor = [UIColor blueColor];
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }

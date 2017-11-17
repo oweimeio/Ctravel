@@ -11,8 +11,11 @@
 #import "CommonDesViewController.h"
 #import "TakePhotoViewController.h"
 #import "PublishViewController.h"
+#import "PreViewViewController.h"
 
 @interface CreatePageViewController () <UITextViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
@@ -64,6 +67,7 @@
     self.selectViewTitleLabel.text = info[@"selectTitle"];
     [self.selectViewBtn setTitle:info[@"selectBtnTitle"] forState:UIControlStateNormal];
     self.showTipTitleLabel.text = info[@"showTip"];
+	self.progressView.progress = [info[@"progress"] floatValue];
 }
 
 - (void)setStyle:(CreatPageStyle)style {
@@ -172,6 +176,9 @@
 // 预览
 - (IBAction)preViewBtnClick:(id)sender {
     Experience *experience = [Experience defaultExperience];
+	FavDetailViewController *favDetailVc = [FavDetailViewController new];
+	favDetailVc.dataSource = [self loadExperienceForDict:experience];
+	[self.navigationController pushViewController:favDetailVc animated:YES];
     NSLog(@"style=%@",experience.style);
     NSLog(@"city=%@",experience.city);
     NSLog(@"title=%@",experience.title);
@@ -187,63 +194,63 @@
                 [SVProgressHUD showErrorWithStatus:@"请填写体验风格"];
                 return;
             }
-            createVc.info = @{@"title":@"您打算在哪座城市提供体验？",@"selectTitle":@"城市",@"showTip":@"点击进一步了解城市提供"};
+			createVc.info = @{@"title":@"您打算在哪座城市提供体验？",@"selectTitle":@"城市",@"showTip":@"点击进一步了解城市提供",@"progress":@"0.2"};
             createVc.style = CreatPageStyleWrite;
             createVc.type = CommonDesTypeCity;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeCity: {
             experience.city = self.writeContentTextField.text;
-            createVc.info = @{@"title":@"为您的体验起了简短但吸引眼球的名称",@"selectTitle":@"标题",@"showTip":@"点击进一步了解标题"};
+            createVc.info = @{@"title":@"为您的体验起了简短但吸引眼球的名称",@"selectTitle":@"标题",@"showTip":@"点击进一步了解标题",@"progress":@"0.25"};
             createVc.style = CreatPageStyleWrite;
             createVc.type = CommonDesTypeTitle;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeTitle: {
             experience.title = self.writeContentTextField.text;
-            createVc.info = @{@"title":@"告诉参与者我们要做些什么？（描述您行程安排）",@"showTip":@"点击进一步了解要做些什么"};
+            createVc.info = @{@"title":@"告诉参与者我们要做些什么？（描述您行程安排）",@"showTip":@"点击进一步了解要做些什么",@"progress":@"0.3"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeDes;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeDes: {
 			experience.contentDes = self.writeTextView.text;
-            createVc.info = @{@"title":@"向参与者描述一下要去何处（列出要去的点，不要包括详细地址）",@"showTip":@"点击进一步了解地点"};
+            createVc.info = @{@"title":@"向参与者描述一下要去何处（列出要去的点，不要包括详细地址）",@"showTip":@"点击进一步了解地点",@"progress":@"0.35"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeAddress;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeAddress: {
 			experience.destination = self.writeTextView.text;
-            createVc.info = @{@"title":@"注明体验包含的项目（门票、交通、餐费）",@"showTip":@"点击进一步了解注明"};
+            createVc.info = @{@"title":@"注明体验包含的项目（门票、交通、餐费）",@"showTip":@"点击进一步了解注明",@"progress":@"0.4"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeMark;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeMark: {
 			experience.mark = self.writeTextView.text;
-            createVc.info = @{@"title":@"告诉参与者还需要知道些什么？（需要携带或自己安排）",@"showTip":@"点击进一步了解须知"};
+            createVc.info = @{@"title":@"告诉参与者还需要知道些什么？（需要携带或自己安排）",@"showTip":@"点击进一步了解须知",@"progress":@"0.5"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeMustKnow;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeMustKnow: {
 			experience.mustKnow = self.writeTextView.text;
-            createVc.info = @{@"title":@"您对参与者的要求？（年龄限制、体验需要的基本技能）",@"showTip":@"点击进一步了解要求"};
+            createVc.info = @{@"title":@"您对参与者的要求？（年龄限制、体验需要的基本技能）",@"showTip":@"点击进一步了解要求",@"progress":@"0.55"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypeRequire;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeRequire: {
 			experience.requirement = self.writeTextView.text;
-            createVc.info = @{@"title":@"您打算在哪里与参与者集合？",@"showTip":@"点击进一步了解集合"};
+            createVc.info = @{@"title":@"您打算在哪里与参与者集合？",@"showTip":@"点击进一步了解集合",@"progress":@"0.6"};
             createVc.style = CreatPageStyleWriteDes;
             createVc.type = CommonDesTypePlace;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypePlace: {
 			experience.rendezvous = self.writeTextView.text;
-            createVc.info = @{@"title":@"您的活动默认时间？",@"showTip":@"点击进一步了解时间"};
+            createVc.info = @{@"title":@"您的活动默认时间？",@"showTip":@"点击进一步了解时间",@"progress":@"0.7"};
             createVc.style = CreatPageStyleChooseTime;
             createVc.type = CommonDesTypeTime;
             [self.navigationController pushViewController: createVc animated:YES];
@@ -286,6 +293,48 @@
 }
 
 //MARK: - METHOD
+- (NSDictionary*)loadExperienceForDict:(Experience*)obj {
+
+	NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
+	if (obj.imageUrl_main) {
+		resultDict[@"imageUrl"] = obj.imageUrl_main;
+	}
+	else if (obj.contentDes) {
+		resultDict[@"contentDetails"] = obj.contentDes;
+	}
+	else if (obj.style) {
+		resultDict[@"serviceName"] = obj.style;
+	}
+	else if ([User sharedUser].familyName) {
+		resultDict[@"familyName"] = [User sharedUser].familyName;
+	}
+	else if ([User sharedUser].firstName) {
+		resultDict[@"firstName"] = [User sharedUser].firstName;
+	}
+	else if ([User sharedUser].avatarUrl) {
+		resultDict[@"headImg"] = [User sharedUser].avatarUrl;
+	}
+	else if (obj.destination) {
+		resultDict[@"destination"] = obj.destination;
+	}
+	else if (obj.rendezvous) {
+		resultDict[@"rendezvous"] = obj.rendezvous;
+	}
+	else if (obj.mark) {
+		resultDict[@"comment"] = obj.mark;
+	}
+	else if (obj.requirement) {
+		resultDict[@"requirement"] = obj.requirement;
+	}
+	else if (obj.peopleCount) {
+		resultDict[@"peopleNumber"] = [NSString stringWithFormat:@"%ld",obj.peopleCount];
+	}
+	else if (obj.price) {
+		resultDict[@"price"] = [NSString stringWithFormat:@"%f",obj.price];
+	}
+	return resultDict;
+}
+
 - (void)setDefaultTheme {
     self.preViewBtn.layer.borderWidth = 2;
     self.preViewBtn.layer.borderColor = [[UIColor colorWithHex:@"1890B5" andAlpha:1] CGColor];

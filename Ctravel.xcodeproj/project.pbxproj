@@ -21,6 +21,8 @@
 		6587C1D01FA97C86006CBC6E /* ServerOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587C1CE1FA97C86006CBC6E /* ServerOrderListViewController.m */; };
 		6587C1D11FA97C86006CBC6E /* ServerOrderListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6587C1CF1FA97C86006CBC6E /* ServerOrderListViewController.xib */; };
 		6587C1D41FA9C2C5006CBC6E /* LCDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587C1D21FA9C2C5006CBC6E /* LCDatePicker.m */; };
+		659850241FBE961C00489783 /* PreViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659850221FBE961C00489783 /* PreViewViewController.m */; };
+		659850251FBE961C00489783 /* PreViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 659850231FBE961C00489783 /* PreViewViewController.xib */; };
 		874F7B5B65253AAB04A1D209 /* Pods_Ctravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */; };
 		FA04A8581F98F1FE009A72DE /* ReceivablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04A8561F98F1FE009A72DE /* ReceivablesViewController.m */; };
 		FA04A8591F98F1FE009A72DE /* ReceivablesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04A8571F98F1FE009A72DE /* ReceivablesViewController.xib */; };
@@ -132,6 +134,9 @@
 		6587C1CF1FA97C86006CBC6E /* ServerOrderListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerOrderListViewController.xib; sourceTree = "<group>"; };
 		6587C1D21FA9C2C5006CBC6E /* LCDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCDatePicker.m; sourceTree = "<group>"; };
 		6587C1D31FA9C2C5006CBC6E /* LCDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDatePicker.h; sourceTree = "<group>"; };
+		659850211FBE961C00489783 /* PreViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreViewViewController.h; sourceTree = "<group>"; };
+		659850221FBE961C00489783 /* PreViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreViewViewController.m; sourceTree = "<group>"; };
+		659850231FBE961C00489783 /* PreViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreViewViewController.xib; sourceTree = "<group>"; };
 		9BD509F4D33881358D3F5EDA /* Pods-Ctravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.release.xcconfig"; sourceTree = "<group>"; };
 		D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ctravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F223FEFEBA994EF4956C3534 /* Pods-Ctravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -445,6 +450,9 @@
 				656F590F1FAAFDF90017649A /* PublishViewController.h */,
 				656F59101FAAFDF90017649A /* PublishViewController.m */,
 				656F59111FAAFDF90017649A /* PublishViewController.xib */,
+				659850211FBE961C00489783 /* PreViewViewController.h */,
+				659850221FBE961C00489783 /* PreViewViewController.m */,
+				659850231FBE961C00489783 /* PreViewViewController.xib */,
 			);
 			path = pages;
 			sourceTree = "<group>";
@@ -922,6 +930,7 @@
 				FAA423B11F740CA400C3736F /* SettingViewController.xib in Resources */,
 				FA663D601F77DD68001C6F25 /* ProfileDetailViewController.xib in Resources */,
 				6587C1C71FA97390006CBC6E /* ServerOrderCell.xib in Resources */,
+				659850251FBE961C00489783 /* PreViewViewController.xib in Resources */,
 				FAA423C11F7414B600C3736F /* HotDestinationCell.xib in Resources */,
 				FAA4234B1F70006500C3736F /* LaunchScreen.storyboard in Resources */,
 				FA663D5A1F77D3B3001C6F25 /* WatchDateViewController.xib in Resources */,
@@ -1069,6 +1078,7 @@
 			files = (
 				6587C1D01FA97C86006CBC6E /* ServerOrderListViewController.m in Sources */,
 				FAA4236A1F700B3E00C3736F /* JJPhotoManeger.m in Sources */,
+				659850241FBE961C00489783 /* PreViewViewController.m in Sources */,
 				FAA423C51F7414D100C3736F /* HotExperienceCell.m in Sources */,
 				FAA423921F7015DD00C3736F /* ClientOrderViewController.m in Sources */,
 				FAA423681F700B3E00C3736F /* JJOneScrollView.m in Sources */,

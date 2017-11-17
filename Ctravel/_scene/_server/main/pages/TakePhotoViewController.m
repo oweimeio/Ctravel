@@ -129,7 +129,7 @@
 
 - (IBAction)nextStepBtnClick:(id)sender {
     CreatePageViewController *createVc = [CreatePageViewController new];
-    createVc.info = @{@"title":@"为您提供的体验设定一个适中的价格？",@"showTip":@"点击进一步了解价格"};
+    createVc.info = @{@"title":@"为您提供的体验设定一个适中的价格？",@"showTip":@"点击进一步了解价格",@"progress":@"0.9"};
     createVc.type = CommonDesTypePrice;
 	createVc.style = CreatPageStyleWrite;
     [self.navigationController pushViewController: createVc animated:YES];

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,6 +16,7 @@
                 <outlet property="nextStepBtn" destination="zSS-88-kyS" id="sKE-xB-64v"/>
                 <outlet property="operationView" destination="aa6-er-Snh" id="qD4-dc-C3M"/>
                 <outlet property="preViewBtn" destination="Mgr-T8-5LI" id="y5l-XH-ISP"/>
+                <outlet property="progressView" destination="Ppa-EQ-5eB" id="wlP-9q-ywB"/>
                 <outlet property="selectViewBtn" destination="Q94-oA-g7R" id="Tqa-wu-fin"/>
                 <outlet property="selectViewHeight" destination="0MG-Gr-5Hm" id="NBd-i1-PWr"/>
                 <outlet property="selectViewTitleLabel" destination="ebc-vp-ICD" id="8kM-WY-tIe"/>
@@ -227,6 +228,12 @@
                         <constraint firstItem="dBw-m5-CJc" firstAttribute="leading" secondItem="Bki-Ar-f2c" secondAttribute="trailing" constant="80" id="oQx-iy-SJY"/>
                     </constraints>
                 </view>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Ppa-EQ-5eB">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="o4P-aH-Ocy"/>
+                    </constraints>
+                </progressView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -244,9 +251,12 @@
                 <constraint firstAttribute="trailing" secondItem="DkV-s6-k7j" secondAttribute="trailing" id="VZy-6T-4rP"/>
                 <constraint firstItem="y0b-Xe-p0y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="XNt-Rv-aR8"/>
                 <constraint firstItem="bkV-S5-LDx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bVl-Yv-EUQ"/>
+                <constraint firstItem="Ppa-EQ-5eB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eVK-9D-CSZ"/>
+                <constraint firstAttribute="trailing" secondItem="Ppa-EQ-5eB" secondAttribute="trailing" id="kTJ-Gw-vhC"/>
                 <constraint firstItem="bkV-S5-LDx" firstAttribute="top" secondItem="y0b-Xe-p0y" secondAttribute="bottom" constant="20" id="lSH-2C-Y3y"/>
                 <constraint firstAttribute="trailing" secondItem="y0b-Xe-p0y" secondAttribute="trailing" constant="20" id="mSM-VH-hgo"/>
                 <constraint firstAttribute="trailing" secondItem="aa6-er-Snh" secondAttribute="trailing" id="ncA-Bo-EFL"/>
+                <constraint firstItem="Ppa-EQ-5eB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qfx-U5-oTN"/>
                 <constraint firstItem="JiD-Fw-g80" firstAttribute="top" secondItem="4yf-8w-gbR" secondAttribute="bottom" id="rfQ-nN-v4x"/>
                 <constraint firstAttribute="trailing" secondItem="4yf-8w-gbR" secondAttribute="trailing" id="uki-ZB-lnO"/>
             </constraints>

@@ -1,32 +1,23 @@
 //
-//  ServerMainViewController.m
+//  PreViewViewController.m
 //  Ctravel
 //
-//  Created by apple on 2017/9/23.
+//  Created by 华奥 on 2017/11/17.
 //  Copyright © 2017年 apple. All rights reserved.
 //
 
-#import "ServerMainViewController.h"
-#import "CreatePageViewController.h"
+#import "PreViewViewController.h"
 
-@interface ServerMainViewController ()
+@interface PreViewViewController ()
 
 @end
 
-@implementation ServerMainViewController
+@implementation PreViewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-
-- (IBAction)goToCreatePage:(id)sender {
-    CreatePageViewController *createVc = [CreatePageViewController new];
-    createVc.info = @{@"title":@"您打算创建什么风格的体验？",@"selectTitle":@"什么风格体验？",@"selectBtnTitle":@"户外体验（选择）",@"showTip":@"点击进一步了解风格意义",@"progress":@"0.1"};
-    createVc.type = CommonDesTypeStyle;
-    [self.navigationController pushViewController: createVc animated:YES];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
