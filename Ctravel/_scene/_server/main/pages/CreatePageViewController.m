@@ -176,9 +176,9 @@
 // 预览
 - (IBAction)preViewBtnClick:(id)sender {
     Experience *experience = [Experience defaultExperience];
-	FavDetailViewController *favDetailVc = [FavDetailViewController new];
-	favDetailVc.dataSource = [self loadExperienceForDict:experience];
-	[self.navigationController pushViewController:favDetailVc animated:YES];
+	PreViewViewController *preViewVc = [PreViewViewController new];
+	preViewVc.dataSource = [self loadExperienceForDict:experience];
+	[self.navigationController pushViewController:preViewVc animated:YES];
     NSLog(@"style=%@",experience.style);
     NSLog(@"city=%@",experience.city);
     NSLog(@"title=%@",experience.title);

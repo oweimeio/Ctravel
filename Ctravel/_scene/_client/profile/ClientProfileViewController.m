@@ -25,7 +25,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	_nameLabel.text = [NSString stringWithFormat:@"%@ %@", ![User sharedUser].familyName ? @"名字" : [User sharedUser].familyName, ![User sharedUser].firstName ? @"姓氏" : [User sharedUser].firstName];
+	_nameLabel.text = [NSString stringWithFormat:@"%@%@", ![User sharedUser].familyName ? @"姓" : [User sharedUser].familyName, ![User sharedUser].firstName ? @"名" : [User sharedUser].firstName];
 	
 	[_avatarBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:[User sharedUser].avatarUrl] placeholderImage:[UIImage imageNamed:@"defaultHeadImage"]];
     

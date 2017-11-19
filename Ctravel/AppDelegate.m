@@ -61,6 +61,7 @@
             
             FavoriteViewController *favVc = [[FavoriteViewController alloc] init];
             favVc.hideNavBar = YES;
+            favVc.isFavorite = YES;
             UINavigationController *cFov = [[UINavigationController alloc] initWithRootViewController:favVc];
             cFov.tabBarItem.title =@"收藏";
             cFov.tabBarItem.image = [UIImage imageNamed:@"tab-fav-gray"];

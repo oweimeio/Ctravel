@@ -64,7 +64,7 @@
     
     NSDictionary *params = @{
                              @"token":[User sharedUser].token,
-                             @"userId":[User sharedUser].userId
+                             @"customerId":[User sharedUser].userId
                              };
     [[CoreAPI core] GETURLString:CLIENT_HOMEPAGE withParameters:params success:^(id ret) {
         NSLog(@"%@",ret);
@@ -119,7 +119,7 @@
     }
     else if (collectionView == _hotExperienceView) {
         HotExperienceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:hotExperienceCellInIdentifier forIndexPath:indexPath];
-        __weak NSDictionary *dataSource = self.hotExperienceData[indexPath.row];
+        NSDictionary *dataSource = self.hotExperienceData[indexPath.row];
         cell.dataSource = dataSource;
         return cell;
     }

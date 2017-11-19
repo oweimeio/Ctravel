@@ -124,7 +124,7 @@
 	if ([[User sharedUser].userId isEqual:userId]) {
 		RCUserInfo *user = [[RCUserInfo alloc]init];
 		user.userId = [User sharedUser].userId;
-		user.name = [NSString stringWithFormat:@"%@%@",[User sharedUser].firstName,[User sharedUser].familyName];
+		user.name = [NSString stringWithFormat:@"%@%@",[User sharedUser].familyName,[User sharedUser].firstName];
 		user.portraitUri = [User sharedUser].avatarUrl;
 		return completion(user);
 	}
@@ -138,7 +138,7 @@
 			NSDictionary *dic = ret[@"customerDetail"];
 			RCUserInfo *user = [[RCUserInfo alloc]init];
 			user.userId = dic[@"customerId"];
-			user.name = [NSString stringWithFormat:@"%@%@",dic[@"firstName"],dic[@"familyName"]];
+			user.name = [NSString stringWithFormat:@"%@%@",dic[@"familyName"],dic[@"firstName"]];
 			user.portraitUri = dic[@"idcardImg"];
 			return completion(user);
 		} error:^(NSString *code, NSString *msg, id ret) {

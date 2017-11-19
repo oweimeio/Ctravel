@@ -36,7 +36,7 @@
     
     [self.picImageView setImageWithURLString:[dataSource[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
     [self.avatarImageView setImageWithURLString:dataSource[@"headImg"] andPlaceholderNamed:@"defaultHeadImage"];
-    self.simpleDesLabel.text = [NSString stringWithFormat:@"达人：%@%@\n体验类型：%@\n描述：%@\n",dataSource[@"firstName"],dataSource[@"familyName"],dataSource[@"serviceName"], dataSource[@"contentDescription"]];
+    self.simpleDesLabel.text = [NSString stringWithFormat:@"达人：%@%@\n体验类型：%@\n描述：%@\n",!dataSource[@"familyName"]?@"":dataSource[@"familyName"],!dataSource[@"firstName"]?@"":dataSource[@"firstName"],!dataSource[@"serviceName"]?@"":dataSource[@"serviceName"], !dataSource[@"contentDescription"]?@"":dataSource[@"contentDescription"]];
     self.exContentLabel.text = dataSource[@"contentDetails"];
     self.goWhereLabel.text = dataSource[@"destination"];
     self.meetPointLabel.text = dataSource[@"rendezvous"];
@@ -45,7 +45,7 @@
     self.masterRegulationsLabel.text = dataSource[@"requirement"];
     self.exPeopleCount.text = dataSource[@"peopleNumber"];
     self.moneyLabel.text = [NSString stringWithFormat:@"￥%.2f",[dataSource[@"price"] floatValue]];
-    _rightBarItem.image = [dataSource[@"isFavourite"] isEqualToString:@"1"] ? [UIImage imageNamed:@"solid-heart"] : [UIImage imageNamed:@"empty-heart"];
+  
 }
 
 - (void)viewDidLoad {
@@ -57,12 +57,49 @@
 	
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"empty-heart"] style:UIBarButtonItemStyleDone handler:^(id sender) {
         //收藏或取消当前体验
-        
+        if ([_dataSource[@"isFavourite"] isEqualToString:@"1"]) {
+            NSDictionary *param = @{
+                                    @"token":[User sharedUser].token,
+                                    @"customerId":[User sharedUser].userId,
+                                    @"experienceId":_dataSource[@"experienceId"]
+                                    };
+            [[CoreAPI core] POSTURLString:@"/experience/cancelFavorite" withParameters:param success:^(id ret) {
+                _rightBarItem.image = [UIImage imageNamed:@"empty-heart"];
+                self.navigationItem.rightBarButtonItem.tintColor = [UIColor darkGrayColor];
+                [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
+            } error:^(NSString *code, NSString *msg, id ret) {
+                [SVProgressHUD showErrorWithStatus:msg];
+            } failure:^(NSError *error) {
+                [SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+            }];
+        }
+        else {
+            NSDictionary *param = @{
+                                    @"token":[User sharedUser].token,
+                                    @"customerId":[User sharedUser].userId,
+                                    @"experienceId":_dataSource[@"experienceId"]
+                                    };
+            [[CoreAPI core] POSTURLString:@"/experience/favorite" withParameters:param success:^(id ret) {
+                _rightBarItem.image = [UIImage imageNamed:@"solid-heart"];
+                self.navigationItem.rightBarButtonItem.tintColor = [UIColor redColor];
+                [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+            } error:^(NSString *code, NSString *msg, id ret) {
+                [SVProgressHUD showErrorWithStatus:msg];
+            } failure:^(NSError *error) {
+                [SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+            }];
+        }
     }];
     self.navigationItem.rightBarButtonItem = rightBarItem;
     _rightBarItem = rightBarItem;
-    
-	self.navigationItem.rightBarButtonItem.tintColor = [UIColor darkGrayColor];
+    if ([_dataSource[@"isFavourite"] isEqualToString:@"1"]) {
+        _rightBarItem.image = [UIImage imageNamed:@"solid-heart"];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor redColor];
+    }
+    else {
+        _rightBarItem.image = [UIImage imageNamed:@"empty-heart"];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor darkGrayColor];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -101,7 +138,7 @@
 	RCConversationViewController *conversationVC = [[RCConversationViewController alloc]init];
 	conversationVC.conversationType = ConversationType_PRIVATE;
 	conversationVC.targetId = _dataSource[@"customerId"]; //这里模拟自己给自己发消息，您可以替换成其他登录的用户的UserId
-	conversationVC.title = [NSString stringWithFormat:@"%@%@",_dataSource[@"firstName"],_dataSource[@"familyName"]];
+	conversationVC.title = [NSString stringWithFormat:@"%@%@",_dataSource[@"familyName"],_dataSource[@"firstName"]];
 	[self.navigationController pushViewController:conversationVC animated:YES];
 }
 //预定

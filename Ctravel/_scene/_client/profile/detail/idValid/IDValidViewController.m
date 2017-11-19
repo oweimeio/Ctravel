@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	if ([User sharedUser].idCardImageUrl) {
+	if ([User sharedUser].idCardImageUrl && [User sharedUser].isServer) {
 		[_idCardImage setImageWithURLString:[User sharedUser].idCardImageUrl andPlaceholderNamed:@"placeholder-none"];
 	}
 }

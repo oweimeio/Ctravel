@@ -24,4 +24,6 @@ typedef enum : NSUInteger {
 
 @property (strong, nonatomic) NSString *titleStr;
 
+@property (assign, nonatomic) BOOL isFavorite;
+
 @end

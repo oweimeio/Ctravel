@@ -94,7 +94,12 @@
                             };
     [[CoreAPI core] GETURLString:@"/experience/conditionQuery" withParameters:param success:^(id ret) {
         NSLog(@"%@",ret);
-        self.dataSource = ret[@"experienceDetail"];
+        if (self.isFavorite) {
+            self.dataSource = [ret[@"experienceDetail"] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isFavourite = '1'"]];
+        }
+        else {
+            self.dataSource = ret[@"experienceDetail"];
+        }
         [_favCollectionView reloadData];
         _emptyView.hidden = self.dataSource.count;
 		[self.favCollectionView.mj_header endRefreshing];

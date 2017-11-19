@@ -64,7 +64,7 @@
 
 - (void)setInfo {
 	User *user = [User sharedUser];
-	self.nameLabel.text = [NSString stringWithFormat:@"%@ %@",!user.firstName?@"名字":user.firstName,!user.familyName?@"姓氏":user.familyName];
+	self.nameLabel.text = [NSString stringWithFormat:@"%@%@",!user.familyName?@"姓":user.familyName,!user.firstName?@"名":user.firstName];
 	self.validLabel.text = [NSString stringWithFormat:@"%@%@",@"电话号码",user.isServer?@"·身份验证":@""];
 	[self.avatarImageView setImageWithURLString:user.avatarUrl andPlaceholderNamed:@"defaultHeadImage"];
 	self.cityLabel.text = !user.city||user.city.length == 0?@"暂无位置信息":user.city;
