@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="131.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4W0-GL-H03">
@@ -26,7 +26,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNC-t2-DSE">
-                        <rect key="frame" x="135" y="57" width="135" height="17"/>
+                        <rect key="frame" x="105" y="57" width="195" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -35,8 +35,8 @@
                 <constraints>
                     <constraint firstItem="QNC-t2-DSE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AQ4-us-thl"/>
                     <constraint firstItem="4W0-GL-H03" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Jrw-L9-T4N"/>
-                    <constraint firstAttribute="trailing" secondItem="QNC-t2-DSE" secondAttribute="trailing" constant="50" id="NZ2-1z-ayy"/>
-                    <constraint firstItem="QNC-t2-DSE" firstAttribute="leading" secondItem="4W0-GL-H03" secondAttribute="trailing" constant="50" id="Ta9-vj-s2a"/>
+                    <constraint firstAttribute="trailing" secondItem="QNC-t2-DSE" secondAttribute="trailing" constant="20" id="NZ2-1z-ayy"/>
+                    <constraint firstItem="QNC-t2-DSE" firstAttribute="leading" secondItem="4W0-GL-H03" secondAttribute="trailing" constant="20" id="Ta9-vj-s2a"/>
                     <constraint firstItem="4W0-GL-H03" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bBs-tP-yV3"/>
                 </constraints>
             </tableViewCellContentView>

@@ -44,6 +44,7 @@
 	NSDictionary *param = @{
 							@"token":[User sharedUser].token,
 							@"customerId":[User sharedUser].userId,
+                            @"customerStarId":self.serverId,
 							@"experienceId":self.expId
 							};
 	[[CoreAPI core] GETURLString:@"/experience/serviceTime" withParameters:param success:^(id ret) {
@@ -70,8 +71,9 @@
 	__weak NSDictionary *dic = self.dataSource[indexPath.row];
 	cell.timeLabel.text = dic[@"serviceDate"];
 	[cell.reserveBtn bk_addEventHandler:^(id sender) {
-		if ([_delegate respondsToSelector:@selector(chooseDate:)]) {
-			[_delegate chooseDate:dic[@"serviceDate"]];
+        if ([_delegate respondsToSelector:@selector(chooseDate:andDateId:)]) {
+			[_delegate chooseDate:dic[@"serviceDate"] andDateId:dic[@"serviceTimeId"]];
+            [self.navigationController popViewControllerAnimated:YES];
 		}
 	} forControlEvents:UIControlEventTouchUpInside];
     return cell;

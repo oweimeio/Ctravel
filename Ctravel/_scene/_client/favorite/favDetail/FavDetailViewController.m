@@ -12,7 +12,9 @@
 #import "WatchDateViewController.h"
 #import "BuyProViewController.h"
 
-@interface FavDetailViewController () <ChooseDateDelegate>
+@interface FavDetailViewController () <ChooseDateDelegate> {
+    NSString *serviceDateId;
+}
 
 @property (nonatomic)CGSize headerDefaultSize;
 
@@ -123,7 +125,9 @@
 
 - (IBAction)watchExMasterDate:(id)sender {
     WatchDateViewController *watchVc = [WatchDateViewController new];
+    watchVc.delegate = self;
 	watchVc.expId = _dataSource[@"experienceId"];
+    watchVc.serverId = !_dataSource[@"customerId"]?@"":_dataSource[@"customerId"];
     [self.navigationController pushViewController:watchVc animated:YES];
 }
 
@@ -144,13 +148,16 @@
 //预定
 - (IBAction)reserveBtnClick:(id)sender {
     //选择时间
-	
+    if ([serviceDateId isEmpty]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择体验时间"];
+        return;
+    }
     
     NSDictionary *param = @{
                              @"experienceId":_dataSource[@"experienceId"],
                              @"userId":[User sharedUser].userId,
                              @"token":[User sharedUser].token,
-                             @"serviceTimeId":@"333"
+                             @"serviceTimeId":serviceDateId
                              };
     [[CoreAPI core] GETURLString:@"/pay/reserve/2345678" withParameters:param success:^(id ret) {
         NSLog(@"%@",ret);
@@ -192,7 +199,8 @@
 }
 
 
-- (void)chooseDate:(NSString *)date {
+- (void)chooseDate:(NSString *)date andDateId:(NSString *)dateId {
+    serviceDateId = dateId;
 	_dateLabel.text = date;
 }
 

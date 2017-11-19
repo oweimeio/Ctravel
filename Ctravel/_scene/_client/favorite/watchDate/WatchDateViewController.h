@@ -11,7 +11,7 @@
 @protocol ChooseDateDelegate <NSObject>
 @optional
 
-- (void)chooseDate:(NSString *) date;
+- (void)chooseDate:(NSString *) date andDateId:(NSString *)dateId;
 
 @end
 
@@ -19,7 +19,11 @@
 
 @property (nonatomic, strong) NSDictionary *detailData;
 
+//体验Id
 @property (nonatomic, strong) NSString *expId;
+
+//达人Id
+@property (nonatomic, strong) NSString *serverId;
 
 @property (nonatomic, weak) id<ChooseDateDelegate> delegate;
 

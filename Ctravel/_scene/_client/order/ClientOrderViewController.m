@@ -97,7 +97,7 @@
     ClientOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:ClientOrderCellIdentifier forIndexPath:indexPath];
 	__weak NSDictionary *dic = self.dataSource[indexPath.row];
 	[cell.photoView setImageWithURLString:dic[@"imageUrl"] andPlaceholderNamed:@"placeholder-none"];
-	cell.desLabel.text = [NSString stringWithFormat:@"%@\n@体验时间:%@\n体验价格:%@",dic[@"title"],dic[@"serviceTime"],dic[@"tradeAmount"]];
+    cell.desLabel.text = [NSString stringWithFormat:@"%@\n体验时间:%@\n预定时间:%@\n体验价格:%@",dic[@"title"],dic[@"serviceDate"],[[NSDate dateWithTimeIntervalSince1970:[dic[@"createTime"] doubleValue]/1000] stringWithFormat:@"yyyy-MM-dd" andTimezone:SHANGHAI],dic[@"tradeAmount"]];
     return cell;
 }
 
