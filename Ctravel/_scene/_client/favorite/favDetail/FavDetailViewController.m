@@ -35,7 +35,7 @@
 
 - (void)setDataSource:(NSDictionary *)dataSource {
     _dataSource = dataSource;
-    
+    self.titleLabel.text = dataSource[@"title"];
     [self.picImageView setImageWithURLString:[dataSource[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
     [self.avatarImageView setImageWithURLString:dataSource[@"headImg"] andPlaceholderNamed:@"defaultHeadImage"];
     self.simpleDesLabel.text = [NSString stringWithFormat:@"达人：%@%@\n体验类型：%@\n描述：%@\n",!dataSource[@"familyName"]?@"":dataSource[@"familyName"],!dataSource[@"firstName"]?@"":dataSource[@"firstName"],!dataSource[@"serviceName"]?@"":dataSource[@"serviceName"], !dataSource[@"contentDescription"]?@"":dataSource[@"contentDescription"]];

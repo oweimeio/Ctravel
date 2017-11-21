@@ -27,6 +27,7 @@
                 <outlet property="scrollView" destination="Okg-lM-kKp" id="ipO-5C-OS8"/>
                 <outlet property="searchDisplayController" destination="yxi-se-d7c" id="b3F-b1-Mog"/>
                 <outlet property="simpleDesLabel" destination="bZ0-nS-gKk" id="38j-hR-zw3"/>
+                <outlet property="titleLabel" destination="WFa-xh-9px" id="uY7-lg-9Bs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -46,10 +47,10 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wP-Vh-UXV">
-                            <rect key="frame" x="0.0" y="428.5" width="375" height="120"/>
+                            <rect key="frame" x="0.0" y="428.5" width="375" height="150"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pWB-Cn-tEh">
-                                    <rect key="frame" x="40" y="30" width="60" height="60"/>
+                                    <rect key="frame" x="40" y="62" width="60" height="60"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="60" id="c8U-nE-K9K"/>
                                         <constraint firstAttribute="width" constant="60" id="sAq-xI-uuQ"/>
@@ -62,14 +63,14 @@
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzJ-Hi-9zS">
-                                    <rect key="frame" x="20" y="119" width="335" height="1"/>
+                                    <rect key="frame" x="20" y="149" width="335" height="1"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="vsm-WD-eL2"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZ0-nS-gKk">
-                                    <rect key="frame" x="140" y="15" width="215" height="89"/>
+                                    <rect key="frame" x="140" y="50" width="215" height="84"/>
                                     <string key="text">Label
 Label
 Label
@@ -78,23 +79,35 @@ Label</string>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFa-xh-9px">
+                                    <rect key="frame" x="12" y="12" width="351" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="icT-In-VAw"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="bZ0-nS-gKk" firstAttribute="top" secondItem="2wP-Vh-UXV" secondAttribute="top" constant="15" id="15v-SF-U41"/>
-                                <constraint firstAttribute="height" constant="120" id="2CE-Ka-89b"/>
-                                <constraint firstItem="pWB-Cn-tEh" firstAttribute="top" secondItem="2wP-Vh-UXV" secondAttribute="top" constant="30" id="67I-gz-0YF"/>
+                                <constraint firstAttribute="height" constant="150" id="2CE-Ka-89b"/>
                                 <constraint firstAttribute="trailing" secondItem="MzJ-Hi-9zS" secondAttribute="trailing" constant="20" id="7HU-Ah-kjv"/>
                                 <constraint firstItem="bZ0-nS-gKk" firstAttribute="leading" secondItem="pWB-Cn-tEh" secondAttribute="trailing" constant="40" id="FvW-Sy-8Iv"/>
                                 <constraint firstItem="MzJ-Hi-9zS" firstAttribute="leading" secondItem="2wP-Vh-UXV" secondAttribute="leading" constant="20" id="HiS-T7-JFi"/>
+                                <constraint firstItem="bZ0-nS-gKk" firstAttribute="top" secondItem="WFa-xh-9px" secondAttribute="bottom" constant="8" id="K8T-bQ-Ncj"/>
                                 <constraint firstItem="pWB-Cn-tEh" firstAttribute="leading" secondItem="2wP-Vh-UXV" secondAttribute="leading" constant="40" id="LPw-Bm-HyO"/>
                                 <constraint firstItem="MzJ-Hi-9zS" firstAttribute="top" secondItem="bZ0-nS-gKk" secondAttribute="bottom" constant="15" id="NyF-2d-EdO"/>
+                                <constraint firstItem="WFa-xh-9px" firstAttribute="top" secondItem="2wP-Vh-UXV" secondAttribute="top" constant="12" id="fgP-Ae-x51"/>
                                 <constraint firstAttribute="trailing" secondItem="bZ0-nS-gKk" secondAttribute="trailing" constant="20" id="h8d-ne-JyC"/>
+                                <constraint firstItem="pWB-Cn-tEh" firstAttribute="top" secondItem="WFa-xh-9px" secondAttribute="bottom" constant="20" id="jSg-4J-60v"/>
+                                <constraint firstItem="WFa-xh-9px" firstAttribute="leading" secondItem="2wP-Vh-UXV" secondAttribute="leading" constant="12" id="l9p-xh-FxP"/>
                                 <constraint firstAttribute="bottom" secondItem="MzJ-Hi-9zS" secondAttribute="bottom" id="vZF-eb-Z9P"/>
+                                <constraint firstAttribute="trailing" secondItem="WFa-xh-9px" secondAttribute="trailing" constant="12" id="w7W-P5-bHR"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXb-9d-23E">
-                            <rect key="frame" x="0.0" y="548.5" width="375" height="71.5"/>
+                            <rect key="frame" x="0.0" y="578.5" width="375" height="71.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0x-JL-5sd">
                                     <rect key="frame" x="20" y="15" width="65.5" height="19.5"/>
@@ -130,7 +143,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4T2-gh-y3x">
-                            <rect key="frame" x="0.0" y="620" width="375" height="71.5"/>
+                            <rect key="frame" x="0.0" y="650" width="375" height="71.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我们要去何处" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGk-cZ-Rnj">
                                     <rect key="frame" x="20" y="15" width="98" height="19.5"/>
@@ -166,7 +179,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="020-bw-hsM">
-                            <rect key="frame" x="0.0" y="692" width="375" height="71.5"/>
+                            <rect key="frame" x="0.0" y="722" width="375" height="71.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="见面地点" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZq-v3-3P4">
                                     <rect key="frame" x="20" y="15" width="65.5" height="19.5"/>
@@ -212,7 +225,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slT-1U-1hX">
-                            <rect key="frame" x="0.0" y="763.5" width="375" height="71.5"/>
+                            <rect key="frame" x="0.0" y="793.5" width="375" height="71.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验包括的东西" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pj1-L6-zma">
                                     <rect key="frame" x="20" y="15" width="114.5" height="19.5"/>
@@ -248,7 +261,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obz-pm-j9C">
-                            <rect key="frame" x="0.0" y="835" width="375" height="71.5"/>
+                            <rect key="frame" x="0.0" y="865" width="375" height="71.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="备注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q34-d6-6Fr">
                                     <rect key="frame" x="20" y="15" width="33" height="19.5"/>
@@ -284,7 +297,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmH-tW-ocm">
-                            <rect key="frame" x="0.0" y="906.5" width="375" height="71.5"/>
+                            <rect key="frame" x="0.0" y="936.5" width="375" height="71.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="达人规定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdh-rg-DJJ">
                                     <rect key="frame" x="20" y="15" width="65.5" height="19.5"/>
@@ -320,7 +333,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aB2-CH-tvf" customClass="UIControl">
-                            <rect key="frame" x="0.0" y="978" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="1008" width="375" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验达人可提供的活动日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxm-Pt-Y99">
                                     <rect key="frame" x="20" y="20.5" width="196" height="19.5"/>
@@ -359,7 +372,7 @@ Label</string>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sE-mJ-g1b">
-                            <rect key="frame" x="0.0" y="1038" width="375" height="71.5"/>
+                            <rect key="frame" x="0.0" y="1068" width="375" height="71.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验人数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Y1-Oo-6uu">
                                     <rect key="frame" x="20" y="15" width="65.5" height="19.5"/>
@@ -395,7 +408,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jk1-e2-uQY" customClass="UIControl">
-                            <rect key="frame" x="0.0" y="1109.5" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="1139.5" width="375" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看评价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjP-64-zmK">
                                     <rect key="frame" x="20" y="20.5" width="65.5" height="19.5"/>
@@ -434,7 +447,7 @@ Label</string>
                             </connections>
                         </view>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Urb-8i-7fp" customClass="UIControl">
-                            <rect key="frame" x="0.0" y="1169.5" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="1199.5" width="375" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联络体验达人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J45-Wv-y5d">
                                     <rect key="frame" x="20" y="20.5" width="98" height="19.5"/>
