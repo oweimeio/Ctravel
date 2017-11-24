@@ -11,6 +11,7 @@
 #import "SettingViewController.h"
 #import "ReceivablesViewController.h"
 #import "IncomeViewController.h"
+#import "ProfileDetailViewController.h"
 
 @interface ServerProfileViewController ()
 
@@ -34,7 +35,8 @@
 //MARK: - ACTION
 
 - (IBAction)avatarBtnClick:(id)sender {
-    
+    ProfileDetailViewController *detailVc = [ProfileDetailViewController new];
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 - (IBAction)IncomeViewPress:(id)sender {

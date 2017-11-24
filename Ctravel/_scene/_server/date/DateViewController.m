@@ -82,7 +82,8 @@
 - (void)requestDateData {
 	NSDictionary *param = @{
 							@"token":[User sharedUser].token,
-							@"customerId":[User sharedUser].userId
+							@"customerId":[User sharedUser].userId,
+                            @"customerStarId":[User sharedUser].userId
 							};
 	[[CoreAPI core] GETURLString:@"/experience/serviceTime" withParameters:param success:^(id ret) {
 		for (NSDictionary *dic in ret[@"serviceTimeVOList"]) {
@@ -153,14 +154,14 @@
     // Today
     if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor colorWithHex:@"1890B5" andAlpha:1];
+        dayView.circleView.backgroundColor = [UIColor lightGrayColor];
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
     // Selected date
     else if([self isInDatesSelected:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor blueColor];
+        dayView.circleView.backgroundColor = [UIColor colorWithHex:@"1890B5" andAlpha:1];
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }

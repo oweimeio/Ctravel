@@ -11,7 +11,6 @@
 #import "CommonDesViewController.h"
 #import "TakePhotoViewController.h"
 #import "PublishViewController.h"
-#import "PreViewViewController.h"
 
 @interface CreatePageViewController () <UITextViewDelegate>
 
@@ -175,7 +174,7 @@
 
 // 预览
 - (IBAction)preViewBtnClick:(id)sender {
-    Experience *experience = [Experience defaultExperience];
+    Experience *experience = ![Experience getExperienceDataWithUID:[User sharedUser].userId] ? [Experience defaultExperience] : [Experience getExperienceDataWithUID:[User sharedUser].userId];
 	PreViewViewController *preViewVc = [PreViewViewController new];
 	preViewVc.dataSource = [self loadExperienceForDict:experience];
 	[self.navigationController pushViewController:preViewVc animated:YES];
@@ -299,37 +298,37 @@
 	if (obj.imageUrl_main) {
 		resultDict[@"imageUrl"] = obj.imageUrl_main;
 	}
-	else if (obj.contentDes) {
+	if (obj.contentDes) {
 		resultDict[@"contentDetails"] = obj.contentDes;
 	}
-	else if (obj.style) {
+	if (obj.style) {
 		resultDict[@"serviceName"] = obj.style;
 	}
-	else if ([User sharedUser].familyName) {
+	if ([User sharedUser].familyName) {
 		resultDict[@"familyName"] = [User sharedUser].familyName;
 	}
-	else if ([User sharedUser].firstName) {
+	if ([User sharedUser].firstName) {
 		resultDict[@"firstName"] = [User sharedUser].firstName;
 	}
-	else if ([User sharedUser].avatarUrl) {
+	if ([User sharedUser].avatarUrl) {
 		resultDict[@"headImg"] = [User sharedUser].avatarUrl;
 	}
-	else if (obj.destination) {
+	if (obj.destination) {
 		resultDict[@"destination"] = obj.destination;
 	}
-	else if (obj.rendezvous) {
+	if (obj.rendezvous) {
 		resultDict[@"rendezvous"] = obj.rendezvous;
 	}
-	else if (obj.mark) {
+	if (obj.mark) {
 		resultDict[@"comment"] = obj.mark;
 	}
-	else if (obj.requirement) {
+	if (obj.requirement) {
 		resultDict[@"requirement"] = obj.requirement;
 	}
-	else if (obj.peopleCount) {
+	if (obj.peopleCount) {
 		resultDict[@"peopleNumber"] = [NSString stringWithFormat:@"%ld",obj.peopleCount];
 	}
-	else if (obj.price) {
+	if (obj.price) {
 		resultDict[@"price"] = [NSString stringWithFormat:@"%f",obj.price];
 	}
 	return resultDict;

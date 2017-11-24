@@ -16,7 +16,7 @@
 @implementation PreViewViewController
 
 - (instancetype)init {
-    if (self = [super initWithNibName:@"FavDetailViewController" bundle:[NSBundle mainBundle]]) {
+    if (self = [super initWithNibName:@"PreViewViewController" bundle:[NSBundle mainBundle]]) {
         self.hidesBottomBarWhenPushed = YES;
     }
     return self;
@@ -27,7 +27,7 @@
     
     [self.picImageView setImageWithURLString:[dataSource[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
     [self.avatarImageView setImageWithURLString:dataSource[@"headImg"] andPlaceholderNamed:@"defaultHeadImage"];
-    self.simpleDesLabel.text = [NSString stringWithFormat:@"达人：%@%@\n体验类型：%@\n描述：%@\n",dataSource[@"firstName"],dataSource[@"familyName"],dataSource[@"serviceName"], dataSource[@"contentDescription"]];
+    self.simpleDesLabel.text = [NSString stringWithFormat:@"达人：%@%@\n体验类型：%@\n描述：%@\n",!dataSource[@"familyName"]?@"":dataSource[@"familyName"],!dataSource[@"firstName"]?@"":dataSource[@"firstName"],!dataSource[@"serviceName"]?@"":dataSource[@"serviceName"], !dataSource[@"contentDescription"]?@"":dataSource[@"contentDescription"]];
     self.exContentLabel.text = dataSource[@"contentDetails"];
     self.goWhereLabel.text = dataSource[@"destination"];
     self.meetPointLabel.text = dataSource[@"rendezvous"];

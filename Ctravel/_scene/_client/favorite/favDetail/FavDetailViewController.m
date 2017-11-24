@@ -14,6 +14,7 @@
 
 @interface FavDetailViewController () <ChooseDateDelegate> {
     NSString *serviceDateId;
+    NSString *serviceDate;
 }
 
 @property (nonatomic)CGSize headerDefaultSize;
@@ -124,11 +125,7 @@
 
 
 - (IBAction)watchExMasterDate:(id)sender {
-    WatchDateViewController *watchVc = [WatchDateViewController new];
-    watchVc.delegate = self;
-	watchVc.expId = _dataSource[@"experienceId"];
-    watchVc.serverId = !_dataSource[@"customerId"]?@"":_dataSource[@"customerId"];
-    [self.navigationController pushViewController:watchVc animated:YES];
+    [self jumpToWacthTimeVc];
 }
 
 - (IBAction)watchEvaluation:(id)sender {
@@ -148,21 +145,22 @@
 //预定
 - (IBAction)reserveBtnClick:(id)sender {
     //选择时间
-    if ([serviceDateId isEmpty]) {
-        [SVProgressHUD showErrorWithStatus:@"请选择体验时间"];
+    if ([serviceDateId isEmpty] || !serviceDateId) {
+        [self jumpToWacthTimeVc];
         return;
     }
-    
     NSDictionary *param = @{
                              @"experienceId":_dataSource[@"experienceId"],
                              @"userId":[User sharedUser].userId,
                              @"token":[User sharedUser].token,
                              @"serviceTimeId":serviceDateId
                              };
-    [[CoreAPI core] GETURLString:@"/pay/reserve/2345678" withParameters:param success:^(id ret) {
+    [[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/reserve/%@",_dataSource[@"experienceId"]] withParameters:param success:^(id ret) {
         NSLog(@"%@",ret);
         BuyProViewController *buyVc = [[BuyProViewController alloc] init];
-        buyVc.dataSource = ret[@""];
+        buyVc.dataSource = _dataSource;
+        buyVc.orderId = ret[@"orderInfo"][@"orderId"];
+        buyVc.date = serviceDate;
         [self.navigationController pushViewController:buyVc animated:YES];
         
     } error:^(NSString *code, NSString *msg, id ret) {
@@ -171,6 +169,15 @@
         
     }];
     
+}
+
+//跳入选择时间
+- (void)jumpToWacthTimeVc {
+    WatchDateViewController *watchVc = [WatchDateViewController new];
+    watchVc.delegate = self;
+    watchVc.expId = _dataSource[@"experienceId"];
+    watchVc.serverId = !_dataSource[@"customerId"]?@"":_dataSource[@"customerId"];
+    [self.navigationController pushViewController:watchVc animated:YES];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -201,6 +208,7 @@
 
 - (void)chooseDate:(NSString *)date andDateId:(NSString *)dateId {
     serviceDateId = dateId;
+    serviceDate = date;
 	_dateLabel.text = date;
 }
 

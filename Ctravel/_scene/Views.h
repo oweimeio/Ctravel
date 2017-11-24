@@ -29,5 +29,6 @@
 
 #import "CreatePageViewController.h"
 #import "IDValidViewController.h"
+#import "PreViewViewController.h"
 
 #endif /* Views_h */

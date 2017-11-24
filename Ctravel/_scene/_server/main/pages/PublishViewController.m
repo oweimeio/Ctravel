@@ -11,7 +11,6 @@
 
 @interface PublishViewController ()
 
-
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
 
 @property (weak, nonatomic) IBOutlet UILabel *desLabel;
@@ -32,14 +31,17 @@
 	
 	Experience *ex = [Experience defaultExperience];
 	Experience *exMem = [Experience getExperienceDataWithUID:[User sharedUser].userId];
-	
-	[self.photoView setImageWithURLString:ex.imageUrl_main andPlaceholderNamed:@"placeholder-none"];
+
+    [self.photoView setImageWithURLString:!exMem.imageUrl_main?ex.imageUrl_main:exMem.imageUrl_main andPlaceholderNamed:@"placeholder-none"];
 	self.desLabel.text = [NSString stringWithFormat:@"￥%.2f %@\n 时间:%@-%@",ex.price, ex.contentDes,!ex.defaultTimeStart?exMem.defaultTimeStart:ex.defaultTimeStart,!ex.defaultTimeEnd?exMem.defaultTimeEnd:ex.defaultTimeEnd];
 }
 
 //预览
 - (IBAction)preViewBtnClick:(id)sender {
-	
+    Experience *experience = ![Experience getExperienceDataWithUID:[User sharedUser].userId] ? [Experience defaultExperience] : [Experience getExperienceDataWithUID:[User sharedUser].userId];
+    PreViewViewController *preViewVc = [PreViewViewController new];
+    preViewVc.dataSource = [self loadExperienceForDict:experience];
+    [self.navigationController pushViewController:preViewVc animated:YES];
 }
 
 //发布
@@ -69,7 +71,10 @@
                              };
     [[CoreAPI core] POSTURLString:@"/experience/experiences" withParameters:params success:^(id ret) {
         [SVProgressHUD showSuccessWithStatus:@"发布成功,请设置您的体验日期"];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        _publishBtn.hidden = YES;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"注销" style:UIBarButtonItemStylePlain handler:^(id sender) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }];
     } error:^(NSString *code, NSString *msg, id ret) {
         [SVProgressHUD showErrorWithStatus:msg];
     } failure:^(NSError *error) {
@@ -85,6 +90,48 @@
 	self.preViewBtn.layer.masksToBounds = YES;
 	self.publishBtn.layer.cornerRadius = 5;
 	self.publishBtn.layer.masksToBounds = YES;
+}
+
+- (NSDictionary*)loadExperienceForDict:(Experience*)obj {
+    
+    NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
+    if (obj.imageUrl_main) {
+        resultDict[@"imageUrl"] = obj.imageUrl_main;
+    }
+    if (obj.contentDes) {
+        resultDict[@"contentDetails"] = obj.contentDes;
+    }
+    if (obj.style) {
+        resultDict[@"serviceName"] = obj.style;
+    }
+    if ([User sharedUser].familyName) {
+        resultDict[@"familyName"] = [User sharedUser].familyName;
+    }
+    if ([User sharedUser].firstName) {
+        resultDict[@"firstName"] = [User sharedUser].firstName;
+    }
+    if ([User sharedUser].avatarUrl) {
+        resultDict[@"headImg"] = [User sharedUser].avatarUrl;
+    }
+    if (obj.destination) {
+        resultDict[@"destination"] = obj.destination;
+    }
+    if (obj.rendezvous) {
+        resultDict[@"rendezvous"] = obj.rendezvous;
+    }
+    if (obj.mark) {
+        resultDict[@"comment"] = obj.mark;
+    }
+    if (obj.requirement) {
+        resultDict[@"requirement"] = obj.requirement;
+    }
+    if (obj.peopleCount) {
+        resultDict[@"peopleNumber"] = [NSString stringWithFormat:@"%ld",obj.peopleCount];
+    }
+    if (obj.price) {
+        resultDict[@"price"] = [NSString stringWithFormat:@"%f",obj.price];
+    }
+    return resultDict;
 }
 
 - (void)didReceiveMemoryWarning {

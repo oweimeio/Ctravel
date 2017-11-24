@@ -32,6 +32,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setDefaultTheme];
+    
+    Experience *experience = ![Experience getExperienceDataWithUID:[User sharedUser].userId] ? [Experience defaultExperience] : [Experience getExperienceDataWithUID:[User sharedUser].userId];
+    if (experience.imageUrl_main) {
+        [_firstPicBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:experience.imageUrl_main] placeholderImage:[UIImage imageNamed:@"placeholder-none"]];
+    }
+    if (experience.imageUrl_left) {
+        NSLog(@"第二張圖");
+        [_secondPicBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:experience.imageUrl_left] placeholderImage:[UIImage imageNamed:@"placeholder-none"]];
+    }
+    if (experience.imageUrl_right) {
+        [_thirdPicBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:experience.imageUrl_right] placeholderImage:[UIImage imageNamed:@"placeholder-none"]];
+    }
+    
 }
 
 - (IBAction)picBtnClick:(UIButton *)sender {
@@ -55,7 +68,7 @@
 		photo = [self compressImage:photo toMaxFileSize:50000];
 		
 		[[CoreAPI core] POSTImage:photo progress:^(float completed, float total) {
-			
+//            [SVProgressHUD showProgress:completed/total status:@"正在上传图片"];
 		} success:^(id ret) {
 			
 			if (sender == _firstPicBtn) {
@@ -123,7 +136,10 @@
 
 
 - (IBAction)preViewBtnClick:(id)sender {
-    
+    Experience *experience = ![Experience getExperienceDataWithUID:[User sharedUser].userId] ? [Experience defaultExperience] : [Experience getExperienceDataWithUID:[User sharedUser].userId];
+    PreViewViewController *preViewVc = [PreViewViewController new];
+    preViewVc.dataSource = [self loadExperienceForDict:experience];
+    [self.navigationController pushViewController:preViewVc animated:YES];
 }
 
 
@@ -154,6 +170,48 @@
 	}
 	UIImage *compressedImage = [UIImage imageWithData:imageData];
 	return compressedImage;
+}
+
+- (NSDictionary*)loadExperienceForDict:(Experience*)obj {
+    
+    NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
+    if (obj.imageUrl_main) {
+        resultDict[@"imageUrl"] = obj.imageUrl_main;
+    }
+    if (obj.contentDes) {
+        resultDict[@"contentDetails"] = obj.contentDes;
+    }
+    if (obj.style) {
+        resultDict[@"serviceName"] = obj.style;
+    }
+    if ([User sharedUser].familyName) {
+        resultDict[@"familyName"] = [User sharedUser].familyName;
+    }
+    if ([User sharedUser].firstName) {
+        resultDict[@"firstName"] = [User sharedUser].firstName;
+    }
+    if ([User sharedUser].avatarUrl) {
+        resultDict[@"headImg"] = [User sharedUser].avatarUrl;
+    }
+    if (obj.destination) {
+        resultDict[@"destination"] = obj.destination;
+    }
+    if (obj.rendezvous) {
+        resultDict[@"rendezvous"] = obj.rendezvous;
+    }
+    if (obj.mark) {
+        resultDict[@"comment"] = obj.mark;
+    }
+    if (obj.requirement) {
+        resultDict[@"requirement"] = obj.requirement;
+    }
+    if (obj.peopleCount) {
+        resultDict[@"peopleNumber"] = [NSString stringWithFormat:@"%ld",obj.peopleCount];
+    }
+    if (obj.price) {
+        resultDict[@"price"] = [NSString stringWithFormat:@"%f",obj.price];
+    }
+    return resultDict;
 }
 
 - (void)didReceiveMemoryWarning {

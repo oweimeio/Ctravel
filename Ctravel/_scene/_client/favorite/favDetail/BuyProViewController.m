@@ -11,6 +11,9 @@
 #import <Pingpp.h>
 
 @interface BuyProViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (strong, nonatomic) IBOutlet UILabel *desLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -22,22 +25,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.imageView setImageWithURLString:[_dataSource[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
+    _desLabel.text = [NSString stringWithFormat:@"标题：%@\n达人：%@%@\n体验类型：%@\n描述：%@\n",_dataSource[@"title"],!_dataSource[@"familyName"]?@"":_dataSource[@"familyName"],!_dataSource[@"firstName"]?@"":_dataSource[@"firstName"],!_dataSource[@"serviceName"]?@"":_dataSource[@"serviceName"], !_dataSource[@"contentDescription"]?@"":_dataSource[@"contentDescription"]];
+    self.dateLabel.text = _date;
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",[_dataSource[@"price"] floatValue]];
 }
 
 - (IBAction)reserveBtnClick:(id)sender {
+    //
     NSDictionary *params = @{
                              @"userId":[User sharedUser].userId,
                              @"token":[User sharedUser].token
                              };
-    [[CoreAPI core] GETURLString:@"/pay/pay/150866062587490952" withParameters:params success:^(id ret) {
+    [[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/pay/%@",_orderId] withParameters:params success:^(id ret) {
         NSLog(@"%@",ret);
         [Pingpp createPayment:ret[@"charge"] appURLScheme:@"com.ctravelApp.www" withCompletion:^(NSString *result, PingppError *error) {
             NSLog(@"%@",result);
         }];
     } error:^(NSString *code, NSString *msg, id ret) {
-        
+        [SVProgressHUD showErrorWithStatus:msg];
     } failure:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
     }];
 }
 

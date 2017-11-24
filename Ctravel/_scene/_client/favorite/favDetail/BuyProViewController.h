@@ -12,4 +12,8 @@
 
 @property (nonatomic, strong) NSDictionary *dataSource;
 
+@property (nonatomic, strong) NSString *orderId;
+
+@property (nonatomic, strong) NSString *date;
+
 @end

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,7 +66,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0E-Lq-qUU">
-                    <rect key="frame" x="90" y="50" width="140" height="210"/>
+                    <rect key="frame" x="90" y="50" width="140" height="210.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="P0E-Lq-qUU" secondAttribute="height" multiplier="6:9" id="d1z-To-Mzp"/>
                     </constraints>
@@ -76,7 +76,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysj-Lm-B43">
-                    <rect key="frame" x="40" y="290" width="105.5" height="158"/>
+                    <rect key="frame" x="40" y="290.5" width="105.5" height="157.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Ysj-Lm-B43" secondAttribute="height" multiplier="2:3" id="1AF-P1-zoy"/>
                     </constraints>
@@ -86,7 +86,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xtl-hd-L0q">
-                    <rect key="frame" x="174.5" y="290" width="105.5" height="158"/>
+                    <rect key="frame" x="174.5" y="290.5" width="105.5" height="157.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Xtl-hd-L0q" secondAttribute="height" multiplier="2:3" id="y0L-pq-IrS"/>
                     </constraints>
@@ -104,15 +104,23 @@
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ALB-Kj-3GM">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
                 </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="封面照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcy-B5-CSW">
+                    <rect key="frame" x="22.5" y="147" width="57.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="vcy-B5-CSW" firstAttribute="centerY" secondItem="P0E-Lq-qUU" secondAttribute="centerY" id="5d3-T3-mJG"/>
                 <constraint firstItem="bMc-nc-gpU" firstAttribute="top" secondItem="Ysj-Lm-B43" secondAttribute="bottom" constant="40" id="855-de-MZu"/>
                 <constraint firstItem="P0E-Lq-qUU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FwN-XS-Kgw"/>
                 <constraint firstItem="bMc-nc-gpU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LZO-bM-j5V"/>
                 <constraint firstAttribute="bottom" secondItem="bMc-nc-gpU" secondAttribute="bottom" id="P68-iD-Tdw"/>
                 <constraint firstItem="bpz-od-IYA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="R6N-sn-acF"/>
                 <constraint firstItem="P0E-Lq-qUU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="Rkd-RW-UDP"/>
+                <constraint firstItem="P0E-Lq-qUU" firstAttribute="leading" secondItem="vcy-B5-CSW" secondAttribute="trailing" constant="10" id="Yvm-Zj-3IH"/>
                 <constraint firstItem="Ysj-Lm-B43" firstAttribute="top" secondItem="P0E-Lq-qUU" secondAttribute="bottom" constant="30" id="dLv-8K-ytu"/>
                 <constraint firstItem="bpz-od-IYA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="dyZ-2C-7cU"/>
                 <constraint firstItem="P0E-Lq-qUU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="90" id="eVL-mZ-vou"/>
