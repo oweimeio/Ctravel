@@ -37,24 +37,24 @@
 																				 ]] forCellReuseIdentifier:ServerOrderCellIdentifier];
 	
 	self.tableView.tableFooterView = [UIView new];
-	
-	if (_type == OrderTypeCompleted) {
-		self.view.backgroundColor = [UIColor redColor];
-		self.emptyDataView.hidden = YES;
-	}
-	else {
-		self.view.backgroundColor = [UIColor blueColor];
-		self.emptyDataView.hidden = NO;
-	}
-	
-	[self requestOrderListData];
+    self.tableView.mj_header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+        if (_type == OrderTypeCompleted) {
+            [self requestOrderListDataWithState:2];
+        }
+        else {
+            [self requestOrderListDataWithState:1];
+        }
+    }];
+    
+    [self.tableView.mj_header beginRefreshing];
 }
 
 //MARK: - METHOD
-- (void)requestOrderListData {
+- (void)requestOrderListDataWithState:(NSInteger)state {
 	NSDictionary *param = @{
 							@"token": [User sharedUser].token,
 							@"userId": [User sharedUser].userId,
+                            @"tradeStatus":@(state)
 							};
 	[[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/orderInfoTalent/%@", [User sharedUser].userId] withParameters:param success:^(id ret) {
 		self.dataSource = ret[@"orderInfo"];
@@ -78,8 +78,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	ServerOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:ServerOrderCellIdentifier forIndexPath:indexPath];
 	__weak NSDictionary *dic = self.dataSource[indexPath.row];
-	[cell.photoView setImageWithURLString:dic[@"imageUrl"] andPlaceholderNamed:@"placeholder-none"];
-	cell.desLabel.text = [NSString stringWithFormat:@"%@\n@体验时间:%@\n体验价格:%@",dic[@"title"],dic[@"serviceTime"],dic[@"tradeAmount"]];
+	[cell.photoView setImageWithURLString:[dic[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
+	cell.desLabel.text = [NSString stringWithFormat:@"%@\n体验时间:%@\n体验价格:%@",dic[@"title"],dic[@"serviceDate"],dic[@"tradeAmount"]];
 	return cell;
 }
 

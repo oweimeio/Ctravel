@@ -101,8 +101,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	ServerOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:ServerOrderCellIdentifier forIndexPath:indexPath];
 	__weak NSDictionary *dic = self.dataSource[indexPath.row];
-	[cell.photoView setImageWithURLString:dic[@"imageUrl"] andPlaceholderNamed:@"placeholder-none"];
-	cell.desLabel.text = [NSString stringWithFormat:@"%@\n@体验时间:%@\n体验价格:%@",dic[@"title"],dic[@"serviceTime"],dic[@"tradeAmount"]];
+	[cell.photoView setImageWithURLString:[dic[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
+	cell.desLabel.text = [NSString stringWithFormat:@"%@\n体验时间:%@\n体验价格:%@",dic[@"title"],dic[@"serviceDate"],dic[@"tradeAmount"]];
 	return cell;
 }
 
