@@ -56,7 +56,7 @@
 							@"token": [User sharedUser].token,
 							@"userId": [User sharedUser].userId,
 							};
-	[[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/orderInfoCustomer/%@", [User sharedUser].userId] withParameters:param success:^(id ret) {
+	[[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/orderInfoTalent/%@", [User sharedUser].userId] withParameters:param success:^(id ret) {
 		self.dataSource = ret[@"orderInfo"];
 		[_tableView reloadData];
 		self.emptyDataView.hidden = self.dataSource.count;
