@@ -23,6 +23,28 @@
 
 @implementation PublishViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationItem hidesBackButton];
+    
+    // 强制显示tabbar
+    NSArray *views = self.tabBarController.view.subviews;
+    UIView *contentView = [views objectAtIndex:0];
+    CGRect frame = contentView.frame;
+    contentView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width,frame.size.height - 49);
+    self.tabBarController.tabBar.hidden = NO;
+}
+//
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    // 强制隐藏tabbar
+    NSArray *views = self.tabBarController.view.subviews;
+    UIView *contentView = [views objectAtIndex:0];
+    CGRect frame = contentView.frame;
+    contentView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width,frame.size.height + 49);
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -33,7 +55,7 @@
 	Experience *exMem = [Experience getExperienceDataWithUID:[User sharedUser].userId];
 
     [self.photoView setImageWithURLString:!exMem.imageUrl_main?ex.imageUrl_main:exMem.imageUrl_main andPlaceholderNamed:@"placeholder-none"];
-	self.desLabel.text = [NSString stringWithFormat:@"￥%.2f %@\n 时间:%@-%@",ex.price, ex.contentDes,!ex.defaultTimeStart?exMem.defaultTimeStart:ex.defaultTimeStart,!ex.defaultTimeEnd?exMem.defaultTimeEnd:ex.defaultTimeEnd];
+	self.desLabel.text = [NSString stringWithFormat:@"￥%.0f\n%@\n 时间:%@-%@",ex.price, ex.contentDes,!ex.defaultTimeStart?exMem.defaultTimeStart:ex.defaultTimeStart,!ex.defaultTimeEnd?exMem.defaultTimeEnd:ex.defaultTimeEnd];
 }
 
 //预览
@@ -92,6 +114,39 @@
 	self.publishBtn.layer.masksToBounds = YES;
 }
 
+#pragma mark -隐藏TabBar
+- (void)hideTabBar {
+    if (self.tabBarController.tabBar.hidden == YES) {
+        return;
+    }
+    UIView *contentView;
+    if ( [[self.tabBarController.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]] )
+        contentView = [self.tabBarController.view.subviews objectAtIndex:1];
+    else
+        contentView = [self.tabBarController.view.subviews objectAtIndex:0];
+    contentView.frame = CGRectMake(contentView.bounds.origin.x,  contentView.bounds.origin.y,  contentView.bounds.size.width, contentView.bounds.size.height + self.tabBarController.tabBar.frame.size.height);
+    self.tabBarController.tabBar.hidden = YES;
+    
+}
+
+#pragma mark -显示TabBar
+- (void)showTabBar {
+    if (self.tabBarController.tabBar.hidden == NO)
+    {
+        return;
+    }
+    UIView *contentView;
+    if ([[self.tabBarController.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]])
+        contentView = [self.tabBarController.view.subviews objectAtIndex:1];
+    
+    else
+        
+        contentView = [self.tabBarController.view.subviews objectAtIndex:0];
+    contentView.frame = CGRectMake(contentView.bounds.origin.x, contentView.bounds.origin.y,  contentView.bounds.size.width, contentView.bounds.size.height - self.tabBarController.tabBar.frame.size.height);
+    self.tabBarController.tabBar.hidden = NO;
+    
+}
+
 - (NSDictionary*)loadExperienceForDict:(Experience*)obj {
     
     NSMutableDictionary *resultDict = [NSMutableDictionary dictionary];
@@ -129,7 +184,7 @@
         resultDict[@"peopleNumber"] = [NSString stringWithFormat:@"%ld",obj.peopleCount];
     }
     if (obj.price) {
-        resultDict[@"price"] = [NSString stringWithFormat:@"%f",obj.price];
+        resultDict[@"price"] = [NSString stringWithFormat:@"%.0f",obj.price];
     }
     return resultDict;
 }

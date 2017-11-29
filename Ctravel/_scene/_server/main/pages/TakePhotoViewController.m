@@ -209,7 +209,7 @@
         resultDict[@"peopleNumber"] = [NSString stringWithFormat:@"%ld",obj.peopleCount];
     }
     if (obj.price) {
-        resultDict[@"price"] = [NSString stringWithFormat:@"%f",obj.price];
+        resultDict[@"price"] = [NSString stringWithFormat:@"%.0f",obj.price];
     }
     return resultDict;
 }

@@ -35,7 +35,7 @@
     self.remarkLabel.text = dataSource[@"comment"];
     self.masterRegulationsLabel.text = dataSource[@"requirement"];
     self.exPeopleCount.text = dataSource[@"peopleNumber"];
-    self.moneyLabel.text = [NSString stringWithFormat:@"￥%.2f",[dataSource[@"price"] floatValue]];
+    self.moneyLabel.text = [NSString stringWithFormat:@"￥%.0f",[dataSource[@"price"] floatValue]];
 }
 
 - (void)viewDidLoad {

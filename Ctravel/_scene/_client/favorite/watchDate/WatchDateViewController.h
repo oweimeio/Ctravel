@@ -25,6 +25,11 @@
 //达人Id
 @property (nonatomic, strong) NSString *serverId;
 
+//开始时间
+@property (nonatomic, strong) NSString *startTime;
+
+@property (nonatomic, strong) NSString *endTime;
+
 @property (nonatomic, weak) id<ChooseDateDelegate> delegate;
 
 @end

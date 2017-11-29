@@ -9,6 +9,7 @@
 #import "WatchDateViewController.h"
 #import "PreHeader.h"
 #import "WatchDateCell.h"
+#import "BuyProViewController.h"
 
 @interface WatchDateViewController ()
 
@@ -58,23 +59,69 @@
 	}];
 }
 
+- (NSString*)weekdayStringFromDate:(NSDate*)inputDate {
+    
+    NSArray *weekdays = [NSArray arrayWithObjects: [NSNull null], @"星期日", @"星期一", @"星期二", @"星期三", @"星期四", @"星期五", @"星期六", nil ];
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
+    
+    [calendar setTimeZone: timeZone];
+    
+    NSCalendarUnit calendarUnit = NSCalendarUnitWeekday;
+    
+    NSDateComponents *theComponents = [calendar components:calendarUnit fromDate:inputDate];
+    
+    return [weekdays objectAtIndex:theComponents.weekday];
+}
+
+//NSString转NSDate
+- (NSDate *)dateFromString:(NSString *)string{
+    //设置转换格式
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    //NSString转NSDate
+    NSDate *date=[formatter dateFromString:string];
+    return date;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataSource.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WatchDateCell *cell = [tableView dequeueReusableCellWithIdentifier:WatchDateCellIdentifier forIndexPath:indexPath];
 	__weak NSDictionary *dic = self.dataSource[indexPath.row];
-	cell.timeLabel.text = dic[@"serviceDate"];
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@·%@·%@-%@", dic[@"serviceDate"],[self weekdayStringFromDate:[self dateFromString:dic[@"serviceDate"]]], _startTime, _endTime];
 	[cell.reserveBtn bk_addEventHandler:^(id sender) {
-        if ([_delegate respondsToSelector:@selector(chooseDate:andDateId:)]) {
-			[_delegate chooseDate:dic[@"serviceDate"] andDateId:dic[@"serviceTimeId"]];
-            [self.navigationController popViewControllerAnimated:YES];
-		}
+//        if ([_delegate respondsToSelector:@selector(chooseDate:andDateId:)]) {
+//            [_delegate chooseDate:dic[@"serviceDate"] andDateId:dic[@"serviceTimeId"]];
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }
+        NSDictionary *param = @{
+                                @"experienceId":_detailData[@"experienceId"],
+                                @"userId":[User sharedUser].userId,
+                                @"token":[User sharedUser].token,
+                                @"serviceTimeId":dic[@"serviceTimeId"]
+                                };
+        [[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/reserve/%@",_detailData[@"experienceId"]] withParameters:param success:^(id ret) {
+            NSLog(@"%@",ret);
+            BuyProViewController *buyVc = [[BuyProViewController alloc] init];
+            buyVc.dataSource = _detailData;
+            buyVc.orderId = ret[@"orderInfo"][@"orderId"];
+            buyVc.date = dic[@"serviceDate"];
+            [self.navigationController pushViewController:buyVc animated:YES];
+            
+        } error:^(NSString *code, NSString *msg, id ret) {
+            
+        } failure:^(NSError *error) {
+            
+        }];
 	} forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }

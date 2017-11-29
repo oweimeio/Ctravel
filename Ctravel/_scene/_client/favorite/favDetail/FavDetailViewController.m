@@ -39,7 +39,7 @@
     self.titleLabel.text = dataSource[@"title"];
     [self.picImageView setImageWithURLString:[dataSource[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
     [self.avatarImageView setImageWithURLString:dataSource[@"headImg"] andPlaceholderNamed:@"defaultHeadImage"];
-    self.simpleDesLabel.text = [NSString stringWithFormat:@"达人：%@%@\n体验类型：%@\n描述：%@\n",!dataSource[@"familyName"]?@"":dataSource[@"familyName"],!dataSource[@"firstName"]?@"":dataSource[@"firstName"],!dataSource[@"serviceName"]?@"":dataSource[@"serviceName"], !dataSource[@"contentDescription"]?@"":dataSource[@"contentDescription"]];
+    self.simpleDesLabel.text = [NSString stringWithFormat:@"体验类型·%@\n体验达人·%@%@\n城市·%@\n%@",!dataSource[@"serviceName"]?@"":dataSource[@"serviceName"],!dataSource[@"familyName"]?@"":dataSource[@"familyName"],!dataSource[@"firstName"]?@"":dataSource[@"firstName"], !dataSource[@"city"]?@"":dataSource[@"city"],!dataSource[@"contentDescription"]?@"":dataSource[@"contentDescription"]];
     self.exContentLabel.text = dataSource[@"contentDetails"];
     self.goWhereLabel.text = dataSource[@"destination"];
     self.meetPointLabel.text = dataSource[@"rendezvous"];
@@ -47,7 +47,7 @@
     self.remarkLabel.text = dataSource[@"comment"];
     self.masterRegulationsLabel.text = dataSource[@"requirement"];
     self.exPeopleCount.text = dataSource[@"peopleNumber"];
-    self.moneyLabel.text = [NSString stringWithFormat:@"￥%.2f",[dataSource[@"price"] floatValue]];
+    self.moneyLabel.text = [NSString stringWithFormat:@"￥%.0f",[dataSource[@"price"] floatValue]];
   
 }
 
@@ -145,30 +145,8 @@
 //预定
 - (IBAction)reserveBtnClick:(id)sender {
     //选择时间
-    if ([serviceDateId isEmpty] || !serviceDateId) {
-        [self jumpToWacthTimeVc];
-        return;
-    }
-    NSDictionary *param = @{
-                             @"experienceId":_dataSource[@"experienceId"],
-                             @"userId":[User sharedUser].userId,
-                             @"token":[User sharedUser].token,
-                             @"serviceTimeId":serviceDateId
-                             };
-    [[CoreAPI core] GETURLString:[NSString stringWithFormat:@"/pay/reserve/%@",_dataSource[@"experienceId"]] withParameters:param success:^(id ret) {
-        NSLog(@"%@",ret);
-        BuyProViewController *buyVc = [[BuyProViewController alloc] init];
-        buyVc.dataSource = _dataSource;
-        buyVc.orderId = ret[@"orderInfo"][@"orderId"];
-        buyVc.date = serviceDate;
-        [self.navigationController pushViewController:buyVc animated:YES];
-        
-    } error:^(NSString *code, NSString *msg, id ret) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
-    
+    [self jumpToWacthTimeVc];
+    return;
 }
 
 //跳入选择时间
@@ -176,6 +154,9 @@
     WatchDateViewController *watchVc = [WatchDateViewController new];
     watchVc.delegate = self;
     watchVc.expId = _dataSource[@"experienceId"];
+    watchVc.startTime = _dataSource[@"defaultStartTime"];
+    watchVc.endTime = _dataSource[@"defaultEndTime"];
+    watchVc.detailData = _dataSource;
     watchVc.serverId = !_dataSource[@"customerId"]?@"":_dataSource[@"customerId"];
     [self.navigationController pushViewController:watchVc animated:YES];
 }

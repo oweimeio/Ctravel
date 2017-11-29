@@ -55,7 +55,7 @@
 
 - (instancetype)init {
     if (self = [super initWithNibName:@"CreatePageViewController" bundle:[NSBundle mainBundle]]) {
-        self.hidesBottomBarWhenPushed = YES;
+        
     }
     return self;
 }
@@ -277,6 +277,7 @@
 			}
 			experience.price = [self.writeContentTextField.text floatValue];
 			PublishViewController *publishVc = [PublishViewController new];
+            publishVc.hidesBottomBarWhenPushed = NO;
 			[self.navigationController pushViewController:publishVc animated:YES];
 
         }   break;
@@ -329,7 +330,7 @@
 		resultDict[@"peopleNumber"] = [NSString stringWithFormat:@"%ld",obj.peopleCount];
 	}
 	if (obj.price) {
-		resultDict[@"price"] = [NSString stringWithFormat:@"%f",obj.price];
+		resultDict[@"price"] = [NSString stringWithFormat:@"%.0f",obj.price];
 	}
 	return resultDict;
 }
@@ -423,7 +424,7 @@
         }   break;
         case CommonDesTypePrice: {
 			if (experience.price) {
-				_writeContentTextField.text = [NSString stringWithFormat:@"%.2f", experience.price];
+				_writeContentTextField.text = [NSString stringWithFormat:@"%.0f", experience.price];
 			}
 			_writeContentTextField.placeholder = @"请输入价格";
 			_writeContentTextField.keyboardType = UIKeyboardTypeNumberPad;

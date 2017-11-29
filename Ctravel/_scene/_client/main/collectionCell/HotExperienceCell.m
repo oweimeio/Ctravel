@@ -68,7 +68,7 @@ NSString *const hotExperienceCellInIdentifier = @"hotExperienceCellInIdentifier"
     _dataSource = dataSource;
     [_picImageView setImageWithURLString:[dataSource[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
     _nameLabel.text = dataSource[@"title"];
-	_moneyLabel.text = [NSString stringWithFormat:@"￥%.2f %@条评论 %@",[dataSource[@"price"] floatValue],!dataSource[@"commentNum"]?@"0":dataSource[@"commentNum"], !dataSource[@"city"] ? @"" : dataSource[@"city"]];
+	_moneyLabel.text = [NSString stringWithFormat:@"￥%.0f ·%@条评价 %@",[dataSource[@"price"] floatValue],!dataSource[@"commentNum"]?@"0":dataSource[@"commentNum"], !dataSource[@"city"] ? @"" : dataSource[@"city"]];
     if ([dataSource[@"isFavourite"] isEqualToString:@"1"]) {
         _heartButton.selected = YES;
     }

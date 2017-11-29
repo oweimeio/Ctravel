@@ -60,9 +60,12 @@
 		self.dataSource = ret[@"orderInfo"];
 		[_tableView reloadData];
 		self.emptyDataView.hidden = self.dataSource.count;
+        [self.tableView.mj_header endRefreshing];
 	} error:^(NSString *code, NSString *msg, id ret) {
 		[SVProgressHUD showErrorWithStatus:msg];
+        [self.tableView.mj_header endRefreshing];
 	} failure:^(NSError *error) {
+        [self.tableView.mj_header endRefreshing];
 		[SVProgressHUD showErrorWithStatus:@"网络连接错误"];
 	}];
 }

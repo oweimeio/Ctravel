@@ -22,6 +22,7 @@
 
 - (IBAction)goToCreatePage:(id)sender {
     CreatePageViewController *createVc = [CreatePageViewController new];
+    createVc.hidesBottomBarWhenPushed = YES;
     createVc.info = @{@"title":@"您打算创建什么风格的体验？",@"selectTitle":@"什么风格体验？",@"selectBtnTitle":@"户外体验（选择）",@"showTip":@"点击进一步了解风格意义",@"progress":@"0.1"};
     createVc.type = CommonDesTypeStyle;
     [self.navigationController pushViewController: createVc animated:YES];
