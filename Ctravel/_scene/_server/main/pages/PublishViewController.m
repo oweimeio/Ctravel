@@ -23,25 +23,31 @@
 
 @implementation PublishViewController
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.tabBarController.tabBar.hidden) {
+        CGRect frame = self.view.frame;
+        frame.size.height -= self.tabBarController.tabBar.frame.size.height;
+        self.view.frame = frame;
+        self.tabBarController.tabBar.hidden = NO;
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationItem hidesBackButton];
-    
+
     // 强制显示tabbar
     NSArray *views = self.tabBarController.view.subviews;
     UIView *contentView = [views objectAtIndex:0];
     CGRect frame = contentView.frame;
-    contentView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width,frame.size.height - 49);
+    contentView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width,frame.size.height - self.tabBarController.tabBar.frame.size.height);
     self.tabBarController.tabBar.hidden = NO;
 }
-//
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    // 强制隐藏tabbar
-    NSArray *views = self.tabBarController.view.subviews;
-    UIView *contentView = [views objectAtIndex:0];
-    CGRect frame = contentView.frame;
-    contentView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width,frame.size.height + 49);
+
     self.tabBarController.tabBar.hidden = YES;
 }
 
