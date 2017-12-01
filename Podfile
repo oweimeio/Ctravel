@@ -17,7 +17,6 @@ def libpods
     pod 'JTCalendar', '~> 2.0'
 	pod 'RongCloudIM/IMLib', '~> 2.8.3'
 	pod 'RongCloudIM/IMKit', '~> 2.8.3'
-    pod 'AliyunOSSiOS', '=2.6.0'
 end
 
 def lypods

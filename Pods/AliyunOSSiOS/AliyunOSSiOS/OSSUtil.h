@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OSSFileLogger.h"
 
 @class OSSFederationToken;
 
@@ -28,7 +29,21 @@
 + (NSString *)base64Md5ForData:(NSData *)data;
 + (NSString *)base64Md5ForFilePath:(NSString *)filePath;
 + (NSString *)base64Md5ForFileURL:(NSURL *)fileURL;
++ (NSString *)populateSubresourceStringFromParameter:(NSDictionary *)parameters;
++ (NSString *)populateQueryStringFromParameter:(NSDictionary *)parameters;
++ (BOOL)isSubresource:(NSString *)param;
 + (NSString *)sign:(NSString *)content withToken:(OSSFederationToken *)token;
 + (NSString *)getRelativePath:(NSString *)fullPath;
 + (NSString *)detemineMimeTypeForFilePath:(NSString *)filePath uploadName:(NSString *)uploadName;
++ (BOOL)hasPhoneFreeSpace;
++ (NSData *)fileMD5:(NSString *)path;
++ (NSString*)buildNetWorkConnectedMsg;
++ (NSString*)buildOperatorMsg;
+@end
+
+@interface NSString(OSSUtils)
+
+- (NSString *)oss_trim;
+- (BOOL)oss_notEmpty;
+
 @end

@@ -9,6 +9,7 @@
  */
 
 #import "OSSTask.h"
+#import "OSSLog.h"
 
 #import <libkern/OSAtomic.h>
 
@@ -61,10 +62,9 @@ NSString *const OSSTaskMultipleExceptionsUserInfoKey = @"exceptions";
 
 - (instancetype)initWithResult:(id)result {
     self = [super init];
-    if (!self) return self;
-
-    [self trySetResult:result];
-
+    if (self) {
+        [self trySetResult:result];
+    }
     return self;
 }
 
@@ -97,7 +97,7 @@ NSString *const OSSTaskMultipleExceptionsUserInfoKey = @"exceptions";
 
 #pragma mark - Task Class methods
 
-+ (instancetype)taskWithResult:(nullable id)result {
++ (instancetype)taskWithResult:(_Nullable id)result {
     return [[self alloc] initWithResult:result];
 }
 
@@ -269,7 +269,7 @@ NSString *const OSSTaskMultipleExceptionsUserInfoKey = @"exceptions";
     return tcs.task;
 }
 
-+ (instancetype)taskFromExecutor:(OSSExecutor *)executor withBlock:(nullable id (^)())block {
++ (instancetype)taskFromExecutor:(OSSExecutor *)executor withBlock:(nullable id (^)(void))block {
     return [[self taskWithResult:nil] continueWithExecutor:executor withBlock:^id(OSSTask *task) {
         return block();
     }];
@@ -368,7 +368,7 @@ NSString *const OSSTaskMultipleExceptionsUserInfoKey = @"exceptions";
         [self.condition lock];
         [self.condition broadcast];
         [self.condition unlock];
-        for (void (^callback)() in self.callbacks) {
+        for (void (^callback)(void) in self.callbacks) {
             callback();
         }
         [self.callbacks removeAllObjects];
@@ -398,6 +398,8 @@ NSString *const OSSTaskMultipleExceptionsUserInfoKey = @"exceptions";
             result = block(self);
         } @catch (NSException *exception) {
             tcs.exception = exception;
+            OSSLogError(@"exception name: %@",[exception name]);
+            OSSLogError(@"exception reason: %@",[exception reason]);
             return;
         }
 

@@ -28,8 +28,8 @@
     }
     
     /**
-     设置onRecieveData回调时，在回调处理数据时无法获知重试事件
-     出错时，禁止重试
+     When onRecieveData is set, no retry. 
+     When the error is task cancellation, no retry.
      */
     if (delegate.onRecieveData != nil) {
         return OSSNetworkingRetryTypeShouldNotRetry;
@@ -296,11 +296,7 @@
         NSURLSessionConfiguration * uploadSessionConfig = nil;
 
         if (configuration.enableBackgroundTransmitService) {
-            if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
-                uploadSessionConfig = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:self.configuration.backgroundSessionIdentifier];
-            } else {
-                uploadSessionConfig = [NSURLSessionConfiguration backgroundSessionConfiguration:self.configuration.backgroundSessionIdentifier];
-            }
+            uploadSessionConfig = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:self.configuration.backgroundSessionIdentifier];
         } else {
             uploadSessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         }
@@ -351,6 +347,11 @@
 }
 
 - (OSSTask *)sendRequest:(OSSNetworkingRequestDelegate *)request {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        OSSLogVerbose(@"%@",[OSSUtil buildNetWorkConnectedMsg]);
+        NSString *operator = [OSSUtil buildOperatorMsg];
+        if(operator) OSSLogVerbose(@"%@",[OSSUtil buildOperatorMsg]);
+    });
     OSSLogVerbose(@"send request --------");
     if (self.configuration.proxyHost && self.configuration.proxyPort) {
         request.isAccessViaProxy = YES;
@@ -416,7 +417,7 @@
                                                           userInfo:nil]];
         }
         [sessionTask resume];
-
+      
         return task;
     }] continueWithBlock:^id(OSSTask *task) {
 
@@ -494,7 +495,7 @@
             }
             NSString * notSuccessResponseBody = [[NSString alloc] initWithData:delegate.httpRequestNotSuccessResponseBody encoding:NSUTF8StringEncoding];
             OSSLogError(@"http error response: %@", notSuccessResponseBody);
-            NSDictionary * dict = [NSDictionary dictionaryWithXMLString:notSuccessResponseBody];
+            NSDictionary * dict = [NSDictionary oss_dictionaryWithXMLString:notSuccessResponseBody];
 
             return [OSSTask taskWithError:[NSError errorWithDomain:OSSServerErrorDomain
                                                              code:(-1 * httpResponse.statusCode)
@@ -503,6 +504,8 @@
         return task;
     }] continueWithBlock:^id(OSSTask *task) {
         if (task.error) {
+            
+            
             OSSNetworkingRetryType retryType = [delegate.retryHandler shouldRetry:delegate.currentRetryCount
                                                                   requestDelegate:delegate
                                                                          response:httpResponse
@@ -530,9 +533,15 @@
             NSTimeInterval suspendTime = [delegate.retryHandler timeIntervalForRetry:delegate.currentRetryCount retryType:retryType];
             delegate.currentRetryCount++;
             [NSThread sleepForTimeInterval:suspendTime];
+            
+            if(delegate.retryCallback){
+                delegate.retryCallback();
+            }
+            
 
             /* retry recursively */
             [delegate reset];
+            
             [self dataTaskWithDelegate:delegate];
         } else {
             delegate.completionHandler([delegate.responseParser constructResultObject], nil);
@@ -568,7 +577,20 @@
     /* background upload task will not call back didRecieveResponse.
        so if we recieve response data after background uploading file,
        we consider it as error response message since a successful uploading request will not response any data */
-    if (delegate.isHttpRequestNotSuccessResponse || delegate.isBackgroundUploadFileTask) {
+    if (delegate.isBackgroundUploadFileTask)
+    {
+        //判断当前的statusCode是否成功
+        NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *)dataTask.response;
+        if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 && httpResponse.statusCode != 203) {
+            [delegate.responseParser consumeHttpResponse:httpResponse];
+            delegate.isHttpRequestNotSuccessResponse = NO;
+        }else
+        {
+            delegate.isHttpRequestNotSuccessResponse = YES;
+        }
+    }
+
+    if (delegate.isHttpRequestNotSuccessResponse) {
         [delegate.httpRequestNotSuccessResponseBody appendData:data];
     } else {
         if (delegate.onRecieveData) {
@@ -593,7 +615,7 @@
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
     /*
-     * 创建证书校验策略
+     * Creates the policies for certificate verification.
      */
     NSMutableArray *policies = [NSMutableArray array];
     if (domain) {
@@ -603,16 +625,16 @@
     }
 
     /*
-     * 绑定校验策略到服务端的证书上
+     * Sets the policies to server's certificate
      */
     SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
 
 
     /*
-     * 评估当前serverTrust是否可信任，
-     * 官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed
-     * 的情况下serverTrust可以被验证通过，https://developer.apple.com/library/ios/technotes/tn2232/_index.html
-     * 关于SecTrustResultType的详细信息请参考SecTrust.h
+     * Evaulates if the current serverTrust is trustable.
+     * It's officially suggested that the serverTrust could be passed when result = kSecTrustResultUnspecified or kSecTrustResultProceed.
+     * For more information checks out https://developer.apple.com/library/ios/technotes/tn2232/_index.html
+     * For detail information about SecTrustResultType, checks out SecTrust.h
      */
     SecTrustResultType result;
     SecTrustEvaluate(serverTrust, &result);
@@ -632,7 +654,7 @@
     NSURLCredential *credential = nil;
 
     /*
-     * 获取原始域名信息。
+     * Gets the host name
      */
 
     NSString * host = [[task.currentRequest allHTTPHeaderFields] objectForKey:@"Host"];
@@ -648,7 +670,7 @@
     } else {
         disposition = NSURLSessionAuthChallengePerformDefaultHandling;
     }
-    // 对于其他的challenges直接使用默认的验证方案
+    // Uses the default evaluation for other challenges.
     completionHandler(disposition,credential);
 }
 @end
