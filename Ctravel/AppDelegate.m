@@ -200,6 +200,8 @@
     // MARK: STYLE
     [[ConfigKit kit] systemStyle];
     [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
+    //返回按钮设置
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, 0) forBarMetrics:UIBarMetricsDefault];
     
     [ModuleProgressHUD autoConfigure];
     
