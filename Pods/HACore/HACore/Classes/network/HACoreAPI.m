@@ -92,6 +92,8 @@
 	AFHTTPRequestSerializer *requestSerializer = manager.requestSerializer;
 	[requestSerializer setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
 	[requestSerializer setValue:@"utf-8" forHTTPHeaderField:@"Accept-Charset"];
+	// 区分服务端
+	[requestSerializer setValue:@"1" forHTTPHeaderField:@"clientType"];
 	// "Accept-Language" = "zh-Hans-CN;q=1";
 	// "User-Agent" = "HuaaoTemplate/1.0.0 (iPhone; iOS 10.1; Scale/2.00)";
 	manager.requestSerializer = requestSerializer;

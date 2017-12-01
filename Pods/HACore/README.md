@@ -235,6 +235,8 @@ UITextField的输入验证等.
 
 1.2.48 - map view focus method with center coordinate checker
 
+1.2.51 - paxy请求头添加参数用来区分服务端
+
 ## Author
 
 骆昱 (Luo Yu), indie.luo@gmail.com

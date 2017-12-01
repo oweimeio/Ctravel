@@ -14,7 +14,7 @@
 @class OSSExecutor;
 
 /**
- Retry type definition
+ 定义重试类型
  */
 typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
     OSSNetworkingRetryTypeUnknown,
@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 };
 
 /**
- The retry handler interface
+ 重试处理器
  */
 @interface OSSURLRequestRetryHandler : NSObject
 @property (nonatomic, assign) uint32_t maxRetryCount;
@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @end
 
 /**
- Network parameters
+ 网络参数设置
  */
 @interface OSSNetworkingConfiguration : NSObject
 @property (nonatomic, assign) uint32_t maxRetryCount;
@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @end
 
 /**
- The proxy object class for each OSS request.
+ 对操作发起的每一次请求构造一个信息代理
  */
 @interface OSSNetworkingRequestDelegate : NSObject
 
@@ -97,7 +97,7 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @end
 
 /**
- All necessary information in one OSS request.
+ 包含一次网络请求所需的所有信息
  */
 @interface OSSAllRequestNeededMessage : NSObject
 @property (nonatomic, strong) NSString * endpoint;
@@ -128,7 +128,7 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @end
 
 /**
- The network interface which OSSClient uses for network read and write operations.
+ 每个OSSClient持有一个OSSNetworking用以收发网络请求
  */
 @interface OSSNetworking : NSObject <NSURLSessionDelegate>
 @property (nonatomic, strong) NSURLSession * dataSession;

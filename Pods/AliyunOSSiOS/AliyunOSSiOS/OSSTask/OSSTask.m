@@ -9,7 +9,6 @@
  */
 
 #import "OSSTask.h"
-#import "OSSLog.h"
 
 #import <libkern/OSAtomic.h>
 
@@ -399,8 +398,6 @@ NSString *const OSSTaskMultipleExceptionsUserInfoKey = @"exceptions";
             result = block(self);
         } @catch (NSException *exception) {
             tcs.exception = exception;
-            OSSLogError(@"exception name: %@",[exception name]);
-            OSSLogError(@"exception reason: %@",[exception reason]);
             return;
         }
 

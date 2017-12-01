@@ -28,8 +28,8 @@
     }
     
     /**
-     When onRecieveData is set, no retry. 
-     When the error is task cancellation, no retry.
+     设置onRecieveData回调时，在回调处理数据时无法获知重试事件
+     出错时，禁止重试
      */
     if (delegate.onRecieveData != nil) {
         return OSSNetworkingRetryTypeShouldNotRetry;
@@ -351,11 +351,6 @@
 }
 
 - (OSSTask *)sendRequest:(OSSNetworkingRequestDelegate *)request {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        OSSLogVerbose(@"%@",[OSSUtil buildNetWorkConnectedMsg]);
-        NSString *operator = [OSSUtil buildOperatorMsg];
-        if(operator) OSSLogVerbose(@"%@",[OSSUtil buildOperatorMsg]);
-    });
     OSSLogVerbose(@"send request --------");
     if (self.configuration.proxyHost && self.configuration.proxyPort) {
         request.isAccessViaProxy = YES;
@@ -421,7 +416,7 @@
                                                           userInfo:nil]];
         }
         [sessionTask resume];
-      
+
         return task;
     }] continueWithBlock:^id(OSSTask *task) {
 
@@ -598,7 +593,7 @@
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
     /*
-     * Creates the policies for certificate verification.
+     * 创建证书校验策略
      */
     NSMutableArray *policies = [NSMutableArray array];
     if (domain) {
@@ -608,16 +603,16 @@
     }
 
     /*
-     * Sets the policies to server's certificate
+     * 绑定校验策略到服务端的证书上
      */
     SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
 
 
     /*
-     * Evaulates if the current serverTrust is trustable.
-     * It's officially suggested that the serverTrust could be passed when result = kSecTrustResultUnspecified or kSecTrustResultProceed.
-     * For more information checks out https://developer.apple.com/library/ios/technotes/tn2232/_index.html
-     * For detail information about SecTrustResultType, checks out SecTrust.h
+     * 评估当前serverTrust是否可信任，
+     * 官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed
+     * 的情况下serverTrust可以被验证通过，https://developer.apple.com/library/ios/technotes/tn2232/_index.html
+     * 关于SecTrustResultType的详细信息请参考SecTrust.h
      */
     SecTrustResultType result;
     SecTrustEvaluate(serverTrust, &result);
@@ -637,7 +632,7 @@
     NSURLCredential *credential = nil;
 
     /*
-     * Gets the host name
+     * 获取原始域名信息。
      */
 
     NSString * host = [[task.currentRequest allHTTPHeaderFields] objectForKey:@"Host"];
@@ -653,7 +648,7 @@
     } else {
         disposition = NSURLSessionAuthChallengePerformDefaultHandling;
     }
-    // Uses the default evaluation for other challenges.
+    // 对于其他的challenges直接使用默认的验证方案
     completionHandler(disposition,credential);
 }
 @end
