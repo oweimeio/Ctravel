@@ -1,6 +1,0 @@
-framework module ConfigKit {
-  umbrella header "ConfigKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

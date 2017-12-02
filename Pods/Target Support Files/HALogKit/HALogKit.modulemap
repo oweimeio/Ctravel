@@ -1,6 +1,0 @@
-framework module HALogKit {
-  umbrella header "HALogKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

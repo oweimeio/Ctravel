@@ -1,6 +1,0 @@
-framework module ModulePullRefresh {
-  umbrella header "ModulePullRefresh-umbrella.h"
-
-  export *
-  module * { export * }
-}
