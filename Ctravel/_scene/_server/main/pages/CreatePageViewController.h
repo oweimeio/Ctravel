@@ -26,6 +26,7 @@ typedef enum : NSUInteger {
     CommonDesTypeRequire,
     CommonDesTypePlace,
     CommonDesTypeTime,
+    CommonDesTypePeopleCount,
     CommonDesTypePic,
     CommonDesTypePrice,
 } CommonDesType;

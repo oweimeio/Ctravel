@@ -30,5 +30,6 @@
 #import "CreatePageViewController.h"
 #import "IDValidViewController.h"
 #import "PreViewViewController.h"
+#import "PublishViewController.h"
 
 #endif /* Views_h */

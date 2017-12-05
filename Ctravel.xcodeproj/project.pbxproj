@@ -30,6 +30,10 @@
 		FA04A85F1F98F4CE009A72DE /* IncomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04A85D1F98F4CE009A72DE /* IncomeViewController.xib */; };
 		FA05D8031F7541AA00893EE3 /* ClientMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA05D8011F7541AA00893EE3 /* ClientMsgCell.m */; };
 		FA05D8041F7541AA00893EE3 /* ClientMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA05D8021F7541AA00893EE3 /* ClientMsgCell.xib */; };
+		FA2BC4871FD3F44900969644 /* ServerOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2BC4851FD3F44900969644 /* ServerOrderDetailViewController.m */; };
+		FA2BC4881FD3F44900969644 /* ServerOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2BC4861FD3F44900969644 /* ServerOrderDetailViewController.xib */; };
+		FA2BC48C1FD6D65900969644 /* ClientOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2BC48A1FD6D65900969644 /* ClientOrderDetailViewController.m */; };
+		FA2BC48D1FD6D65900969644 /* ClientOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2BC48B1FD6D65900969644 /* ClientOrderDetailViewController.xib */; };
 		FA663D1D1F761756001C6F25 /* FavDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA663D1B1F761756001C6F25 /* FavDetailViewController.m */; };
 		FA663D1E1F761756001C6F25 /* FavDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA663D1C1F761756001C6F25 /* FavDetailViewController.xib */; };
 		FA663D291F765EFA001C6F25 /* ServerMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA663D271F765EFA001C6F25 /* ServerMainViewController.m */; };
@@ -149,6 +153,12 @@
 		FA05D8001F7541AA00893EE3 /* ClientMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientMsgCell.h; sourceTree = "<group>"; };
 		FA05D8011F7541AA00893EE3 /* ClientMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientMsgCell.m; sourceTree = "<group>"; };
 		FA05D8021F7541AA00893EE3 /* ClientMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientMsgCell.xib; sourceTree = "<group>"; };
+		FA2BC4841FD3F44900969644 /* ServerOrderDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerOrderDetailViewController.h; sourceTree = "<group>"; };
+		FA2BC4851FD3F44900969644 /* ServerOrderDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerOrderDetailViewController.m; sourceTree = "<group>"; };
+		FA2BC4861FD3F44900969644 /* ServerOrderDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServerOrderDetailViewController.xib; sourceTree = "<group>"; };
+		FA2BC4891FD6D65900969644 /* ClientOrderDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientOrderDetailViewController.h; sourceTree = "<group>"; };
+		FA2BC48A1FD6D65900969644 /* ClientOrderDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientOrderDetailViewController.m; sourceTree = "<group>"; };
+		FA2BC48B1FD6D65900969644 /* ClientOrderDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientOrderDetailViewController.xib; sourceTree = "<group>"; };
 		FA663D1A1F761756001C6F25 /* FavDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavDetailViewController.h; sourceTree = "<group>"; };
 		FA663D1B1F761756001C6F25 /* FavDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavDetailViewController.m; sourceTree = "<group>"; };
 		FA663D1C1F761756001C6F25 /* FavDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavDetailViewController.xib; sourceTree = "<group>"; };
@@ -390,6 +400,9 @@
 				6587C1CD1FA97C86006CBC6E /* ServerOrderListViewController.h */,
 				6587C1CE1FA97C86006CBC6E /* ServerOrderListViewController.m */,
 				6587C1CF1FA97C86006CBC6E /* ServerOrderListViewController.xib */,
+				FA2BC4841FD3F44900969644 /* ServerOrderDetailViewController.h */,
+				FA2BC4851FD3F44900969644 /* ServerOrderDetailViewController.m */,
+				FA2BC4861FD3F44900969644 /* ServerOrderDetailViewController.xib */,
 			);
 			path = order;
 			sourceTree = "<group>";
@@ -809,6 +822,9 @@
 				FA9C509D1F83E1570075C329 /* ClientCompleteViewController.h */,
 				FA9C509E1F83E1570075C329 /* ClientCompleteViewController.m */,
 				FA9C509F1F83E1570075C329 /* ClientCompleteViewController.xib */,
+				FA2BC4891FD6D65900969644 /* ClientOrderDetailViewController.h */,
+				FA2BC48A1FD6D65900969644 /* ClientOrderDetailViewController.m */,
+				FA2BC48B1FD6D65900969644 /* ClientOrderDetailViewController.xib */,
 			);
 			path = orderList;
 			sourceTree = "<group>";
@@ -886,7 +902,7 @@
 		FAA423301F70006500C3736F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = apple;
 				TargetAttributes = {
 					FAA423371F70006500C3736F = {
@@ -928,6 +944,7 @@
 				657D87DD1F70F05B00CD17DE /* com.huaaotech.core.conf.plist in Resources */,
 				FAA423931F7015DD00C3736F /* ClientOrderViewController.xib in Resources */,
 				FAA423B11F740CA400C3736F /* SettingViewController.xib in Resources */,
+				FA2BC48D1FD6D65900969644 /* ClientOrderDetailViewController.xib in Resources */,
 				FA663D601F77DD68001C6F25 /* ProfileDetailViewController.xib in Resources */,
 				6587C1C71FA97390006CBC6E /* ServerOrderCell.xib in Resources */,
 				659850251FBE961C00489783 /* PreViewViewController.xib in Resources */,
@@ -950,6 +967,7 @@
 				FA663D341F765F21001C6F25 /* ServerOrderViewController.xib in Resources */,
 				FA663D651F77E2BD001C6F25 /* ProfileEditViewController.xib in Resources */,
 				6587C1D11FA97C86006CBC6E /* ServerOrderListViewController.xib in Resources */,
+				FA2BC4881FD3F44900969644 /* ServerOrderDetailViewController.xib in Resources */,
 				FAA423981F7015F400C3736F /* ClientProfileViewController.xib in Resources */,
 				6586DA081FB2B7750085A9FF /* TestViewController.xib in Resources */,
 				FAA4239D1F70162500C3736F /* ClientMainPageViewController.xib in Resources */,
@@ -1093,6 +1111,7 @@
 				FA663D3D1F765F48001C6F25 /* ServerMessageViewController.m in Sources */,
 				FAA4235D1F700A4900C3736F /* Const.m in Sources */,
 				FAA423971F7015F400C3736F /* ClientProfileViewController.m in Sources */,
+				FA2BC4871FD3F44900969644 /* ServerOrderDetailViewController.m in Sources */,
 				FA663D4E1F77D011001C6F25 /* EvaluationCell.m in Sources */,
 				6587C1C61FA97390006CBC6E /* ServerOrderCell.m in Sources */,
 				FAA423A61F71498A00C3736F /* CoreAPI.m in Sources */,
@@ -1101,6 +1120,7 @@
 				FAA423401F70006500C3736F /* AppDelegate.m in Sources */,
 				FAEE5A1C1F79422600874A49 /* CommonDesViewController.m in Sources */,
 				FAEE5A101F79313200874A49 /* ClientOrderListViewController.m in Sources */,
+				FA2BC48C1FD6D65900969644 /* ClientOrderDetailViewController.m in Sources */,
 				FAA4239C1F70162500C3736F /* ClientMainPageViewController.m in Sources */,
 				FA663D1D1F761756001C6F25 /* FavDetailViewController.m in Sources */,
 				6587C1D41FA9C2C5006CBC6E /* LCDatePicker.m in Sources */,
@@ -1171,7 +1191,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1179,7 +1201,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1220,7 +1246,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1228,7 +1256,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

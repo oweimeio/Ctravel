@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate () {
-    __strong UITabBarController *tabs;
+    
 }
+
 
 @end
 
@@ -51,10 +52,11 @@
         case AppTypeResident: {
             
             self.window.rootViewController = nil;
-            tabs = nil;
-            tabs = [[UITabBarController alloc] init];
+            _tabs = nil;
+            _tabs = [[UITabBarController alloc] init];
             
             UINavigationController *cMain = [[UINavigationController alloc] initWithRootViewController:[[ClientMainPageViewController alloc] init]];
+
             cMain.tabBarItem.title = @"主页";
             cMain.tabBarItem.image = [UIImage imageNamed:@"tab-find-gray"];
             cMain.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-job-blue"];
@@ -84,8 +86,8 @@
             cProfile.tabBarItem.image = [UIImage imageNamed:@"tab-me-gray"];
             cProfile.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-me-blue"];
             
-            tabs.viewControllers = @[cMain, cFov, cMsg, cOrder, cProfile];
-            self.window.rootViewController = tabs;
+            _tabs.viewControllers = @[cMain, cFov, cMsg, cOrder, cProfile];
+            self.window.rootViewController = _tabs;
             [HAApp current].appType = AppTypeResident;
 
         } break;
@@ -93,11 +95,13 @@
             
             self.window.rootViewController = nil;
             
-            tabs = nil;
+            _tabs = nil;
             
-            tabs = [[UITabBarController alloc] init];
-            
-            UINavigationController *sMain = [[UINavigationController alloc] initWithRootViewController:[[ServerMainViewController alloc] init]];
+            _tabs = [[UITabBarController alloc] init];
+            ServerMainViewController *mainVc = [[ServerMainViewController alloc] init];
+            PublishViewController *publicVc = [[PublishViewController alloc] init];
+            UINavigationController *sMain = [[UINavigationController alloc] initWithRootViewController:[[User sharedUser] getUserData].isPublished ? publicVc : mainVc];
+            sMain.navigationBar.translucent = NO;
             sMain.tabBarItem.title = @"主页";
             sMain.tabBarItem.image = [UIImage imageNamed:@"tab-ex-gray"];
             sMain.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-ex-blue"];
@@ -126,9 +130,9 @@
             sProfile.tabBarItem.image = [UIImage imageNamed:@"tab-me-gray"];
             sProfile.tabBarItem.selectedImage = [UIImage imageNamed:@"tab-me-blue"];
             
-            tabs.viewControllers = @[sMain, sDate, sMsg, sOrder, sProfile];
+            _tabs.viewControllers = @[sMain, sDate, sMsg, sOrder, sProfile];
             
-            self.window.rootViewController = tabs;
+            self.window.rootViewController = _tabs;
             [HAApp current].appType = AppTypePolice;
 
         } break;
@@ -137,7 +141,7 @@
             // 类型 -> 登录模式
             
             self.window.rootViewController = nil;
-            tabs = nil;
+            _tabs = nil;
  
             UINavigationController *preauthNav = [[UINavigationController alloc] initWithRootViewController:[LoginChooseViewController new]];
             self.window.rootViewController = preauthNav;
@@ -188,6 +192,7 @@
     NSLog(@"\n\nENTER\n\t-application:didFinishLaunchingWithOptions:\n\n");
     
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [_window setBackgroundColor:[UIColor whiteColor]];
     
     if ([[HAApp current] isLoggedIn]) {
         [self switchAppType:[[HAUserWjw userWithUID:[HAApp current].userID] hasOperationPrivilege] ? AppTypePolice : AppTypeResident];

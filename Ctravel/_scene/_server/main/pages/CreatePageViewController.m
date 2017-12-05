@@ -249,12 +249,19 @@
         }   break;
         case CommonDesTypePlace: {
 			experience.rendezvous = self.writeTextView.text;
-            createVc.info = @{@"title":@"您的活动默认时间？",@"showTip":@"点击进一步了解时间",@"progress":@"0.7"};
+            createVc.info = @{@"title":@"您的活动默认时间？",@"showTip":@"点击进一步了解时间",@"progress":@"0.65"};
             createVc.style = CreatPageStyleChooseTime;
             createVc.type = CommonDesTypeTime;
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeTime: {
+            experience.peopleCount = [self.writeTextView.text integerValue];
+            createVc.info = @{@"title":@"您的体验一次最多允许多少位参加者加入？",@"showTip":@"点击进一步了解更多资讯",@"progress":@"0.7"};
+            createVc.style = CreatPageStyleWrite;
+            createVc.type = CommonDesTypePeopleCount;
+            [self.navigationController pushViewController: createVc animated:YES];
+        }   break;
+        case CommonDesTypePeopleCount: {
             if ([self.startTimeBtn.titleLabel.text isEqualToString:@"选择开始时间"]) {
                 [SVProgressHUD showErrorWithStatus:@"请选择默认开始时间"];
                 return;
@@ -264,7 +271,7 @@
                 return;
             }
             TakePhotoViewController *photoVc = [TakePhotoViewController new];
-			
+            
             [self.navigationController pushViewController: photoVc animated:YES];
         }   break;
         case CommonDesTypePic: {

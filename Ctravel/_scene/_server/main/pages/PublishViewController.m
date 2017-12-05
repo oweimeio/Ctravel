@@ -23,34 +23,6 @@
 
 @implementation PublishViewController
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (self.tabBarController.tabBar.hidden) {
-        CGRect frame = self.view.frame;
-        frame.size.height -= self.tabBarController.tabBar.frame.size.height;
-        self.view.frame = frame;
-        self.tabBarController.tabBar.hidden = NO;
-    }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationItem hidesBackButton];
-
-    // 强制显示tabbar
-    NSArray *views = self.tabBarController.view.subviews;
-    UIView *contentView = [views objectAtIndex:0];
-    CGRect frame = contentView.frame;
-    contentView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width,frame.size.height - self.tabBarController.tabBar.frame.size.height);
-    self.tabBarController.tabBar.hidden = NO;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-
-    self.tabBarController.tabBar.hidden = YES;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -61,7 +33,17 @@
 	Experience *exMem = [Experience getExperienceDataWithUID:[User sharedUser].userId];
 
     [self.photoView setImageWithURLString:!exMem.imageUrl_main?ex.imageUrl_main:exMem.imageUrl_main andPlaceholderNamed:@"placeholder-none"];
-	self.desLabel.text = [NSString stringWithFormat:@"￥%.0f\n%@\n 时间:%@-%@",ex.price, ex.contentDes,!ex.defaultTimeStart?exMem.defaultTimeStart:ex.defaultTimeStart,!ex.defaultTimeEnd?exMem.defaultTimeEnd:ex.defaultTimeEnd];
+    self.desLabel.text = [NSString stringWithFormat:@"￥%.0f\n%@\n 时间:%@-%@",ex.price, !ex.contentDes?@"":ex.contentDes,!ex.defaultTimeStart?exMem.defaultTimeStart:ex.defaultTimeStart,!ex.defaultTimeEnd?exMem.defaultTimeEnd:ex.defaultTimeEnd];
+    
+    if ([User sharedUser].getUserData.isPublished) {
+        _publishBtn.hidden = YES;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"注销" style:UIBarButtonItemStylePlain handler:^(id sender) {
+            User *user = [User sharedUser];
+            user.isPublished = NO;
+            [user saveUserData];
+            [[AppDelegate app] switchAppType:AppTypePolice];
+        }];
+    }
 }
 
 //预览
@@ -99,10 +81,10 @@
                              };
     [[CoreAPI core] POSTURLString:@"/experience/experiences" withParameters:params success:^(id ret) {
         [SVProgressHUD showSuccessWithStatus:@"发布成功,请设置您的体验日期"];
-        _publishBtn.hidden = YES;
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"注销" style:UIBarButtonItemStylePlain handler:^(id sender) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }];
+        User *user = [User sharedUser];
+        user.isPublished = YES;
+        [user saveUserData];
+        [[AppDelegate app] switchAppType:AppTypePolice];
     } error:^(NSString *code, NSString *msg, id ret) {
         [SVProgressHUD showErrorWithStatus:msg];
     } failure:^(NSError *error) {

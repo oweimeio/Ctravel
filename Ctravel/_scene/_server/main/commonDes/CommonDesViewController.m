@@ -59,6 +59,10 @@
             _titleLabel.text = @"活动时间";
             _contenLabel.text = @"输入一个默认的时间";
             break;
+        case CommonDesTypePeopleCount:
+            _titleLabel.text = @"参与人数";
+            _contenLabel.text = @"参与活动的最多人数";
+            break;
         case CommonDesTypePrice:
             _titleLabel.text = @"价格";
             _contenLabel.text = @"设定体验价格";

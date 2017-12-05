@@ -56,6 +56,9 @@
 //是否是达人
 @property (nonatomic, assign) BOOL isServer;
 
+//是否发布过
+@property (nonatomic, assign) BOOL isPublished;
+
 + (instancetype)sharedUser;
 
 - (void)saveUserData;

@@ -110,6 +110,7 @@
 		self.idCardNum = [coder decodeObjectForKey:@"self.idCardNum"];
 		self.idCardImageUrl = [coder decodeObjectForKey:@"self.idCardImageUrl"];
 		self.isServer = [coder decodeBoolForKey:@"self.isServer"];
+        self.isPublished = [coder decodeBoolForKey:@"self.isPublished"];
     }
     return self;
 }
@@ -137,6 +138,7 @@
 	[coder encodeObject:self.idCardNum forKey:@"self.idCardNum"];
 	[coder encodeObject:self.idCardImageUrl forKey:@"self.idCardImageUrl"];
 	[coder encodeBool:self.isServer forKey:@"self.isServer"];
+    [coder encodeBool:self.isPublished forKey:@"self.isPublished"];
 }
 
 

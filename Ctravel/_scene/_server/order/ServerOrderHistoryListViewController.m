@@ -9,6 +9,7 @@
 #import "ServerOrderHistoryListViewController.h"
 #import "PreHeader.h"
 #import "ServerOrderCell.h"
+#import "ServerOrderDetailViewController.h"
 
 @interface ServerOrderHistoryListViewController ()
 
@@ -88,6 +89,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ServerOrderDetailViewController *detailVc = [[ServerOrderDetailViewController alloc] init];
+    __weak NSDictionary *dic = self.dataSource[indexPath.row];
+    detailVc.dataSource = dic;
+    detailVc.type = _type;
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 
