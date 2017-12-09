@@ -10,6 +10,7 @@
 #import "ClientOrderCell.h"
 #import "ClientOrderListViewController.h"
 #import "PreHeader.h"
+#import "ClientOrderDetailViewController.h"
 
 @interface ClientOrderViewController ()
 
@@ -103,6 +104,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ClientOrderDetailViewController *detailVc = [[ClientOrderDetailViewController alloc] init];
+    __weak NSDictionary *dic = self.dataSource[indexPath.row];
+    detailVc.dataSource = dic;
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

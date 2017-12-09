@@ -7,6 +7,7 @@
 //
 
 #import "ClientOrderDetailViewController.h"
+#import "PreHeader.h"
 
 @interface ClientOrderDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -20,9 +21,22 @@
 
 @implementation ClientOrderDetailViewController
 
+- (instancetype)init {
+    if (self = [super initWithNibName:@"ClientOrderDetailViewController" bundle:nil]) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [_imageView setImageWithURLString:_dataSource[@""] andPlaceholderNamed:@"placeholder-none"];
+    _nameLabel.text = _dataSource[@""];
+    _priceLabel.text = _dataSource[@""];
+    _rendezvousLabel.text = _dataSource[@""];
+    _exDateLabel.text = _dataSource[@""];
+    //根据状态设置btn的文字信息
 }
 
 - (IBAction)cancelBtnClick:(id)sender {

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ClientCompleteViewController.h"
 
 @interface ClientOrderDetailViewController : UIViewController
+
+@property (nonatomic, strong) NSDictionary *dataSource;
+
+@property (assign, nonatomic) OrderType type;
 
 @end
