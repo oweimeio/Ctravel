@@ -72,7 +72,7 @@
                              @"mustKnow":![Experience defaultExperience].mustKnow?@"":[Experience defaultExperience].mustKnow,
                              @"comment":![Experience defaultExperience].mark?@"":[Experience defaultExperience].mark,
                              @"requirement":![Experience defaultExperience].requirement?@"":[Experience defaultExperience].requirement,
-							 @"peopleNumber":!@(exVc.peopleCount)?@(5):@(exVc.peopleCount),
+							 @"peopleNumber": ![Experience defaultExperience].peopleCount ? exVc.peopleCount == 0 ? @(5) : @(exVc.peopleCount):@([Experience defaultExperience].peopleCount),
                              @"defaultStartTime":![Experience defaultExperience].defaultTimeStart ? exVc.defaultTimeStart : [Experience defaultExperience].defaultTimeStart ,
                              @"defaultEndTime":![Experience defaultExperience].defaultTimeEnd ?exVc.defaultTimeEnd :[Experience defaultExperience].defaultTimeEnd,
                              @"currencyType":![Experience defaultExperience].currencyType ? @"RMB" : [Experience defaultExperience].currencyType,

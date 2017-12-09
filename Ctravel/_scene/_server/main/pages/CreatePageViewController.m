@@ -255,13 +255,6 @@
             [self.navigationController pushViewController: createVc animated:YES];
         }   break;
         case CommonDesTypeTime: {
-            experience.peopleCount = [self.writeTextView.text integerValue];
-            createVc.info = @{@"title":@"您的体验一次最多允许多少位参加者加入？",@"showTip":@"点击进一步了解更多资讯",@"progress":@"0.7"};
-            createVc.style = CreatPageStyleWrite;
-            createVc.type = CommonDesTypePeopleCount;
-            [self.navigationController pushViewController: createVc animated:YES];
-        }   break;
-        case CommonDesTypePeopleCount: {
             if ([self.startTimeBtn.titleLabel.text isEqualToString:@"选择开始时间"]) {
                 [SVProgressHUD showErrorWithStatus:@"请选择默认开始时间"];
                 return;
@@ -270,8 +263,14 @@
                 [SVProgressHUD showErrorWithStatus:@"请选择默认结束时间"];
                 return;
             }
+            createVc.info = @{@"title":@"您的体验一次最多允许多少位参加者加入？",@"showTip":@"点击进一步了解更多资讯",@"progress":@"0.7"};
+            createVc.style = CreatPageStyleWrite;
+            createVc.type = CommonDesTypePeopleCount;
+            [self.navigationController pushViewController: createVc animated:YES];
+        }   break;
+        case CommonDesTypePeopleCount: {
+            experience.peopleCount = [self.writeContentTextField.text integerValue];
             TakePhotoViewController *photoVc = [TakePhotoViewController new];
-            
             [self.navigationController pushViewController: photoVc animated:YES];
         }   break;
         case CommonDesTypePic: {
@@ -425,6 +424,11 @@
 			if (experience.defaultTimeEnd) {
 				[_endTimeBtn setTitle:experience.defaultTimeEnd forState:UIControlStateNormal];
 			}
+        }   break;
+        case CommonDesTypePeopleCount: {
+            _writeContentTextField.text = [NSString stringWithFormat:@"%zi", experience.peopleCount];
+            _writeContentTextField.placeholder = @"请输入人数";
+            _writeContentTextField.keyboardType = UIKeyboardTypeNumberPad;
         }   break;
         case CommonDesTypePic: {
 			//在照片页面设置
