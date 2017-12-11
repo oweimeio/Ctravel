@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum : NSUInteger {
-	OrderTypeCompleted,
-	OrderTypeFuture
-} OrderType;
+#import "PreHeader.h"
 
 @interface ServerOrderHistoryListViewController : UIViewController
 

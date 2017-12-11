@@ -8,7 +8,6 @@
 
 #import "ClientCompleteViewController.h"
 #import "ClientOrderCell.h"
-#import "PreHeader.h"
 
 @interface ClientCompleteViewController ()
 
@@ -97,6 +96,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ClientOrderDetailViewController *detailVc = [[ClientOrderDetailViewController alloc] init];
+    __weak NSDictionary *dic = self.dataSource[indexPath.row];
+    detailVc.dataSource = dic;
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 

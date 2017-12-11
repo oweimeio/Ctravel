@@ -20,6 +20,12 @@
 //    AppTypeClient = 1,
 //    AppTypeServer = 2,
 //};
+
+typedef enum : NSUInteger {
+    OrderTypeCompleted,
+    OrderTypeFuture
+} OrderType;
+
 //融云appkey
 FOUNDATION_EXPORT NSString *const RYAppKey;
 FOUNDATION_EXPORT NSString *const RYAppSecret;

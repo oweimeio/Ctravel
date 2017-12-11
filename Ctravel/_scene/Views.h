@@ -15,6 +15,7 @@
 #import "ClientMsgViewController.h"
 #import "ClientOrderViewController.h"
 #import "ClientProfileViewController.h"
+#import "ClientOrderDetailViewController.h"
 
 #import "LoginChooseViewController.h"
 #import "LoginViewController.h"

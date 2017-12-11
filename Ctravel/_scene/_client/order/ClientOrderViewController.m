@@ -10,7 +10,6 @@
 #import "ClientOrderCell.h"
 #import "ClientOrderListViewController.h"
 #import "PreHeader.h"
-#import "ClientOrderDetailViewController.h"
 
 @interface ClientOrderViewController ()
 
