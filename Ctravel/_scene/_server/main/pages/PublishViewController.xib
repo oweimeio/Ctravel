@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,6 +14,7 @@
                 <outlet property="desLabel" destination="LnU-8n-Wmr" id="aTo-zG-3wZ"/>
                 <outlet property="photoView" destination="y5R-XC-mUm" id="5Bv-Md-gIv"/>
                 <outlet property="preViewBtn" destination="6tp-qp-7qA" id="eAo-dD-2vg"/>
+                <outlet property="progressView" destination="bbZ-7M-tOm" id="6QY-oJ-SVD"/>
                 <outlet property="publishBtn" destination="ZM9-oR-0Ob" id="5t1-M3-eJK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -44,11 +44,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tp-qp-7qA">
-                    <rect key="frame" x="20" y="579.5" width="147.5" height="47.5"/>
+                    <rect key="frame" x="20" y="587" width="90" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="147.5" id="5Jv-42-ggL"/>
-                        <constraint firstAttribute="width" secondItem="6tp-qp-7qA" secondAttribute="height" multiplier="140:45" id="dSv-Bg-4Gw"/>
+                        <constraint firstAttribute="width" constant="90" id="5Jv-42-ggL"/>
+                        <constraint firstAttribute="height" constant="40" id="VxO-bJ-haK"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="预览">
                         <color key="titleColor" red="0.095196895300000001" green="0.5627550483" blue="0.70894265170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -57,8 +58,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZM9-oR-0Ob">
-                    <rect key="frame" x="208" y="579.5" width="147.5" height="47.5"/>
+                    <rect key="frame" x="265" y="587" width="90" height="40"/>
                     <color key="backgroundColor" red="0.094117647060000004" green="0.56470588239999997" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="发布">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -76,13 +78,11 @@
                 <constraint firstItem="ZM9-oR-0Ob" firstAttribute="width" secondItem="6tp-qp-7qA" secondAttribute="width" id="4cm-GC-9RU"/>
                 <constraint firstItem="y5R-XC-mUm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-60" id="783-wD-Dnu"/>
                 <constraint firstAttribute="bottom" secondItem="6tp-qp-7qA" secondAttribute="bottom" constant="40" id="8Ez-sN-dOk"/>
-                <constraint firstItem="6tp-qp-7qA" firstAttribute="width" secondItem="6tp-qp-7qA" secondAttribute="height" multiplier="140:45" id="9dQ-l1-gSV"/>
                 <constraint firstItem="LnU-8n-Wmr" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-60" id="Fcd-YR-jX0"/>
                 <constraint firstItem="8bZ-vh-mIU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="IIi-qD-b07"/>
                 <constraint firstItem="LnU-8n-Wmr" firstAttribute="leading" secondItem="y5R-XC-mUm" secondAttribute="trailing" constant="20" id="IoV-5j-Tl1"/>
                 <constraint firstItem="6tp-qp-7qA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="RgM-8h-GYY"/>
                 <constraint firstAttribute="trailing" secondItem="ZM9-oR-0Ob" secondAttribute="trailing" constant="20" id="U5h-es-nPt"/>
-                <constraint firstItem="ZM9-oR-0Ob" firstAttribute="leading" secondItem="6tp-qp-7qA" secondAttribute="trailing" constant="40" id="Yya-8d-3Da"/>
                 <constraint firstItem="ZM9-oR-0Ob" firstAttribute="height" secondItem="6tp-qp-7qA" secondAttribute="height" id="bGX-cY-a4C"/>
                 <constraint firstItem="y5R-XC-mUm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="d1L-QS-GSo"/>
                 <constraint firstItem="bbZ-7M-tOm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="d3e-IZ-IkC"/>

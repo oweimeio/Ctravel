@@ -19,6 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *preViewBtn;
 
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @end
 
 @implementation PublishViewController
@@ -33,10 +34,11 @@
 	Experience *exMem = [Experience getExperienceDataWithUID:[User sharedUser].userId];
 
     [self.photoView setImageWithURLString:!exMem.imageUrl_main?ex.imageUrl_main:exMem.imageUrl_main andPlaceholderNamed:@"placeholder-none"];
-    self.desLabel.text = [NSString stringWithFormat:@"￥%.0f\n%@\n 时间:%@-%@",ex.price, !ex.contentDes?@"":ex.contentDes,!ex.defaultTimeStart?exMem.defaultTimeStart:ex.defaultTimeStart,!ex.defaultTimeEnd?exMem.defaultTimeEnd:ex.defaultTimeEnd];
+    self.desLabel.text = [NSString stringWithFormat:@"￥%.0f ·%@\n·%@-%@ ·%@\n ",ex.price, !exMem.title ?ex.title : exMem.title,!ex.defaultTimeStart?exMem.defaultTimeStart:ex.defaultTimeStart,!ex.defaultTimeEnd?exMem.defaultTimeEnd:ex.defaultTimeEnd, !ex.contentDes?@"":ex.contentDes];
     
     if ([User sharedUser].getUserData.isPublished) {
         _publishBtn.hidden = YES;
+        _progressView.hidden = YES;
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"注销" style:UIBarButtonItemStylePlain handler:^(id sender) {
             User *user = [User sharedUser];
             user.isPublished = NO;

@@ -23,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.imageView setImageWithURLString:[_dataSource[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
-    _desLabel.text = [NSString stringWithFormat:@"标题：%@\n达人：%@%@\n体验类型：%@\n描述：%@\n",_dataSource[@"title"],!_dataSource[@"familyName"]?@"":_dataSource[@"familyName"],!_dataSource[@"firstName"]?@"":_dataSource[@"firstName"],!_dataSource[@"serviceName"]?@"":_dataSource[@"serviceName"], !_dataSource[@"contentDescription"]?@"":_dataSource[@"contentDescription"]];
+    _desLabel.text = [NSString stringWithFormat:@"%@\n达人：%@%@\n体验类型：%@\n描述：%@\n",_dataSource[@"title"],!_dataSource[@"familyName"]?@"":_dataSource[@"familyName"],!_dataSource[@"firstName"]?@"":_dataSource[@"firstName"],!_dataSource[@"serviceName"]?@"":_dataSource[@"serviceName"], !_dataSource[@"contentDescription"]?@"":_dataSource[@"contentDescription"]];
     self.dateLabel.text = _date;
     self.priceLabel.text = [NSString stringWithFormat:@"￥%.0f",[_dataSource[@"price"] floatValue]];
 }

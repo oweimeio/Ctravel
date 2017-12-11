@@ -90,6 +90,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     EvaluationCell *cell = [tableView dequeueReusableCellWithIdentifier:EvaluationCellIdentifier forIndexPath:indexPath];
 	__weak NSDictionary *dic = self.dataSource[indexPath.row];
+    [cell.avatarImageView setImageWithURLString:dic[@""] andPlaceholderNamed:@"defaultHeadImage"];
+    cell.nameLabel.text = dic[@""];
 	cell.dateTime.text = [[NSDate dateWithTimeIntervalSince1970:[dic[@"createTime"] doubleValue]/1000] stringWithFormat:@"yyyy-MM-dd" andTimezone:SHANGHAI];;
 	cell.contentLabel.text = [NSString stringWithFormat:@"评论内容：%@",dic[@"commentContent"]];
     return cell;
