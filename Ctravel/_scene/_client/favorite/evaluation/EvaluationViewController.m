@@ -55,7 +55,7 @@
 							@"customerId":[User sharedUser].userId,
 							@"page":paging ? @(self.dataSource.count / pageSize + 1) : @1,
 							@"rows":@(pageSize),
-							@"experienceId":self.expId
+							@"experienceId":!self.expId ? @"": self.expId
 							};
 	[[CoreAPI core] GETURLString:@"/comment/conditionQuery" withParameters:param success:^(id ret) {
 		NSLog(@"%@",ret);

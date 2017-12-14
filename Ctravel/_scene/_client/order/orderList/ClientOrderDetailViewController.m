@@ -59,8 +59,6 @@
     _btnStatus = status;
     switch (status) {
         case 0: //未完成
-            [_cancelBtn setTitle:@"取消预定" forState:UIControlStateNormal];
-            break;
         case 1://待支付
             [_cancelBtn setTitle:@"取消预定" forState:UIControlStateNormal];
             break;
@@ -74,16 +72,18 @@
 
 - (IBAction)cancelBtnClick:(id)sender {
     //取消或发表评论
-
     switch (_btnStatus) {
-        case 0:{ //未完成
-            
-        }   break;
-        case 1: {//待支付
-            
-        }   break;
+        case 0: //未完成
+        case 1: //待支付
+			
+			[SVProgressHUD showSuccessWithStatus:@"取消预订"];
+            break;
         case 2: {//已完成
-        
+			HelpViewController *helpVc = [HelpViewController new];
+			helpVc.type = CommentTypeForOrder;
+			helpVc.serverCustomerId = _dataSource[@"customerId"];
+			helpVc.experienceId = _dataSource[@"experienceId"];
+			[self.navigationController pushViewController:helpVc animated:YES];
         } break;
         default:
             break;

@@ -21,6 +21,7 @@
 #import "LoginViewController.h"
 
 #import "FavDetailViewController.h"
+#import "EvaluationViewController.h"
 
 #import "ServerMainViewController.h"
 #import "DateViewController.h"
@@ -32,5 +33,6 @@
 #import "IDValidViewController.h"
 #import "PreViewViewController.h"
 #import "PublishViewController.h"
+#import "HelpViewController.h"
 
 #endif /* Views_h */

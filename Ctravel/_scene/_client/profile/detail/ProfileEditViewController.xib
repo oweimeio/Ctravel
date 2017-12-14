@@ -23,6 +23,7 @@
                 <outlet property="nameTextField" destination="n1e-bi-Dtk" id="F8D-Hu-50L"/>
                 <outlet property="positionTextField" destination="SfG-mD-LCD" id="8qi-MP-XaG"/>
                 <outlet property="schoolTextField" destination="pcJ-b4-iEE" id="Wuv-OG-1nQ"/>
+                <outlet property="validIDBtn" destination="rHk-Cw-W36" id="hal-XZ-bFy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -279,7 +280,7 @@
                                         <constraint firstAttribute="height" constant="1" id="yhF-Pr-yR0"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="位置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLy-uW-CoQ">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLy-uW-CoQ">
                                     <rect key="frame" x="20" y="12" width="29" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

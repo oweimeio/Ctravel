@@ -10,6 +10,4 @@
 
 @interface ProfileEditViewController : UIViewController
 
-@property (nonatomic, strong) NSDictionary *dataSource;
-
 @end

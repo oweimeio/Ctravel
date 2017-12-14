@@ -50,8 +50,9 @@
 }
 
 - (IBAction)helpViewPress:(id)sender {
-    [self.navigationController pushViewController:[HelpViewController new
-                                                   ] animated:YES];
+	HelpViewController *helpVc = [HelpViewController new];
+	helpVc.type = CommentTypeForPlatform;
+    [self.navigationController pushViewController:helpVc animated:YES];
 }
 
 - (IBAction)masterViewPress:(id)sender {

@@ -98,8 +98,8 @@
 		self.bornDate = [coder decodeObjectForKey:@"self.bornDate"];
         self.phone = [coder decodeObjectForKey:@"self.phone"];
         self.avatarUrl = [coder decodeObjectForKey:@"self.avatarUrl"];
-        self.city = [coder decodeObjectForKey:@"self.avatarUrl"];
-        self.registerTime = [coder decodeObjectForKey:@"self.avatarUrl"];
+        self.city = [coder decodeObjectForKey:@"self.city"];
+        self.registerTime = [coder decodeObjectForKey:@"self.registerTime"];
         self.about = [coder decodeObjectForKey:@"self.about"];
         self.language = [coder decodeObjectForKey:@"self.language"];
         self.school = [coder decodeObjectForKey:@"self.school"];

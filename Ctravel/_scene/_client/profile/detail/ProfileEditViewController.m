@@ -35,6 +35,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *emalTextField;
 
+@property (weak, nonatomic) IBOutlet UIButton *validIDBtn;
 @end
 
 @implementation ProfileEditViewController
@@ -42,8 +43,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"保存" style:UIBarButtonItemStylePlain handler:^(id sender) {
-        User *user = [User sharedUser];
+        User *user = [[User sharedUser] getUserData];
         user.firstName = self.nameTextField.text;
         user.familyName = self.familyNameTextField.text;
 		user.about = self.aboutTextField.text;
@@ -169,6 +171,7 @@
 	[self.avatarImageView setImageWithURLString:user.avatarUrl andPlaceholderNamed:@"placeholder-none"];
 	self.nameTextField.text = user.firstName;
 	self.familyNameTextField.text = user.familyName;
+	self.aboutTextField.text = user.about;
 	[self.genderBtn setTitle:user.gender == 1 ? @"男" : @"女" forState:UIControlStateNormal];
 	[self.bornDateBtn setTitle:user.bornDate forState:UIControlStateNormal];
 	self.positionTextField.text = user.city;
@@ -176,6 +179,9 @@
 	self.jobTextField.text = user.job;
 	self.languageTextField.text = user.language;
 	self.emalTextField.text = user.email;
+	if (user.isServer) {
+		[self.validIDBtn setTitle:@"已验证" forState:UIControlStateNormal];
+	}
 }
 
 - (void)saveUserInfo {

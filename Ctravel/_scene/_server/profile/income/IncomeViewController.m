@@ -33,7 +33,18 @@
 }
 
 - (void)requestIncomeData {
-	_totalIncomeLabel.text = @"0元";
+	NSDictionary *params = @{
+							 @"customerId": [User sharedUser].userId
+							 };
+	[[CoreAPI core] GETURLString:@"/pay/sum" withParameters:params success:^(id ret) {
+		NSLog(@"123123123:%@",ret);
+		_totalIncomeLabel.text = [NSString stringWithFormat:@"￥%zi元", [ret[@"sum"] integerValue]] ;
+	} error:^(NSString *code, NSString *msg, id ret) {
+		[SVProgressHUD showErrorWithStatus:msg];
+	} failure:^(NSError *error) {
+		[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+	}];
+	
 }
 
 - (void)didReceiveMemoryWarning {
