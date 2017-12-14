@@ -46,7 +46,7 @@
     self.exHaveLabel.text = dataSource[@"contentDetails"];
     self.remarkLabel.text = dataSource[@"comment"];
     self.masterRegulationsLabel.text = dataSource[@"requirement"];
-    self.exPeopleCount.text = dataSource[@"peopleNumber"];
+    self.exPeopleCount.text = [NSString stringWithFormat:@"只有%@个名额",dataSource[@"peopleNumber"]];
     self.moneyLabel.text = [NSString stringWithFormat:@"￥%.0f",[dataSource[@"price"] floatValue]];
   
 }
