@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,10 +17,11 @@
                 <outlet property="exHaveLabel" destination="Ccp-ue-3UG" id="ZyX-aD-jDu"/>
                 <outlet property="exPeopleCount" destination="Cop-vn-h3J" id="dus-uE-6cQ"/>
                 <outlet property="goWhereLabel" destination="h3o-Zx-JMz" id="OJ3-47-HeV"/>
+                <outlet property="imgScrollView" destination="MGu-nP-kJK" id="qaX-EX-5ye"/>
                 <outlet property="masterRegulationsLabel" destination="LYO-kH-sgU" id="f8z-VA-DvG"/>
                 <outlet property="meetPointLabel" destination="3Av-CH-50j" id="3cd-jw-DZu"/>
-                <outlet property="picImageView" destination="rsU-Q6-RGB" id="ps9-bR-VcG"/>
                 <outlet property="remarkLabel" destination="1Ip-8C-fq7" id="3Cz-Dw-8OG"/>
+                <outlet property="scrollView" destination="9sJ-wP-P08" id="4pF-Nn-vTZ"/>
                 <outlet property="simpleDesLabel" destination="pH4-l4-zu9" id="CGJ-YG-GXm"/>
                 <outlet property="titleLabel" destination="cBY-up-Aql" id="Its-Om-4tC"/>
                 <outlet property="view" destination="EKv-ay-5Ag" id="35c-Zy-IEV"/>
@@ -34,13 +35,12 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9sJ-wP-P08">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="1490"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rsU-Q6-RGB">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGu-nP-kJK">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="428.5"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="rsU-Q6-RGB" secondAttribute="height" multiplier="7:8" id="a07-2P-t0F"/>
-                                <constraint firstAttribute="height" constant="428.5" id="q1P-9Y-Qg0"/>
+                                <constraint firstAttribute="width" secondItem="MGu-nP-kJK" secondAttribute="height" multiplier="7:8" id="cqY-3R-jzX"/>
                             </constraints>
-                        </imageView>
+                        </scrollView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNA-LY-gMv">
                             <rect key="frame" x="0.0" y="428.5" width="375" height="150"/>
                             <subviews>
@@ -378,32 +378,32 @@ Label</string>
                         <constraint firstItem="ZCE-if-Jgo" firstAttribute="top" secondItem="fYj-z1-KnU" secondAttribute="bottom" id="3IB-rD-Wke"/>
                         <constraint firstAttribute="trailing" secondItem="EUj-gS-UiI" secondAttribute="trailing" id="7A8-qq-nxv"/>
                         <constraint firstItem="jeS-rm-jZO" firstAttribute="top" secondItem="8lm-ou-OLp" secondAttribute="bottom" id="85d-7f-wcV"/>
+                        <constraint firstItem="MGu-nP-kJK" firstAttribute="top" secondItem="9sJ-wP-P08" secondAttribute="top" id="8b9-rR-7cY"/>
+                        <constraint firstItem="MGu-nP-kJK" firstAttribute="width" secondItem="9sJ-wP-P08" secondAttribute="width" id="D2H-Ny-YoN"/>
+                        <constraint firstItem="xNA-LY-gMv" firstAttribute="top" secondItem="MGu-nP-kJK" secondAttribute="bottom" id="Dae-ai-aXm"/>
                         <constraint firstItem="lxc-oK-rZf" firstAttribute="leading" secondItem="9sJ-wP-P08" secondAttribute="leading" id="ENC-ha-0Y6"/>
                         <constraint firstItem="xNA-LY-gMv" firstAttribute="leading" secondItem="9sJ-wP-P08" secondAttribute="leading" id="ErH-w3-ybU"/>
                         <constraint firstItem="ZCE-if-Jgo" firstAttribute="leading" secondItem="9sJ-wP-P08" secondAttribute="leading" id="FTy-at-ziR"/>
-                        <constraint firstAttribute="trailing" secondItem="rsU-Q6-RGB" secondAttribute="trailing" id="HqZ-pg-ntf"/>
                         <constraint firstItem="EUj-gS-UiI" firstAttribute="top" secondItem="lxc-oK-rZf" secondAttribute="bottom" id="IlU-66-LWZ"/>
                         <constraint firstAttribute="trailing" secondItem="ZCE-if-Jgo" secondAttribute="trailing" id="L7G-Wz-qIL"/>
                         <constraint firstAttribute="trailing" secondItem="xNA-LY-gMv" secondAttribute="trailing" id="Ran-BN-jZK"/>
                         <constraint firstAttribute="trailing" secondItem="lxc-oK-rZf" secondAttribute="trailing" id="TIr-P6-cJp"/>
                         <constraint firstItem="fYj-z1-KnU" firstAttribute="top" secondItem="xNA-LY-gMv" secondAttribute="bottom" id="Teo-iU-S52"/>
+                        <constraint firstItem="MGu-nP-kJK" firstAttribute="leading" secondItem="9sJ-wP-P08" secondAttribute="leading" id="Tnm-en-E25"/>
                         <constraint firstItem="fYj-z1-KnU" firstAttribute="leading" secondItem="9sJ-wP-P08" secondAttribute="leading" id="Un7-0T-C22"/>
                         <constraint firstItem="8lm-ou-OLp" firstAttribute="leading" secondItem="9sJ-wP-P08" secondAttribute="leading" id="WYI-sW-4mj"/>
                         <constraint firstItem="OhT-z1-PmC" firstAttribute="leading" secondItem="9sJ-wP-P08" secondAttribute="leading" id="YjB-6y-pZ5"/>
+                        <constraint firstAttribute="trailing" secondItem="MGu-nP-kJK" secondAttribute="trailing" id="a1w-6a-THM"/>
                         <constraint firstItem="jeS-rm-jZO" firstAttribute="leading" secondItem="9sJ-wP-P08" secondAttribute="leading" id="bnE-1Y-1d3"/>
                         <constraint firstItem="OhT-z1-PmC" firstAttribute="top" secondItem="jeS-rm-jZO" secondAttribute="bottom" id="dIW-hQ-bJf"/>
                         <constraint firstItem="vWb-MI-pTD" firstAttribute="top" secondItem="9sJ-wP-P08" secondAttribute="top" constant="8" id="eAy-bJ-0VV"/>
                         <constraint firstAttribute="trailing" secondItem="OhT-z1-PmC" secondAttribute="trailing" id="fdG-9n-bKn"/>
                         <constraint firstAttribute="bottom" secondItem="OhT-z1-PmC" secondAttribute="bottom" id="gX2-Ot-ehg"/>
-                        <constraint firstItem="rsU-Q6-RGB" firstAttribute="leading" secondItem="9sJ-wP-P08" secondAttribute="leading" id="hRh-ay-APb"/>
                         <constraint firstItem="8lm-ou-OLp" firstAttribute="top" secondItem="EUj-gS-UiI" secondAttribute="bottom" id="iTX-JE-7l2"/>
-                        <constraint firstItem="xNA-LY-gMv" firstAttribute="top" secondItem="rsU-Q6-RGB" secondAttribute="bottom" id="lKX-cZ-iUB"/>
                         <constraint firstAttribute="trailing" secondItem="jeS-rm-jZO" secondAttribute="trailing" id="r6M-Jg-5Ut"/>
                         <constraint firstItem="EUj-gS-UiI" firstAttribute="leading" secondItem="9sJ-wP-P08" secondAttribute="leading" id="sHt-io-HVj"/>
-                        <constraint firstItem="rsU-Q6-RGB" firstAttribute="top" secondItem="9sJ-wP-P08" secondAttribute="top" id="tIq-4W-KXD"/>
                         <constraint firstItem="lxc-oK-rZf" firstAttribute="top" secondItem="ZCE-if-Jgo" secondAttribute="bottom" id="tsD-EU-rAl"/>
                         <constraint firstAttribute="trailing" secondItem="fYj-z1-KnU" secondAttribute="trailing" id="v13-rY-5XY"/>
-                        <constraint firstItem="rsU-Q6-RGB" firstAttribute="width" secondItem="9sJ-wP-P08" secondAttribute="width" id="yWb-zC-9IF"/>
                         <constraint firstAttribute="trailing" secondItem="8lm-ou-OLp" secondAttribute="trailing" id="zhP-gE-7wH"/>
                     </constraints>
                 </scrollView>

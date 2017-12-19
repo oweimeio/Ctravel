@@ -24,8 +24,7 @@
 
 - (void)setDataSource:(NSDictionary *)dataSource {
     _dataSource = dataSource;
-    
-    [self.picImageView setImageWithURLString:[dataSource[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
+
     [self.avatarImageView setImageWithURLString:dataSource[@"headImg"] andPlaceholderNamed:@"defaultHeadImage"];
     self.simpleDesLabel.text = [NSString stringWithFormat:@"达人：%@%@\n体验类型：%@\n描述：%@\n",!dataSource[@"familyName"]?@"":dataSource[@"familyName"],!dataSource[@"firstName"]?@"":dataSource[@"firstName"],!dataSource[@"serviceName"]?@"":dataSource[@"serviceName"], !dataSource[@"contentDescription"]?@"":dataSource[@"contentDescription"]];
     self.exContentLabel.text = dataSource[@"contentDetails"];
@@ -54,6 +53,21 @@
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.translucent = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSArray *picArr = [_dataSource[@"imageUrl"] componentsSeparatedByString:@","];
+    if (picArr.length > 0) {
+        CGRect scFrame = self.imgScrollView.bounds;
+        self.imgScrollView.contentSize = CGSizeMake(scFrame.size.width * picArr.length, scFrame.size.height);
+        for (int i = 0; i < picArr.count; i++) {
+            UIImageView *img = [[UIImageView alloc] init];
+            img.frame = CGRectMake(scFrame.origin.x + i * scFrame.size.width, 0, scFrame.size.width, scFrame.size.height);
+            [img setImageWithURLString:picArr[i] andPlaceholderNamed:@"placeholder-none"];
+            [self.imgScrollView addSubview:img];
+        }
+    }
 }
 
 //MARK: - ACTION

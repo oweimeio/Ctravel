@@ -34,7 +34,7 @@
 	Experience *exMem = [Experience getExperienceDataWithUID:[User sharedUser].userId];
 
     [self.photoView setImageWithURLString:!exMem.imageUrl_main?ex.imageUrl_main:exMem.imageUrl_main andPlaceholderNamed:@"placeholder-none"];
-    self.desLabel.text = [NSString stringWithFormat:@"￥%.0f\n·%@\n·%@-%@",ex.price, !exMem.title ?ex.title : exMem.title,!ex.defaultTimeStart?exMem.defaultTimeStart:ex.defaultTimeStart,!ex.defaultTimeEnd?exMem.defaultTimeEnd:ex.defaultTimeEnd];
+    self.desLabel.text = [NSString stringWithFormat:@"￥%.0f ·%@ ·%@-%@",ex.price, !exMem.title ?ex.title : exMem.title,!ex.defaultTimeStart?exMem.defaultTimeStart:ex.defaultTimeStart,!ex.defaultTimeEnd?exMem.defaultTimeEnd:ex.defaultTimeEnd];
     
     if ([User sharedUser].getUserData.isPublished) {
         _publishBtn.hidden = YES;

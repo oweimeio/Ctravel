@@ -17,7 +17,7 @@
     NSString *serviceDate;
 }
 
-@property (nonatomic)CGSize headerDefaultSize;
+//@property (nonatomic)CGSize headerDefaultSize;
 
 @property (assign, nonatomic) BOOL isHideStatusBar;
 
@@ -34,21 +34,24 @@
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSArray *picArr = [_dataSource[@"imageUrl"] componentsSeparatedByString:@","];
+    if (picArr.length > 0) {
+        CGRect scFrame = self.imgScrollView.bounds;
+        self.imgScrollView.contentSize = CGSizeMake(scFrame.size.width * picArr.length, scFrame.size.height);
+        for (int i = 0; i < picArr.count; i++) {
+            UIImageView *img = [[UIImageView alloc] init];
+            img.frame = CGRectMake(scFrame.origin.x + i * scFrame.size.width, 0, scFrame.size.width, scFrame.size.height);
+            [img setImageWithURLString:picArr[i] andPlaceholderNamed:@"placeholder-none"];
+            [self.imgScrollView addSubview:img];
+        }
+    }
+}
+
 - (void)setDataSource:(NSDictionary *)dataSource {
     _dataSource = dataSource;
     self.titleLabel.text = dataSource[@"title"];
-//    [self.picImageView setImageWithURLString:[dataSource[@"imageUrl"] componentsSeparatedByString:@","].firstObject andPlaceholderNamed:@"placeholder-none"];
-	NSArray *picArr = [dataSource[@"imageUrl"] componentsSeparatedByString:@","];
-	if (picArr.length > 0) {
-		CGRect scFrame = self.imgScrollView.bounds;
-		self.imgScrollView.contentSize = CGSizeMake(scFrame.size.width * picArr.length, scFrame.size.height);
-		for (int i = 0; i < picArr.count; i++) {
-			UIImageView *img = [[UIImageView alloc] init];
-			img.frame = CGRectMake(scFrame.origin.x + i * scFrame.size.width, 0, scFrame.size.width, scFrame.size.height);
-			[img setImageWithURLString:picArr[i] andPlaceholderNamed:@"placeholder-none"];
-			[self.imgScrollView addSubview:img];
-		}
-	}
     [self.avatarImageView setImageWithURLString:dataSource[@"headImg"] andPlaceholderNamed:@"defaultHeadImage"];
     self.simpleDesLabel.text = [NSString stringWithFormat:@"体验类型·%@\n体验达人·%@%@\n城市·%@\n%@",!dataSource[@"serviceName"]?@"":dataSource[@"serviceName"],!dataSource[@"familyName"]?@"":dataSource[@"familyName"],!dataSource[@"firstName"]?@"":dataSource[@"firstName"], !dataSource[@"city"]?@"":dataSource[@"city"],!dataSource[@"contentDescription"]?@"":dataSource[@"contentDescription"]];
     self.exContentLabel.text = dataSource[@"contentDetails"];
@@ -59,7 +62,6 @@
     self.masterRegulationsLabel.text = dataSource[@"requirement"];
     self.exPeopleCount.text = [NSString stringWithFormat:@"只有%@个名额",dataSource[@"peopleNumber"]];
     self.moneyLabel.text = [NSString stringWithFormat:@"￥%.0f",[dataSource[@"price"] floatValue]];
-  
 }
 
 - (void)viewDidLoad {
@@ -67,7 +69,7 @@
     // Do any additional setup after loading the view from its nib.
     [self setDataSource:_dataSource];
     
-    self.headerDefaultSize = self.picImageView.frame.size;
+//    self.headerDefaultSize = self.imgScrollView.frame.size;
 	
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"empty-heart"] style:UIBarButtonItemStyleDone handler:^(id sender) {
         //收藏或取消当前体验
