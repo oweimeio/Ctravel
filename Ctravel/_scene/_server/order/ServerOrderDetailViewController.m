@@ -27,6 +27,13 @@
 
 @implementation ServerOrderDetailViewController
 
+- (instancetype)init {
+	if (self = [super initWithNibName:@"ServerOrderDetailViewController" bundle:nil]) {
+		self.hidesBottomBarWhenPushed = YES;
+	}
+	return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
