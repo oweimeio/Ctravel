@@ -16,7 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *imgScrollView;
 
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UIButton *avatarBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *simpleDesLabel;
 

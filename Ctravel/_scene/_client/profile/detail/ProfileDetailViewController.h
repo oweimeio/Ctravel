@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+	profileTypeSelf,
+	profileTypeOthers,
+} profileType;
+
 @interface ProfileDetailViewController : UIViewController
+
+@property (assign, nonatomic) profileType type;
+
+@property (strong, nonatomic) NSString *customerId;
 
 @end

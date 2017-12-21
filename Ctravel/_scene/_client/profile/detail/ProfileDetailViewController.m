@@ -44,16 +44,27 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	[self setInfo];
+	if (_type == profileTypeOthers) {
+		[self requestUserInfo];
+	}
+	else {
+		[self setInfo];
+	}
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"编辑" style:UIBarButtonItemStyleDone handler:^(id sender) {
-        ProfileEditViewController *editVc = [ProfileEditViewController new];
-        [self.navigationController pushViewController:editVc animated:YES];
-    }];
+	
+	if (_type == profileTypeOthers) {
+		
+	}
+	else {
+		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"编辑" style:UIBarButtonItemStyleDone handler:^(id sender) {
+			ProfileEditViewController *editVc = [ProfileEditViewController new];
+			[self.navigationController pushViewController:editVc animated:YES];
+		}];
+	}
 }
 
 //查看评价
@@ -75,6 +86,36 @@
 	self.languageLabel.text = user.language;
 	self.schoolLabel.text = user.school;
 	self.jobLabel.text = user.job;
+}
+
+- (void)setInfoWithDic: (NSDictionary *)dic {
+	self.nameLabel.text = [NSString stringWithFormat:@"%@%@",dic[@"familyName"], dic[@"firstName"]];
+	self.validLabel.text = [NSString stringWithFormat:@"%@%@%@", @"电话号码",dic[@"isServer"]?@"·身份验证":@"", dic[@"email"]? @"·电子邮箱" :@""];
+	[self.avatarImageView setImageWithURLString:dic[@"headImg"] andPlaceholderNamed:@"defaultHeadImage"];
+	self.cityLabel.text = dic[@"area"];
+	self.createTimeLabel.text = [[NSDate dateWithTimeIntervalSince1970:[dic[@"createTime"] doubleValue]/1000] stringWithFormat:@"yyyy-MM-dd" andTimezone:SHANGHAI];
+	self.aboutLabel.text = dic[@"about"];
+	self.languageLabel.text = dic[@"language"];
+	self.schoolLabel.text = dic[@"school"];
+	self.jobLabel.text = dic[@"job"];
+}
+
+- (void)requestUserInfo {
+	if (!_customerId) {
+		NSLog(@"CUSTOMERID IS EMPTY");
+		return;
+	}
+	NSDictionary *param = @{
+							@"token":[User sharedUser].token,
+							@"customerId":_customerId
+							};
+	[[CoreAPI core] GETURLString:@"/customer" withParameters:param success:^(id ret) {
+		[self setInfoWithDic: ret[@"customerDetail"]];
+	} error:^(NSString *code, NSString *msg, id ret) {
+		[SVProgressHUD showErrorWithStatus:msg];
+	} failure:^(NSError *error) {
+		[SVProgressHUD showErrorWithStatus:HA_ERROR_NETWORKING_INVALID];
+	}];
 }
 
 - (void)didReceiveMemoryWarning {

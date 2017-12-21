@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavDetailViewController">
             <connections>
-                <outlet property="avatarImageView" destination="pWB-Cn-tEh" id="jyI-RF-e0F"/>
+                <outlet property="avatarBtn" destination="jJ9-fB-HbJ" id="YSE-yr-At8"/>
                 <outlet property="dateLabel" destination="Zxm-Pt-Y99" id="mhL-hB-Hfe"/>
                 <outlet property="exContentLabel" destination="en0-b4-Gbm" id="rU3-nA-lGZ"/>
                 <outlet property="exHaveLabel" destination="K7b-Ut-Q7h" id="sy9-5p-cCh"/>
@@ -48,19 +48,23 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wP-Vh-UXV">
                             <rect key="frame" x="0.0" y="428.5" width="375" height="150"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pWB-Cn-tEh">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJ9-fB-HbJ">
                                     <rect key="frame" x="40" y="62" width="60" height="60"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="c8U-nE-K9K"/>
-                                        <constraint firstAttribute="width" constant="60" id="sAq-xI-uuQ"/>
+                                        <constraint firstAttribute="width" constant="60" id="Ua6-CG-B3n"/>
+                                        <constraint firstAttribute="height" constant="60" id="kgW-GL-NQF"/>
                                     </constraints>
+                                    <state key="normal" image="defaultHeadImage"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="30"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
-                                </imageView>
+                                    <connections>
+                                        <action selector="avatarBtnClick:" destination="-1" eventType="touchUpInside" id="fAH-Tt-cvq"/>
+                                    </connections>
+                                </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzJ-Hi-9zS">
                                     <rect key="frame" x="20" y="149" width="335" height="1"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -68,12 +72,8 @@
                                         <constraint firstAttribute="height" constant="1" id="vsm-WD-eL2"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZ0-nS-gKk">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZ0-nS-gKk">
                                     <rect key="frame" x="140" y="50" width="215" height="84"/>
-                                    <string key="text">Label
-Label
-Label
-Label</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -92,21 +92,21 @@ Label</string>
                             <constraints>
                                 <constraint firstAttribute="height" constant="150" id="2CE-Ka-89b"/>
                                 <constraint firstAttribute="trailing" secondItem="MzJ-Hi-9zS" secondAttribute="trailing" constant="20" id="7HU-Ah-kjv"/>
-                                <constraint firstItem="bZ0-nS-gKk" firstAttribute="leading" secondItem="pWB-Cn-tEh" secondAttribute="trailing" constant="40" id="FvW-Sy-8Iv"/>
+                                <constraint firstItem="jJ9-fB-HbJ" firstAttribute="top" secondItem="WFa-xh-9px" secondAttribute="bottom" constant="20" id="GRq-KI-ur7"/>
                                 <constraint firstItem="MzJ-Hi-9zS" firstAttribute="leading" secondItem="2wP-Vh-UXV" secondAttribute="leading" constant="20" id="HiS-T7-JFi"/>
                                 <constraint firstItem="bZ0-nS-gKk" firstAttribute="top" secondItem="WFa-xh-9px" secondAttribute="bottom" constant="8" id="K8T-bQ-Ncj"/>
-                                <constraint firstItem="pWB-Cn-tEh" firstAttribute="leading" secondItem="2wP-Vh-UXV" secondAttribute="leading" constant="40" id="LPw-Bm-HyO"/>
+                                <constraint firstItem="bZ0-nS-gKk" firstAttribute="leading" secondItem="jJ9-fB-HbJ" secondAttribute="trailing" constant="40" id="MiA-Tz-XTW"/>
                                 <constraint firstItem="MzJ-Hi-9zS" firstAttribute="top" secondItem="bZ0-nS-gKk" secondAttribute="bottom" constant="15" id="NyF-2d-EdO"/>
                                 <constraint firstItem="WFa-xh-9px" firstAttribute="top" secondItem="2wP-Vh-UXV" secondAttribute="top" constant="12" id="fgP-Ae-x51"/>
                                 <constraint firstAttribute="trailing" secondItem="bZ0-nS-gKk" secondAttribute="trailing" constant="20" id="h8d-ne-JyC"/>
-                                <constraint firstItem="pWB-Cn-tEh" firstAttribute="top" secondItem="WFa-xh-9px" secondAttribute="bottom" constant="20" id="jSg-4J-60v"/>
                                 <constraint firstItem="WFa-xh-9px" firstAttribute="leading" secondItem="2wP-Vh-UXV" secondAttribute="leading" constant="12" id="l9p-xh-FxP"/>
+                                <constraint firstItem="jJ9-fB-HbJ" firstAttribute="leading" secondItem="2wP-Vh-UXV" secondAttribute="leading" constant="40" id="tvD-M3-xKN"/>
                                 <constraint firstAttribute="bottom" secondItem="MzJ-Hi-9zS" secondAttribute="bottom" id="vZF-eb-Z9P"/>
                                 <constraint firstAttribute="trailing" secondItem="WFa-xh-9px" secondAttribute="trailing" constant="12" id="w7W-P5-bHR"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXb-9d-23E">
-                            <rect key="frame" x="0.0" y="578.5" width="375" height="86.5"/>
+                            <rect key="frame" x="0.0" y="578.5" width="375" height="69.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0x-JL-5sd">
                                     <rect key="frame" x="20" y="20" width="65.5" height="19.5"/>
@@ -114,14 +114,14 @@ Label</string>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="en0-b4-Gbm">
-                                    <rect key="frame" x="20" y="59.5" width="335" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="en0-b4-Gbm">
+                                    <rect key="frame" x="20" y="59.5" width="335" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vxw-v4-BmE">
-                                    <rect key="frame" x="20" y="85.5" width="335" height="1"/>
+                                    <rect key="frame" x="20" y="68.5" width="335" height="1"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="lbt-LI-OUq"/>
@@ -142,7 +142,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4T2-gh-y3x">
-                            <rect key="frame" x="0.0" y="665" width="375" height="81.5"/>
+                            <rect key="frame" x="0.0" y="648" width="375" height="64.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我们要去何处" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGk-cZ-Rnj">
                                     <rect key="frame" x="20" y="20" width="98" height="19.5"/>
@@ -150,14 +150,14 @@ Label</string>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6d-bG-Qs0">
-                                    <rect key="frame" x="20" y="54.5" width="335" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6d-bG-Qs0">
+                                    <rect key="frame" x="20" y="54.5" width="335" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pu9-JX-hnA">
-                                    <rect key="frame" x="20" y="80.5" width="335" height="1"/>
+                                    <rect key="frame" x="20" y="63.5" width="335" height="1"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="uuS-A1-Wbp"/>
@@ -178,7 +178,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="020-bw-hsM">
-                            <rect key="frame" x="0.0" y="747" width="375" height="81.5"/>
+                            <rect key="frame" x="0.0" y="713" width="375" height="64.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="见面地点" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZq-v3-3P4">
                                     <rect key="frame" x="20" y="20" width="65.5" height="19.5"/>
@@ -186,21 +186,21 @@ Label</string>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czY-hD-H7q">
-                                    <rect key="frame" x="20" y="54.5" width="335" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czY-hD-H7q">
+                                    <rect key="frame" x="20" y="54.5" width="335" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rde-fr-Cyt" userLabel="Map View" customClass="MKMapView">
-                                    <rect key="frame" x="0.0" y="81" width="375" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="64" width="375" height="0.0"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" id="2gy-uP-KBT"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOR-bY-27f">
-                                    <rect key="frame" x="20" y="80.5" width="335" height="1"/>
+                                    <rect key="frame" x="20" y="63.5" width="335" height="1"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="LW1-B9-XEi"/>
@@ -224,7 +224,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slT-1U-1hX">
-                            <rect key="frame" x="0.0" y="828.5" width="375" height="81.5"/>
+                            <rect key="frame" x="0.0" y="777.5" width="375" height="64.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验包括的东西" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pj1-L6-zma">
                                     <rect key="frame" x="20" y="20" width="114.5" height="19.5"/>
@@ -232,14 +232,14 @@ Label</string>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7b-Ut-Q7h">
-                                    <rect key="frame" x="20" y="54.5" width="335" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7b-Ut-Q7h">
+                                    <rect key="frame" x="20" y="54.5" width="335" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cld-PQ-y03">
-                                    <rect key="frame" x="20" y="80.5" width="335" height="1"/>
+                                    <rect key="frame" x="20" y="63.5" width="335" height="1"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="UHi-UH-Vml"/>
@@ -260,7 +260,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obz-pm-j9C">
-                            <rect key="frame" x="0.0" y="910" width="375" height="81.5"/>
+                            <rect key="frame" x="0.0" y="842" width="375" height="64.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="备注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q34-d6-6Fr">
                                     <rect key="frame" x="20" y="20" width="33" height="19.5"/>
@@ -268,14 +268,14 @@ Label</string>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GL-tZ-i5J">
-                                    <rect key="frame" x="20" y="54.5" width="335" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GL-tZ-i5J">
+                                    <rect key="frame" x="20" y="54.5" width="335" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gg-pQ-uo8">
-                                    <rect key="frame" x="20" y="80.5" width="335" height="1"/>
+                                    <rect key="frame" x="20" y="63.5" width="335" height="1"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="GQt-Lx-wEF"/>
@@ -296,7 +296,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmH-tW-ocm">
-                            <rect key="frame" x="0.0" y="991.5" width="375" height="81.5"/>
+                            <rect key="frame" x="0.0" y="906.5" width="375" height="64.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="达人规定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdh-rg-DJJ">
                                     <rect key="frame" x="20" y="20" width="65.5" height="19.5"/>
@@ -304,14 +304,14 @@ Label</string>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qm-Fj-DS1">
-                                    <rect key="frame" x="20" y="54.5" width="335" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qm-Fj-DS1">
+                                    <rect key="frame" x="20" y="54.5" width="335" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKB-O7-X6p">
-                                    <rect key="frame" x="20" y="80.5" width="335" height="1"/>
+                                    <rect key="frame" x="20" y="63.5" width="335" height="1"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="TDc-WO-Fnu"/>
@@ -332,7 +332,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aB2-CH-tvf" customClass="UIControl">
-                            <rect key="frame" x="0.0" y="1073" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="971" width="375" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验达人可提供的活动日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxm-Pt-Y99">
                                     <rect key="frame" x="20" y="20.5" width="196" height="19.5"/>
@@ -371,7 +371,7 @@ Label</string>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sE-mJ-g1b">
-                            <rect key="frame" x="0.0" y="1133" width="375" height="81.5"/>
+                            <rect key="frame" x="0.0" y="1031" width="375" height="64.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验人数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Y1-Oo-6uu">
                                     <rect key="frame" x="20" y="20" width="65.5" height="19.5"/>
@@ -379,14 +379,14 @@ Label</string>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8j3-Oj-LDn">
-                                    <rect key="frame" x="20" y="54.5" width="335" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8j3-Oj-LDn">
+                                    <rect key="frame" x="20" y="54.5" width="335" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fC-sh-TCg">
-                                    <rect key="frame" x="20" y="80.5" width="335" height="1"/>
+                                    <rect key="frame" x="20" y="63.5" width="335" height="1"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="9dz-8c-5av"/>
@@ -407,7 +407,7 @@ Label</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jk1-e2-uQY" customClass="UIControl">
-                            <rect key="frame" x="0.0" y="1214.5" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="1095.5" width="375" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看评价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjP-64-zmK">
                                     <rect key="frame" x="20" y="20.5" width="65.5" height="19.5"/>
@@ -446,7 +446,7 @@ Label</string>
                             </connections>
                         </view>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Urb-8i-7fp" customClass="UIControl">
-                            <rect key="frame" x="0.0" y="1274.5" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="1155.5" width="375" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联络体验达人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J45-Wv-y5d">
                                     <rect key="frame" x="20" y="20.5" width="98" height="19.5"/>
@@ -615,6 +615,7 @@ Label</string>
         </searchDisplayController>
     </objects>
     <resources>
+        <image name="defaultHeadImage" width="149" height="150"/>
         <image name="nav-back" width="20" height="20"/>
         <image name="nav-right" width="13" height="13"/>
     </resources>

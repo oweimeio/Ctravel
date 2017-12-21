@@ -34,5 +34,6 @@
 #import "PreViewViewController.h"
 #import "PublishViewController.h"
 #import "HelpViewController.h"
+#import "ProfileDetailViewController.h"
 
 #endif /* Views_h */

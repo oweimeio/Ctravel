@@ -52,7 +52,7 @@
 - (void)setDataSource:(NSDictionary *)dataSource {
     _dataSource = dataSource;
     self.titleLabel.text = dataSource[@"title"];
-    [self.avatarImageView setImageWithURLString:dataSource[@"headImg"] andPlaceholderNamed:@"defaultHeadImage"];
+	[self.avatarBtn setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:dataSource[@"headImg"]] placeholderImage:[UIImage imageNamed:@"defaultHeadImage"]];
     self.simpleDesLabel.text = [NSString stringWithFormat:@"体验类型·%@\n体验达人·%@%@\n城市·%@\n%@",!dataSource[@"serviceName"]?@"":dataSource[@"serviceName"],!dataSource[@"familyName"]?@"":dataSource[@"familyName"],!dataSource[@"firstName"]?@"":dataSource[@"firstName"], !dataSource[@"city"]?@"":dataSource[@"city"],!dataSource[@"contentDescription"]?@"":dataSource[@"contentDescription"]];
     self.exContentLabel.text = dataSource[@"contentDetails"];
     self.goWhereLabel.text = dataSource[@"destination"];
@@ -131,6 +131,13 @@
 }
 
 //MARK: - ACTION
+- (IBAction)avatarBtnClick:(id)sender {
+	ProfileDetailViewController *profileVc = [ProfileDetailViewController new];
+	profileVc.type = profileTypeOthers;
+	profileVc.customerId = _dataSource[@"customerId"];
+	[self.navigationController pushViewController:profileVc animated:YES];
+}
+
 
 - (IBAction)navBackBtnClick:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -192,11 +199,29 @@
     scrollView.bounces = (scrollView.contentOffset.y <= 100) ? NO : YES;
 
     if (self.scrollView.contentOffset.y > 40) {
-        self.navigationController.navigationBar.translucent = NO;
+		self.navigationController.navigationBar.translucent = NO;
     }
     else {
-        self.navigationController.navigationBar.translucent = YES;
+		self.navigationController.navigationBar.translucent = YES;
     }
+}
+
+- (void)setNeedsNavigationBackground:(CGFloat)alpha {
+	// 导航栏背景透明度设置
+	UIView *barBackgroundView = [[self.navigationController.navigationBar subviews] objectAtIndex:0];// _UIBarBackground
+	UIImageView *backgroundImageView = [[barBackgroundView subviews] objectAtIndex:0];// UIImageView
+	if (self.navigationController.navigationBar.isTranslucent) {
+		if (backgroundImageView != nil && backgroundImageView.image != nil) {
+			barBackgroundView.alpha = alpha;
+		} else {
+			UIView *backgroundEffectView = [[barBackgroundView subviews] objectAtIndex:1];// UIVisualEffectView
+			if (backgroundEffectView != nil) {
+				backgroundEffectView.alpha = alpha;
+			}
+		}
+	} else {
+		barBackgroundView.alpha = alpha;
+	}
 }
 
 

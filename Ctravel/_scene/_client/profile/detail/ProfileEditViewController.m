@@ -36,6 +36,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *emalTextField;
 
 @property (weak, nonatomic) IBOutlet UIButton *validIDBtn;
+
+@property (strong, nonatomic) NSString *avatarImgUrl;
+
 @end
 
 @implementation ProfileEditViewController
@@ -46,6 +49,7 @@
 	
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"保存" style:UIBarButtonItemStylePlain handler:^(id sender) {
         User *user = [[User sharedUser] getUserData];
+		user.avatarUrl = self.avatarImgUrl;
         user.firstName = self.nameTextField.text;
         user.familyName = self.familyNameTextField.text;
 		user.about = self.aboutTextField.text;
@@ -85,7 +89,7 @@
 			
 		} success:^(id ret) {
 			[_avatarImageView setImageWithURLString:ret[@"url"] andPlaceholderNamed:@"placeholder-none"];
-			[User sharedUser].avatarUrl = ret[@"url"];
+			_avatarImgUrl = ret[@"url"];
 			[SVProgressHUD showSuccessWithFormatStatus:@"上传成功"];
 			
 		} apierror:^(NSString *code, NSString *msg, id ret) {
@@ -140,7 +144,7 @@
     picker.keyTitle = @"title";
     [picker setSelectBlock:^(NSInteger idx, NSDictionary *item) {
         [sender setTitle:item[@"title"] forState:UIControlStateNormal];
-        [User sharedUser].gender = [item[@"value"] integerValue];
+        [[User sharedUser] getUserData].gender = [item[@"value"] integerValue];
     }];
     [picker showInView:self.view];
 }
@@ -154,7 +158,7 @@
 		NSDateFormatter *formater = [[NSDateFormatter alloc] init];
 		formater.dateFormat = @"yyyy-MM-dd";
 		NSString *strDate = [formater stringFromDate:date];
-		[User sharedUser].bornDate = strDate;
+		[[User sharedUser] getUserData].bornDate = strDate;
 		[sender setTitle:strDate forState:UIControlStateNormal];
     }];
     [datePicker showInView:self.view];
@@ -167,8 +171,9 @@
 }
 
 - (void)setUsrInfo {
-	User *user = [User sharedUser];
+	User *user = [[User sharedUser] getUserData];
 	[self.avatarImageView setImageWithURLString:user.avatarUrl andPlaceholderNamed:@"placeholder-none"];
+	self.avatarImgUrl = user.avatarUrl;
 	self.nameTextField.text = user.firstName;
 	self.familyNameTextField.text = user.familyName;
 	self.aboutTextField.text = user.about;
@@ -187,8 +192,8 @@
 - (void)saveUserInfo {
     NSDictionary *param = @{
                             @"token":[User sharedUser].token,
-                            @"customerId":[User sharedUser].userId,
-                            @"headImg":[User sharedUser].avatarUrl,
+                            @"customerId":[[User sharedUser] getUserData].userId,
+                            @"headImg":[[User sharedUser] getUserData].avatarUrl,
                             @"firstName":_nameTextField.text,
                             @"familyName":_familyNameTextField.text,
 							@"about":_aboutTextField.text,

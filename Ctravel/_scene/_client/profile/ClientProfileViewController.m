@@ -25,11 +25,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	_nameLabel.text = [NSString stringWithFormat:@"%@%@", ![User sharedUser].familyName ? @"姓" : [User sharedUser].familyName, ![User sharedUser].firstName ? @"名" : [User sharedUser].firstName];
+	User *user = [[User sharedUser] getUserData];
 	
-	[_avatarBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:[User sharedUser].avatarUrl] placeholderImage:[UIImage imageNamed:@"defaultHeadImage"]];
+	_nameLabel.text = [NSString stringWithFormat:@"%@%@", !user.familyName ? @"姓" : user.familyName, !user.firstName ? @"名" : user.firstName];
+	
+	[_avatarBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:user.avatarUrl] placeholderImage:[UIImage imageNamed:@"defaultHeadImage"]];
     
-    if ([User sharedUser].isServer) {
+    if (user.isServer) {
         _isServerLabel.text = @"切换到达人模式";
     }
 }
@@ -45,8 +47,7 @@
 }
 
 - (IBAction)settingViewPress:(id)sender {
-    [self.navigationController pushViewController:[SettingViewController new
-                                                   ] animated:YES];
+    [self.navigationController pushViewController:[SettingViewController new] animated:YES];
 }
 
 - (IBAction)helpViewPress:(id)sender {
@@ -61,8 +62,7 @@
 		[[AppDelegate app] switchAppType:AppTypePolice];
 	}
 	else {
-		[self.navigationController pushViewController:[IDValidViewController new
-                                                   ] animated:YES];
+		[self.navigationController pushViewController:[IDValidViewController new] animated:YES];
 	}
 }
 
