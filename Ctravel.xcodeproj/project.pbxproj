@@ -23,6 +23,7 @@
 		6587C1D41FA9C2C5006CBC6E /* LCDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587C1D21FA9C2C5006CBC6E /* LCDatePicker.m */; };
 		659850241FBE961C00489783 /* PreViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659850221FBE961C00489783 /* PreViewViewController.m */; };
 		659850251FBE961C00489783 /* PreViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 659850231FBE961C00489783 /* PreViewViewController.xib */; };
+		65FDBD1C1FECF1050010D52E /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FDBD1A1FECB0380010D52E /* UINavigationBar+Awesome.m */; };
 		874F7B5B65253AAB04A1D209 /* Pods_Ctravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */; };
 		FA04A8581F98F1FE009A72DE /* ReceivablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04A8561F98F1FE009A72DE /* ReceivablesViewController.m */; };
 		FA04A8591F98F1FE009A72DE /* ReceivablesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04A8571F98F1FE009A72DE /* ReceivablesViewController.xib */; };
@@ -141,6 +142,8 @@
 		659850211FBE961C00489783 /* PreViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreViewViewController.h; sourceTree = "<group>"; };
 		659850221FBE961C00489783 /* PreViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreViewViewController.m; sourceTree = "<group>"; };
 		659850231FBE961C00489783 /* PreViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreViewViewController.xib; sourceTree = "<group>"; };
+		65FDBD1A1FECB0380010D52E /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		65FDBD1B1FECB0380010D52E /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		9BD509F4D33881358D3F5EDA /* Pods-Ctravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.release.xcconfig"; sourceTree = "<group>"; };
 		D24043E2641704B7DD5923D5 /* Pods_Ctravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ctravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F223FEFEBA994EF4956C3534 /* Pods-Ctravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ctravel/Pods-Ctravel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -588,6 +591,8 @@
 			isa = PBXGroup;
 			children = (
 				FAA423581F70091800C3736F /* Libraries.h */,
+				65FDBD1B1FECB0380010D52E /* UINavigationBar+Awesome.h */,
+				65FDBD1A1FECB0380010D52E /* UINavigationBar+Awesome.m */,
 				FA9C50951F83E01A0075C329 /* EmptyDataViews */,
 				FA9C50961F83E01A0075C329 /* SLSegmentView */,
 				FAEE90341F7BC936008CC1CE /* LYPicker */,
@@ -1094,6 +1099,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65FDBD1C1FECF1050010D52E /* UINavigationBar+Awesome.m in Sources */,
 				6587C1D01FA97C86006CBC6E /* ServerOrderListViewController.m in Sources */,
 				FAA4236A1F700B3E00C3736F /* JJPhotoManeger.m in Sources */,
 				659850241FBE961C00489783 /* PreViewViewController.m in Sources */,
@@ -1228,7 +1234,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1277,7 +1283,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

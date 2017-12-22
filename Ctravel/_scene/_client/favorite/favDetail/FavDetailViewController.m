@@ -11,13 +11,12 @@
 #import "EvaluationViewController.h"
 #import "WatchDateViewController.h"
 #import "BuyProViewController.h"
+#import "UINavigationBar+Awesome.h"
 
 @interface FavDetailViewController () <ChooseDateDelegate> {
     NSString *serviceDateId;
     NSString *serviceDate;
 }
-
-//@property (nonatomic)CGSize headerDefaultSize;
 
 @property (assign, nonatomic) BOOL isHideStatusBar;
 
@@ -68,8 +67,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setDataSource:_dataSource];
-    
-//    self.headerDefaultSize = self.imgScrollView.frame.size;
 	
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"empty-heart"] style:UIBarButtonItemStyleDone handler:^(id sender) {
         //收藏或取消当前体验
@@ -120,14 +117,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+	[self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+	[self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     self.navigationController.navigationBar.translucent = YES;
-    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.translucent = NO;
-    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 //MARK: - ACTION
@@ -197,33 +194,15 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     scrollView.bounces = (scrollView.contentOffset.y <= 100) ? NO : YES;
-
-    if (self.scrollView.contentOffset.y > 40) {
-		self.navigationController.navigationBar.translucent = NO;
-    }
-    else {
-		self.navigationController.navigationBar.translucent = YES;
-    }
-}
-
-- (void)setNeedsNavigationBackground:(CGFloat)alpha {
-	// 导航栏背景透明度设置
-	UIView *barBackgroundView = [[self.navigationController.navigationBar subviews] objectAtIndex:0];// _UIBarBackground
-	UIImageView *backgroundImageView = [[barBackgroundView subviews] objectAtIndex:0];// UIImageView
-	if (self.navigationController.navigationBar.isTranslucent) {
-		if (backgroundImageView != nil && backgroundImageView.image != nil) {
-			barBackgroundView.alpha = alpha;
-		} else {
-			UIView *backgroundEffectView = [[barBackgroundView subviews] objectAtIndex:1];// UIVisualEffectView
-			if (backgroundEffectView != nil) {
-				backgroundEffectView.alpha = alpha;
-			}
-		}
+	UIColor * color = [UIColor colorWithWhite:1 alpha:1];
+	CGFloat offsetY = scrollView.contentOffset.y;
+	if (offsetY > 50) {
+		CGFloat alpha = MIN(1, 1 - ((50 + 64 - offsetY) / 64));
+		[self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:alpha]];
 	} else {
-		barBackgroundView.alpha = alpha;
+		[self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
 	}
 }
-
 
 - (void)chooseDate:(NSString *)date andDateId:(NSString *)dateId {
     serviceDateId = dateId;

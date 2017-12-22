@@ -25,5 +25,6 @@
 #import "LCDatePicker.h"
 #import "SLSegmentPageView.h"
 #import <RongIMKit/RongIMKit.h>
+#import "UINavigationBar+Awesome.h"
 
 #endif /* Libraries_h */
